@@ -1,7 +1,7 @@
 Mobile Device Management Agent
 ===========
 
-Protection Profile for Mobile Device Management Agent
+Extended Package for Mobile Device Management Agents
 
 
 ## Links
