@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Mobile Device Management Agents">
   <PPReference title="PP Reference" id="ID003">
     <ReferenceTable>
       <PPTitle>Extended Package for Mobile Device Management Agents</PPTitle>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>31 December 2014</PPPubDate>
-      <PPCertificationID>NIAP-whoknows</PPCertificationID>
-      <CCVersion>Version 2.0</CCVersion>
+      <PPPubDate>2015-04-08</PPPubDate>
+      <PPCertificationID>unassigned</PPCertificationID>
+      <CCVersion>Version 3.1</CCVersion>
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
       <entry>
         <name>Registration</name>
