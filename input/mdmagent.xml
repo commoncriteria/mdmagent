@@ -16,7 +16,14 @@
       </entry>
     </ReferenceTable>
   </PPReference>
-  <RevisionHistory>
+  <RevisionHistory role="draft">
+    <entry>
+      <version>v2.1</version>
+      <date>2014-12-04</date>
+      <subject>Interim Draft</subject>
+    </entry>
+  </RevisionHistory>
+  <RevisionHistory role="release">
     <entry>
       <version>v 1.0</version>
       <date>21 October 2013</date>
@@ -35,33 +42,106 @@
         for unenrollment prevention.<br/> Initial Release of MDM Agent EP.</subject>
     </entry>
   </RevisionHistory>
-  <chapter id="Introduction" title="Introduction">This Extended Package (EP) describes security
-    requirements for a Mobile Device Management (MDM) Agent and is intended to provide a minimal
-    baseline set of requirements that are targeted at mitigating well defined and described threats.
-    The Agent of an MDM system is only one component of an enterprise deployment of mobile devices.
-    Other components, such as the mobile device platforms which enforce the security policies, and
-    servers which host mobile application repositories, are out of scope. This introduction
-    describes the features of a compliant Target of Evaluation (TOE) and discusses how this EP is to
-    be used in conjunction with the MDM Protection Profile (PP) or the Mobile Device Fundamentals
-    (MDF) PP. <section id="conformance" title="Conformance Claims"> This EP serves to complement the
-      MDM PP v2.x or the MDF PP v2.x with additional SFRs and associated Assurance Activities
-      specific to the MDM Agent. Assurance Activities are the actions that the evaluator performs in
-      order to determine a TOE’s compliance to the SFRs.<br/> This EP conforms to Common Criteria
-      for Information Technology Security Evaluation, Version 3.1, Revision 3. It is CC Part 2
-      extended and CC Part 3 conformant. </section>
-    <section id="howto" title="How to Use This Extended Package"> This EP extends the MDM PP v2.x
-      when the MDM Agent is installed on a mobile device as an application that is developed by the
-      MDM developer. This EP extends the MDF PP when the MDM Agent is built into the mobile device
-      platform by the mobile device vendor.<br/> As an EP of either the MDM PP v2.x or the MDF PP
-      v2.x, it is expected that the content of this EP and the chosen PP be appropriately combined
-      in the context of each product-specific Security Target. This EP has been specifically defined
-      such that there should be no difficulty or ambiguity in doing so. When this EP is used with
-      the MDM PP v2.x or the MDF PP v2.x, conformant TOEs are obligated to implement the
-      functionality required in those PPs with the additional functionality defined in this EP in
-      response to the threat environment discussed subsequently herein. An ST must identify the
-      applicable versions of the PP chosen and this EP in its conformance claims. </section>
-    <section id="targets" title="Compliant Targets of Evaluation"> The MDM system consists of two
-      primary components: the MDM Server software and the MDM Agent.<br/> The MDM operational
+  <chapter id="int" title="Introduction">
+    <section title="Overview" id="ppoverview"> This Extended Package (EP) describes security
+      requirements for a Mobile Device Management (MDM) Agent and is intended to provide a minimal
+      baseline set of requirements that are targeted at mitigating well defined and described
+      threats. The Agent of an MDM system is only one component of an enterprise deployment of
+      mobile devices. Other components, such as the mobile device platforms which enforce the
+      security policies, and servers which host mobile application repositories, are out of scope.
+      This introduction describes the features of a compliant Target of Evaluation (TOE) and
+      discusses how this EP is to be used in conjunction with the MDM Protection Profile (PP) or the
+      Mobile Device Fundamentals (MDF) PP. </section>
+    <section title="Terms" id="glossary">The following sections provide both Common Criteria and
+      technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
+        id="ccterms">
+        <glossary>
+          <entry>
+            <term><abbr title="Common Criteria">CC</abbr></term>
+            <description>Common Criteria for Information Technology Security
+              Evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Extended Package">EP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products, which extends those in a Protection Profile.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Protection Profile">PP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Target">ST</abbr></term>
+            <description>A set of implementation-dependent security requirements for a specific
+              product.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Target of Evaluation">TOE</abbr></term>
+            <description>The product under evaluation. In this case, application software and its
+              supporting documentation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
+            <description>The security functionality of the product under evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
+            <description>A description of how a <abbr linkend="TOE"/> satisfies the SFRs in a <abbr
+                linkend="ST"/>. </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
+            <description>A requirement for security enforcement by the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
+            <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+        </glossary>
+      </subsection>
+      <subsection id="techterms" title="Technology Terms">
+        <glossary>
+          <entry>
+            <term>Mobile Device User (User)</term>
+            <description>This is the person who uses and is held responsible for the mobile device’s
+              physical control and operation.</description>
+          </entry>
+          <entry>
+            <term>Administrator</term>
+            <description>The Administrator is responsible for management activities, including
+              setting the policy that is applied by the enterprise on the Mobile Device. This
+              administrator is the Mobile Device Management (MDM) Administrator, acting through an
+              MDM Agent.</description>
+          </entry>
+          <entry>
+            <term>Operating System (OS)</term>
+            <description>Software which runs at the highest privilege level and can directly control
+              hardware resources. Modern mobile devices typically have at least two primary
+              operating systems: one which runs on the cellular baseband processor and one which
+              runs on the application processor. The platform of the application processor handles
+              most user interaction and provides the execution environment for apps. The platform of
+              the cellular baseband processor handles communications with the cellular network and
+              may control other peripherals. The term OS, without context, may be assumed to refer
+              to the platform of the application processor.</description>
+          </entry>
+          <entry>
+            <term>Unenrolled state</term>
+            <description>The state in which the Mobile Device is not managed by an MDM
+              system.</description>
+          </entry>
+          <entry>
+            <term>Enrolled state</term>
+            <description>The state in which a Mobile Device is managed by a policy from an MDM
+              system.</description>
+          </entry>
+        </glossary>
+      </subsection>
+    </section>
+    <section title="Compliant Targets of Evaluation" id="TOEdescription">The MDM system consists of
+      two primary components: the MDM Server software and the MDM Agent.<br/> The MDM operational
       environment consists of the mobile device on which the MDM Agent resides, the platform on
       which the MDM Server runs, and an untrusted wireless network over which they communicate, as
       pictured below. <figure entity="images/MDMagentoperatingenvironment.jpg"
@@ -80,8 +160,36 @@
       must at least offer an interface with a trusted channel that serves as one piece of an MDM
       system. Compliant agents may also offer other interfaces, and the configuration aspects of
       these additional interfaces is in scope of this EP. </section>
+    <section title="Use Cases" id="usecases"> </section>
   </chapter>
-  <chapter id="problem" title="Security Problem Description">MDM Agents address a range of security
+  <chapter title="Conformance Claims" id="ccl">
+    <cclaims>
+      <cclaim id="Conformance Statement">
+        <description> This EP extends the MDM PP v2.x when the MDM Agent is installed on a mobile
+          device as an application that is developed by the MDM developer. This EP extends the MDF
+          PP when the MDM Agent is built into the mobile device platform by the mobile device
+          vendor.<br/> As an EP of either the MDM PP v2.x or the MDF PP v2.x, it is expected that
+          the content of this EP and the chosen PP be appropriately combined in the context of each
+          product-specific Security Target. This EP has been specifically defined such that there
+          should be no difficulty or ambiguity in doing so. When this EP is used with the MDM PP
+          v2.x or the MDF PP v2.x, conformant TOEs are obligated to implement the functionality
+          required in those PPs with the additional functionality defined in this EP in response to
+          the threat environment discussed subsequently herein. An ST must identify the applicable
+          versions of the PP chosen and this EP in its conformance claims. <br/> This EP serves to
+          complement the MDM PP v2.x or the MDF PP v2.x with additional SFRs and associated
+          Assurance Activities specific to the MDM Agent. Assurance Activities are the actions that
+          the evaluator performs in order to determine a TOE’s compliance to the SFRs. <br/> This EP
+          conforms to Common Criteria <cite linkend="bibCC"/> for Information Technology Security
+          Evaluation, Version 3.1, Revision 4. It is CC Part 2 extended and CC Part 3 conformant. In
+          order to be conformant to this EP, the ST must include all components in this EP and the
+          associated PP that are: <ul><li>unconditional (which are always required)</li>
+            <li>selection-based (which are required when certain selections are chosen in the
+              unconditional requirements)</li></ul> and may include optional and/or objective
+          components that are desirable but not required for conformance. </description>
+      </cclaim>
+    </cclaims>
+  </chapter>
+  <chapter id="spd" title="Security Problem Description">MDM Agents address a range of security
     threats from theft of sensitive data to unauthorized access to malicious application downloads.
     While many of these threats also apply to the MDM Server and the mobile device itself, the MDM
     Agent plays a key role in ensuring the integrity and confidentiality of data is maintained by
@@ -91,94 +199,228 @@
     access.<br/> Appendix A presents the Security Problem Description (SPD) in a more “traditional”
     form. The following sections detail the problems that compliant TOEs will address; references to
     the “traditional” statements in Appendix A are included. <section id="threats" title="Threats">
-      <subsection id="malApps" title="Malicious and Flawed Applications"> Malicious or flawed
-        application (app) threats exist because apps loaded onto a Mobile Device may include
-        malicious or exploitable code. This code could be included unwittingly by its developer,
-        perhaps as part of a software library. Malicious apps may attempt to exfiltrate data to
-        which they have access. Malicious apps may be able to control the device's sensors
-        (geolocation, camera, microphone, etc.) to gather intelligence about the user's surroundings
-        even when those activities do not involve data resident or transmitted from the device.
-        Flawed apps may give an attacker access to perform network-based or physical attacks that
-        otherwise would have been prevented.<br/> [T.MALICIOUS_APPS] </subsection>
-      <subsection id="networkattack" title="Network Attack"> An attacker may position themselves on
-        a wireless communications channel or elsewhere on the network infrastructure. From this
-        vantage point, an attacker may initiate communication with the mobile device or alter
-        communication between elements of the operating environment and other endpoints. By altering
-        this communication, the attacker may be able to spoof the MDM Server.<br/>
-        [T.NETWORK_ATTACK] </subsection>
-      <subsection id="eavesdropping" title="Network Eavesdropping"> In a similar manner to the
-        network attack threat, an attacker may position themselves on a wireless communications
-        channel or elsewhere on the network infrastructure. The attacker may then monitor or gain
-        access to data being sent or received by the MDM Agent. By monitoring this data, the
-        attacker may intercept security critical data including cryptographic keys and human-user
-        authentication data.<br/> [T.NETWORK_EAVESDROP] </subsection>
-      <subsection id="physical" title="Physical Access"> Loss or theft of the underlying mobile
-        device platform may give rise to loss of confidentiality of user data, including, most
-        importantly, credentials. Physical access attacks involve attempts to access the device
-        through external hardware ports, through its user interface, or through direct and possible
-        destructive access to its storage media. Such attacks are intended to gain access to data
-        from a lost or stolen mobile device that it is not expected to be returned to its owner.
-        Although these attacks are primarily directed against the mobile device platform, the MDM
-        Agent configures features which address this threat.<br/> [T.PHYSICAL_ACCESS] </subsection>
+      <threat id="T.MALICIOUS_APPS">
+        <description>Malicious or flawed application (app) threats exist because apps loaded onto a
+          Mobile Device may include malicious or exploitable code. This code could be included
+          unwittingly by its developer, perhaps as part of a software library. Malicious apps may
+          attempt to exfiltrate data to which they have access. Malicious apps may be able to
+          control the device's sensors (geolocation, camera, microphone, etc.) to gather
+          intelligence about the user's surroundings even when those activities do not involve data
+          resident or transmitted from the device. Flawed apps may give an attacker access to
+          perform network-based or physical attacks that otherwise would have been prevented.
+        </description>
+      </threat>
+      <threat id="T.NETWORK_ATTACK">
+        <description>An attacker may position themselves on a wireless communications channel or
+          elsewhere on the network infrastructure. From this vantage point, an attacker may initiate
+          communication with the mobile device or alter communication between elements of the
+          operating environment and other endpoints. By altering this communication, the attacker
+          may be able to spoof the MDM Server. </description>
+      </threat>
+      <threat id="T.NETWORK_EAVESDROP">
+        <description>In a similar manner to the network attack threat, an attacker may position
+          themselves on a wireless communications channel or elsewhere on the network
+          infrastructure. The attacker may then monitor or gain access to data being sent or
+          received by the MDM Agent. By monitoring this data, the attacker may intercept security
+          critical data including cryptographic keys and human-user authentication data.
+        </description>
+      </threat>
+      <threat id="T.PHYSICAL_ACCESS">
+        <description>Loss or theft of the underlying mobile device platform may give rise to loss of
+          confidentiality of user data, including, most importantly, credentials. Physical access
+          attacks involve attempts to access the device through external hardware ports, through its
+          user interface, or through direct and possible destructive access to its storage media.
+          Such attacks are intended to gain access to data from a lost or stolen mobile device that
+          it is not expected to be returned to its owner. Although these attacks are primarily
+          directed against the mobile device platform, the MDM Agent configures features which
+          address this threat. </description>
+      </threat>
     </section>
-    <section id="Assumptions" title="Assumptions"> The assumptions for the MDM are defined in
-      Appendix A.1.1. </section>
-    <section id="securityPolicy" title="Organizational Security Policy"> The organization security
-      policies for the MDM are defined in Appendix A.1.3. </section>
+    <section title="Assumptions" id="assumptions"> The specific conditions listed below are assumed
+      to exist in the TOE’s Operational Environment. These include both practical realities in the
+      development of the TOE security requirements and the essential environmental conditions on the
+      use of the TOE. <assumptions>
+        <assumption id="A.CONNECTIVITY">
+          <description>The TOE relies on network connectivity to carry out its management
+            activities. The TOE will robustly handle instances when connectivity is unavailable or
+            unreliable. </description>
+          <objective-refer ref="OE.PLATFORM">
+            <rationale>The operational environment objective OE.PLATFORM is realized through
+              A.PLATFORM.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption id="A.MOBILE_DEVICE_PLATFORM">
+          <description> The MDM Agent relies upon Mobile platform and hardware evaluated against the
+            MDFPP and assured to provide policy enforcement as well as cryptographic services and
+            data protection. The Mobile platform provides trusted updates and software integrity
+            verification of the MDM Agent. </description>
+          <objective-refer ref="OE.PROPER_USER">
+            <rationale>The operational environment objective OE.PROPER_USER is realized through
+              A.PROPER_USER.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption id="A.PROPER_ADMIN">
+          <description>One or more competent, trusted personnel who are not careless, willfully
+            negligent, or hostile, are assigned and authorized as the TOE Administrators, and do so
+            using and abiding by guidance documentation. </description>
+          <objective-refer ref="OE.PROPER_ADMIN">
+            <rationale>The operational environment objective OE.PROPER_ADMIN is realized through
+              A.PROPER_ADMIN.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption id="A.PROPER_USER">
+          <description>Mobile device users are not willfully negligent or hostile, and use the
+            device within compliance of a reasonable Enterprise security policy. </description>
+          <objective-refer ref="OE.PROPER_ADMIN">
+            <rationale>The operational environment objective OE.PROPER_ADMIN is realized through
+              A.PROPER_ADMIN.</rationale>
+          </objective-refer>
+        </assumption>
+      </assumptions>
+    </section>
+    <section title="Organizational Security Policies" id="OSPs">
+      <OSPs>
+        <OSP id="P.ADMIN">
+          <description>The configuration of the mobile device security functions must adhere to the
+            Enterprise security policy.</description>
+          <objective-refer ref="O.????">
+            <rationale>The organizational security policy P.ADMIN is</rationale>
+          </objective-refer>
+        </OSP>
+        <OSP id="P.DEVICE_ENROLL">
+          <description>A mobile device must be enrolled for a specific user by the administrator of
+            the MDM prior to being used in the Enterprise network by the user.</description>
+          <objective-refer ref="O.????">
+            <rationale>The organizational security policy P.ADMIN is</rationale>
+          </objective-refer>
+        </OSP>
+        <OSP id="P.NOTIFY">
+          <description>The mobile user must immediately notify the administrator if a mobile device
+            is lost or stolen so that the administrator may apply remediation actions via the MDM
+            system.</description>
+          <objective-refer ref="O.????">
+            <rationale>The organizational security policy P.ADMIN is</rationale>
+          </objective-refer>
+        </OSP>
+        <OSP id="P.ACCOUNTABILITY">
+          <description>Personnel operating the TOE shall be accountable for their actions within the
+            TOE.</description>
+          <objective-refer ref="O.????">
+            <rationale>The organizational security policy P.ADMIN is</rationale>
+          </objective-refer>
+        </OSP>
+      </OSPs>
+    </section>
   </chapter>
-  <chapter id="objectives" title="Security Objectives">Compliant TOEs will provide security
-    functionality and implement policies that address threats to the enterprise from inclusion of
-    mobile devices. The following sections provide a description of this functionality in light of
-    the threats previously discussed. The security functionality provided includes protected
-    communications to and from the MDM Agent, configuration of security policies for mobile devices,
-    and system reporting for detection of security relevant events. <section id="TOEobjectives"
-      title="Security Objectives for the TOE">
-      <subsection id="protectedComms" title="Protected Communications"> To address the issues
-        concerning transmitting sensitive data to and from the MDM Agent described in Section 2.1.3,
-        compliant TOEs will use a trusted communication path. The trusted channel to and from the
-        MDM Agent is implemented using one (or more) of these standard protocols: DTLS, HTTPS, or
-        TLS.<br/> To address the threat of network attacks described in Section 2.1.2, the protocols
-        described in this document provide encryption and mutual authentication to and from the MDM
-        Agent in a cryptographically secure manner; thus, any attempt by a malicious attacker to
-        represent himself to the MDM Agent as a MDM Server would be detected.<br/>
-        O.DATA_PROTECTION_TRANSIT -> (FCS_STG_EXT.4/FCS_STG_EXT.1(2), FTP_ITC_EXT.1/FPT_ITT_EXT.1,
-        FCS_TLSC_EXT.1, FIA_ENR_EXT.2) </subsection>
-      <subsection id="Reporting" title="System Reporting"> To ensure that information exists that
-        allows administrators to discover unintentional issues with the configuration and operation
-        of the mobile device, compliant TOEs have the capability of generating reports which may
-        indicate such issues. Auditing of administrative activities provides information that may
-        hasten corrective action.<br/> O.ACCOUNTABILITY -> (FAU_ALT_EXT.2, FAU_GEN.1, FAU_SEL.1,
-        FAU_STG_EXT.1) </subsection>
-      <subsection id="Configuration" title="Mobile Device Configuration"> Mobile devices can accept
-        security policies defined by the Enterprise in order to ensure protection of enterprise data
-        that they may store or process. The MDM Agent is responsible for interacting with the mobile
-        device platform to establish policies and execute commands from the MDM Server, and sending
-        reports to the MDM Server.<br/> O.APPLY_POLICY -> (FMT_SMF_EXT.3, FMT_UNR_EXT.1,
-        FMT_POL_EXT.2) </subsection>
+
+  <chapter title="Security Objectives" id="sobj"> Compliant TOEs will provide security functionality
+    and implement policies that address threats to the enterprise from inclusion of mobile devices.
+    The following sections provide a description of this functionality in light of the threats
+    previously discussed. The security functionality provided includes protected communications to
+    and from the MDM Agent, configuration of security policies for mobile devices, and system
+    reporting for detection of security relevant events. <section
+      title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
+      <SOs>
+        <SO id="O.DATA_PROTECTION_TRANSIT">
+          <description>To address the issues concerning transmitting sensitive data to and from the
+            MDM Agent described in Section 2.1.3, compliant TOEs will use a trusted communication
+            path. The trusted channel to and from the MDM Agent is implemented using one (or more)
+            of these standard protocols: DTLS, HTTPS, or TLS.<br/> To address the threat of network
+            attacks described in Section 2.1.2, the protocols described in this document provide
+            encryption and mutual authentication to and from the MDM Agent in a cryptographically
+            secure manner; thus, any attempt by a malicious attacker to represent himself to the MDM
+            Agent as a MDM Server would be detected.</description>
+          <component-refer ref="FCS_STG_EXT.4"/>
+          <component-refer ref="FCS_STG_EXT.1(2)"/>
+          <component-refer ref="FTP_ITC_EXT.1"/>
+          <component-refer ref="FPT_ITT_EXT.1"/>
+          <component-refer ref="FCS_TLSC_EXT.1"/>
+          <component-refer ref="FIA_ENR_EXT.2"/>
+        </SO>
+        <SO id="O.ACCOUNTABILITY">
+          <description>To ensure that information exists that allows administrators to discover
+            unintentional issues with the configuration and operation of the mobile device,
+            compliant TOEs have the capability of generating reports which may indicate such issues.
+            Auditing of administrative activities provides information that may hasten corrective
+            action.</description>
+          <component-refer ref="FAU_ALT_EXT.2"/>
+          <component-refer ref="FAU_GEN.1"/>
+          <component-refer ref="FAU_SEL.1"/>
+          <component-refer ref="FAU_STG_EXT.1"/>
+        </SO>
+        <SO id="O.APPLY_POLICY">
+          <description>Mobile devices can accept security policies defined by the Enterprise in
+            order to ensure protection of enterprise data that they may store or process. The MDM
+            Agent is responsible for interacting with the mobile device platform to establish
+            policies and execute commands from the MDM Server, and sending reports to the MDM
+            Server.</description>
+          <component-refer ref="FMT_SMF_EXT.3"/>
+          <component-refer ref="FMT_UNR_EXT.1"/>
+          <component-refer ref="FMT_POL_EXT.2"/>
+        </SO>
+      </SOs>
     </section>
-    <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
-      The objectives that are required to be met by the TOE’s operational environment are defined in
-      Appendix A.2.2. </section>
+    <section title="Security Objectives for the Operational Environment"
+      id="SecurityObjectivesTOEorEnvironment">The following security objectives for the operational
+      environment assist the <abbr linkend="TOE"/> in correctly providing its security
+      functionality. These track with the assumptions about the environment. <SOEs>
+        <SOE id="OE.IT_ENTERPRISE">
+          <description>The MDM Agent relies upon the trustworthy Mobile platform and hardware to
+            provide policy enforcement as well as cryptographic services and data protection. The
+            Mobile platform provides trusted updates and software integrity verification of the MDM
+            Agent.</description>
+        </SOE>
+        <SOE id="OE.MOBILE_DEVICE_PLATFORM">
+          <description>The MDM Agent relies upon the trustworthy Mobile platform and hardware to
+            provide policy enforcement as well as cryptographic services and data protection. The
+            Mobile platform provides trusted updates and software integrity verification of the MDM
+            Agent.</description>
+        </SOE>
+        <SOE id="OE.PROPER_ADMIN">
+          <description>TOE Administrators are trusted to follow and apply all administrator guidance
+            in a trusted manner.</description>
+        </SOE>
+        <SOE id="OE.PROPER_USER">
+          <description>Users of the mobile device are trained to securely use the mobile device and
+            apply all guidance in a trusted manner.</description>
+        </SOE>
+        <SOE id="OE.WIRELESS_NETWORK">
+          <description>A wireless network will be available to the mobile devices.</description>
+        </SOE>
+      </SOEs></section>
+    <section title="Security Objectives Rationale" id="SOR">This section describes how the
+      assumptions, threats, and organizational security policies map to the security objectives.
+      <InsertSPDCorrespondence/>
+    </section>
   </chapter>
-  <chapter id="sfr" title="Security Functional Requirements">The Security Functional Requirements
-    (SFRs) included in this section are derived from Part 2 of the Common Criteria for Information
-    Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
-    components. <section id="Conventions" title="Conventions"> The CC defines operations on Security
-      Functional Requirements: assignments, selections, assignments within selections and
-      refinements. This document uses the following font conventions to identify the operations
-      defined by the CC: <ul>
-        <li>Assignment: Indicated with <i>italicized</i> text;</li>
-        <li>Refinement made by PP author: Indicated by the word “Refinement” in <b>bold text</b>
-          after the element number with additional text in <b>bold</b> text;</li>
-        <li>Selection: Indicated with <u>underlined</u> text;</li>
-        <li>Assignment within a Selection: Indicated with <u><i>italicized and underlined</i></u>
-          text;</li>
-        <li>Iteration: Indicated by appending the iteration number in parenthesis, e.g., (1), (2),
-          (3).</li>
-        <li>Extended SFRs are identified by having a label ‘EXT’ after the requirement name for TOE
-          SFRs.</li>
-      </ul>
-    </section>
+
+
+  <chapter title="Security Requirements" id="req">This chapter describes the security requirements
+    which have to be fulfilled by the <abbr linkend="TOE"/>. Those requirements comprise functional
+    components from Part 2 and assurance components from Part 3 of <cite linkend="bibCC"/>. The
+    following notations are used: <ul>
+      <li>
+        <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
+        requirement, and thus further restricts a requirement.</li>
+      <li>
+        <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
+        provided by the [CC] in stating a requirement.</li>
+      <li>
+        <b>Assignment</b> operation (denoted by <i>italicized text</i>): is used to assign a
+        specific value to an unspecified parameter, such as the length of a password. Showing the
+        value in square brackets indicates assignment.</li>
+      <li>
+        <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
+        "(1)")</li>
+      <li>Extended SFRs are identified by having a label ‘EXT’ after the requirement name for TOE
+        SFRs.</li>
+    </ul>
+
+  <section title="Security Functional Requirements" id="SFRs">The Security Functional Requirements
+      included in this section are derived from Part 2 of the Common Criteria for Information
+      Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
+      components. 
+      
     <section id="testEnvironment" title="Test Environment for Assurance Activities"> The Test
       Environment for the assurance activities of the SFRs for MDM Agents differs based on whether
       the Agent EP extends the MDM PP or the MDF PP.<br/> If the EP extends the MDM PP, the
@@ -567,284 +809,7 @@
         </f-component>
       </subsection>
     </section>
-  </chapter>
-  <chapter id="sar" title="Security Assurance Requirements"> It is important to note that a TOE that
-    is evaluated against this EP is inherently evaluated against the MDF PP or the MDM PP as well.
-    Those PPs include a number of Assurance Activities associated with both Security Functional
-    Requirements (SFRs) and SARs. Additionally, this EP includes a number of SFR-based Assurance
-    Activities that similarly refine the SARs identified in the base PPs. The assurance activities
-    associated with SARs that are prescribed by the MDF PP or MDM PP are performed against the
-    entire TOE. </chapter>
-  <appendix id="RATIONALE" title="RATIONALE"> In this EP, the focus in the initial sections of the
-    document is to use a narrative presentation in an attempt to increase the overall
-    comprehensibility of the threats addressed by MDM Agents; the methods used to mitigate those
-    threats; and the extent of the mitigation achieved by compliant TOEs. This presentation style
-    does not readily lend itself to a formalized evaluation activity, so this section contains the
-    tabular artefacts that can be used for the assurance activities associated with this document.
-      <section id="probdef" name="Security Problem Definition">
-      <subsection id="appendixAssumptions" name="Assumptions">The specific conditions listed below
-        are assumed to exist in the TOE’s Operational Environment. These include both practical
-        realities in the development of the TOE security requirements and the essential
-        environmental conditions on the use of the TOE. <center><h4>Table 1: TOE
-          Assumptions</h4></center>
-        <table>
-          <TR>
-            <TH>Assumption Name</TH>
-            <TH>Assumption Definition</TH>
-          </TR>
-          <TR>
-            <TD>A.CONNECTIVITY</TD>
-            <TD>The TOE relies on network connectivity to carry out its management activities. The
-              TOE will robustly handle instances when connectivity is unavailable or
-              unreliable.</TD>
-          </TR>
-          <TR>
-            <TD>A.MOBILE_DEVICE_PLATFORM</TD>
-            <TD>The MDM Agent relies upon Mobile platform and hardware evaluated against the MDFPP
-              and assured to provide policy enforcement as well as cryptographic services and data
-              protection. The Mobile platform provides trusted updates and software integrity
-              verification of the MDM Agent.</TD>
-          </TR>
-          <TR>
-            <TD>A.PROPER_ADMIN</TD>
-            <TD>One or more competent, trusted personnel who are not careless, willfully negligent,
-              or hostile, are assigned and authorized as the TOE Administrators, and do so using and
-              abiding by guidance documentation.</TD>
-          </TR>
-          <TR>
-            <TD>A.PROPER_USER</TD>
-            <TD>Mobile device users are not willfully negligent or hostile, and use the device
-              within compliance of a reasonable Enterprise security policy.</TD>
-          </TR>
-        </table>
-      </subsection>
-      <subsection id="threats2" name="Threats">The threats to the mobile device listed below are
-        addressed by Mobile Device Management systems. <center><h4>Table 1: TOE
-          Assumptions</h4></center>
-        <table>
-          <TR>
-            <TH>Threat</TH>
-            <TH>Description of Threat</TH>
-          </TR>
-          <TR>
-            <TD>T.MALICIOUS_APPS</TD>
-            <TD>An administrator of the MDM or mobile device user may inadvertently import malicious
-              code, or an attacker may insert malicious code into the TOE or OE, resulting in the
-              compromise of TOE or TOE data.</TD>
-          </TR>
-          <TR>
-            <TD>T.NETWORK_ATTACK</TD>
-            <TD>An attacker may masquerade as MDM Server and attempt to compromise the integrity of
-              the mobile device by sending malicious management commands.</TD>
-          </TR>
-          <TR>
-            <TD>T.NETWORK_EAVESDROP</TD>
-            <TD>Unauthorized entities may intercept communications between the MDM and mobile
-              devices to monitor, gain access to, disclose, or alter remote management commands.
-              Unauthorized entities may intercept unprotected wireless communications between the
-              mobile device and the Enterprise to monitor, gain access to, disclose, or alter TOE
-              data.</TD>
-          </TR>
-          <TR>
-            <TD>T.PHYSICAL_ACCESS</TD>
-            <TD>The mobile device may be lost or stolen, and an unauthorized individual may attempt
-              to access OE data.</TD>
-          </TR>
-        </table>
-      </subsection>
-      <subsection id="policies2" name="Organizational Security Policies">
-        <center><h4>Table 3: Organizational Security Policies</h4></center>
-        <table>
-          <TR>
-            <TH>Policy Name</TH>
-            <TH>Policy Definition</TH>
-          </TR>
-          <TR>
-            <TD>P.ADMIN</TD>
-            <TD>The configuration of the mobile device security functions must adhere to the
-              Enterprise security policy.</TD>
-          </TR>
-          <TR>
-            <TD>P.DEVICE_ENROLL</TD>
-            <TD>A mobile device must be enrolled for a specific user by the administrator of the MDM
-              prior to being used in the Enterprise network by the user.</TD>
-          </TR>
-          <TR>
-            <TD>P.NOTIFY</TD>
-            <TD>The mobile user must immediately notify the administrator if a mobile device is lost
-              or stolen so that the administrator may apply remediation actions via the MDM
-              system.</TD>
-          </TR>
-          <TR>
-            <TD>P.ACCOUNTABILITY</TD>
-            <TD>Personnel operating the TOE shall be accountable for their actions within the
-              TOE.</TD>
-          </TR>
-        </table>
-      </subsection>
-    </section>
-    <section id="objectives3" name="Security Objectives">
-      <subsection id="objectivesTOE3" name="Security Objectives For the TOE">The following table
-        identifies security objectives for the Mobile Device Management system. <center><h4>Table 4:
-            Security Objectives for the TOE</h4></center>
-        <table>
-          <TR>
-            <TH>Objective</TH>
-            <TH>Objective Description</TH>
-          </TR>
-          <TR>
-            <TD>O.APPLY_POLICY</TD>
-            <TD>The TOE must facilitate configuration and enforcement of enterprise security
-              policies on mobile devices via interaction with the mobile OS and the MDM Server. This
-              will include the initial enrollment of the device into management, through its
-              lifecycle including policy updates and through its possible unenrollment from
-              management services.</TD>
-          </TR>
-          <TR>
-            <TD>O.ACCOUNTABILITY</TD>
-            <TD>The TOE must provide logging facilities which record management actions undertaken
-              by its administrators</TD>
-          </TR>
-          <TR>
-            <TD>O.DATA_PROTECTION_TRANSIT</TD>
-            <TD>Data exchanged between the MDM Server and the MDM Agent must be protected from being
-              monitored, accessed and altered.</TD>
-          </TR>
-        </table>
-      </subsection>
-      <subsection id="objectivesEnvironment3"
-        name="Security Objectives for the Operational Environment">The following table contains
-        objectives for the Operational Environment. <center><h4>Table 5: Security Objectives for the
-            Operational Environment</h4></center>
-        <table>
-          <TR>
-            <TH>Objective</TH>
-            <TH>Objective Description</TH>
-          </TR>
-          <TR>
-            <TD>OE.IT_ENTERPRISE</TD>
-            <TD>The Enterprise IT infrastructure provides security for a network that is available
-              to the TOE and mobile devices that prevents unauthorized access.</TD>
-          </TR>
-          <TR>
-            <TD>OE.MOBILE_DEVICE_PLATFORM</TD>
-            <TD>The MDM Agent relies upon the trustworthy Mobile platform and hardware to provide
-              policy enforcement as well as cryptographic services and data protection. The Mobile
-              platform provides trusted updates and software integrity verification of the MDM
-              Agent.</TD>
-          </TR>
-          <TR>
-            <TD>OE.PROPER_ADMIN</TD>
-            <TD>TOE Administrators are trusted to follow and apply all administrator guidance in a
-              trusted manner.</TD>
-          </TR>
-          <TR>
-            <TD>OE.PROPER_USER</TD>
-            <TD>Users of the mobile device are trained to securely use the mobile device and apply
-              all guidance in a trusted manner.</TD>
-          </TR>
-          <TR>
-            <TD>OE.WIRELESS_NETWORK</TD>
-            <TD>A wireless network will be available to the mobile devices.</TD>
-          </TR>
-        </table>
-      </subsection>
-    </section>
-    <section id="Correspondence" name="Correspondence">
-      <subsection id="problemDef2" name="Security Problem Definition Correspondence">The following
-        table serves to map the threats and assumptions defined in this EP to the security
-        objectives also defined or identified in this EP. <center><h4>Table 6: Security Problem
-            Definition Correspondence</h4></center>
-        <table>
-          <TR>
-            <TH>Threat or Assumption</TH>
-            <TH>Security Objective</TH>
-          </TR>
-          <TR>
-            <TD>A.CONNECTIVITY</TD>
-            <TD>OE.WIRELESS_NETWORK</TD>
-          </TR>
-          <TR>
-            <TD>A.MOBILE_DEVICE_PLATFORM</TD>
-            <TD>OE.MOBILE_DEVICE_PLATFORM</TD>
-          </TR>
-          <TR>
-            <TD>A.PROPER_ADMIN</TD>
-            <TD>OE.PROPER_ADMIN,</TD>
-          </TR>
-          <TR>
-            <TD>A.PROPER_USER</TD>
-            <TD>OE.PROPER_USER</TD>
-          </TR>
-          <TR>
-            <TD>T.MALICIOUS_APPS</TD>
-            <TD>O.APPLY_POLICY</TD>
-          </TR>
-          <TR>
-            <TD>T.NETWORK_ATTACK</TD>
-            <TD>O.DATA_PROTECTION_TRANSIT</TD>
-          </TR>
-          <TR>
-            <TD>T.NETWORK_EAVESDROP</TD>
-            <TD>O.DATA_PROTECTION_TRANSIT</TD>
-          </TR>
-          <TR>
-            <TD>T.PHYSICAL_ACCESS</TD>
-            <TD>O.APPLY_POLICY</TD>
-          </TR>
-          <TR>
-            <TD>P.ADMIN</TD>
-            <TD>OE.PROPER_ADMIN</TD>
-          </TR>
-          <TR>
-            <TD>P.DEVICE_ENROLL</TD>
-            <TD>OE.IT_ENTERPRISE</TD>
-          </TR>
-          <TR>
-            <TD>P.NOTIFY</TD>
-            <TD>OE.PROPER_USER</TD>
-          </TR>
-          <TR>
-            <TD>P.ACCOUNTABILITY</TD>
-            <TD>O.ACCOUNTABILITY</TD>
-          </TR>
-        </table>
-      </subsection>
-      <subsection id="correspondence4" name="Security Objective Correspondence"> The correspondence
-        between the Security Functional Requirements (SFRs) and the Security Objectives identified
-        or defined in the PP is provided in Section 3.1 </subsection>
-    </section>
-  </appendix>
-  <appendix id="optionalReqs" title="OPTIONAL REQUIREMENTS"> As indicated in the introduction to
-    this EP, the baseline requirements (those that must be performed by the TOE or its underlying
-    platform) are contained in the body of this EP. Additionally, there are three other types of
-    requirements specified in Appendices B, C, and D.<br/> The first type (in this Appendix) are
-    requirements that can be included in the ST, but do not have to be in order for a TOE to claim
-    conformance to this EP. The second type (in Appendix C) are requirements based on selections in
-    the body of the EP: if certain selections are made, then additional requirements in that
-    appendix will need to be included. The third type (in Appendix D) are components that are not
-    required in order to conform to this EP, but will be included in the baseline requirements in
-    future versions of this EP, so adoption by MDM Agents is encouraged. Note that the ST author is
-    responsible for ensuring that requirements that may be associated with those in Appendix B,
-    Appendix C, and/or Appendix D but are not listed (e.g., FMT-type requirements) are also included
-    in the ST.<br/> At this time the no optional requirements identified are those that may be
-    performed by the MDM Agent or its underlying platform. </appendix>
-  <appendix id="selection-basedReqs" title="SELECTION-BASED REQUIREMENTS"> As indicated in the
-    introduction to this EP, the baseline requirements (those that must be performed by the TOE or
-    its underlying platform) are contained in the body of this EP. There are additional requirements
-    based on selections in the body of the PP: if certain selections are made, then additional
-    requirements below will need to be included.<br/> At this time the no selection-based
-    requirements have been identified. </appendix>
-  <appendix id="objectiveReqs2" title="OBJECTIVE REQUIREMENTS"> As indicated in the introduction to
-    this EP, the baseline requirements (those that must be performed by the TOE or its underlying
-    platform) are contained in the body of this EP. There are additional requirements that specify
-    security functionality that is desirable and these requirements are contained in this Appendix.
-    It is expected that these requirements will transition from objective requirements to baseline
-    requirements in future versions of this EP.<br/> At any time these may be included in the ST
-    such that the TOE is still conformant to this EP.<br/> This Appendix is divided into two
-    subsections: objective requirements that may be performed by the TSF and objective requirements
-    that may be performed by the MDM Agent or its underlying platform. <section id="sfr2"
-      name="Objective TOE Security Functional Requirements">
+    <section id="sfr2" name="Objective TOE Security Functional Requirements">
       <subsection id="fau3" name="Security Audit (FAU)">
         <f-component id="FAU_GEN.1" name="Audit Data Generation">
           <f-element id="FAU_GEN.1.1(2)">
@@ -1059,8 +1024,47 @@
         </f-component>
       </subsection>
     </section>
-  </appendix>
-  <appendix id="entropy" title="ENTROPY DOCUMENTATION AND ASSESSMENT"> This appendix describes the
+
+  </section>
+    
+    <section title="Security Assurance Requirements" id="SARs"> It is important to note that a TOE that
+    is evaluated against this EP is inherently evaluated against the MDF PP or the MDM PP as well.
+    Those PPs include a number of Assurance Activities associated with both Security Functional
+    Requirements (SFRs) and SARs. Additionally, this EP includes a number of SFR-based Assurance
+    Activities that similarly refine the SARs identified in the base PPs. The assurance activities
+    associated with SARs that are prescribed by the MDF PP or MDM PP are performed against the
+    entire TOE.
+  </section>
+    
+  </chapter>
+ 
+  <appendix title="Optional Requirements" id="optional"> The baseline requirements (those that must
+    be performed by the mdm agent are contained in the main body of this EP. Additionally, there are
+    three other types of requirements specified in <appref linkend="optional"/>, <appref
+      linkend="sel-based"/>, and <appref linkend="objective"/>. The first type (in this Appendix)
+    are requirements that can be included in the <abbr linkend="ST"/>, but are not required in order
+    for an mdm agent to claim conformance to this PP. The second type (in <appref
+      linkend="sel-based"/>) are requirements based on selections in the body of the EP: if certain
+    selections are made, then additional requirements in that appendix must be included. The third
+    type (in <appref linkend="objective"/> are components that are not required in order to conform
+    to this EP, but will be included in the baseline requirements in future versions of this EP, so
+    adoption by vendors is encouraged. Note that the ST author is responsible for ensuring that
+    requirements that may be associated with those in <appref linkend="optional"/>, <appref
+      linkend="sel-based"/>, and <appref linkend="objective"/> but are not listed (e.g., FMT-type
+    requirements) are also included in the ST.</appendix>
+  <appendix title="Selection-Based Requirements" id="sel-based">As indicated in the introduction to
+    this EP, the baseline requirements (those that must be performed by the mdm agent or its
+    underlying platform) are contained in the body of this EP. There are additional requirements
+    based on selections from the MDM or MDF PP and/or in the body of the EP: if certain selections
+    are made, then additional requirements below will need to be included.</appendix>
+  <appendix title="Objective Requirements" id="objective"> This Annex includes requirements that
+    specify security functionality which also addresses threats. The requirements are not currently
+    mandated in the body of this EP as they describe security functionality not yet widely-available
+    in commercial technology. However, these requirements may be included in the ST such that the
+    mdm agent is still conformant to this EP, and it is expected that they be included as soon as
+    possible.</appendix>
+
+  <appendix id="entropyappendix" title="Entropy Documentation and Assessment"> This appendix describes the
     required supplementary information for each entropy source used by the TOE.<br/> The
     documentation of the entropy source(s) should be detailed enough that, after reading, the
     evaluator will thoroughly understand the entropy source and why it can be relied upon to provide
@@ -1124,95 +1128,40 @@
       entropy source failure, and rationale indicating why each test is believed to be appropriate
       for detecting one or more failures in the entropy source. </section>
   </appendix>
-  <appendix id="GLOSSARY" title="GLOSSARY">
-    <section id="defs" name="Technical Definitions">
-      <Table>
-        <TR>
-          <TD>Mobile Device User (User)</TD>
-          <TD>This is the person who uses and is held responsible for the mobile device’s physical
-            control and operation.</TD>
-        </TR>
-        <TR>
-          <TD>Administrator</TD>
-          <TD>The Administrator is responsible for management activities, including setting the
-            policy that is applied by the enterprise on the Mobile Device. This administrator is the
-            Mobile Device Management (MDM) Administrator, acting through an MDM Agent.</TD>
-        </TR>
-        <TR>
-          <TD>Operating System (OS)</TD>
-          <TD>Software which runs at the highest privilege level and can directly control hardware
-            resources. Modern mobile devices typically have at least two primary operating systems:
-            one which runs on the cellular baseband processor and one which runs on the application
-            processor. The platform of the application processor handles most user interaction and
-            provides the execution environment for apps. The platform of the cellular baseband
-            processor handles communications with the cellular network and may control other
-            peripherals. The term OS, without context, may be assumed to refer to the platform of
-            the application processor.</TD>
-        </TR>
-        <TR>
-          <TD>Unenrolled state</TD>
-          <TD>The state in which the Mobile Device is not managed by an MDM system.</TD>
-        </TR>
-        <TR>
-          <TD>Enrolled state</TD>
-          <TD>The state in which a Mobile Device is managed by a policy from an MDM system.</TD>
-        </TR>
-      </Table>
-    </section>
-    <section id="ccdefs" name="Common Criteria Definitions">
-      <table>
-        <TR>
-          <TD>Assurance</TD>
-          <TD>Grounds for confidence that a TOE meets the SFRs [CC1].</TD>
-        </TR>
-        <TR>
-          <TD>CC</TD>
-          <TD>Common Criteria</TD>
-        </TR>
-        <TR>
-          <TD>CM</TD>
-          <TD>Configuration Management</TD>
-        </TR>
-        <TR>
-          <TD>PP</TD>
-          <TD>Protection Profile</TD>
-        </TR>
-        <TR>
-          <TD>SAR</TD>
-          <TD>Security Assurance Requirement</TD>
-        </TR>
-        <TR>
-          <TD>SFR</TD>
-          <TD>Security Functional Requirement</TD>
-        </TR>
-        <TR>
-          <TD>Security Target (ST)</TD>
-          <TD>Implementation-dependent statement of security needs for a specific identified
-            TOE.</TD>
-        </TR>
-        <TR>
-          <TD>Target of Evaluation (TOE)</TD>
-          <TD>Set of software, firmware and hardware under evaluation, possibly accompanied by
-            guidance.</TD>
-        </TR>
-        <TR>
-          <TD>TOE Security Functionality (TSF)</TD>
-          <TD>Combined functionality of all hardware, software, and firmware of a TOE that must be
-            relied upon for the correct enforcement of the SFRs.</TD>
-        </TR>
-        <TR>
-          <TD>TOE Summary Specification (TSS)</TD>
-          <TD>Documentation which provides evaluators with a description of the implementation of
-            SFRs in the TOE.</TD>
-        </TR>
-      </table>
-    </section>
+
+  <appendix id="biblio" title="References">
+    <bibliography>
+      <entry id="bibCC">
+        <tag>CC</tag>
+        <description>Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
+                2: Security Functional Components</a>, CCMB-2012-09-002, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2012-09-003, Version 3.1 Revision 4,
+              September 2012.</li>
+          </ul></description>
+      </entry>
+      <entry id="bibMDMPP">
+        <tag>AppPP</tag>
+        <description>
+          <a href="https://www.niap-ccevs.org/pp/PP_MDM_V2.0/">Protection Profile for Mobile Device
+            Management</a>
+        </description>
+      </entry>
+      <entry id="bibMDfPP">
+        <tag>AppPP</tag>
+        <description>
+          <a href="https://www.niap-ccevs.org/pp/PP_MD_v2.0/">Protection Profile for Mobile Device
+            Fundamentals</a>
+        </description>
+      </entry>
+    </bibliography>
   </appendix>
-
-</PP>
-<!-- 
-
-<appendix title="Acronyms" id="acronyms">
+  <appendix title="Acronyms" id="acronyms">
     <acronyms>
       <entry>
         <term>ADB</term>
@@ -1226,31 +1175,6 @@
         <term>ANSI</term>
         <description>American National Standards Institute</description>
       </entry>
--->
-<!-- 
-  <selectables linebreak="yes">
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables> 
-<selectables>
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables>
--->
-<!--
-<f-component id="" name="">
-  <f-element id="">
-    <title></title>
-    <note role="application"></note>
-    <aactivity>
-      <h4>TSS</h4> 
-      <h4>Guidance</h4> 
-      <h4>Tests</h4> 
-      <testlist>
-        <test></test>
-        <test></test>
-      </testlist>
-    </aactivity>
-  </f-element>
-</f-component>
--->
+    </acronyms>
+  </appendix>
+</PP>
