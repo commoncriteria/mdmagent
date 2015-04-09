@@ -416,7 +416,7 @@
         SFRs.</li>
     </ul>
 
-   <section id="testEnvironment" title="Test Environment for Assurance Activities"> The Test
+  <section id="testEnvironment" title="Test Environment for Assurance Activities"> The Test
       Environment for the assurance activities of the SFRs for MDM Agents differs based on whether
       the Agent EP extends the MDM PP or the MDF PP.<br/> If the EP extends the MDM PP, the
       assurance activities shall be performed using the MDM Server in evaluation against the base
@@ -426,16 +426,18 @@
       Agent. This test server is not required to be a commercial product and may be provided by the
       mobile device vendor as a tool for testing only. A number of the assurance activities in this
       EP may be combined with assurance activities in the MDF PP. </section>
-   <section id="sfrDirection" title="MDF PP Security Functional Requirement Direction">If this EP
+  <section id="sfrDirection" title="MDF PP Security Functional Requirement Direction">If this EP
       is extending the MDF PP, the Agent is expected to utilize a number of security functions
       implemented by the mobile device and evaluated against the base PP. This security
       functionality includes FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1,
       FCS_TLSC_EXT.2, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FPT_TST_EXT.2, FCS_DTLS_EXT.1,
-      and FCS_HTTPS_EXT.1. <subsection id="fcs" title="Cryptographic Support (FCS)">
+      and FCS_HTTPS_EXT.1. 
+    <subsection id="fcs" title="Cryptographic Support (FCS)">
         <f-component id="FCS_STG_EXT.4" name="Cryptographic Key Storage">The following requirement
           is identical, except in name, to the Cryptographic Key Storage requirement for EPs
           extending the MDM PP. The names differ for clarity, and one must be added to the Agent’s
-          ST depending on the base PP. <f-element id="FCS_STG_EXT.4.1">
+          ST depending on the base PP.
+          <f-element id="FCS_STG_EXT.4.1">
             <title>The MDM Agent shall store persistent secrets and private keys when not in use in
               platform-provided key storage.</title>
             <note role="application">This requirement ensures that persistent secrets (credentials,
@@ -455,8 +457,8 @@
         <b>Trusted Channel Communication</b><br/>
         <f-component id="FTP_ITC_EXT.1" name="Trusted Channel Communication"> If the EP extends the
           MDF PP, the communication channel between the Agent and the Server is external to the TOE
-          and FTP_ITC_EXT.1 in the MDF PP should be modified as below. <f-element
-            id="FTP_ITC_EXT.1.1">
+          and FTP_ITC_EXT.1 in the MDF PP should be modified as below. 
+          <f-element id="FTP_ITC_EXT.1.1">
             <title>The TSF shall use 802.11-2012, 802.1X, and EAP-TLS and at least one of: <selectables>
               <selectable>IPsec</selectable>
               <selectable>TLS</selectable>
@@ -533,17 +535,19 @@
         </f-component>
       </subsection>
     </section>
-   <section id="mdmsfrdDirection" title="MDM PP Security Functional Requirement Direction">If this
+  <section id="mdmsfrdDirection" title="MDM PP Security Functional Requirement Direction">If this
       EP is extending the MDM PP, the Agent is part of the MDM TOE and any requirements on the MDM
       TOE also apply to the MDM Agent. These security functions includes FCS_CKM.1, FCS_CKM.2,
       FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3,
       FIA_X509_EXT.4, FPT_TST_EXT.2, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The ST author should
       iterate the requirements in the MDM PP for each Agent in order to make the appropriate
-      selections for each agent. <subsection id="cryptofcs" name="Cryptographic Support (FCS)">
+      selections for each agent. 
+    <subsection id="cryptofcs" title="Cryptographic Support (FCS)">
         <f-component id="FCS_STB_EXT.1" name="Cryptographic Key Storage">The following requirement
           is identical, except in name, to the Cryptographic Key Storage requirement for EPs
           extending the MDF PP. The names differ for clarity and one must be added to the Agent’s ST
-          depending on the base PP. <f-element id="FCS_STG_EXT.1.1(2)">
+          depending on the base PP.
+          <f-element id="FCS_STG_EXT.1.1(2)">
             <title>The MDM Agent shall store persistent secrets and private keys when not in use in
               platform-provided key storage.</title>
             <note role="application">This requirement ensures that persistent secrets (credentials,
@@ -560,17 +564,18 @@
         </f-component>
         <f-component id="FCS_TLSC_EXT.1" name="TLS Client Protocol">The ST author shall include the
           FCS_TLSC_EXT.1 requirement from the Optional Requirements in the MDM PP. </f-component>
-      </subsection>
-      <subsection id="protection" name="Protection of the TSF (FPT)"> If the EP extends the MDM PP,
+     </subsection>
+    <subsection id="protection" title="Protection of the TSF (FPT)"> If the EP extends the MDM PP,
         the communication channel between the Agent and the Server is internal to the TOE and is
-        addressed by FPT_ITT.1 in the MDM PP. </subsection>
-    </section>
+        addressed by FPT_ITT.1 in the MDM PP.
+     </subsection>
+   </section>
     
   <section title="Security Functional Requirements" id="SFRs">The Security Functional Requirements
       included in this section are derived from Part 2 of the Common Criteria for Information
       Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
       components. 
-      <subsection id="fau" name="Security Audit (FAU)">
+      <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="FAU_ALT_EXT.2" name="Agent Alerts">
           <f-element id="FAU_ALT_EXT.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in
@@ -815,7 +820,7 @@
           </f-element>
         </f-component> 
       </subsection>
-      <subsection id="fia" name="Identification and Authentication (FIA)">
+      <subsection id="fia" title="Identification and Authentication (FIA)">
         <f-component id="FIA_ENR_EXT.2" name="Enrollment of Mobile Device into Management">
           <f-element id="FIA_ENR_EXT.2.1">
             <title>The MDM Agent shall record the reference identifier of the MDM Server during the
@@ -839,7 +844,7 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection id="fmt" name="Security Management (FMT)">
+      <subsection id="fmt" title="Security Management (FMT)">
         <f-component id="FMT_SMF_EXT.3" name="Specification of Management Functions">
           <f-element id="FMT_SMF_EXT.3.1">
             <title>The MDM Agent shall be capable of interacting with the platform to perform the
