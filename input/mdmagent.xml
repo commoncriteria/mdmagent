@@ -444,12 +444,14 @@
               secret keys) and private keys are stored securely when not in use by the mobile
               platform.</note>
             <aactivity>
-              <h4>TSS</h4> The evaluator will verify that the TSS lists each persistent secret
+              <tss>The evaluator will verify that the TSS lists each persistent secret
               (credential, secret key) and private key needed to meet the requirements in the ST.
               For each of these items, the evaluator will confirm that the TSS lists for what
               purpose it is used, and, for each platform listed as supported in the ST, how it is
               stored. The evaluator shall verify that the Agent calls a platform-provided API to
-              store persistent secrets and private keys. </aactivity>
+              store persistent secrets and private keys.
+              </tss>
+            </aactivity>
           </f-element>
         </f-component>
       </subsection>
