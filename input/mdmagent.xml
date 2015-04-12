@@ -198,7 +198,9 @@
     malicious and flawed applications, network attacks, network eavesdropping, and physical
     access.<br/> Appendix A presents the Security Problem Description (SPD) in a more “traditional”
     form. The following sections detail the problems that compliant TOEs will address; references to
-    the “traditional” statements in Appendix A are included. <section id="threats" title="Threats">
+    the “traditional” statements in Appendix A are included. 
+    <section id="threats" title="Threats">
+     <threats>
       <threat id="T.MALICIOUS_APPS">
         <description>Malicious or flawed application (app) threats exist because apps loaded onto a
           Mobile Device may include malicious or exploitable code. This code could be included
@@ -235,6 +237,7 @@
           directed against the mobile device platform, the MDM Agent configures features which
           address this threat. </description>
       </threat>
+     </threats>
     </section>
     <section title="Assumptions" id="assumptions"> The specific conditions listed below are assumed
       to exist in the TOE’s Operational Environment. These include both practical realities in the
