@@ -1200,14 +1200,14 @@
           </ul></description>
       </entry>
       <entry id="bibMDMPP">
-        <tag>AppPP</tag>
+        <tag>MDM PP</tag>
         <description>
           <a href="https://www.niap-ccevs.org/pp/PP_MDM_V2.0/">Protection Profile for Mobile Device
             Management</a>
         </description>
       </entry>
       <entry id="bibMDfPP">
-        <tag>AppPP</tag>
+        <tag>MDF PP</tag>
         <description>
           <a href="https://www.niap-ccevs.org/pp/PP_MD_v2.0/">Protection Profile for Mobile Device
             Fundamentals</a>
