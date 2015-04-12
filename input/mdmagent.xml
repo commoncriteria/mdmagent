@@ -242,24 +242,16 @@
     <section title="Assumptions" id="assumptions"> The specific conditions listed below are assumed
       to exist in the TOE’s Operational Environment. These include both practical realities in the
       development of the TOE security requirements and the essential environmental conditions on the
-      use of the TOE. <assumptions>
-        <assumption id="A.CONNECTIVITY">
-          <description>The TOE relies on network connectivity to carry out its management
-            activities. The TOE will robustly handle instances when connectivity is unavailable or
-            unreliable. </description>
-          <objective-refer ref="OE.PLATFORM">
-            <rationale>The operational environment objective OE.PLATFORM is realized through
-              A.PLATFORM.</rationale>
-          </objective-refer>
-        </assumption>
+      use of the TOE. 
+      <assumptions>
         <assumption id="A.MOBILE_DEVICE_PLATFORM">
           <description> The MDM Agent relies upon Mobile platform and hardware evaluated against the
             MDFPP and assured to provide policy enforcement as well as cryptographic services and
             data protection. The Mobile platform provides trusted updates and software integrity
             verification of the MDM Agent. </description>
-          <objective-refer ref="OE.PROPER_USER">
-            <rationale>The operational environment objective OE.PROPER_USER is realized through
-              A.PROPER_USER.</rationale>
+          <objective-refer ref="OE.MOBILE_DEVICE_PLATFORM">
+            <rationale>The operational environment objective OE.MOBILE_DEVICE_PLATFORM is realized through
+              A.MOBILE_DEVICE_PLATFORM.</rationale>
           </objective-refer>
         </assumption>
         <assumption id="A.PROPER_ADMIN">
@@ -274,9 +266,18 @@
         <assumption id="A.PROPER_USER">
           <description>Mobile device users are not willfully negligent or hostile, and use the
             device within compliance of a reasonable Enterprise security policy. </description>
-          <objective-refer ref="OE.PROPER_ADMIN">
-            <rationale>The operational environment objective OE.PROPER_ADMIN is realized through
-              A.PROPER_ADMIN.</rationale>
+          <objective-refer ref="OE.PROPER_USER">
+            <rationale>The operational environment objective OE.PROPER_USER is realized through
+              A.PROPER_USER.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption id="A.CONNECTIVITY">
+          <description>The TOE relies on network connectivity to carry out its management
+            activities. The TOE will robustly handle instances when connectivity is unavailable or
+            unreliable. </description>
+          <objective-refer ref="OE.WIRELESS_NETWORK">
+            <rationale>The operational environment objective OE.WIRELESS_NETWORK is realized through
+              A.CONNECTIVITY.</rationale>
           </objective-refer>
         </assumption>
       </assumptions>
@@ -286,30 +287,30 @@
         <OSP id="P.ADMIN">
           <description>The configuration of the mobile device security functions must adhere to the
             Enterprise security policy.</description>
-          <objective-refer ref="O.????">
+          <objective-refer ref="">
             <rationale>The organizational security policy P.ADMIN is</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.DEVICE_ENROLL">
           <description>A mobile device must be enrolled for a specific user by the administrator of
             the MDM prior to being used in the Enterprise network by the user.</description>
-          <objective-refer ref="O.????">
-            <rationale>The organizational security policy P.ADMIN is</rationale>
+          <objective-refer ref="">
+            <rationale>The organizational security policy P.DEVICE_ENROLL is</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.NOTIFY">
           <description>The mobile user must immediately notify the administrator if a mobile device
             is lost or stolen so that the administrator may apply remediation actions via the MDM
             system.</description>
-          <objective-refer ref="O.????">
-            <rationale>The organizational security policy P.ADMIN is</rationale>
+          <objective-refer ref="">
+            <rationale>The organizational security policy P.NOTIFY is</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.ACCOUNTABILITY">
           <description>Personnel operating the TOE shall be accountable for their actions within the
             TOE.</description>
-          <objective-refer ref="O.????">
-            <rationale>The organizational security policy P.ADMIN is</rationale>
+          <objective-refer ref="O.ACCOUNTABILITY">
+            <rationale>The organizational security policy P.ACCOUNTABILITY is</rationale>
           </objective-refer>
         </OSP>
       </OSPs>
@@ -516,15 +517,21 @@
               Server for administrative communication and may initiate other trusted channels to
               other trusted IT entities for other uses.</note>
             <aactivity>The following additional assurance activities shall be performed.
-              <h4>TSS</h4>The evaluator shall examine the TSS to determine that the methods of
+              <tss>
+              The evaluator shall examine the TSS to determine that the methods of
               Agent-Server communication are indicated, along with how those communications are
               protected. The evaluator shall also confirm that all protocols listed in the TSS in
               support of remote TOE administration are consistent with those specified in the
-              requirement, and are included in the requirements in the ST. <h4>Guidance</h4>The
-              evaluator shall confirm that the operational guidance contains instructions for
+              requirement, and are included in the requirements in the ST. 
+              </tss>
+              <guidance>
+              The evaluator shall confirm that the operational guidance contains instructions for
               configuring the communication channel between the MDM Agent and the MDM Server and
-              conditionally, the MAS Server for each supported method. <h4>Tests</h4>For a MDM
-              Server and, conditionally, a MAS Server: <testlist>
+              conditionally, the MAS Server for each supported method.
+              </guidance>
+              <tests>
+              For a MDM Server and, conditionally, a MAS Server: 
+              <testlist>
                 <test>The evaluators shall ensure that communications using each specified (in the
                   operational guidance) Agent-Server communication method is tested during the
                   course of the evaluation, setting up the connections as described in the
@@ -534,7 +541,9 @@
                 <test>The evaluator shall ensure, for each communication channel with the MDM
                   Server, that a protocol analyzer identifies the traffic as the protocol under
                   testing.</test>
-              </testlist> Further assurance activities are associated with the specific protocols.
+              </testlist>
+              </tests>
+                  Further assurance activities are associated with the specific protocols.
             </aactivity>
           </f-element>
         </f-component>
@@ -559,12 +568,15 @@
               secret keys) and private keys are stored securely when not in use by the mobile
               platform.</note>
             <aactivity>
-              <h4>TSS</h4> The evaluator will verify that the TSS lists each persistent secret
+             <tss>
+              The evaluator will verify that the TSS lists each persistent secret
               (credential, secret key) and private key needed to meet the requirements in the ST.
               For each of these items, the evaluator will confirm that the TSS lists for what
               purpose it is used, and, for each platform listed as supported in the ST, how it is
               stored. The evaluator shall verify that the Agent calls a platform-provided API to
-              store persistent secrets and private keys. </aactivity>
+              store persistent secrets and private keys. 
+             </tss>    
+            </aactivity>
           </f-element>
         </f-component>
         <f-component id="FCS_TLSC_EXT.1" name="TLS Client Protocol">The ST author shall include the
