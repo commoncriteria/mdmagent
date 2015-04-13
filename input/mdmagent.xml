@@ -303,7 +303,7 @@
         <OSP id="P.ADMIN">
           <description>The configuration of the mobile device security functions must adhere to the
             Enterprise security policy.</description>
-          <objective-refer ref="">
+          <objective-refer ref="OE.PROPER_ADMIN">
             <rationale>The organizational security policy P.ADMIN is realized through
               OE.PROPER_ADMIN.</rationale>
           </objective-refer>
@@ -311,7 +311,7 @@
         <OSP id="P.DEVICE_ENROLL">
           <description>A mobile device must be enrolled for a specific user by the administrator of
             the MDM prior to being used in the Enterprise network by the user.</description>
-          <objective-refer ref="">
+          <objective-refer ref="OE.IT_ENTERPRISE">
             <rationale>The organizational security policy P.DEVICE_ENROLL is realized through
               OE.IT_ENTERPRISE.</rationale>
           </objective-refer>
@@ -320,7 +320,7 @@
           <description>The mobile user must immediately notify the administrator if a mobile device
             is lost or stolen so that the administrator may apply remediation actions via the MDM
             system.</description>
-          <objective-refer ref="">
+          <objective-refer ref="OE.PROPER_USER">
             <rationale>The organizational security policy P.NOTIFY is realized through
               OE.PROPER_USER.</rationale>
           </objective-refer>
