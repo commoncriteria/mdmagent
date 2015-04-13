@@ -26,17 +26,17 @@
   <RevisionHistory role="release">
     <entry>
       <version>v 1.0</version>
-      <date>21 October 2013</date>
+      <date>2013-10-21</date>
       <subject>Initial Release</subject>
     </entry>
     <entry>
       <version>1.1</version>
-      <date>7 February 2014</date>
+      <date>2014-2-7</date>
       <subject>Typographical changes and clarifications to front-matter</subject>
     </entry>
     <entry>
       <version>v 2.0</version>
-      <date>31 December 2014</date>
+      <date>2014-12-31</date>
       <subject>Separation of MDM Agent SFRs.<br/> Updated cryptography, protocol, X.509
         requirements.<br/> Added objective requirement for Agent audit storage.<br/> New requirement
         for unenrollment prevention.<br/> Initial Release of MDM Agent EP.</subject>
@@ -211,6 +211,10 @@
           resident or transmitted from the device. Flawed apps may give an attacker access to
           perform network-based or physical attacks that otherwise would have been prevented.
         </description>
+        <objective-refer ref="O.APPLY_POLICY">
+          <rationale>The threat T.MALICIOUS_APPS is countered by O.APPLY_POLICY
+          </rationale>
+        </objective-refer>
       </threat>
       <threat id="T.NETWORK_ATTACK">
         <description>An attacker may position themselves on a wireless communications channel or
@@ -218,6 +222,10 @@
           communication with the mobile device or alter communication between elements of the
           operating environment and other endpoints. By altering this communication, the attacker
           may be able to spoof the MDM Server. </description>
+        <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
+          <rationale>The threat T.NETWORK_ATTACK is countered by O.DATA_PROTECTION_TRANSIT
+          </rationale>
+        </objective-refer>
       </threat>
       <threat id="T.NETWORK_EAVESDROP">
         <description>In a similar manner to the network attack threat, an attacker may position
@@ -226,6 +234,10 @@
           received by the MDM Agent. By monitoring this data, the attacker may intercept security
           critical data including cryptographic keys and human-user authentication data.
         </description>
+        <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
+          <rationale>The threat T.NETWORK_EAVESDROP is countered by O.DATA_PROTECTION_TRANSIT
+          </rationale>
+        </objective-refer>
       </threat>
       <threat id="T.PHYSICAL_ACCESS">
         <description>Loss or theft of the underlying mobile device platform may give rise to loss of
@@ -236,6 +248,10 @@
           it is not expected to be returned to its owner. Although these attacks are primarily
           directed against the mobile device platform, the MDM Agent configures features which
           address this threat. </description>
+        <objective-refer ref="O.APPLY_POLICY">
+          <rationale>The threat T.PHYSICAL_ACCESS is countered by O.APPLY_POLICY
+          </rationale>
+        </objective-refer>
       </threat>
      </threats>
     </section>
@@ -288,14 +304,16 @@
           <description>The configuration of the mobile device security functions must adhere to the
             Enterprise security policy.</description>
           <objective-refer ref="">
-            <rationale>The organizational security policy P.ADMIN is</rationale>
+            <rationale>The organizational security policy P.ADMIN is realized through
+              OE.PROPER_ADMIN.</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.DEVICE_ENROLL">
           <description>A mobile device must be enrolled for a specific user by the administrator of
             the MDM prior to being used in the Enterprise network by the user.</description>
           <objective-refer ref="">
-            <rationale>The organizational security policy P.DEVICE_ENROLL is</rationale>
+            <rationale>The organizational security policy P.DEVICE_ENROLL is realized through
+              OE.IT_ENTERPRISE.</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.NOTIFY">
@@ -303,14 +321,16 @@
             is lost or stolen so that the administrator may apply remediation actions via the MDM
             system.</description>
           <objective-refer ref="">
-            <rationale>The organizational security policy P.NOTIFY is</rationale>
+            <rationale>The organizational security policy P.NOTIFY is realized through
+              OE.PROPER_USER.</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.ACCOUNTABILITY">
           <description>Personnel operating the TOE shall be accountable for their actions within the
             TOE.</description>
           <objective-refer ref="O.ACCOUNTABILITY">
-            <rationale>The organizational security policy P.ACCOUNTABILITY is</rationale>
+            <rationale>The organizational security policy O.ACCOUNTABILITY is realized through
+              P.ACCOUNTABILITY.</rationale>
           </objective-refer>
         </OSP>
       </OSPs>
@@ -465,7 +485,8 @@
           MDF PP, the communication channel between the Agent and the Server is external to the TOE
           and FTP_ITC_EXT.1 in the MDF PP should be modified as below. 
           <f-element id="FTP_ITC_EXT.1.1">
-            <title>The TSF shall use 802.11-2012, 802.1X, and EAP-TLS and at least one of: <selectables>
+            <title>The TSF shall use 802.11-2012, 802.1X, and EAP-TLS and at least one of:
+            <selectables linebreak="yes">
               <selectable>IPsec</selectable>
               <selectable>TLS</selectable>
               <selectable>DTLS</selectable>
@@ -628,15 +649,17 @@
               or select the “no other events” option. Note that alerts may take time to reach the
               MDM Server, or not arrive, due to poor connectivity. </note>
             <aactivity>
-              <h4>TSS</h4> The evaluator shall examine the TSS and verify that it describes how the
+              <tss>The evaluator shall examine the TSS and verify that it describes how the
               alerts are implemented.<br/> The evaluator ensures that the TSS describes how the
               candidate policy updates are obtained; and the actions that take place for successful
               (policy update installed) and unsuccessful (policy update not installed) cases. The
               software components that are performing the processing must also be identified in the
               TSS and verified by the evaluator.<br/> The evaluator also ensures that the TSS
               describes how reachability events are implemented, and if configurable are selected in
-              FMT_SMF_EXT.3.2. The evaluator verifies that this description clearly indicates who
-              (MDM Agent or MDM Server) initiates reachability events. <h4>Tests</h4>
+              <linkref linkend="FMT_SMF_EXT.3.2"/>. The evaluator verifies that this description
+              clearly indicates who (MDM Agent or MDM Server) initiates reachability events.
+              </tss>
+              <tests>
               <testlist>
                 <test>The evaluator shall perform a policy update from the test environment MDM
                   server. The evaluator shall verify the MDM Agent accepts the update, makes the
@@ -648,19 +671,24 @@
                   test, both with and without such connectivity and ensure that results reflect
                   each.</test>
               </testlist>
+              </tests>
             </aactivity>
           </f-element>
           <f-element id="FAU_ALT_EXT.2.2">
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
             <aactivity>
-              <h4>TSS</h4> The evaluator shall ensure that the TSS describes under what
+              <tss>The evaluator shall ensure that the TSS describes under what
               circumstances, if any, the alert may not be generated (e.g., the device is powered off
               or disconnected from the trusted channel), how alerts are queued, and the maximum
-              amount of storage for queued messages. <h4>Tests</h4> The evaluator shall remove
+              amount of storage for queued messages. 
+              </tss>
+              <tests>The evaluator shall remove
               network connectivity from the MDM Agent and generate an alert/event in
-              FAU_ALT_EXT.2.1. The evaluator shall restore network connectivity to the MDM Agent and
-              verify that the alert generated while the TOE was disconnected is sent by the MDM
-              Agent. </aactivity>
+              <linkref linkend="FAU_ALT_EXT.2.1"/>. The evaluator shall restore network
+              connectivity to the MDM Agent and verify that the alert generated while the
+              TOE was disconnected is sent by the MDM Agent.
+              </tests>
+            </aactivity>
           </f-element>
         </f-component>     
         <f-component id="FAU_GEN.1"  name="Audit Data Generation">
@@ -684,9 +712,11 @@
               policy and the new policy. Modifications commanded by the MDM Server are those
               commands listed in FMT_SMF.1.1. </note>
             <aactivity>
-              <h4>TSS</h4>The evaluator shall check the TSS and ensure that it provides a format for
+              <tss>The evaluator shall check the TSS and ensure that it provides a format for
               audit records. Each audit record format type must be covered, along with a brief
-              description of each field. <h4>Tests</h4> The evaluator shall test the TOE’s ability
+              description of each field.
+              </tss>
+              <h4>Tests</h4> The evaluator shall test the TOE’s ability
               to correctly generate audit records by having the TOE generate audit records for the
               events listed and administrative actions. When verifying the test results, the
               evaluator shall ensure the audit records generated during testing match the format
@@ -780,9 +810,11 @@
               shall identify in the TSS which information of the audit record that is performed by
               the MDM Agent and that which is performed by the MDM Agent’s platform.</note>
             <aactivity>
-              <h4>TSS</h4>The evaluator shall check the TSS and ensure that it provides a format for
+              <tss>The evaluator shall check the TSS and ensure that it provides a format for
               audit records. Each audit record format type must be covered, along with a brief
-              description of each field. <h4>Tests</h4>When verifying the test results, the
+              description of each field.
+              </tss>
+              <h4>Tests</h4>When verifying the test results, the
               evaluator shall ensure the audit records generated during testing match the format
               specified in the administrative guide, and that the fields in each audit record have
               the proper entries.<br/> Note that the testing here can be accomplished in conjunction
@@ -803,14 +835,16 @@
               to list any additional criteria or “none”. This selection may be configured by the MDM
               Server.</note>
             <aactivity>
-              <h4>Guidance</h4>The evaluator shall review the administrative guidance to ensure that
+              <guidance>The evaluator shall review the administrative guidance to ensure that
               the guidance itemizes all event types, as well as describes all attributes that are to
               be selectable in accordance with the requirement, to include those attributes listed
               in the assignment. The administrative guidance shall also contain instructions on how
               to set the pre-selection as well as explain the syntax (if present) for multi-value
               pre-selection. The administrative guidance shall also identify those audit records
               that are always recorded, regardless of the selection criteria currently being
-              enforced. <h4>Tests</h4>
+              enforced.
+              </guidance>
+              <tests>
               <testlist>
                 <test>For each attribute listed in the requirement, the evaluator shall devise a
                   test to show that selecting the attribute causes only audit events with that
@@ -823,6 +857,7 @@
                   narrative justifying the set of tests as representative and sufficient to exercise
                   the capability.</test>
               </testlist>
+              </tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -831,9 +866,11 @@
             <title>The MDM Agent shall store MDM audit records in the platform-provided audit
               storage.</title>
             <aactivity>
-              <h4>TSS</h4>The evaluator will verify that the TSS description of the audit records
+              <tss>The evaluator will verify that the TSS description of the audit records
               indicates how the records are stored. The evaluator shall verify that the Agent calls
-              a platform-provided API to store audit records. </aactivity>
+              a platform-provided API to store audit records.
+              </tss>
+            </aactivity>
           </f-element>
         </f-component> 
       </subsection>
@@ -899,18 +936,23 @@
               by the ST author in this requirement should match the selections and assignments of
               the validated Mobile Device ST. </note>
             <aactivity>This assurance activity may be performed in conjunction with other assurance
-              activities in the base PP. <h4>TSS</h4>The evaluator shall verify that the any
+              activities in the base PP. 
+              <tss>The evaluator shall verify that the any
               assigned functions are described in the TSS and that these functions are documented as
               supported by the platform. The evaluator shall examine the TSS to verify that any
               differences between management functions and policies for each supported Mobile Device
-              are listed. <h4>Guidance</h4> The evaluator shall verify the AGD guidance includes
+              are listed.
+              </tss>
+              <guidance>The evaluator shall verify the AGD guidance includes
               detailed instructions for configuring each function in this requirement.<br/> If the
               MDM Agent is a component of the MDM system (i.e. MDM Server is the base PP), the
               evaluator shall verify, by consulting documentation for the claimed mobile device
               platforms, that the configurable functions listed for this Agent are supported by the
               platforms.<br/> If the MDM Agent supports multiple interfaces for configuration (for
               example, both remote configuration and local configuration), the AGD guidance makes
-              clear whether some functions are restricted to certain interfaces. <h4>Tests</h4>
+              clear whether some functions are restricted to certain interfaces.
+              </guidance>
+              <tests>
               <testlist>
                 <test>In conjunction with the assurance activities in the base PP, the evaluator
                   shall attempt to configure each administrator-provided management function and
@@ -923,6 +965,7 @@
                   the assigned function may be configured and that the intended behavior of the
                   function is enacted by the mobile device.</test>
               </testlist>
+              </tests>
             </aactivity>
           </f-element>
           <f-element id="FMT_SMF_EXT.3.2">
@@ -945,22 +988,27 @@
               management” (per FMT_SMF_EXT.3.1) by registering itself to the mobile device as a
               device administrator. The Agent itself is enrolled in management by configuring the
               MDM Server to which the Agent answers.<br/> If the Agent generates periodic
-              reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is
+              reachability events in <linkref linkend="FAU_ALT_EXT.2.1"/> and the periodicity of these events is
               configurable, “configure periodicity of reachability events” must be selected. </note>
             <aactivity>
-              <h4>TSS</h4> The evaluator shall verify that the TSS describes the methods in which
+              <tss>The evaluator shall verify that the TSS describes the methods in which
               the MDM Agent can be enrolled. The TSS description shall make clear if the MDM Agent
               supports multiple interfaces for enrollment and configuration (for example, both
               remote configuration and local configuration).<br/> Additionally, the evaluator shall
               verify that the TSS describes any management functions of the MDM Agent.
-                <h4>Guidance</h4>The evaluator shall verify the AGD guidance includes detailed
-              instructions for configuring each function in this requirement. <h4>Tests</h4>
+              </tss>
+              <guidance>
+              The evaluator shall verify the AGD guidance includes detailed
+              instructions for configuring each function in this requirement.
+              </guidance>
+              <tests>
               <testlist>
                 <test>In conjunction with other assurance activities, the evaluator shall attempt to
                   enroll the MDM Agent in management with each interface identified in the TSS, and
                   verify that the MDM Agent can manage the device and communicate with the MDM
                   Server.</test>
-                <test>(conditional) In conjunction with the assurance activity for FAU_ALT_EXT.2.1,
+                <test>(conditional) In conjunction with the assurance activity for 
+                  <linkref linkend="FAU_ALT_EXT.2.1"/>,
                   the evaluator shall configure the periodicity for reachability events for several
                   configured time periods and shall verify that the MDM Server receives alerts on
                   that schedule.</test>
@@ -968,6 +1016,7 @@
                   the assigned function may be configured and that the intended behavior of the
                   function is enacted by the mobile device.</test>
               </testlist>
+              </tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -983,13 +1032,17 @@
               however, the MDM Agent is limited to those actions supported by the mobile device on
               which the Agent is operating.</note>
             <aactivity>
-              <h4>TSS</h4>The evaluator shall ensure that the TSS describes the mechanism used to
+              <tss>The evaluator shall ensure that the TSS describes the mechanism used to
               prevent users for enrolling. This description shall indicate if any configuration
-              allows users to unenroll <h4>Guidance</h4>The evaluator shall ensure that the
+              allows users to unenroll.
+              </tss>
+              <guidance>
+              The evaluator shall ensure that the
               administrative guidance instructs administrators in configuring the unenrollment
               prevention in each available configuration interface. If any configuration allows
               users to unenroll, the guidance also describes the actions that unenroll the Agent.
-                <h4>Tests</h4>
+              </guidance>
+              <tests>
               <testlist>
                 <test>The evaluator shall configure the Agent according to the administrative
                   guidance for each available configuration interface, shall attempt to unenroll the
@@ -998,6 +1051,7 @@
                   shall configure the Agent to allow user unenrollment, attempt to unenroll, and
                   verify the attempt succeeds.</test>
               </testlist>
+              </tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -1011,20 +1065,23 @@
               users who connect to multiple enterprises.<br/> Policies must be digitally signed by
               the enterprise using the algorithms in FCS_COP.1(3).</note>
             <aactivity>
-              <h4>TSS</h4>The evaluator also ensures that the TSS (or the operational guidance)
+              <tss>The evaluator also ensures that the TSS (or the operational guidance)
               describes how the candidate policies are obtained by the MDM Agent; the processing
               associated with verifying the digital signature of the policy updates; and the actions
               that take place for successful (signature was verified) and unsuccessful (signature
               could not be verified) cases. The software components that are performing the
               processing must also be identified in the TSS and verified by the evaluators.
-              <h4>Tests</h4>The evaluator shall perform a policy update from an available
+              </tss>
+              <tests>The evaluator shall perform a policy update from an available
               configuration interface (such as through a test MDM Server). The evaluator shall
               verify the update is signed and is provided to the MDM Agent. The evaluator shall
               verify the MDM Agent accepts the digitally signed policy. The evaluator shall perform
               a policy update from an available configuration interface (such as through a test MDM
               Server). The evaluator shall provide an unsigned and an incorrectly signed policy to
               the MDM Agent. The evaluator shall verify the MDM Agent does not accept the digitally
-              signed policy. </aactivity>
+              signed policy.
+              </tests>
+            </aactivity>
           </f-element>
           <f-element id="FMT_POL_EXT.2.2" status="objective">
             <title>The MDM Agent shall not install policies if the policy signing certificate is
