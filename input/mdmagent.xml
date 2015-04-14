@@ -196,9 +196,7 @@
     interfacing directly with the OS of the device, either through a 3rd party application or as a
     part of the mobile device OS itself. Applicable threats addressed by the MDM Agent include
     malicious and flawed applications, network attacks, network eavesdropping, and physical
-    access.<br/> Appendix A presents the Security Problem Description (SPD) in a more “traditional”
-    form. The following sections detail the problems that compliant TOEs will address; references to
-    the “traditional” statements in Appendix A are included. 
+    access.
     <section id="threats" title="Threats">
      <threats>
       <threat id="T.MALICIOUS_APPS">
@@ -1275,16 +1273,24 @@
   <appendix title="Acronyms" id="acronyms">
     <acronyms>
       <entry>
-        <term>ADB</term>
-        <description>Android Debug Bridge</description>
+        <term>DTLS</term>
+        <description>Datagram Transport Layer Security</description>
       </entry>
       <entry>
-        <term>AES</term>
-        <description>Advanced Encryption Standard</description>
+        <term>HTTPS</term>
+        <description>Hypertext Transfer Protocol Secure</description>
       </entry>
       <entry>
-        <term>ANSI</term>
-        <description>American National Standards Institute</description>
+        <term>MD</term>
+        <description>Mobile Device</description>
+      </entry>
+      <entry>
+        <term>MDM</term>
+        <description>Mobile Device Management</description>
+      </entry>
+      <entry>
+        <term>MAS</term>
+        <description>Mobile Application Store</description>
       </entry>
     </acronyms>
   </appendix>
