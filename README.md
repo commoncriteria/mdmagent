@@ -1,4 +1,4 @@
-Mobile Device Management Agent
+Mobile Device Management Agent [![Build Status](https://jenkins-criteria.rhcloud.com/buildStatus/icon?job=protection-profiles/mdmagent)](https://jenkins-criteria.rhcloud.com/job/protection-profiles/job/mdmagent/)
 ===========
 
 Extended Package for Mobile Device Management Agents
