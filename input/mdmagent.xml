@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
-<PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Mobile Device Management Agents">
+<PP xmlns="http://common-criteria.rhcloud.com/ns/cc" xmlns:h="http://www.w3.org/1999/xhtml" name="Mobile Device Management Agents">
   <PPReference title="PP Reference" id="ID003">
     <ReferenceTable>
       <PPTitle>Extended Package for Mobile Device Management Agents</PPTitle>
@@ -23,7 +23,7 @@
       <subject>Interim Draft</subject>
     </entry>
   </RevisionHistory>
-  <RevisionHistory role="release">
+  <RevisionHistory role="final">
     <entry>
       <version>v 1.0</version>
       <date>2013-10-21</date>
@@ -31,15 +31,15 @@
     </entry>
     <entry>
       <version>1.1</version>
-      <date>2014-2-7</date>
+      <date>2014-02-07</date>
       <subject>Typographical changes and clarifications to front-matter</subject>
     </entry>
     <entry>
       <version>v 2.0</version>
       <date>2014-12-31</date>
-      <subject>Separation of MDM Agent SFRs.<br/> Updated cryptography, protocol, X.509
-        requirements.<br/> Added objective requirement for Agent audit storage.<br/> New requirement
-        for unenrollment prevention.<br/> Initial Release of MDM Agent EP.</subject>
+      <subject>Separation of MDM Agent SFRs.<h:br/> Updated cryptography, protocol, X.509
+        requirements.<h:br/> Added objective requirement for Agent audit storage.<h:br/> New requirement
+        for unenrollment prevention.<h:br/> Initial Release of MDM Agent EP.</subject>
     </entry>
   </RevisionHistory>
   <chapter id="int" title="Introduction">
@@ -53,8 +53,7 @@
       discusses how this EP is to be used in conjunction with the MDM Protection Profile (PP) or the
       Mobile Device Fundamentals (MDF) PP. </section>
     <section title="Terms" id="glossary">The following sections provide both Common Criteria and
-      technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
-        id="ccterms">
+      technology terms used in this Extended Package. 
         <glossary>
           <entry>
             <term><abbr title="Common Criteria">CC</abbr></term>
@@ -100,10 +99,6 @@
             <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
             </description>
           </entry>
-        </glossary>
-      </subsection>
-      <subsection id="techterms" title="Technology Terms">
-        <glossary>
           <entry>
             <term>Mobile Device User (User)</term>
             <description>This is the person who uses and is held responsible for the mobile device’s
@@ -138,10 +133,9 @@
               system.</description>
           </entry>
         </glossary>
-      </subsection>
     </section>
     <section title="Compliant Targets of Evaluation" id="TOEdescription">The MDM system consists of
-      two primary components: the MDM Server software and the MDM Agent.<br/> The MDM operational
+      two primary components: the MDM Server software and the MDM Agent.<h:br/> The MDM operational
       environment consists of the mobile device on which the MDM Agent resides, the platform on
       which the MDM Server runs, and an untrusted wireless network over which they communicate, as
       pictured below. <figure entity="images/MDMagentoperatingenvironment.jpg"
@@ -150,11 +144,11 @@
       part of the mobile device’s OS. The MDM Agent establishes a secure connection back to the MDM
       Server controlled by an enterprise administrator. Optionally, the MDM Agent interacts with the
       Mobile Application Store (MAS) Server to download and install enterprise-hosted
-      application.<br/> The MDM Agent must closely interact with or be part of (as depicted by the
+      application.<h:br/> The MDM Agent must closely interact with or be part of (as depicted by the
       dotted red/blue line in Figure 1) the mobile device’s platform to establish policies and
       perform queries about device status. The mobile device, in turn, has its own security
       requirements specified in the MDF PP against which the mobile device must be evaluated either
-      concurrently with or before the MDM Agent evaluation.<br/> If the MDM Agent is part of the
+      concurrently with or before the MDM Agent evaluation.<h:br/> If the MDM Agent is part of the
       mobile device’s OS, the agent may present multiple interfaces for configuring the mobile
       device, such as a local interface and a remote interface. Agents conforming to this profile
       must at least offer an interface with a trusted channel that serves as one piece of an MDM
@@ -168,23 +162,23 @@
         <description> This EP extends the MDM PP v2.x when the MDM Agent is installed on a mobile
           device as an application that is developed by the MDM developer. This EP extends the MDF
           PP when the MDM Agent is built into the mobile device platform by the mobile device
-          vendor.<br/> As an EP of either the MDM PP v2.x or the MDF PP v2.x, it is expected that
+          vendor.<h:br/> As an EP of either the MDM PP v2.x or the MDF PP v2.x, it is expected that
           the content of this EP and the chosen PP be appropriately combined in the context of each
           product-specific Security Target. This EP has been specifically defined such that there
           should be no difficulty or ambiguity in doing so. When this EP is used with the MDM PP
           v2.x or the MDF PP v2.x, conformant TOEs are obligated to implement the functionality
           required in those PPs with the additional functionality defined in this EP in response to
           the threat environment discussed subsequently herein. An ST must identify the applicable
-          versions of the PP chosen and this EP in its conformance claims. <br/> This EP serves to
+          versions of the PP chosen and this EP in its conformance claims. <h:br/> This EP serves to
           complement the MDM PP v2.x or the MDF PP v2.x with additional SFRs and associated
           Assurance Activities specific to the MDM Agent. Assurance Activities are the actions that
-          the evaluator performs in order to determine a TOE’s compliance to the SFRs. <br/> This EP
+          the evaluator performs in order to determine a TOE’s compliance to the SFRs. <h:br/> This EP
           conforms to Common Criteria <cite linkend="bibCC"/> for Information Technology Security
           Evaluation, Version 3.1, Revision 4. It is CC Part 2 extended and CC Part 3 conformant. In
           order to be conformant to this EP, the ST must include all components in this EP and the
-          associated PP that are: <ul><li>unconditional (which are always required)</li>
-            <li>selection-based (which are required when certain selections are chosen in the
-              unconditional requirements)</li></ul> and may include optional and/or objective
+          associated PP that are: <h:ul><h:li>unconditional (which are always required)</h:li>
+            <h:li>selection-based (which are required when certain selections are chosen in the
+              unconditional requirements)</h:li></h:ul> and may include optional and/or objective
           components that are desirable but not required for conformance. </description>
       </cclaim>
     </cclaims>
@@ -347,7 +341,7 @@
           <description>To address the issues concerning transmitting sensitive data to and from the
             MDM Agent described in Section 2.1.3, compliant TOEs will use a trusted communication
             path. The trusted channel to and from the MDM Agent is implemented using one (or more)
-            of these standard protocols: DTLS, HTTPS, or TLS.<br/> To address the threat of network
+            of these standard protocols: DTLS, HTTPS, or TLS.<h:br/> To address the threat of network
             attacks described in Section 2.1.2, the protocols described in this document provide
             encryption and mutual authentication to and from the MDM Agent in a cryptographically
             secure manner; thus, any attempt by a malicious attacker to represent himself to the MDM
@@ -420,30 +414,30 @@
   <chapter title="Security Requirements" id="req">This chapter describes the security requirements
     which have to be fulfilled by the <abbr linkend="TOE"/>. Those requirements comprise functional
     components from Part 2 and assurance components from Part 3 of <cite linkend="bibCC"/>. The
-    following notations are used: <ul>
-      <li>
-        <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
-        requirement, and thus further restricts a requirement.</li>
-      <li>
-        <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
-        provided by the [CC] in stating a requirement.</li>
-      <li>
-        <b>Assignment</b> operation (denoted by <i>italicized text</i>): is used to assign a
+    following notations are used: <h:ul>
+      <h:li>
+        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
+        requirement, and thus further restricts a requirement.</h:li>
+      <h:li>
+        <h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
+        provided by the [CC] in stating a requirement.</h:li>
+      <h:li>
+        <h:b>Assignment</h:b> operation (denoted by <h:i>italicized text</h:i>): is used to assign a
         specific value to an unspecified parameter, such as the length of a password. Showing the
-        value in square brackets indicates assignment.</li>
-      <li>
-        <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
-        "(1)")</li>
-      <li>Extended SFRs are identified by having a label ‘EXT’ after the requirement name for TOE
-        SFRs.</li>
-    </ul>
+        value in square brackets indicates assignment.</h:li>
+      <h:li>
+        <h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
+        "(1)")</h:li>
+      <h:li>Extended SFRs are identified by having a label ‘EXT’ after the requirement name for TOE
+        SFRs.</h:li>
+    </h:ul>
 
   <section id="testEnvironment" title="Test Environment for Assurance Activities"> The Test
       Environment for the assurance activities of the SFRs for MDM Agents differs based on whether
-      the Agent EP extends the MDM PP or the MDF PP.<br/> If the EP extends the MDM PP, the
+      the Agent EP extends the MDM PP or the MDF PP.<h:br/> If the EP extends the MDM PP, the
       assurance activities shall be performed using the MDM Server in evaluation against the base
       MDM PP, and many of the assurance activities in this EP may be combined with the assurance
-      activities in the MDM PP.<br/> If the EP extends the MDF PP, the assurance activities shall be
+      activities in the MDM PP.<h:br/> If the EP extends the MDF PP, the assurance activities shall be
       performed with a test MDM Server that is capable of exercising all of the functionality of the
       Agent. This test server is not required to be a commercial product and may be provided by the
       mobile device vendor as a tool for testing only. A number of the assurance activities in this
@@ -455,10 +449,13 @@
       FCS_TLSC_EXT.2, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FPT_TST_EXT.2, FCS_DTLS_EXT.1,
       and FCS_HTTPS_EXT.1. 
     <subsection id="fcs" title="Cryptographic Support (FCS)">
-        <f-component id="FCS_STG_EXT.4" name="Cryptographic Key Storage">The following requirement
+        <f-component id="FCS_STG_EXT.4" name="Cryptographic Key Storage" status="threshold">
+	  <note>
+	  The following requirement
           is identical, except in name, to the Cryptographic Key Storage requirement for EPs
           extending the MDM PP. The names differ for clarity, and one must be added to the Agent’s
           ST depending on the base PP.
+	  </note>
           <f-element id="FCS_STG_EXT.4.1">
             <title>The MDM Agent shall store persistent secrets and private keys when not in use in
               platform-provided key storage.</title>
@@ -478,10 +475,12 @@
         </f-component>
       </subsection>
       <subsection id="ftp" title="Trusted Path/Channels(FTP)">
-        <b>Trusted Channel Communication</b><br/>
-        <f-component id="FTP_ITC_EXT.1" name="Trusted Channel Communication"> If the EP extends the
+        <h:b>Trusted Channel Communication</h:b><h:br/>
+        <f-component id="FTP_ITC_EXT.1" name="Trusted Channel Communication" status="threshold"> 
+	  <note>If the EP extends the
           MDF PP, the communication channel between the Agent and the Server is external to the TOE
           and FTP_ITC_EXT.1 in the MDF PP should be modified as below. 
+	  </note>
           <f-element id="FTP_ITC_EXT.1.1">
             <title>The TSF shall use 802.11-2012, 802.1X, and EAP-TLS and at least one of:
             <selectables linebreak="yes">
@@ -498,21 +497,21 @@
               for communication channels mandated in the MDF PP. The ST author must select one of
               TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the
               TOE and the MDM Server. Only TLS, DTLS, or HTTPS are used in this trusted
-              channel.<br/> This requirement is to ensure that the transmission of any audit logs,
+              channel.<h:br/> This requirement is to ensure that the transmission of any audit logs,
               mobile device information data (software version, hardware model, and application
               versions), and configuration data collected by the MDM Agent and sent from the MDM
               Agent to the MDM Server, when commanded, or at configurable intervals, is properly
               protected. This trusted channel also protects any commands and policies sent by the
               MDM Server to the MDM Agent. Either the MDM Agent or the MDM Server is able to
-              initiate the connection.<br/> This trusted channel protects both the connection
+              initiate the connection.<h:br/> This trusted channel protects both the connection
               between an enrolled MDM Agent and the MDM Server and the connection between an
               unenrolled MDM Agent and the MDM Server during the enrollment operation. Different
               protocols can be used for these two connections, and the description in the TSS should
-              make this difference clear.<br/> The trusted channel uses TLS, DTLS, or HTTPS as the
+              make this difference clear.<h:br/> The trusted channel uses TLS, DTLS, or HTTPS as the
               protocol that preserves the confidentiality and integrity of MDM communications. The
               ST author chooses the mechanism or mechanisms supported by the TOE, and then ensures
               the detailed requirements in Appendix C corresponding to their selection are copied to
-              the ST if not already present.<br/> Protocol, RBG, Certificate validation, algorithm,
+              the ST if not already present.<h:br/> Protocol, RBG, Certificate validation, algorithm,
               and similar services may be met with platform provided services. </note>
           </f-element>
           <f-element id="FTP_ITC_EXT.1.2">
@@ -576,10 +575,13 @@
       iterate the requirements in the MDM PP for each Agent in order to make the appropriate
       selections for each agent. 
     <subsection id="cryptofcs" title="Cryptographic Support (FCS)">
-        <f-component id="FCS_STB_EXT.1" name="Cryptographic Key Storage">The following requirement
-          is identical, except in name, to the Cryptographic Key Storage requirement for EPs
-          extending the MDF PP. The names differ for clarity and one must be added to the Agent’s ST
-          depending on the base PP.
+        <f-component id="FCS_STB_EXT.1" name="Cryptographic Key Storage" status="threshold">
+	  <note>
+	    The following requirement is identical, except in name, to the Cryptographic Key Storage requirement for EPs
+            extending the MDF PP.
+	    The names differ for clarity and one must be added to the Agent’s ST
+            depending on the base PP.
+	  </note>
           <f-element id="FCS_STG_EXT.1.1(2)">
             <title>The MDM Agent shall store persistent secrets and private keys when not in use in
               platform-provided key storage.</title>
@@ -598,8 +600,11 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FCS_TLSC_EXT.1" name="TLS Client Protocol">The ST author shall include the
-          FCS_TLSC_EXT.1 requirement from the Optional Requirements in the MDM PP. </f-component>
+        <f-component id="FCS_TLSC_EXT.1" name="TLS Client Protocol" status="threshold">
+	  <note>
+	    The ST author shall include the FCS_TLSC_EXT.1 requirement from the Optional Requirements in the MDM PP.
+	  </note>
+	</f-component>
      </subsection>
     <subsection id="protection" title="Protection of the TSF (FPT)"> If the EP extends the MDM PP,
         the communication channel between the Agent and the Server is internal to the TOE and is
@@ -612,47 +617,47 @@
       Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
       components. 
       <subsection id="fau" title="Security Audit (FAU)">
-        <f-component id="FAU_ALT_EXT.2" name="Agent Alerts">
+        <f-component id="FAU_ALT_EXT.2" name="Agent Alerts" status="threshold">
           <f-element id="FAU_ALT_EXT.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in
               the event of any of the following: <!-- HERE fix this list -->
-              <ol type="a">
-                <li>successful application of policies to a mobile device</li>
-                <li>
+              <h:ol type="a">
+                <h:li>successful application of policies to a mobile device</h:li>
+                <h:li>
                   <selectables>
                     <selectable>receiving</selectable>
                     <selectable>generating</selectable>
-                  </selectables> periodic reachability events; </li>
+                  </selectables> periodic reachability events; </h:li>
                 <selectables linebreak="yes">
-                  <selectable><li>change in enrollment state</li></selectable>
-                  <selectable><li>failure to install an application from the MAS
-                    Server</li></selectable>
-                  <selectable><li>failure to update an application from the MAS
-                    Server</li></selectable>
-                  <selectable><li><assignable>other events</assignable>, no other
-                    events</li></selectable>
+                  <selectable>change in enrollment state</selectable>
+                  <selectable>failure to install an application from the MAS
+                    Server</selectable>
+                  <selectable>failure to update an application from the MAS
+                    Server</selectable>
+                  <selectable><assignable>other events</assignable>, no other
+                    events</selectable>
                 </selectables>
-              </ol>
+              </h:ol>
             </title>
             <note role="application"> The trusted channel is defined in FPT_ITT.1. “Alert” in this
-              requirement could be as simple as an audit record or a notification.<br/> This
+              requirement could be as simple as an audit record or a notification.<h:br/> This
               requirement is to ensure that the MDM Agent shall notify the MDM Server whenever one
               of the events listed above occurs. Lack of receipt of a successful policy installation
-              indicates the failure of the policy installation.<br/> The periodic reachability
+              indicates the failure of the policy installation.<h:br/> The periodic reachability
               events ensure that either the MDM Agent responds to MDM Server polls to determine
               device network reachability, or the MDM Agent can be configured to regularly notify
               the Server that it is reachable. The ST author must select “receiving” in the first
               case and “generating” in the second. The corresponding requirement for the MDM Server
-              is FAU_NET_EXT.1 in the MDM PP.<br/> The ST author must either assign further events
+              is FAU_NET_EXT.1 in the MDM PP.<h:br/> The ST author must either assign further events
               or select the “no other events” option. Note that alerts may take time to reach the
               MDM Server, or not arrive, due to poor connectivity. </note>
             <aactivity>
               <tss>The evaluator shall examine the TSS and verify that it describes how the
-              alerts are implemented.<br/> The evaluator ensures that the TSS describes how the
+              alerts are implemented.<h:br/> The evaluator ensures that the TSS describes how the
               candidate policy updates are obtained; and the actions that take place for successful
               (policy update installed) and unsuccessful (policy update not installed) cases. The
               software components that are performing the processing must also be identified in the
-              TSS and verified by the evaluator.<br/> The evaluator also ensures that the TSS
+              TSS and verified by the evaluator.<h:br/> The evaluator also ensures that the TSS
               describes how reachability events are implemented, and if configurable are selected in
               <linkref linkend="FMT_SMF_EXT.3.2"/>. The evaluator verifies that this description
               clearly indicates who (MDM Agent or MDM Server) initiates reachability events.
@@ -689,23 +694,23 @@
             </aactivity>
           </f-element>
         </f-component>     
-        <f-component id="FAU_GEN.1"  name="Audit Data Generation">
+        <f-component id="FAU_GEN.1"  name="Audit Data Generation" status="objective">
           <!-- TOE - FAU_GEN.1.2(2) -->
-          <f-element id="FAU_GEN.1.1(2)" status="objective">
+          <f-element id="FAU_GEN.1.1(2)">
             <title> Refinement: The MDM Agent shall be able to generate an MDM Agent audit record of
-              the following auditable events: <ul>
-                <li>Start-up and Shutdown of the audit functions;</li>
-                <li>Change in MDM policy; and</li>
-                <li>Any modification commanded by the MDM Server,</li>
-                <li>Specifically defined auditable events listed in Table 7</li>
-                <li><assignable>other events</assignable></li>
-              </ul>
+              the following auditable events: <h:ul>
+                <h:li>Start-up and Shutdown of the audit functions;</h:li>
+                <h:li>Change in MDM policy; and</h:li>
+                <h:li>Any modification commanded by the MDM Server,</h:li>
+                <h:li>Specifically defined auditable events listed in Table 7</h:li>
+                <h:li><assignable>other events</assignable></h:li>
+              </h:ul>
             </title>
             <note role="application"> This requirement is added to the ST if the MDM Agent has the
               functionality to generate audit records. This requirement outlines the information to
               be included in the MDM Agent’s audit records. The ST author can include other
               auditable events directly in the table in FAU_GEN.1.1; they are not limited to the
-              list presented.<br/> The change of the MDM policy must minimally indicate that the
+              list presented.<h:br/> The change of the MDM policy must minimally indicate that the
               policy changed. The event record need not contain the differences between the prior
               policy and the new policy. Modifications commanded by the MDM Server are those
               commands listed in FMT_SMF.1.1. </note>
@@ -714,95 +719,95 @@
               audit records. Each audit record format type must be covered, along with a brief
               description of each field.
               </tss>
-              <h4>Tests</h4> The evaluator shall test the TOE’s ability
+              <h:h4>Tests</h:h4> The evaluator shall test the TOE’s ability
               to correctly generate audit records by having the TOE generate audit records for the
               events listed and administrative actions. When verifying the test results, the
               evaluator shall ensure the audit records generated during testing match the format
               specified in the administrative guide, and that the fields in each audit record have
-              the proper entries.<br/> Note that the testing here can be accomplished in conjunction
-              with the testing of the security mechanisms directly.<br/>
-              <center><h4>Table 7: Auditable Events</h4></center>
-              <table>
-                <TR>
-                  <TH>Requirement</TH>
-                  <TH>Auditable Events</TH>
-                  <TH>Additional Audit Record Contents</TH>
-                </TR>
-                <TR>
-                  <TD>FAU_ALT_EXT.2</TD>
-                  <TD>Type of alert.</TD>
-                  <TD>No additional information.</TD>
-                </TR>
-                <TR>
-                  <TD>FAU_GEN.1</TD>
-                  <TD>None.</TD>
-                  <TD/>
-                </TR>
-                <TR>
-                  <TD>FAU_SEL.1</TD>
-                  <TD>All modifications to the audit configuration that occur while the audit
-                    collection functions are operating.</TD>
-                  <TD>No additional information.</TD>
-                </TR>
-                <TR>
-                  <TD>FAU_STG_EXT.1</TD>
-                  <TD>None.</TD>
-                  <TD/>
-                </TR>
-                <TR>
-                  <TD>FCS_STG_EXT.4.1/<br/>FCS_STG_EXT.1(1)</TD>
-                  <TD>None.</TD>
-                  <TD/>
-                </TR>
-                <TR>
-                  <TD>FCS_TLSC_EXT.1</TD>
-                  <TD>Failure to establish a TLS session.<br/>Failure to verify presented
-                    identifier.<br/>Establishment/termination of a TLS session.</TD>
-                  <TD>Reason for failure.<br/>Presented identifier and reference
-                    identifier.<br/>Non-TOE endpoint of connection.</TD>
-                </TR>
-                <TR>
-                  <TD>FIA_ENR_EXT.2</TD>
-                  <TD>Enrollment in management.</TD>
-                  <TD>Reference identifier of MDM Server.</TD>
-                </TR>
-                <TR>
-                  <TD>FMT_POL_EXT.2</TD>
-                  <TD>Failure of policy validation.</TD>
-                  <TD>Reason for failure of validation.</TD>
-                </TR>
-                <TR>
-                  <TD>FMT_SMF_EXT.3</TD>
-                  <TD>Success or failure of function.</TD>
-                  <TD>No additional information.</TD>
-                </TR>
-                <TR>
-                  <TD>FMT_UNR_EXT.1.1</TD>
-                  <TD>Attempt to unenroll.</TD>
-                  <TD>No additional information.</TD>
-                </TR>
-                <TR>
-                  <TD>FTP_ITC_EXT.1/<br/>FPT_ITT_EXT.1</TD>
-                  <TD>Initiation and termination of trusted channel.</TD>
-                  <TD>Trusted channel protocol. Non-TOE endpoint of connection.</TD>
-                </TR>
-              </table>
+              the proper entries.<h:br/> Note that the testing here can be accomplished in conjunction
+              with the testing of the security mechanisms directly.<h:br/>
+              <h:center><h:h4>Table 7: Auditable Events</h:h4></h:center>
+              <h:table>
+                <h:TR>
+                  <h:TH>Requirement</h:TH>
+                  <h:TH>Auditable Events</h:TH>
+                  <h:TH>Additional Audit Record Contents</h:TH>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FAU_ALT_EXT.2</h:TD>
+                  <h:TD>Type of alert.</h:TD>
+                  <h:TD>No additional information.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FAU_GEN.1</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD/>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FAU_SEL.1</h:TD>
+                  <h:TD>All modifications to the audit configuration that occur while the audit
+                    collection functions are operating.</h:TD>
+                  <h:TD>No additional information.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FAU_STG_EXT.1</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD/>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FCS_STG_EXT.4.1/<h:br/>FCS_STG_EXT.1(1)</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD/>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FCS_TLSC_EXT.1</h:TD>
+                  <h:TD>Failure to establish a TLS session.<h:br/>Failure to verify presented
+                    identifier.<h:br/>Establishment/termination of a TLS session.</h:TD>
+                  <h:TD>Reason for failure.<h:br/>Presented identifier and reference
+                    identifier.<h:br/>Non-TOE endpoint of connection.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FIA_ENR_EXT.2</h:TD>
+                  <h:TD>Enrollment in management.</h:TD>
+                  <h:TD>Reference identifier of MDM Server.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FMT_POL_EXT.2</h:TD>
+                  <h:TD>Failure of policy validation.</h:TD>
+                  <h:TD>Reason for failure of validation.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FMT_SMF_EXT.3</h:TD>
+                  <h:TD>Success or failure of function.</h:TD>
+                  <h:TD>No additional information.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FMT_UNR_EXT.1.1</h:TD>
+                  <h:TD>Attempt to unenroll.</h:TD>
+                  <h:TD>No additional information.</h:TD>
+                </h:TR>
+                <h:TR>
+                  <h:TD>FTP_ITC_EXT.1/<h:br/>FPT_ITT_EXT.1</h:TD>
+                  <h:TD>Initiation and termination of trusted channel.</h:TD>
+                  <h:TD>Trusted channel protocol. Non-TOE endpoint of connection.</h:TD>
+                </h:TR>
+              </h:table>
             </aactivity>
           </f-element>
           <!-- TOE or TOE PLATFORM - FAU_GEN.1.2(2) -->
-          <f-element id="FAU_GEN.1.2(2)" status="objective">
+          <f-element id="FAU_GEN.1.2(2)">
             <title>Refinement: The <selectables>
               <selectable>TSF</selectable>
               <selectable>TOE platform</selectable>
             </selectables> shall record within each MDM Agent audit record at least the following
-              information: <ul>
-                <li>date and time of the event</li>
-                <li>type of event</li>
-                <li>subject identity</li>
-                <li>(if relevant) the outcome (success or failure) of the event</li>
-                <li>additional information in Table 7</li>
-                <li><assignable>other audit relevant information</assignable></li>
-              </ul></title>
+              information: <h:ul>
+                <h:li>date and time of the event</h:li>
+                <h:li>type of event</h:li>
+                <h:li>subject identity</h:li>
+                <h:li>(if relevant) the outcome (success or failure) of the event</h:li>
+                <h:li>additional information in Table 7</h:li>
+                <h:li><assignable>other audit relevant information</assignable></h:li>
+              </h:ul></title>
             <note role="application">All audits must contain at least the information mentioned in
               FAU_GEN.1.2(2), but may contain more information which can be assigned. The ST author
               shall identify in the TSS which information of the audit record that is performed by
@@ -812,22 +817,22 @@
               audit records. Each audit record format type must be covered, along with a brief
               description of each field.
               </tss>
-              <h4>Tests</h4>When verifying the test results, the
+              <h:h4>Tests</h:h4>When verifying the test results, the
               evaluator shall ensure the audit records generated during testing match the format
               specified in the administrative guide, and that the fields in each audit record have
-              the proper entries.<br/> Note that the testing here can be accomplished in conjunction
+              the proper entries.<h:br/> Note that the testing here can be accomplished in conjunction
               with the testing of the security mechanisms directly. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FAU_SEL.1" name="Security Audit Event Selection">
-          <f-element id="FAU_SEL.1.1(2)" status="objective">
+        <f-component id="FAU_SEL.1" name="Security Audit Event Selection" status="objective">
+          <f-element id="FAU_SEL.1.1(2)">
             <title>The TSF shall be able to select the set of events to be audited from the set of
-              all auditable events based on the following attributes: <ol type="a">
-                <li>event type;</li>
-                <li>success of auditable security events;</li>
-                <li>failure of auditable security events; and</li>
-                <li><assignable>other attributes</assignable></li>
-              </ol></title>
+              all auditable events based on the following attributes: <h:ol type="a">
+                <h:li>event type;</h:li>
+                <h:li>success of auditable security events;</h:li>
+                <h:li>failure of auditable security events; and</h:li>
+                <h:li><assignable>other attributes</assignable></h:li>
+              </h:ol></title>
             <note role="application">The intent of this requirement is to identify all criteria that
               can be selected to trigger an audit event. For the ST author, the assignment is used
               to list any additional criteria or “none”. This selection may be configured by the MDM
@@ -859,8 +864,8 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FAU_STG_EXT.1" name="Security Audit Event Storage">
-          <f-element id="FAU_STG_EXT.1.1" status="objective">
+        <f-component id="FAU_STG_EXT.1" name="Security Audit Event Storage" status="objective">
+          <f-element id="FAU_STG_EXT.1.1"> 
             <title>The MDM Agent shall store MDM audit records in the platform-provided audit
               storage.</title>
             <aactivity>
@@ -873,7 +878,7 @@
         </f-component> 
       </subsection>
       <subsection id="fia" title="Identification and Authentication (FIA)">
-        <f-component id="FIA_ENR_EXT.2" name="Enrollment of Mobile Device into Management">
+        <f-component id="FIA_ENR_EXT.2" name="Enrollment of Mobile Device into Management" status="threshold">
           <f-element id="FIA_ENR_EXT.2.1">
             <title>The MDM Agent shall record the reference identifier of the MDM Server during the
               enrollment process.</title>
@@ -883,13 +888,13 @@
               a network connection and the reference identifier for authenticating the trusted
               channel between the MDM Server and MDM Agent (FPT_ITT.1).</note>
             <aactivity>
-              <h4>TSS</h4>The evaluator shall examine the TSS to verify that it describes which
+              <h:h4>TSS</h:h4>The evaluator shall examine the TSS to verify that it describes which
               types of reference identifiers are acceptable and how the identifier is specified
               (e.g. preconfigured in the MDM Agent, by the user, by the MDM server, in a policy).
-                <h4>Guidance</h4>The evaluator shall examine the operational guidance to verify that
+                <h:h4>Guidance</h:h4>The evaluator shall examine the operational guidance to verify that
               it describes how to configure reference identifier of the MDM Server’s certificate
               and, if different than the reference identifier, the Domain Name or IP address (for
-              connectivity) of the MDM Server. <h4>Tests</h4>The evaluator shall follow the
+              connectivity) of the MDM Server. <h:h4>Tests</h:h4>The evaluator shall follow the
               operational guidance to establish the reference identifier of the MDM server on the
               MDM Agent and in conjunction with other Assurance Activities verify that the MDM Agent
               can connect to the MDM Server and validate the MDM Server’s certificate. </aactivity>
@@ -897,37 +902,37 @@
         </f-component>
       </subsection>
       <subsection id="fmt" title="Security Management (FMT)">
-        <f-component id="FMT_SMF_EXT.3" name="Specification of Management Functions">
+        <f-component id="FMT_SMF_EXT.3" name="Specification of Management Functions" status="threshold">
           <f-element id="FMT_SMF_EXT.3.1">
             <title>The MDM Agent shall be capable of interacting with the platform to perform the
-              following functions: <ol type="a">
+              following functions: <h:ol type="a">
                 <selectables linebreak="yes">
-                  <selectable><li>administrator-provided management functions in MDF
-                    PP</li></selectable>
-                  <selectable><li>administrator-provided device management functions in MDM
-                    PP</li></selectable>
+                  <selectable><h:li>administrator-provided management functions in MDF
+                    PP</h:li></selectable>
+                  <selectable><h:li>administrator-provided device management functions in MDM
+                    PP</h:li></selectable>
                 </selectables>
-                <li>Import the certificates to be used for authentication of MDM Agent
-                  communications</li>
-                <li/>
+                <h:li>Import the certificates to be used for authentication of MDM Agent
+                  communications</h:li>
+                  <h:li/>
                 <selectables>
                   <selectable><assignable>additional functions</assignable></selectable>
                   <selectable> no additional functions</selectable>
                 </selectables>
-              </ol>
+              </h:ol>
             </title>
             <note role="application"> This requirement captures all the configuration functionality
               in the MDM Agent to configure the underlying Mobile Device with the configuration
               policies sent from the MDM Server to the Agent. The ST author selects the base PP (MDF
-              PP or MDM PP) as the source of the management functions.<br/> The
+              PP or MDM PP) as the source of the management functions.<h:br/> The
               administrator-provided management functions in MDF PP are specified in Column 4 of
               Table 1 in MDF PPv2.x (reproduced in this EP as Table 8 in Appendix G) and in
               FPT_TUD_EXT.1 (for version queries). The administrator-provided device management
               functions in MDM PP are specified in FMT_SMF.1.1(1); the functions in the selection of
               FMT_SMF.1.1(1) in the MDM PP are required to correspond to the functions available on
-              the platforms supported by the MDM Agent.<br/> The ST author can add more commands and
+              the platforms supported by the MDM Agent.<h:br/> The ST author can add more commands and
               configuration policies by completing the assignment statement; these additional
-              commands or configuration policies must be supported by the Mobile Device.<br/> The
+              commands or configuration policies must be supported by the Mobile Device.<h:br/> The
               agent must configure the platform based on the commands and configuration policies
               received from the MDM Server. The ST author shall not claim any functionality not
               provided by the supported Mobile Device(s). All selections and assignments performed
@@ -942,11 +947,11 @@
               are listed.
               </tss>
               <guidance>The evaluator shall verify the AGD guidance includes
-              detailed instructions for configuring each function in this requirement.<br/> If the
+              detailed instructions for configuring each function in this requirement.<h:br/> If the
               MDM Agent is a component of the MDM system (i.e. MDM Server is the base PP), the
               evaluator shall verify, by consulting documentation for the claimed mobile device
               platforms, that the configurable functions listed for this Agent are supported by the
-              platforms.<br/> If the MDM Agent supports multiple interfaces for configuration (for
+              platforms.<h:br/> If the MDM Agent supports multiple interfaces for configuration (for
               example, both remote configuration and local configuration), the AGD guidance makes
               clear whether some functions are restricted to certain interfaces.
               </guidance>
@@ -967,32 +972,32 @@
             </aactivity>
           </f-element>
           <f-element id="FMT_SMF_EXT.3.2">
-            <title>The MDM Agent shall be capable of performing the following functions: <ol
+            <title>The MDM Agent shall be capable of performing the following functions: <h:ol
                 type="a">
-                <li>Enroll in management</li>
-                <li>Configure whether users can unenroll the agent from management</li>
-                <li>
+                <h:li>Enroll in management</h:li>
+                <h:li>Configure whether users can unenroll the agent from management</h:li>
+                <h:li>
                   <selectables>
                     <selectable>configure periodicity of reachability events</selectable>
                     <selectable><assignable>other management functions</assignable></selectable>
                     <selectable>no other functions</selectable>
-                  </selectables></li>
-              </ol></title>
+                  </selectables></h:li>
+              </h:ol></title>
             <note role="application"> This requirement captures all of the configuration in the MDM
-              Agent for configuration of itself.<br/> If the MDM Agent is a part of the mobile
+              Agent for configuration of itself.<h:br/> If the MDM Agent is a part of the mobile
               device, enrollment is a single function both of the Agent and of the mobile device
-              (FMT_SMF_EXT.3.1).<br/> If the MDM Agent is an application developed separately from
+              (FMT_SMF_EXT.3.1).<h:br/> If the MDM Agent is an application developed separately from
               the mobile device, the MDM Agent performs the function “enroll the mobile device in
               management” (per FMT_SMF_EXT.3.1) by registering itself to the mobile device as a
               device administrator. The Agent itself is enrolled in management by configuring the
-              MDM Server to which the Agent answers.<br/> If the Agent generates periodic
+              MDM Server to which the Agent answers.<h:br/> If the Agent generates periodic
               reachability events in <linkref linkend="FAU_ALT_EXT.2.1"/> and the periodicity of these events is
               configurable, “configure periodicity of reachability events” must be selected. </note>
             <aactivity>
               <tss>The evaluator shall verify that the TSS describes the methods in which
               the MDM Agent can be enrolled. The TSS description shall make clear if the MDM Agent
               supports multiple interfaces for enrollment and configuration (for example, both
-              remote configuration and local configuration).<br/> Additionally, the evaluator shall
+              remote configuration and local configuration).<h:br/> Additionally, the evaluator shall
               verify that the TSS describes any management functions of the MDM Agent.
               </tss>
               <guidance>
@@ -1018,7 +1023,7 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FMT_UNR_EXT.1" name="User Unenrollment Prevention">
+        <f-component id="FMT_UNR_EXT.1" name="User Unenrollment Prevention" status="threshold">
           <f-element id="FMT_UNR_EXT.1.1">
             <title>The MDM Agent shall provide a mechanism to prevent users from unenrolling the
               mobile device from management.</title>
@@ -1053,14 +1058,14 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FMT_POL_EXT.2" name="Trusted Policy Update">
-          <f-element id="FMT_POL_EXT.2.1" status="objective">
+        <f-component id="FMT_POL_EXT.2" name="Trusted Policy Update" status="objective">
+          <f-element id="FMT_POL_EXT.2.1">
             <title>The MDM Agent shall only accept policies and policy updates digitally signed by
               the Enterprise.</title>
             <note role="application">The intent of this requirement is to cryptographically tie the
               policies to the enterprise that mandated the policy, not to protect the policies in
               transit (as they are already protected by FPT_ITT.1). This is especially critical for
-              users who connect to multiple enterprises.<br/> Policies must be digitally signed by
+              users who connect to multiple enterprises.<h:br/> Policies must be digitally signed by
               the enterprise using the algorithms in FCS_COP.1(3).</note>
             <aactivity>
               <tss>The evaluator also ensures that the TSS (or the operational guidance)
@@ -1081,7 +1086,7 @@
               </tests>
             </aactivity>
           </f-element>
-          <f-element id="FMT_POL_EXT.2.2" status="objective">
+          <f-element id="FMT_POL_EXT.2.2">
             <title>The MDM Agent shall not install policies if the policy signing certificate is
               deemed invalid.</title>
             <aactivity> The assurance activity for this requirement is performed in conjunction with
@@ -1131,7 +1136,7 @@
 <appendix title="Entropy Documentation and Assessment" id="entropyappendix"> 
   This appendix describes the required supplementary information for the entropy
   source used by the TOE.
-  <br/>
+  <h:br/>
   The documentation of the entropy source should be detailed enough that, after
   reading, the evaluator will thoroughly understand the entropy source and why
   it can be relied upon to provide sufficient entropy. This documentation should
@@ -1144,7 +1149,7 @@
   including the interaction of all entropy source components. Any information
   that can be shared regarding the design should also be included for any
   third-party entropy sources that are included in the product. 
-  <br/>
+  <h:br/>
   The documentation will describe the operation of the entropy source to
   include, how entropy is produced, and how unprocessed (raw) data can be
   obtained from within the entropy source for testing purposes. The documentation
@@ -1154,12 +1159,12 @@
   how it is output from the entropy source. Any conditions placed on the
   process (e.g., blocking) should also be described in the entropy source
   design. Diagrams and examples are encouraged. 
-  <br/>
+  <h:br/>
   This design must also include a description of the content of the
   security boundary of the entropy source and a description of how
   the security boundary ensures that an adversary outside the boundary
   cannot affect the entropy rate.
-  <br/>
+  <h:br/>
   If implemented, the design description shall include a description
   of how third-party applications can add entropy to the RBG. A
   description of any RBG state saving between power-off and
@@ -1176,11 +1181,11 @@
   going into the TOE randomizer seeding process. This discussion will
   be part of a justification for why the entropy source can be relied
   upon to produce bits with entropy.
-  <br/>
+  <h:br/>
   The amount of information necessary to justify the expected
   min-entropy rate depends on the type of entropy source included in the
   product.
-  <br/>
+  <h:br/>
   For developer provided entropy sources, in order to justify the
   min-entropy rate, it is expected that a large number of raw source
   bits will be collected, statistical tests will be performed, and the
@@ -1188,7 +1193,7 @@
   particular statistical tests are required at this time, it is expected
   that some testing is necessary in order to determine the amount of
   min-entropy in each output.
-  <br/>
+  <h:br/>
   For third party provided entropy sources, in which the TOE vendor
   has limited access to the design and raw entropy data of the source, the
   documentation will indicate an estimate of the amount of min-entropy
@@ -1197,7 +1202,7 @@
   clearly stated in the documentation provided.  In particular, the
   min-entropy estimate must be specified and the assumption included
   in the ST.
-  <br/>
+  <h:br/>
   Regardless of type of entropy source, the justification will also
   include how the DRBG is initialized with the entropy stated in the ST,
   for example by verifying that the min-entropy rate is multiplied by the
@@ -1206,7 +1211,7 @@
   compared to the statistical rate. If the amount of source data used to
   seed the DRBG is not clear or the calculated rate is not explicitly
   related to the seed, the documentation will not be considered complete.
-  <br/>
+  <h:br/>
   The entropy justification shall not include any data added from
   any third-party application or from any state saving between restarts.
 </section>
@@ -1242,30 +1247,30 @@
     <bibliography>
       <entry id="bibCC">
         <tag>CC</tag>
-        <description>Common Criteria for Information Technology Security Evaluation - <ul>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 4,
-              September 2012.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</a>, CCMB-2012-09-002, Version 3.1 Revision 4,
-              September 2012.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</a>, CCMB-2012-09-003, Version 3.1 Revision 4,
-              September 2012.</li>
-          </ul></description>
+        <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
+                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 4,
+              September 2012.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
+                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 4,
+              September 2012.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
+                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 4,
+              September 2012.</h:li>
+          </h:ul></description>
       </entry>
       <entry id="bibMDMPP">
         <tag>MDM PP</tag>
         <description>
-          <a href="https://www.niap-ccevs.org/pp/PP_MDM_V2.0/">Protection Profile for Mobile Device
-            Management</a>
+          <h:a href="https://www.niap-ccevs.org/pp/PP_MDM_V2.0/">Protection Profile for Mobile Device
+            Management</h:a>
         </description>
       </entry>
       <entry id="bibMDfPP">
         <tag>MDF PP</tag>
         <description>
-          <a href="https://www.niap-ccevs.org/pp/PP_MD_v2.0/">Protection Profile for Mobile Device
-            Fundamentals</a>
+          <h:a href="https://www.niap-ccevs.org/pp/PP_MD_v2.0/">Protection Profile for Mobile Device
+            Fundamentals</h:a>
         </description>
       </entry>
     </bibliography>
