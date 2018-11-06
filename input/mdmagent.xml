@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 <?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-
+<!--  
+<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+-->
 
 <!-- To Do
   threats: objective refers
@@ -12,9 +14,7 @@
   fix table refs in text so that they refer to the correct #s
  
  -->
-<!--  
-<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
--->
+
 
 
 <Module boilerplate="yes" target-products="MDM Agents" xmlns="https://niap-ccevs.org/cc/v1" name="Mobile Device Management Agents" 
@@ -177,7 +177,6 @@
         <figure entity="images/mdm-system-operating-environment.png" title="MDM System Operating Environment" id="toe"/><htm:br/>
         The MDM Agent must closely interact with or be part of the mobile device’s platform in order to establish policies and to perform queries about device status. The mobile device, in turn, has its own security requirements specified in the MDF <abbr linkend="PP"/>. The mobile device must be evaluated against the MDF <abbr linkend="PP"/>, either concurrently with the MDM Agent or prior to the evaluation of the MDM Agent. This is true regardless of whether the MDM Agent is a native part of the mobile device OS or a third-party application.<htm:br/><htm:br/>
       
-      <!-- Question: Should this be here?? -->
       <!-- TODO: Update versions of bases and have to specify the exact version -->
       This <abbr linkend="PP-Module"/> can extend the Mobile Device Fundamentals <abbr linkend="PP"/> v3.x or the Mobile Device Management Server <abbr linkend="PP"/> v3.x:<htm:br/><htm:br/> 
       <htm:b>Extends Mobile Device</htm:b><htm:br/><htm:br/>
@@ -205,7 +204,7 @@
               <description>A personally owned device may also be given access to limited enterprise services such as enterprise email. Because the user does not have full access to the enterprise or enterprise data, the enterprise may not need to enforce any security policies on the device. However, the enterprise may want secure email and web browsing with assurance that the services being provided to those clients by the Mobile Device are not compromised. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in Section 5 of this <abbr linkend="PP"/> are sufficient for the secure implementation of this BYOD use case.</description>
             </usecase>
           </usecases>           
-<!-- The Following was appendix G in Agent EP that defined the selections needed, not sure where to put it in the module -->
+<!-- The Following was appendix E in Agent EP that defined the selections needed, not sure where to put it in the module -->
         <!--  The following use case templates list those selections, assignments, and objective requirements that best support the use cases identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are included in the <abbr linkend="ST"/>, not just those listed in the templates. These templates and deviations from the template should be identified in the Security Target to assist customers with making risk-based purchasing decisions. Products that do not meet these templates are not precluded from use in the scenarios identified by this Protection Profile.<htm:br/><htm:br/>
         Where selections for a particular requirement are not identified in a use case template, all available selections are equally applicable to the use case.<htm:br/><htm:br/>
         
@@ -382,8 +381,7 @@
           </objective-refer>        
         </assumption>
       </assumptions>
-    </section>
-     <!-- Question: Is there a OSP section in a module? Currently not allowed per schema?-->   
+    </section> 
     <section id="securityPolicy" title="Organizational Security Policies">
       <OSPs>
         <OSP id="P.ACCOUNTABILITY">
@@ -476,7 +474,7 @@
           <!-- Question: This SFR's only modification is that the name differs. How should this be handled? Below is the app note from MDM Agent: -->
           <!--  The following requirement is identical, except in name, to the Cryptographic Key Storage requirement for <abbr linkend="PP-Module"/>s extending the MDM <abbr linkend="PP"/>. The names differ for clarity, and one must be added to the Agent’s <abbr linkend="ST"/> depending on the base <abbr linkend="PP"/>.  -->              
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
-            <consistency-rationale></consistency-rationale>
+            <consistency-rationale>test 123</consistency-rationale>
             <f-element id="fcs_stg_ext.4.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.</note>
@@ -698,9 +696,6 @@
                   <htm:TD>Enrollment in management.</htm:TD>
                   <htm:TD>Reference identifier of MDM Server.</htm:TD>
                 </htm:TR>
-                
-                
-                
                 <htm:TR>
                   <htm:TD>FMT_POL_EXT.2</htm:TD>
                   <htm:TD>Failure of policy validation.</htm:TD>
@@ -957,8 +952,7 @@
       </subsection>
     </obj-sfrs>
   </chapter>
-  
-  <!-- ToDo: Figure out if we need to add this section: -->
+
   
   <bibliography>
     <cc-entry/>
@@ -971,14 +965,19 @@
  
   
   <acronyms>
-    <!-- SCHEMA: Add the ability to add text to add the following: -->
-    <!--  All relevant acronyms for this <abbr linkend="PP-Module"/> are defined in the MDF <abbr linkend="PP"/> and/or MDM <abbr linkend="PP"/>.-->
-    
     <!-- ToDo: Fix -->
-    <entry>
-      <term>Test</term>
-      <description>This is a test</description>
-    </entry>
+        <entry>
+          <term>ADB</term>
+          <description>Android Debug Bridge</description>
+        </entry>
+        <entry>
+          <term>AES</term>
+          <description>Advanced Encryption Standard</description>
+        </entry>
+        <entry>
+          <term>ANSI</term>
+          <description>American National Standards Institute</description>
+        </entry>
   </acronyms>
   
     
@@ -1005,19 +1004,6 @@
   </chapter>
 -->
 <!--  
-  <appendix id="opt-reqs" title="Optional Requirements">
-    As indicated in Section 2, the baseline requirements (those that must be performed by the <abbr linkend="TOE"/>) are contained in the body of this <abbr linkend="PP"/>. Additionally, there are three other types of requirements specified in Appendix A, Appendix B, and Appendix C.<htm:br/><htm:br/>
-    The first type (in this Appendix) are requirements that can be included in the <abbr linkend="ST"/>, but are not required in order for a <abbr linkend="TOE"/> to claim conformance to this <abbr linkend="PP"/>. The second type (in Appendix B) are requirements based on selections in the body of the <abbr linkend="PP-Module"/>: if certain selections are made, then additional requirements in that appendix must be included. The third type (in Appendix C) are components that are not required in order to conform to this <abbr linkend="PP-Module"/>, but will be included in the baseline requirements in future versions of this <abbr linkend="PP-Module"/>, so adoption by vendors is encouraged. Note that the <abbr linkend="ST"/> author is responsible for ensuring that requirements that may be associated with those in Appendix A, Appendix B, and Appendix C but are not listed (e.g., FMT-type requirements) are also included in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
-    At this time no optional requirements are identified.<htm:br/><htm:br/>
-  </appendix>
-  <appendix id="sel-reqs" title="Selection-Based Requirements">
-    As indicated in the introduction to this <abbr linkend="PP-Module"/>, the baseline requirements (those that must be performed by the <abbr linkend="TOE"/> or its underlying platform) are contained in the body of the <abbr linkend="PP-Module"/>. There are additional requirements based on selections in the body of the <abbr linkend="PP-Module"/>: if certain selections are made, then additional requirements below will need to be included.<htm:br/><htm:br/>
-    At this time no selection-based requirements have been identified.<htm:br/><htm:br/>
-  </appendix>
-  <appendix id="obj-reqs" title="Objective Requirements">
-    As indicated in the introduction to this <abbr linkend="PP-Module"/>, the baseline requirements (those that must be performed by the <abbr linkend="TOE"/> or its underlying platform) are contained in the body of this <abbr linkend="PP-Module"/>. There are additional requirements that specify security functionality that is desirable and these requirements are contained in this Appendix. It is expected that these requirements will transition from objective requirements to baseline requirements in future versions of this <abbr linkend="PP-Module"/>.<htm:br/><htm:br/>
-    At any time these may be included in the <abbr linkend="ST"/> such that the <abbr linkend="TOE"/> is still conformant to this <abbr linkend="PP-Module"/>.<htm:br/><htm:br/>
-  </appendix>
   <appendix id="entropy" title="Entropy Documentation and Assessment">
     The <abbr linkend="TOE"/> does not require any additional supplementary information to describe its entropy source(s) beyond the requirements outlined in the ‘Entropy Documentation and Assessment’ sections of the MDF and MDM <abbr linkend="PP"/>s. As with other base <abbr linkend="PP"/> requirements, the only additional requirement is that the entropy documentation also applies to the specific MDM Agent capabilities of the <abbr linkend="TOE"/> in addition to the functionality required by the base <abbr linkend="PP"/>.
   </appendix>
@@ -1060,71 +1046,6 @@
   </appendix>
   -->
   <!-- Question: Does Module have SARs? -->
-  
-<!-- WHERE DO THESE SECTIONS GO?? OR ARE THEY DELETED??
-  
-
-  -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-<!-- 
-
-<appendix title="Acronyms" id="acronyms">
-    <acronyms>
-      <entry>
-        <term>ADB</term>
-        <description>Android Debug Bridge</description>
-      </entry>
-      <entry>
-        <term>AES</term>
-        <description>Advanced Encryption Standard</description>
-      </entry>
-      <entry>
-        <term>ANSI</term>
-        <description>American National Standards Institute</description>
-      </entry>
--->
-
-<!-- 
-  <selectables linebreak="yes">
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables> 
-<selectables>
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables>
--->
-<!--
-<f-component id="" name="">
-  <f-element id="">
-    <title></title>
-    <note role="application"></note>
-    <aactivity>
-      <htm:h4>TSS</htm:h4> 
-      <htm:h4>Guidance</htm:h4> 
-      <htm:h4>Tests</htm:h4> 
-      <testlist>
-        <test></test>
-        <test></test>
-      </testlist>
-    </aactivity>
-  </f-element>
-</f-component>
--->
 
 </Module>
 
