@@ -548,6 +548,7 @@
      
         <!--  If this <abbr linkend="PP-Module"/> is extending the MDM <abbr linkend="PP"/>, the Agent is part of the MDM <abbr linkend="TOE"/> and any requirements on the MDM <abbr linkend="TOE"/> also apply to the MDM Agent. These security functions include FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FIA_X509_EXT.4, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The <abbr linkend="ST"/> author should iterate the requirements in the MDM <abbr linkend="PP"/> for each Agent in order to make the appropriate selections for each agent.-->     
       <modified-sfrs>
+        <!-- SCHEMA: Second base is populated with first base's name.  -->
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">
           <!--  The following requirement is identical, except in name, to the Cryptographic Key Storage requirement for <abbr linkend="PP-Module"/>s extending the MDF <abbr linkend="PP"/>. The names differ for clarity and one must be added to the Agent’s <abbr linkend="ST"/> depending on the base <abbr linkend="PP"/>.-->
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
