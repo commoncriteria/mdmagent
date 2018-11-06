@@ -988,21 +988,9 @@
     -->
     
       
-  <!--   
-    <section id="test-env" title="Test Environment for Assurance Activities">
-      The Test Environment for the assurance activities of the <abbr linkend="SFR"/>s for MDM Agents differs based on whether the Agent <abbr linkend="PP-Module"/> extends the MDM <abbr linkend="PP"/> or the MDF <abbr linkend="PP"/>.<htm:br/><htm:br/>
-      If the <abbr linkend="PP-Module"/> extends the MDM <abbr linkend="PP"/>, the assurance activities shall be performed using the MDM Server in evaluation against the base MDM <abbr linkend="PP"/>, and many of the assurance activities in this <abbr linkend="PP-Module"/> may be combined with the assurance activities in the MDM <abbr linkend="PP"/>.<htm:br/><htm:br/>
-      If the <abbr linkend="PP-Module"/> extends the MDF <abbr linkend="PP"/>, the assurance activities shall be performed with a test MDM Server that is capable of exercising all of the functionality of the Agent. This test server is not required to be a commercial product and may be provided by the mobile device vendor as a tool for testing only. A number of the assurance activities in this <abbr linkend="PP-Module"/> may be combined with assurance activities in the MDF <abbr linkend="PP"/>.<htm:br/><htm:br/>
-    </section>
-    
-    -->
+
       
-<!--  
-    <section id="sars" title="TOE Security Assurance Requirements">
-      It is important to note that a <abbr linkend="TOE"/> that is evaluated against this <abbr linkend="PP-Module"/> is inherently evaluated against the MDF <abbr linkend="PP"/> or the MDM <abbr linkend="PP"/> as well. Those <abbr linkend="PP"/>s include a number of Assurance Activities associated with both <abbr linkend="SFR"/>s and Security Assurance Requirements (SARs). Additionally, this <abbr linkend="PP-Module"/> includes a number of <abbr linkend="SFR"/>-based Assurance Activities that simply refine the <abbr linkend="SAR"/>s identified in the base <abbr linkend="PP"/>s. The Assurance Activities associated with <abbr linkend="SAR"/>s that are prescribed by the MDF <abbr linkend="PP"/> or MDM <abbr linkend="PP"/> are performed against the entire <abbr linkend="TOE"/>.
-    </section>
-  </chapter>
--->
+<!-- May need to add a blurb about the entropy documentation in the SD, Dianne is looking into it. -->
 <!--  
   <appendix id="entropy" title="Entropy Documentation and Assessment">
     The <abbr linkend="TOE"/> does not require any additional supplementary information to describe its entropy source(s) beyond the requirements outlined in the ‘Entropy Documentation and Assessment’ sections of the MDF and MDM <abbr linkend="PP"/>s. As with other base <abbr linkend="PP"/> requirements, the only additional requirement is that the entropy documentation also applies to the specific MDM Agent capabilities of the <abbr linkend="TOE"/> in addition to the functionality required by the base <abbr linkend="PP"/>.
