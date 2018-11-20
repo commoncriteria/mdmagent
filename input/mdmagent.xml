@@ -810,19 +810,17 @@
         </f-component>
         <f-component id="fmt_smf_ext.3" name="Specification of Management Functions">
           <consistency-rationale></consistency-rationale>
-          <f-element id="fmt_smf_ext.3.1">
-            <!-- TODO: Look at the formatting of this SFR -->
+          <f-element id="fmt_smf_ext.3.1">            
             <title>The MDM Agent shall be capable of interacting with the platform to perform the following functions:
               <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
-              <selectables linebreak="yes">
+              <htm:li><selectables>
                   <selectable>administrator-provided management functions in MDF <abbr linkend="PP"/></selectable>
                   <selectable>administrator-provided device management functions in MDM <abbr linkend="PP"/></selectable>
-                </selectables>             
-                <selectables>
+                  </selectables></htm:li>             
+              <htm:li><selectables>
                   <selectable><assignable>additional functions</assignable></selectable>
                   <selectable> no additional functions</selectable>
-                </selectables>
-              
+              </selectables></htm:li>              
             </title>
             <note role="application">
               This requirement captures all the configuration functionality in the MDM Agent to configure the underlying Mobile Device with the configuration policies sent from the MDM Server to the Agent. The <abbr linkend="ST"/> author selects the base <abbr linkend="PP"/> (MDF <abbr linkend="PP"/> or MDM <abbr linkend="PP"/>) as the source of the management functions.<htm:br/><htm:br/>
