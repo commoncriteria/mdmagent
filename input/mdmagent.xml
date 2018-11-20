@@ -1013,11 +1013,11 @@
     <sel-sfrs></sel-sfrs>
     <obj-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
-        <f-component id="fau_stg_ext.1" name="Security Audit Event Storage">
+        <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
         <consistency-rationale></consistency-rationale>
-        <f-element id="fau_stg_ext.1.1">
+        <f-element id="fau_stg_ext.3.1">
           <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.</title>
-          <note role="application">FAU_STG_EXT.1 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3.</note>
+          <note role="application">FAU_STG_EXT.3 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3.</note>
           <aactivity>
             <TSS/>The evaluator shall verify that the <abbr linkend="TSS"/> description of the audit records indicates how the records are stored. The evaluator shall verify that the Agent calls a platform-provided API to store audit records.
           </aactivity>
