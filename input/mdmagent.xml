@@ -492,15 +492,21 @@
               </note>
             </f-element>
             <f-element id="ftp_itc_ext.1.2">
-              <title>The TSF shall permit the TSF and the MDM Server and <selectables>
-                  <selectable>MAS Server</selectable>
-                  <selectable>no other IT entities</selectable>
-                </selectables> to initiate communication via the trusted channel.</title>
+              <title>The <abbr linkend="TSF"/> shall <selectables>
+                <selectable>invoke platform-provided functionality</selectable>
+                <selectable>implement functionality</selectable>
+              </selectables> to permit the TSF and the MDM Server and <selectables>
+                <selectable>MAS Server</selectable>
+                <selectable>no other IT entities</selectable>
+              </selectables> to initiate communication via the trusted channel.</title>           
               <note role="application">
                 For all other use cases, the mobile device initiates the communication; however, for MDM Agents, the MDM Server may also initiate communication. This requirement replaces the requirement in the MDF <abbr linkend="PP"/>.</note>            
             </f-element>
             <f-element id="ftp_itc_ext.1.3">
-              <title>The TSF shall initiate communication via the trusted channel for all communication between the MDM Agent and the MDM Server and <selectables>
+              <title>The TSF shall <selectables>
+                <selectable>invoke platform-provided functionality</selectable>
+                <selectable>implement functionality</selectable>
+              </selectables> to initiate communication via the trusted channel for all communication between the MDM Agent and the MDM Server and <selectables>
                   <selectable>all communication between the MAS Server and the MDM Agent</selectable>
                   <selectable>no other communication</selectable>
                 </selectables>             
@@ -508,7 +514,16 @@
               <note role="application">
                 This element is inherited from the MDF <abbr linkend="PP"/>; it is expected that Mobile Device will initiate the trusted channel between the MDM Agent and the MDM Server for administrative communication and may initiate other trusted channels to other trusted IT entities for other uses.</note>
               <aactivity>The following additional assurance activities shall be performed.
-                <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to determine that the methods of Agent-Server communication are indicated, along with how those communications are protected. The evaluator shall also confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> administration are consistent with those specified in the requirement, and are included in the requirements in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
+                <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to determine that the methods of Agent-Server 
+                communication are indicated, along with how those communications are protected. The evaluator shall also 
+                confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> 
+                administration are consistent with those specified in the requirement, and are included in the requirements 
+                in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
+                of the <abbr linkend="ST"/> to verify that it describes (for each supported platform) 
+                how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented 
+                by the MDM Agent; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part 
+                of this evaluation activity).<htm:br/><htm:br/>
                 <Guidance/>The evaluator shall confirm that the operational guidance contains instructions for configuring the communication channel between the MDM Agent and the MDM Server and conditionally, the MAS Server for each supported method.<htm:br/><htm:br/>
                 <Tests/>For each supported identifier type (excluding DNs), the evaluator shall repeat the following tests:<htm:br/><htm:br/>
                 <testlist>
@@ -714,7 +729,10 @@
           <consistency-rationale></consistency-rationale>                  
           <f-element id="fau_gen.1.1(2)">
             <title>
-              The MDM Agent shall be able to generate an MDM Agent audit record of the following auditable events:
+              The MDM Agent shall <selectables>
+                <selectable>invoke platform-provided functionality</selectable>
+                <selectable>implement functionality</selectable>
+              </selectables> to generate an MDM Agent audit record of the following auditable events:
               <htm:ul>
                 <htm:li>startup and shutdown of the MDM Agent</htm:li>
                 <htm:li>Change in MDM policy</htm:li>
@@ -723,15 +741,29 @@
                 <htm:li><assignable>other events</assignable></htm:li>
               </htm:ul>
             </title>
-            <note role="application">
-              This requirement outlines the information to be included in the MDM Agent’s audit records. The <abbr linkend="ST"/> author can include other auditable events directly in the table in FAU_GEN.1.1; they are not limited to the list presented.<htm:br/><htm:br/>
-              The change of the MDM policy must minimally indicate that the policy changed. The event record need not contain the differences between the prior policy and the new policy. Modifications commanded by the MDM Server are those commands listed in FMT_SMF.1.1.<htm:br/><htm:br/>
-              The selection for the FMT_UNR_EXT.1 auditable event in Table 1 corresponds to the selection in FMT_UNR_EXT.1. If “apply remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author selects “attempt to unenroll” in FAU_GEN.1.1(2) Table 1 for FMT_UNR_EXT.1; otherwise, "none" is selected.
+          <note role="application">
+              This requirement outlines the information to be included in the MDM Agent’s audit records. The <abbr linkend="ST"/> 
+              author can include other auditable events directly in the table in FAU_GEN.1.1; they are not limited to the list 
+              presented.<htm:br/><htm:br/>
+              The change of the MDM policy must minimally indicate that the policy changed. The event record need not contain the 
+              differences between the prior policy and the new policy. Modifications commanded by the MDM Server are those commands 
+              listed in FMT_SMF.1.1.<htm:br/><htm:br/>
+              The selection for the FMT_UNR_EXT.1 auditable event in Table 1 corresponds to the selection in FMT_UNR_EXT.1. If “apply 
+              remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author selects “attempt to unenroll” 
+              in FAU_GEN.1.1(2) Table 1 for FMT_UNR_EXT.1; otherwise, "none" is selected.
             </note>
             <aactivity>
-              <TSS/>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <htm:br/><htm:br/>
+              <TSS/>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. 
+              Each audit record format type must be covered, along with a brief description of each field. <htm:br/><htm:br/>
+              If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of the 
+              <abbr linkend="ST"/> to verify that it describes (for each supported platform) how this functionality is invoked (it 
+              should be noted that this may be through a mechanism that is not implemented by the MDM Agent; nonetheless, that 
+              mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/>
               <Tests/>
-              The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable events defined in Table 1 and observe that accurate audit records are generated with contents and formatting consistent with those described in the <abbr linkend="TSS"/>. Note that this testing can be accomplished in conjunction with the testing of the security mechanisms directly.
+              The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable events defined in Table 1 and observe that 
+              accurate audit records are generated with contents and formatting consistent with those described in the 
+              <abbr linkend="TSS"/>. Note that this testing can be accomplished in conjunction with the testing of the security 
+              mechanisms directly.
               <htm:table>
                 <htm:TR>
                   <htm:TH>Requirement</htm:TH>
