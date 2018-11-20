@@ -469,22 +469,7 @@
   <chapter id="sfr" title="Security Requirements">
     <base-pp name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417" xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml">
       <!--  If this <abbr linkend="PP-Module"/> is extending the MDF <abbr linkend="PP"/>, the MDM Agent is expected to utilize a number of security functions implemented by the mobile device and evaluated against the base <abbr linkend="PP"/>. This security functionality includes FCS_CKM.1, FCS_CKM.2(1), FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FCS_TLSC_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FPT_TST_EXT.1, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1.-->
-      <modified-sfrs>
-        <subsection id="crypto-fcs" title="Cryptographic Support (FCS)"> 
-          <!-- Question: This SFR's only modification is that the name differs. How should this be handled? Below is the app note from MDM Agent: -->
-          <!--  The following requirement is identical, except in name, to the Cryptographic Key Storage requirement for <abbr linkend="PP-Module"/>s extending the MDM <abbr linkend="PP"/>. The names differ for clarity, and one must be added to the Agent’s <abbr linkend="ST"/> depending on the base <abbr linkend="PP"/>.  -->              
-          <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
-            <consistency-rationale>test 123</consistency-rationale>
-            <f-element id="fcs_stg_ext.4.1">
-              <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
-              <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.</note>
-              <aactivity>
-                <TSS/>               
-                The evaluator will verify that the <abbr linkend="TSS"/> lists each persistent secret (credential, secret key) and private key needed to meet the requirements in the <abbr linkend="ST"/>. For each of these items, the evaluator will confirm that the <abbr linkend="TSS"/> lists for what purpose it is used, and, for each platform listed as supported in the <abbr linkend="ST"/>, how it is stored. The evaluator shall verify that the Agent calls a platform-provided API to store persistent secrets and private keys.
-              </aactivity>
-            </f-element>
-          </f-component>     
-        </subsection>
+      <modified-sfrs>       
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
          <!-- TODO: Fix this area -->
           <!--  If the <abbr linkend="PP-Module"/> extends the MDF <abbr linkend="PP"/>, the communication channel between the Agent and the Server is external to the <abbr linkend="TOE"/> and FTP_ITC_EXT.1 in the MDF <abbr linkend="PP"/> should be modified as below.-->
@@ -538,6 +523,21 @@
         </subsection>  
       </modified-sfrs>
       <additional-sfrs>
+        
+        <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">           
+          <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
+            <consistency-rationale>test 123</consistency-rationale>
+            <f-element id="fcs_stg_ext.4.1">
+              <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
+              <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.</note>
+              <aactivity>
+                <TSS/>               
+                The evaluator will verify that the <abbr linkend="TSS"/> lists each persistent secret (credential, secret key) and private key needed to meet the requirements in the <abbr linkend="ST"/>. For each of these items, the evaluator will confirm that the <abbr linkend="TSS"/> lists for what purpose it is used, and, for each platform listed as supported in the <abbr linkend="ST"/>, how it is stored. The evaluator shall verify that the Agent calls a platform-provided API to store persistent secrets and private keys.
+              </aactivity>
+            </f-element>
+          </f-component>     
+        </subsection>
+
         <subsection id="trust-path-enroll" title="Trusted Path">        
           <f-component id="ftp_trp.1(2)" name="Trusted Path (for Enrollment)">
             <consistency-rationale></consistency-rationale>
@@ -625,6 +625,9 @@
             </f-element>
           </f-component>     
         </subsection>    
+
+
+
       </additional-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
@@ -634,14 +637,14 @@
     
     <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">
      
-        <!--  If this <abbr linkend="PP-Module"/> is extending the MDM <abbr linkend="PP"/>, the Agent is part of the MDM <abbr linkend="TOE"/> and any requirements on the MDM <abbr linkend="TOE"/> also apply to the MDM Agent. These security functions include FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FIA_X509_EXT.4, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The <abbr linkend="ST"/> author should iterate the requirements in the MDM <abbr linkend="PP"/> for each Agent in order to make the appropriate selections for each agent.-->     
+        <!--  If this <abbr linkend="PP-Module"/> is extending the MDM <abbr linkend="PP"/>, the Agent is part of the MDM <abbr linkend="TOE"/> and any requirements on the MDM <abbr linkend="TOE"/> also apply to the MDM Agent. These security functions include FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FIA_X509_EXT.4, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The <abbr linkend="ST"/> author should iterate the requirements in the MDM <abbr linkend="PP"/> for each Agent in order to make the appropriate selections for each agent.-->   
+      <!-- DONE: above SFRs manadatory or feature dependent for all components of the distributed TOE -->
       <modified-sfrs>
         <!-- SCHEMA: Second base is populated with first base's name.  -->
-        <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">
-          <!--  The following requirement is identical, except in name, to the Cryptographic Key Storage requirement for <abbr linkend="PP-Module"/>s extending the MDF <abbr linkend="PP"/>. The names differ for clarity and one must be added to the Agent’s <abbr linkend="ST"/> depending on the base <abbr linkend="PP"/>.-->
-          <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
+        <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">          
+          <f-component id="fcs_stg_ext.1" name="Cryptographic Key Storage">
             <consistency-rationale></consistency-rationale>
-            <f-element id="fcs_stg_ext.1.1(2)">
+            <f-element id="fcs_stg_ext.1.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.</note>
               <aactivity>
@@ -653,13 +656,13 @@
           <f-component name="fcs_tlsc_ext.1" id="TLS Client">  <!-- Will need to update to point to the package -->
             <consistency-rationale></consistency-rationale>
            <f-element id="fcs_tlsc_ext.1.1">
-             <title></title>
+             <title>Bring TLSC in from package.</title>
            </f-element>
             <!--  The <abbr linkend="ST"/> author shall include the FCS_TLSC_EXT.1 from the Optional Requirements in the MDM <abbr linkend="PP"/>.-->
           </f-component>
         </subsection>
         <subsection id="fpt" title="Protection of the TSF (FPT)">
-          <f-component name="" id="">
+          <f-component name="" id="FPT_ITT.1">
             <consistency-rationale></consistency-rationale>
           </f-component>
           <!-- TODO: Figure out how to bring this in 
@@ -688,10 +691,11 @@
                   </selectables> periodic reachability events;
                 </htm:li>
                 <selectables linebreak="yes">
-                  <selectable><htm:li>change in enrollment state</htm:li></selectable>
-                  <selectable><htm:li>failure to install an application from the MAS Server</htm:li></selectable>
-                  <selectable><htm:li>failure to update an application from the MAS Server</htm:li></selectable>
-                  <selectable><htm:li><assignable>other events</assignable>, no other events</htm:li></selectable>
+                  <selectable>change in enrollment state</selectable>
+                  <selectable>failure to install an application from the MAS Server</selectable>
+                  <selectable>failure to update an application from the MAS Server</selectable>
+                  <selectable><assignable>other events</assignable></selectable> 
+                  <selectable>no other events</selectable>
                 </selectables>
               </htm:ul>
             </title>
@@ -724,9 +728,7 @@
           </f-element>
         </f-component>
         <f-component id="fau_gen.1(2)" name="Audit Data Generation">         
-          <consistency-rationale></consistency-rationale>
-          <!-- TODO: Do I need to include anything from the app note from EP:
-          Note that the following requirement is not listed alongside its corresponding FAU_GEN.1.2(2). This is because the generation of audit data is always the responsibility of the TSF (i.e. auditable events will occur based on <abbr linkend="TOE"/> behavior) but the recording of the audit data will be either within the <abbr linkend="TOE"/> boundary or by the underlying mobile device platform. For this reason, FAU_GEN.1.2(2) is defined in section 5.6.1 below. The <abbr linkend="ST"/> author will always include both FAU_GEN.1.1(2) and FAU_GEN.1.2(2) regardless; the only difference is whether FAU_GEN.1.2(2) is performed by the <abbr linkend="TOE"/> or if the TSF relies on the underlying platform.<htm:br/><htm:br/>-->
+          <consistency-rationale></consistency-rationale>                  
           <f-element id="fau_gen.1.1(2)">
             <title>
               The MDM Agent shall be able to generate an MDM Agent audit record of the following auditable events:
@@ -901,19 +903,18 @@
         <f-component id="fmt_smf_ext.3" name="Specification of Management Functions">
           <consistency-rationale></consistency-rationale>
           <f-element id="fmt_smf_ext.3.1">
+            <!-- TODO: Look at the formatting of this SFR -->
             <title>The MDM Agent shall be capable of interacting with the platform to perform the following functions:
-              <htm:ul>
-                <selectables linebreak="yes">
-                  <selectable><htm:li>administrator-provided management functions in MDF <abbr linkend="PP"/></htm:li></selectable>
-                  <selectable><htm:li>administrator-provided device management functions in MDM <abbr linkend="PP"/></htm:li></selectable>
-                </selectables>
-                <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
-                <htm:li></htm:li>
+              <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
+              <selectables linebreak="yes">
+                  <selectable>administrator-provided management functions in MDF <abbr linkend="PP"/></selectable>
+                  <selectable>administrator-provided device management functions in MDM <abbr linkend="PP"/></selectable>
+                </selectables>             
                 <selectables>
                   <selectable><assignable>additional functions</assignable></selectable>
                   <selectable> no additional functions</selectable>
                 </selectables>
-              </htm:ul>
+              
             </title>
             <note role="application">
               This requirement captures all the configuration functionality in the MDM Agent to configure the underlying Mobile Device with the configuration policies sent from the MDM Server to the Agent. The <abbr linkend="ST"/> author selects the base <abbr linkend="PP"/> (MDF <abbr linkend="PP"/> or MDM <abbr linkend="PP"/>) as the source of the management functions.<htm:br/><htm:br/>
