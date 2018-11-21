@@ -573,24 +573,12 @@
                 from other communication paths and provides assured identification of its endpoints and protection of the 
                 communicated data from disclosure and detection of modification of the communicated data from 
                 [modification, disclosure].</title>
-              <aactivity>
-                <TSS/>If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of 
-                the <abbr linkend="ST"/> to verify that it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the MDM Agent; nonetheless, that 
-                mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/>
-              </aactivity>
             </f-element>
             <f-element id="ftp_trp.1.2(2)">
               <title>The TSF shall<selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to permit <!-- ToDo: Why MD users and not the agent? -->MD users to initiate communication via the trusted path.</title>
-              <aactivity>
-                <TSS/>If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of 
-                the <abbr linkend="ST"/> to verify that it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the MDM Agent; nonetheless, that 
-                mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/>
-              </aactivity>
         <!--TODO free the TOE for MD here! -->      
             </f-element>
             <f-element id="ftp_trp.1.3(2)">
