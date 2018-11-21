@@ -10,6 +10,9 @@
   assumptions: objective refers
   OSPs: objective refers (Organizational Security Policies)
   security objectives - component refers
+  Free The Toe - Check/Fix section 5.3.2 & 5.3.3
+  Need to check the Supporting Document - not all of the EAs are being pulled over: None of the TOE Security Functional Requirements show up in the SD
+  
   
   fix table refs in text so that they refer to the correct #s
  
@@ -858,16 +861,30 @@
         <f-component id="fau_sel.1(2)" name="Security Audit Event Selection">
           <consistency-rationale></consistency-rationale>
           <f-element id="fau_sel.1.1(2)">
-            <title>The TSF shall be able to select the set of events to be audited from the set of all auditable events based on the following attributes:
+            
+            <title> The <abbr linkend="TSF"/> shall <selectables>
+              <selectable>invoke platform-provided functionality</selectable>
+              <selectable>implement functionality</selectable>
+              </selectables> to select the set of events to be audited from the set of all auditable events based on the 
+              following attributes:
               <htm:ul>
                 <htm:li>event type</htm:li>
                 <htm:li>success of auditable security events</htm:li>
                 <htm:li>failure of auditable security events</htm:li>
                 <htm:li><assignable>other attributes</assignable></htm:li>
               </htm:ul></title>
-            <note role="application">The intent of this requirement is to identify all criteria that can be selected to trigger an audit event. For the <abbr linkend="ST"/> author, the assignment is used to list any additional criteria or “none”. This selection may be configured by the MDM Server.</note>
+            <note role="application">The intent of this requirement is to identify all criteria that can be selected to trigger an 
+              audit event. For the <abbr linkend="ST"/> author, the assignment is used to list any additional criteria or “none”. 
+              This selection may be configured by the MDM Server.</note>
             <aactivity>
-              <Guidance/>The evaluator shall examine the operational guidance to determine that it contains instructions on how to define the set of auditable events as well as explains the syntax for multi-value selection (if applicable). The evaluator shall also verify that the operational guidance shall identify those audit records that are always recorded, regardless of the selection criteria currently being enforced.<htm:br/><htm:br/>
+              <TSS/>If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of 
+              the <abbr linkend="ST"/> to verify that it describes (for each supported platform) how this functionality is invoked 
+              (it should be noted that this may be through a mechanism that is not implemented by the MDM Agent; nonetheless, that 
+              mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/>
+              <Guidance/>The evaluator shall examine the operational guidance to determine that it contains instructions on how to 
+              define the set of auditable events as well as explains the syntax for multi-value selection (if applicable). The 
+              evaluator shall also verify that the operational guidance shall identify those audit records that are always recorded, 
+              regardless of the selection criteria currently being enforced.<htm:br/><htm:br/>
               <Tests/>
               <testlist>
                 <test>For each attribute listed in the requirement, the evaluator shall devise a test to show that selecting the attribute causes only audit events with that attribute (or those that are always recorded, as identified in the administrative guidance) to be recorded.</test>
