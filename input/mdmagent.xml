@@ -6,12 +6,12 @@
 -->
 
 <!-- To Do
-  threats: objective refers
-  assumptions: objective refers
-  OSPs: objective refers (Organizational Security Policies)
-  security objectives - component refers
-  Free The Toe - Check/Fix section 5.3.2 & 5.3.3
-  Need to check the Supporting Document - not all of the EAs are being pulled over: None of the TOE Security Functional Requirements show up in the SD
+  threats: objective refers - DONE
+  assumptions: objective refers - DONE
+  OSPs: objective refers (Organizational Security Policies) - DONE
+  TODO :security objectives - DONE except for the following in Security Objectives Rationale: T.MALICIOUS_APPS, T.BACKUP, A.CONNECTIVITY, P.ACCOUNTABILITY, P.ADMIN, P.DEVICE_ENROLL, P.NOTIFY
+  Free The Toe - Done
+  TODO: Need to check the Supporting Document - not all of the EAs are being pulled over: None of the TOE Security Functional Requirements show up in the SD
   
   
   fix table refs in text so that they refer to the correct #s
@@ -319,36 +319,48 @@
           </objective-refer>
           </threat> 
         <threat id="T.NETWORK_ATTACK">
-          <description>An attacker may masquerade as MDM Server and attempt to compromise the integrity of the mobile device by sending malicious management commands.</description>
-          <consistency-rationale>
-            
-          </consistency-rationale>
-          <objective-refer ref="O.WHATEVER">
-            <rationale>
-              
-            </rationale>
+          <description><htm:b>Network Attack</htm:b><htm:br></htm:br><htm:br></htm:br>
+            An attacker is positioned on a wireless communications channel or elsewhere on the network infrastructure. Attackers 
+            may initiate communications with the Agent or alter communications between the Agent and other endpoints 
+            in order to compromise the Agent or software managed by the Agent. These attacks include malicious software update of 
+            any applications managed by the Agent, device updates managed by the Agent, updates to the Agent itself. These attacks 
+            also include malicious changes to MDM policy on or managed by the Agent, tampering with security logs on or managed
+            by the Agent, or other malicious disruptions of normal Agent performance via the network.</description>
+          <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
+            <rationale>The threat T.NETWORK_ATTACK is countered by O.DATA_PROTECTION_TRANSIT as this provides the capability to 
+              communicate using one (or more) standard protocols as a means to maintain the confidentiality of data that are 
+              transmitted between the Agent and other entities.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The threat T.NETWORK_ATTACK is countered by O.APPLY_POLICY as this provides a secure configuration of the Agent to protect data that it processes.</rationale>
           </objective-refer>
         </threat>
         <threat id="T.NETWORK_EAVESDROP">
-          <description>Unauthorized entities may intercept communications between the MDM and mobile devices to monitor, gain access to, disclose, or alter remote management commands. Unauthorized entities may intercept unprotected wireless communications between the mobile device and the Enterprise to monitor, gain access to, disclose, or alter <abbr linkend="TOE"/> data.</description>
-          <consistency-rationale>
-            
-          </consistency-rationale>
-          <objective-refer ref="O.WHATEVER">
-            <rationale>
-              
-            </rationale>
+          <description><htm:b>Network Attack</htm:b><htm:br></htm:br><htm:br></htm:br>
+            An attacker is positioned on a wireless communications channel or elsewhere on the network infrastructure. Attackers 
+            may initiate communications with the Agent or alter communications between the Agent and other endpoints 
+            in order to compromise the Agent or software managed by the Agent. These attacks include malicious software update of 
+            any applications managed by the Agent, device updates managed by the Agent, updates to the Agent itself. These attacks 
+            also include malicious changes to MDM policy on or managed by the Agent, tampering with security logs on or managed
+            by the Agent, or other malicious disruptions of normal Agent performance via the network.</description>
+          <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
+            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.DATA_PROTECTION_TRANSIT as this provides the capability to 
+              communicate using one (or more) standard protocols as a means to maintain the confidentiality of data that are 
+              transmitted between the Agent and other entities.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.APPLY_POLICY as this provides a secure configuration of the Agent to protect data that it processes.</rationale>
           </objective-refer>
         </threat>
         <threat id="T.PHYSICAL_ACCESS">
           <description>The mobile device may be lost or stolen, and an unauthorized individual may attempt to access user data. Although these attacks are primarily directed against the mobile device platform, the MDM Agent configures features, which address this threat.</description>
-          <consistency-rationale>
-            
-          </consistency-rationale>
-          <objective-refer ref="O.WHATEVER">
-            <rationale>
-              
-            </rationale>
+          <objective-refer ref="O.ACCOUNTABILITY"> 
+            <rationale>The threat T.PHYSICAL_ACCESS is countered by O.ACCOUNTABILITY as this provides the capability to 
+              log attempts by unauthorized personnel to access data, and to log any access to the data or the device, as well as
+              changes to the device during the time when it is not under the control of an authorized user.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The threat T.PHYSICAL_ACCESS is countered by O.APPLY_POLICY as this provides a secure configuration of the Agent to protect data that it processes.</rationale>
           </objective-refer>
         </threat>
       </threats>
@@ -364,23 +376,22 @@
         </assumption>
         <assumption id="A.MOBILE_DEVICE_PLATFORM">
           <description>The MDM Agent relies upon mobile platform and hardware evaluated against the MDFPP and assured to provide policy enforcement as well as cryptographic services and data protection. The mobile platform provides trusted updates and software integrity verification of the MDM Agent.</description>
-          <objective-refer ref="OE.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="OE.MOBILE_DEVICE_PLATFORM">
+            <rationale>The operational environment objective OE.MOBILE_DEVICE_PLATFORM is realized through A.MOBILE_DEVICE_PLATFORM. </rationale>
           </objective-refer>
         </assumption>
         <assumption id="A.PROPER_ADMIN">
           <description>One or more competent, trusted personnel who are not careless, willfully negligent, or hostile, are assigned and authorized as the <abbr linkend="TOE"/> Administrators, and do so using and abiding by guidance documentation.</description>
-          <objective-refer ref="OE.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="OE.DATA_PROPER_ADMIN">
+            <rationale>The operational environment objective OE.DATA_PROPER_ADMIN is realized through A.PROPER_ADMIN. </rationale>
           </objective-refer>
         </assumption>
         <assumption id="A.PROPER_USER">
           <description>
             Mobile device users are not willfully negligent or hostile, and use the device within compliance of a reasonable Enterprise security policy.
           </description>
-          <objective-refer ref="OE.WHATEVER">
-            <rationale>             
-            </rationale>
+          <objective-refer ref="OE.DATA_PROPER_USER">
+            <rationale>The operational environment objective OE.DATA_PROPER_USER is realized through A.PROPER_USER. </rationale>
           </objective-refer>        
         </assumption>
       </assumptions>
@@ -420,47 +431,110 @@
       <SOs>
         <SO id="O.ACCOUNTABILITY">
           <description>The <abbr linkend="TOE"/> must provide logging facilities, which record management actions undertaken by its administrators.</description>
-          <component-refer ref="fau_gen.1"/>        
+          <component-refer ref="FAU_ALT_EXT.1"/>
+          <component-refer ref="FAU_ALT_EXT.2"/>
+          <component-refer ref="FAU_GEN.1(1)"/>
+          <component-refer ref="FAU_GEN.1(2)"/>
+          <component-refer ref="FAU_NET_EXT.1"/>
+          <component-refer ref="FAU_SAR.1"/>
+          <component-refer ref="FAU_SEL.1"/>
+          <component-refer ref="FAU_SEL.1(2)"/>
+          <component-refer ref="FAU_STG_EXT.1"/>
+          <component-refer ref="FAU_STG_EXT.2"/>        
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.APPLY_POLICY">
           <description>The <abbr linkend="TOE"/> must facilitate configuration and enforcement of enterprise security policies on mobile devices via interaction with the mobile OS and the MDM Server. This will include the initial enrollment of the device into management, through its entire lifecycle, including policy updates and its possible unenrollment from management services.</description>
-          <component-refer ref="fau_gen.1"/>
+          <component-refer ref="FAU_ALT_EXT.1"/>
+          <component-refer ref="FAU_GEN.1(1)"/>
+          <component-refer ref="FAU_GEN.1(2)"/>
+          <component-refer ref="FAU_NET_EXT.1"/>
+          <component-refer ref="FAU_SAR.1"/>
+          <component-refer ref="FAU_SEL.1"/>
+          <component-refer ref="FAU_STG_EXT.1"/>
+          <component-refer ref="FAU_STG_EXT.2"/>
+          <component-refer ref="FIA_ENR_EXT.2"/>
+          <component-refer ref="FMT_MOF_EXT.1"/>
+          <component-refer ref="FMT_POL_EXT.2"/>
+          <component-refer ref="FMT_SMF_EXT.1"/>
+          <component-refer ref="FMT_SMF_EXT.2"/>
+          <component-refer ref="FMT_SMF_EXT.3"/>
+          <component-refer ref="FMT_UNR_EXT.1"/>
+          <component-refer ref="FTA_TAB.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the MDM Server and the MDM Agent must be protected from being monitored, accessed, or altered.</description>
-          <component-refer ref="fau_gen.1"/>
+          <component-refer ref="FAU_STG_EXT.1"/>
+          <component-refer ref="FCS_CKM_EXT.4"/>
+          <component-refer ref="FCS_CKM.1"/>
+          <component-refer ref="FCS_CKM.2"/>
+          <component-refer ref="FCS_CKM.2(1)"/>
+          <component-refer ref="FCS_CKM.2(2)"/>
+          <component-refer ref="FCS_CKM_EXT.8"/>
+          <component-refer ref="FCS_COP.1(*)"/>
+          <component-refer ref="FCS_DTLSS_EXT.1 (TLS Package)"/>
+          <component-refer ref="FCS_DTLSC_EXT.1 (TLS Package)"/>
+          <component-refer ref="FCS_HTTPS_EXT.1"/>
+          <component-refer ref="FCS_IPSEC_EXT.1"/>
+          <component-refer ref="FCS_IV_EXT.1"/>
+          <component-refer ref="FCS_RBG_EXT.1"/>
+          <component-refer ref="FCS_RBG_EXT.2"/>
+          <component-refer ref="FCS_RBG_EXT.3"/>
+          <component-refer ref="FCS_SRV_EXT.1"/>
+          <component-refer ref="FCS_SRV_EXT.2"/>
+          <component-refer ref="FCS_SSHS_EXT.1"/>
+          <component-refer ref="FCS_STG_EXT.2"/>
+          <component-refer ref="FCS_TLSC_EXT.1 (TLS Package)"/>
+          <component-refer ref="FCS_TLSC_EXT.2 (TLS Package)"/>
+          <component-refer ref="FCS_TLSS_EXT.1 (TLS Package)"/>
+          <component-refer ref="FCS_TLSS_EXT.2 (TLS Package)"/>
+          <component-refer ref="FDP_BLT_EXT.1"/>
+          <component-refer ref="FDP_IFC_EXT.1"/>
+          <component-refer ref="FDP_STG_EXT.1"/>
+          <component-refer ref="FDP_UPC_EXT.1"/>
+          <component-refer ref="FIA_BLT_EXT.1"/>
+          <component-refer ref="FIA_BLT_EXT.2"/>
+          <component-refer ref="FIA_BLT_EXT.3"/>
+          <component-refer ref="FIA_BLT_EXT.4"/>
+          <component-refer ref="FIA_BLT_EXT.5"/>
+          <component-refer ref="FIA_BLT_EXT.6"/>
+          <component-refer ref="FIA_X509_EXT.1(*)"/>
+          <component-refer ref="FIA_X509_EXT.2"/>
+          <component-refer ref="FIA_X509_EXT.3"/>
+          <component-refer ref="FIA_X509_EXT.4"/>
+          <component-refer ref="FIA_X509_EXT.5"/>
+          <component-refer ref="FPT_BLT_EXT.1"/>
+          <component-refer ref="FPT_ITT.1"/>
+          <component-refer ref="FTP_BLT_EXT.1"/>
+          <component-refer ref="FTP_BLT_EXT.2"/>
+          <component-refer ref="FTP_ITC.1(*)"/>
+          <component-refer ref="FTP_ITC_EXT.1"/>
+          <component-refer ref="FTP_TRP.1(*)"/>
           <consistency-rationale></consistency-rationale>
         </SO>
       </SOs>
     </section>
     <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
-      <!-- Question: Do we have to map SFRs to this section? -->
       <SOs>
         <SO id="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance in a trusted manner.</description>
-          <component-refer ref="fau_whatever.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="OE.DATA_PROPER_USER">
           <description>Users of the mobile device are trained to securely use the mobile device and apply all guidance in a trusted manner.</description>
-          <component-refer ref="fau_whatever.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="OE.IT_ENTERPRISE">
           <description>The Enterprise IT infrastructure provides security for a network that is available to the <abbr linkend="TOE"/> and mobile devices that prevents unauthorized access.</description>
-          <component-refer ref="fau_whatever.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="OE.MOBILE_DEVICE_PLATFORM">
           <description>The MDM Agent relies upon the trustworthy mobile platform and hardware to provide policy enforcement as well as cryptographic services and data protection. The mobile platform provides trusted updates and software integrity verification of the MDM Agent.</description>
-          <component-refer ref="fau_whatever.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="OE.WIRELESS_NETWORK">
           <description>A wireless network will be available to the mobile devices.</description>
-          <component-refer ref="fau_whatever.1"/>
           <consistency-rationale></consistency-rationale>
         </SO>
       </SOs>
