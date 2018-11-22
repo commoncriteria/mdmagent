@@ -9,7 +9,7 @@
   threats: objective refers - DONE
   assumptions: objective refers - DONE
   OSPs: objective refers (Organizational Security Policies) - DONE
-  TODO :security objectives - DONE except for the following in Security Objectives Rationale: T.MALICIOUS_APPS, T.BACKUP, A.CONNECTIVITY, P.ACCOUNTABILITY, P.ADMIN, P.DEVICE_ENROLL, P.NOTIFY
+  TODO :security objectives - DONE; note, changed so they look like the ones in MDF, there are no mappings or rationales
   Free The Toe - Done
   TODO: Need to check the Supporting Document - not all of the EAs are being pulled over: None of the TOE Security Functional Requirements show up in the SD
   
@@ -295,27 +295,39 @@
       <threats>      
         <threat id="T.MALICIOUS_APPS"> 
           <description>
-              Malicious or flawed application threats exist because apps loaded onto a mobile device may include malicious or exploitable code. An administrator of the MDM or mobile device user may inadvertently import malicious code, or an attacker may insert malicious code into the <abbr linkend="TOE"/>, resulting in the compromise of <abbr linkend="TOE"/> or <abbr linkend="TOE"/> data.
+              Malicious or flawed application threats exist because apps loaded onto a mobile device may include malicious or 
+              exploitable code. An administrator of the MDM or mobile device user may inadvertently import malicious code, or an 
+              attacker may insert malicious code into the <abbr linkend="TOE"/>, resulting in the compromise of <abbr linkend="TOE"/> 
+              or <abbr linkend="TOE"/> data.
           </description>
           <consistency-rationale>
             <!-- Question: Do I need consistency rationale for Threats -->
           </consistency-rationale>
-          <objective-refer ref="O.WHATEVER">
-            <rationale> 
-            </rationale>
-            </objective-refer>
+          <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
+            <rationale>The threat T.MALICIOUS_APPS is countered by O.DATA_PROTECTION_TRANSIT as this provides the capability to 
+              protect app loading/updates against malicious insertion from the network.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The threat T.MALICIOUS_APPS is countered by O.APPLY_POLICY as this provides policy preventing loading
+              of unapproved apps into the <abbr linkend="TOE"/>.</rationale>
+          </objective-refer>
           </threat>      
         <threat id="T.BACKUP">
             <description>
-              An attacker may try to target backups of data or credentials and exfiltrate data. Since the backup is stored on either a personal computer or end user’s backup repository, it’s not likely enterprise would detect compromise.
+              An attacker may try to target backups of data or credentials and exfiltrate data. Since the backup is stored on either 
+              a personal computer or end user’s backup repository, it’s not likely enterprise would detect compromise.
             </description>
           <consistency-rationale>
             
           </consistency-rationale>
-          <objective-refer ref="O.WHATEVER">
-            <rationale>
-              
-            </rationale>
+          <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
+            <rationale>The threat T.BACKUP is countered by O.DATA_PROTECTION_TRANSIT as this provides the capability to 
+              communicate using one (or more) standard protocols as a means to maintain the confidentiality of data that are 
+              transmitted between the Agent and other entities.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The threat T.BACKUP is countered by O.APPLY_POLICY as this provides policy to enforce that backups
+            be stored ony in secure, protected locations.</rationale>
           </objective-refer>
           </threat> 
         <threat id="T.NETWORK_ATTACK">
@@ -370,8 +382,8 @@
         <assumption id="A.CONNECTIVITY">
           <description>The <abbr linkend="TOE"/> relies on network connectivity to carry out its management activities. The <abbr linkend="TOE"/> will robustly handle instances when connectivity is unavailable or unreliable.
           </description>
-          <objective-refer ref="OE.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="OE.WIRELESS_NETWORK">
+            <rationale>The operational environment objective OE.WIRELESS_NETWORK is realized through A.CONNECTIVITY. </rationale>
           </objective-refer>
         </assumption>
         <assumption id="A.MOBILE_DEVICE_PLATFORM">
@@ -400,26 +412,30 @@
       <OSPs>
         <OSP id="P.ACCOUNTABILITY">
           <description>Personnel operating the <abbr linkend="TOE"/> shall be accountable for their actions within the <abbr linkend="TOE"/>.</description>
-          <objective-refer ref="O.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="O.ACCOUNTABILITY">
+            <rationale>O.ACCOUNTABILITY provides logging of personnel actions in order to provide accountability of all personnel 
+              actions within the <abbr linkend="TOE"/>.</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.ADMIN">
           <description>The configuration of the mobile device security functions must adhere to the Enterprise security policy.</description>
-          <objective-refer ref="O.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The <abbr linkend="TOE"/> adheres to the Enterprise security policy through the application of O.APPLY_POLICY.</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.DEVICE_ENROLL">
           <description>A mobile device must be enrolled for a specific user by the administrator of the MDM prior to being used in the Enterprise network by the user.</description>
-          <objective-refer ref="O.WHATEVER">
-            <rationale></rationale>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The <abbr linkend="TOE"/> enrolls mobile devices for specific users with policy through the application 
+              of O.APPLY_POLICY</rationale>
           </objective-refer>
         </OSP>
         <OSP id="P.NOTIFY">
-          <description>The mobile user must immediately notify the administrator if a mobile device is lost or stolen so that the administrator may apply remediation actions via the MDM system.</description>
-          <objective-refer ref="O.WHATEVER">
-            <rationale></rationale>
+          <description>The mobile user must immediately notify the administrator if a mobile device is lost or stolen so that the 
+            administrator may apply remediation actions via the MDM system.</description>
+          <objective-refer ref="O.APPLY_POLICY">
+            <rationale>The <abbr linkend="TOE"/> provides the capability for the administrator to apply remediation actions via the MDM 
+            system through policy, which is applied through O.APPLY_POLICY.</rationale>
           </objective-refer>
         </OSP>
       </OSPs>
@@ -516,28 +532,23 @@
       </SOs>
     </section>
     <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
-      <SOs>
-        <SO id="OE.DATA_PROPER_ADMIN">
+      <SOEs>
+        <SOE id="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance in a trusted manner.</description>
-          <consistency-rationale></consistency-rationale>
-        </SO>
-        <SO id="OE.DATA_PROPER_USER">
+        </SOE>
+        <SOE id="OE.DATA_PROPER_USER">
           <description>Users of the mobile device are trained to securely use the mobile device and apply all guidance in a trusted manner.</description>
-          <consistency-rationale></consistency-rationale>
-        </SO>
-        <SO id="OE.IT_ENTERPRISE">
+        </SOE>
+        <SOE id="OE.IT_ENTERPRISE">
           <description>The Enterprise IT infrastructure provides security for a network that is available to the <abbr linkend="TOE"/> and mobile devices that prevents unauthorized access.</description>
-          <consistency-rationale></consistency-rationale>
-        </SO>
-        <SO id="OE.MOBILE_DEVICE_PLATFORM">
+        </SOE>
+        <SOE id="OE.MOBILE_DEVICE_PLATFORM">
           <description>The MDM Agent relies upon the trustworthy mobile platform and hardware to provide policy enforcement as well as cryptographic services and data protection. The mobile platform provides trusted updates and software integrity verification of the MDM Agent.</description>
-          <consistency-rationale></consistency-rationale>
-        </SO>
-        <SO id="OE.WIRELESS_NETWORK">
+        </SOE>
+        <SOE id="OE.WIRELESS_NETWORK">
           <description>A wireless network will be available to the mobile devices.</description>
-          <consistency-rationale></consistency-rationale>
-        </SO>
-      </SOs>
+        </SOE>
+      </SOEs>
     </section>   
     <section title="Security Objectives Rationale" id="rationale">
      <!-- TODO: Figure out what to put here -->
