@@ -563,7 +563,7 @@
           <f-component id="ftp_trp.1(2)" name="Trusted Path (for Enrollment)">
             <consistency-rationale></consistency-rationale>
             <f-element id="ftp_trp.1.1(2)">
-              <title>The MDM Agent shall<selectables>
+              <title>The MDM Agent shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to use <selectables>
