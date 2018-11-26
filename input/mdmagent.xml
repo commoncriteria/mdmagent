@@ -632,7 +632,7 @@
         
         <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">           
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
-            <consistency-rationale>test 123</consistency-rationale>
+            <consistency-rationale></consistency-rationale>
             <f-element id="fcs_stg_ext.4.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.</note>
