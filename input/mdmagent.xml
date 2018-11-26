@@ -24,10 +24,10 @@
   xmlns:htm="http://www.w3.org/1999/xhtml">
   <PPReference>
     <ReferenceTable>
-      <PPVersion>3.0</PPVersion>
+      <PPVersion>4.0</PPVersion>
       <!--  <PPTitle>Extended Package for Mobile Device Management Agents</PPTitle>-->      
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2016-11-21</PPPubDate>
+      <PPPubDate>2018-11-26</PPPubDate>
       <!--  <PPCertificationID>NIAP</PPCertificationID>-->
       <!--  <CCVersion>Version 3.0</CCVersion>-->
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
