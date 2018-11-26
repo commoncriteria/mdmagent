@@ -593,7 +593,24 @@
                 The intent of this requirement is to protect the communications channel between MDM Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between MDM Server and Agent during enrollment. <htm:br/><htm:br/>
                 This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the MDM Agent and sent from the MDM Agent to the MDM Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the MDM Server to the MDM Agent. Either the MDM Agent or the MDM Server is able to initiate the connection.<htm:br/><htm:br/>
                 This requirement is refined from the base <abbr linkend="PP"/>; the mobile device is required to perform the mandated cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the MDM Agent and the MDM Server. Only TLS, DTLS, or HTTPS are acceptable for this trusted channel.<htm:br/><htm:br/>
-                Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case it is expected that the MDM Agent will be a native part of the mobile operating system, it is expected that the MDM Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If DTLS is selected, then the appropriate SFRs from Appendix B in MDF shall be copied to the <abbr linkend="ST"/> if not already present.<htm:br/><htm:br/>
+                Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case it is expected that the MDM Agent will be a native part of the mobile operating system, it is expected that the MDM Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" is selected the following selections from the TLS Functional Package shall be made:
+                <htm:ul>
+                  <htm:li>FCS_TLS_EXT.1: 
+                    <htm:ul>
+                      <htm:li>TLS must be selected</htm:li>
+                      <htm:li>client must be selected</htm:li>
+                    </htm:ul>
+                  </htm:li>
+                  <htm:li>FCS_TLSC_EXT.1.1:
+                    <htm:ul>
+                      <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
+                      <htm:li>mutual authentication must be selected</htm:li>
+                    </htm:ul>
+                  </htm:li>
+                </htm:ul>
+                
+                
+                If DTLS is selected, then the appropriate SFRs from Appendix B in MDF shall be copied to the <abbr linkend="ST"/> if not already present.<htm:br/><htm:br/>
                 Protocol, RBG, Certificate validation, algorithm, and similar services may be met with platform provided services. <htm:br/><htm:br/>
               </note>
             </f-element>
@@ -619,11 +636,11 @@
                 confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> 
                 administration are consistent with those specified in the requirement, and are included in the requirements 
                 in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
+               <!--  If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
                 of the <abbr linkend="ST"/> to verify that it describes (for each supported platform) 
                 how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented 
                 by the MDM Agent; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part 
-                of this evaluation activity). The API call for every element of this component should be documented.<htm:br/><htm:br/>
+                of this evaluation activity). The API call for every element of this component should be documented.<htm:br/><htm:br/>--> 
                 <Guidance/>The evaluator shall confirm that the operational guidance contains instructions for configuring the communication channel between the MDM Agent and the MDM Server and conditionally, the MAS Server for each supported method.<htm:br/><htm:br/>
                 <Tests/>For each supported identifier type (excluding DNs), the evaluator shall repeat the following tests:<htm:br/><htm:br/>
                 <testlist>
@@ -695,10 +712,10 @@
                   <htm:li>FCS_TLS_EXT.1: 
                     <htm:ul>
                       <htm:li>TLS must be selected</htm:li>
-                      <htm:li>server must be selected</htm:li>
+                      <htm:li>client must be selected</htm:li>
                     </htm:ul>
                   </htm:li>
-                  <htm:li>FCS_TLSS_EXT.1.1:
+                  <htm:li>FCS_TLSC_EXT.1.1:
                     <htm:ul>
                       <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
                     </htm:ul>
@@ -810,9 +827,10 @@
     </base-pp>
 
     <man-sfrs>
+      <!-- SCHEMA: The mandatory SFRs are not mapped to the Consistency of Requirements section (6.1.4 and 6.2.4) -->
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_alt_ext.2" name="Agent Alerts">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>test</consistency-rationale>
           <f-element id="fau_alt_ext.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in the event of any of the following audit events:
               <htm:ul>
