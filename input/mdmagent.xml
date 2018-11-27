@@ -13,7 +13,7 @@
   Free The Toe - Done
   TODO: Need to check the Supporting Document - not all of the EAs are being pulled over: None of the TOE Security Functional Requirements show up in the SD
   
-  
+  FIA_X509_EXT.2.3 - requires an unique client certificate. Agent pulls it in from the base, but it is only in Server, and not in MDF. So should we add it as an additional requirement if the base is MDF 
   fix table refs in text so that they refer to the correct #s
  
  -->
