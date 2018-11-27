@@ -27,7 +27,7 @@
       <PPVersion>4.0</PPVersion>
       <!--  <PPTitle>Extended Package for Mobile Device Management Agents</PPTitle>-->      
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2018-11-26</PPPubDate>
+      <PPPubDate>2018-11-28</PPPubDate>
       <!--  <PPCertificationID>NIAP</PPCertificationID>-->
       <!--  <CCVersion>Version 3.0</CCVersion>-->
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
@@ -184,9 +184,7 @@
       Figure 1 shows a high-level example of the <abbr linkend="PP-Module"/> <abbr linkend="TOE"/> boundary and its operational environment. As stated above, the MDM Agent may either be provided as part of the mobile device itself (shown in red) or distributed as a third-party application from the developer of the MDM Server software (shown in blue).<htm:br/><htm:br/>    
         <figure entity="images/mdm-system-operating-environment.png" title="MDM System Operating Environment" id="toe"/><htm:br/>
         The MDM Agent must closely interact with or be part of the mobile device’s platform in order to establish policies and to perform queries about device status. The mobile device, in turn, has its own security requirements specified in the MDF <abbr linkend="PP"/>. 
-      <!-- NIAP: Is this still true?? -->The mobile device must be evaluated against the MDF <abbr linkend="PP"/>, either concurrently with the MDM Agent or prior to the evaluation of the MDM Agent. This is true regardless of whether the MDM Agent is a native part of the mobile device OS or a third-party application.<htm:br/><htm:br/>
-
-       
+      <!-- NIAP: Is this still true?? -->The mobile device must be evaluated against the MDF <abbr linkend="PP"/>, either concurrently with the MDM Agent or prior to the evaluation of the MDM Agent. This is true regardless of whether the MDM Agent is a native part of the mobile device OS or a third-party application.<htm:br/><htm:br/>      
     </section>
     <section title="Use Cases" id="usecase">
       This <abbr linkend="PP-Module"/> defines 4 use cases:<htm:br/><htm:br/>
