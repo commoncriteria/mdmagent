@@ -1123,7 +1123,6 @@
     <opt-sfrs></opt-sfrs>
     <sel-sfrs></sel-sfrs>
     <obj-sfrs>
-      <!-- SCHEMA: SD does not include this EAs -->
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
         <consistency-rationale></consistency-rationale>
