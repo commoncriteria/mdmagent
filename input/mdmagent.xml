@@ -435,91 +435,45 @@
     </section>
   </chapter>
   <chapter title="Security Objectives" id="objectives">
-    <!-- Kim: Is there a reason why you included all the additional SFRs?? -->
     <section id="TOEobjectives" title="Security Objectives for the TOE">
       <SOs>
         <SO id="O.ACCOUNTABILITY">
           <description>The <abbr linkend="TOE"/> must provide logging facilities, which record management actions undertaken by its administrators.</description>
-          <!--  <component-refer ref="FAU_ALT_EXT.1"/>-->
           <component-refer ref="FAU_ALT_EXT.2"/> <!-- Good, TOE SFR -->
-          <!--  <component-refer ref="FAU_GEN.1(1)"/>-->
           <component-refer ref="FAU_GEN.1(2)"/> <!-- Good, TOE SFR -->
-          <!--  <component-refer ref="FAU_NET_EXT.1"/>-->
-          <!--  <component-refer ref="FAU_SAR.1"/>-->
-          <!--  <component-refer ref="FAU_SEL.1"/>-->
-          <component-refer ref="FAU_SEL.1(2)"/> <!-- Good, TOE SFR -->
-          <!--  <component-refer ref="FAU_STG_EXT.1"/>-->
-          <!-- <component-refer ref="FAU_STG_EXT.2"/>    -->     
+          <component-refer ref="FAU_SEL.1(2)"/> <!-- Good, TOE SFR -->   
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.APPLY_POLICY">
           <description>The <abbr linkend="TOE"/> must facilitate configuration and enforcement of enterprise security policies on mobile devices via interaction with the mobile OS and the MDM Server. This will include the initial enrollment of the device into management, through its entire lifecycle, including policy updates and its possible unenrollment from management services.</description>
-          <!--  <component-refer ref="FAU_ALT_EXT.1"/>
-          <component-refer ref="FAU_GEN.1(1)"/>
-          <component-refer ref="FAU_GEN.1(2)"/>
-          <component-refer ref="FAU_NET_EXT.1"/>
-          <component-refer ref="FAU_SAR.1"/>
-          <component-refer ref="FAU_SEL.1"/>
-          <component-refer ref="FAU_STG_EXT.1"/>
-          <component-refer ref="FAU_STG_EXT.2"/>-->
           <component-refer ref="FAU_STG_EXT.3 (optional)"/> <!-- Good, TOE Obj SFR -->
           <component-refer ref="FIA_ENR_EXT.2"/> <!-- Good, TOE SFR -->
-          <!-- <component-refer ref="FMT_MOF_EXT.1"/> -->
           <component-refer ref="FMT_POL_EXT.2"/> <!-- Good, TOE SFR -->
-          <!--  <component-refer ref="FMT_SMF_EXT.1"/>-->
-          <!-- <component-refer ref="FMT_SMF_EXT.2"/> -->
           <component-refer ref="FMT_SMF_EXT.3"/> <!-- Good, TOE SFR -->
           <component-refer ref="FMT_UNR_EXT.1"/> <!-- Good, TOE SFR -->
-          <!-- <component-refer ref="FTA_TAB.1"/> -->
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the MDM Server and the MDM Agent must be protected from being monitored, accessed, or altered.</description>
-          <!-- <component-refer ref="FAU_STG_EXT.1"/> -->
           <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF Base-PP)"/>  <!-- Good, MDM/MDF Base -->
           <component-refer ref="FCS_CKM.1 (from MDM/MDF Base-PP)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FCS_CKM.2 (from MDM Base-PP)"/> <!-- Good, MDM Base -->
           <component-refer ref="FCS_CKM.2(1) (from MDF Base-PP)"/> <!-- Good, MDF Base -->
-          <!--  <component-refer ref="FCS_CKM.2(2)"/>
-          <component-refer ref="FCS_CKM_EXT.8"/>-->
           <component-refer ref="FCS_COP.1(*) (from MDM/MDF Base-PP)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FCS_DTLSS_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FCS_DTLSC_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <!-- <component-refer ref="FCS_IPSEC_EXT.1"/>
-          <component-refer ref="FCS_IV_EXT.1"/> -->
-          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <!-- <component-refer ref="FCS_RBG_EXT.2"/>
-          <component-refer ref="FCS_RBG_EXT.3"/>
-          <component-refer ref="FCS_SRV_EXT.1"/>
-          <component-refer ref="FCS_SRV_EXT.2"/>
-          <component-refer ref="FCS_SSHS_EXT.1"/>
-          <component-refer ref="FCS_STG_EXT.2"/>  -->         
+          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->         
           <component-refer ref="FCS_TLSC_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF -->
           <component-refer ref="FCS_TLSC_EXT.2 (from TLS Package)"/> <!-- Good, MDM/MDF -->
           <component-refer ref="FCS_TLSS_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF -->
           <component-refer ref="FCS_TLSS_EXT.2 (from TLS Package)"/> <!-- Good, MDM/MDF -->
-          <!-- <component-refer ref="FDP_BLT_EXT.1"/>
-          <component-refer ref="FDP_IFC_EXT.1"/>
-          <component-refer ref="FDP_STG_EXT.1"/>
-          <component-refer ref="FDP_UPC_EXT.1"/>
-          <component-refer ref="FIA_BLT_EXT.1"/>
-          <component-refer ref="FIA_BLT_EXT.2"/>
-          <component-refer ref="FIA_BLT_EXT.3"/>
-          <component-refer ref="FIA_BLT_EXT.4"/>
-          <component-refer ref="FIA_BLT_EXT.5"/>
-          <component-refer ref="FIA_BLT_EXT.6"/> -->
           <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
           <component-refer ref="FIA_X509_EXT.4 (from MDM Base)"/> <!-- Good, MDM Base -->
-          <!-- <component-refer ref="FIA_X509_EXT.5"/>
-          <component-refer ref="FPT_BLT_EXT.1"/> -->
           <component-refer ref="FPT_ITT.1 (refined from MDM Base-PP)"/> <!-- Good, applies to agent if extend from MDM -->
           <component-refer ref="FPT_NET_EXT.1 (optional)"/> <!-- Good, TOE Obj SFR -->
-          <!--<component-refer ref="FTP_BLT_EXT.1"/>-->
-          <!--<component-refer ref="FTP_BLT_EXT.2"/>-->
-          <!--<component-refer ref="FTP_ITC.1(*)"/> -->
           <component-refer ref="FTP_ITC_EXT.1 (refined from MDF Base-PP)"/> <!-- Good, modified MDF -->
           <component-refer ref="FTP_TRP.1(*) (from MDM Base-PP, TOE SFR for MDF)"/> <!-- Good, added for MDF -->
           <consistency-rationale></consistency-rationale>
@@ -544,7 +498,7 @@
         </SO> 
       </SOs>
     </section>
-    <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
+    <section id="objectivesEnvironment" boilerplate='no' title="Security Objectives for the Operational Environment">
       <!-- SCHEMA: Why does this section populate with "This module does not define any assumptions"?? -->
       <!-- SCHEMA: Why does it error on the SOE tags?? -->
       <SOEs>
@@ -751,8 +705,7 @@
       <con-op-en></con-op-en>
     </base-pp>
     
-    <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">
-     
+    <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">    
         <!--  If this <abbr linkend="PP-Module"/> is extending the MDM <abbr linkend="PP"/>, the Agent is part of the MDM <abbr linkend="TOE"/> and any requirements on the MDM <abbr linkend="TOE"/> also apply to the MDM Agent. These security functions include FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FIA_X509_EXT.4, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The <abbr linkend="ST"/> author should iterate the requirements in the MDM <abbr linkend="PP"/> for each Agent in order to make the appropriate selections for each agent.-->   
       <!-- DONE: above SFRs manadatory or feature dependent for all components of the distributed TOE -->
       <modified-sfrs>        
@@ -828,7 +781,7 @@
       <!-- SCHEMA: The mandatory SFRs are not mapped to the Consistency of Requirements section (6.1.4 and 6.2.4) -->
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_alt_ext.2" name="Agent Alerts">
-          <consistency-rationale>test</consistency-rationale>
+          <consistency-rationale></consistency-rationale>
           <f-element id="fau_alt_ext.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in the event of any of the following audit events:
               <htm:ul>
@@ -965,8 +918,7 @@
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FMT_UNR_EXT.1.1</htm:TD>
-                  <htm:TD>
-                    
+                  <htm:TD>                    
                     <selectables>
                       <selectable>Attempt to unenroll</selectable>
                       <selectable>none</selectable>
@@ -980,8 +932,7 @@
                   <htm:TD>Trusted channel protocol. Non-TOE endpoint of connection.</htm:TD>
                 </htm:TR>
               </htm:table>
-              <htm:center><htm:h4>Table 1: Auditable Events</htm:h4></htm:center>
-              
+              <htm:center><htm:h4>Table 1: Auditable Events</htm:h4></htm:center>              
             </aactivity>
           </f-element>
           <f-element id="fau_gen.1.2(2)">
@@ -1008,8 +959,7 @@
         </f-component>
         <f-component id="fau_sel.1(2)" name="Security Audit Event Selection">
           <consistency-rationale></consistency-rationale>
-          <f-element id="fau_sel.1.1(2)">
-            
+          <f-element id="fau_sel.1.1(2)">           
             <title> The <abbr linkend="TSF"/> shall <selectables>
               <selectable>invoke platform-provided functionality</selectable>
               <selectable>implement functionality</selectable>
@@ -1245,11 +1195,6 @@
   </acronyms>
   
 </Module>
-    
-    
-    <!-- SCHEMA: Should the SFR notations section also include something for extended
-    <htm:li>Extended <abbr linkend="SFR"/>s: are identified by having a label “EXT” after the <abbr linkend="SFR"/> name.</htm:li>
-    -->
     
       
 
