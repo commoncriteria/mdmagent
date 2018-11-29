@@ -180,7 +180,6 @@
       This <abbr linkend="PP-Module"/> shall build on Mobile Device Fundamentals PP if the <abbr linkend="TOE"/> is a native part of a mobile operating system. The <abbr linkend="TOE"/> for this <abbr linkend="PP-Module"/> combined with the MDF <abbr linkend="PP"/> is the mobile device itself plus the MDM Agent.<htm:br/><htm:br/>
       This <abbr linkend="PP-Module"/> shall build on the MDM Server PP if the <abbr linkend="TOE"/> is a third-party application that is provided with an MDM Server and installed on a mobile device by the user after acquiring the mobile device. The distributed <abbr linkend="TOE"/> for this <abbr linkend="PP-Module"/> combined with the MDM Server <abbr linkend="PP"/> is the entire MDM environment, which includes both the MDM Server and the MDM Agent. Even though the mobile device itself is not part of the <abbr linkend="TOE"/>, it is expected to be evaluated against the MDF <abbr linkend="PP"/> so that its baseline security capabilities can be assumed to be present.
       <subsection title="TOE Boundary" id="toeboundary">
-<!-- SCHEMA: Would not let me do a section for TOE Boundary -->
       Figure 1 shows a high-level example of the <abbr linkend="PP-Module"/> <abbr linkend="TOE"/> boundary and its operational environment. As stated above, the MDM Agent may either be provided as part of the mobile device itself (shown in red) or distributed as a third-party application from the developer of the MDM Server software (shown in blue).<htm:br/><htm:br/>    
         <figure entity="images/mdm-system-operating-environment.png" title="MDM System Operating Environment" id="toe"/><htm:br/>
         The MDM Agent must closely interact with or be part of the mobile device’s platform in order to establish policies and to perform queries about device status. The mobile device, in turn, has its own security requirements specified in the MDF <abbr linkend="PP"/>. 
@@ -317,7 +316,6 @@
               communicate using one (or more) standard protocols as a means to maintain the confidentiality of data that are 
               transmitted between the Agent and other entities.</rationale>
           </objective-refer>
-          <!-- SCHEMA: Why can't we link two objectives to this threat?? -->
           <objective-refer ref="O.APPLY_POLICY">
             <rationale>The threat T.BACKUP is countered by O.APPLY_POLICY as this provides policy to enforce that backups
             be stored ony in secure, protected locations.</rationale>
@@ -499,9 +497,7 @@
         </SO> 
       </SOs>
     </section>
-    <section id="objectivesEnvironment" boilerplate='no' title="Security Objectives for the Operational Environment">
-      <!-- SCHEMA: Why does this section populate with "This module does not define any assumptions"?? -->
-      <!-- SCHEMA: Why does it error on the SOE tags?? -->
+    <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
       <SOEs>
         <SOE id="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance in a trusted manner.</description>
@@ -779,7 +775,6 @@
     </base-pp>
 
     <man-sfrs>
-      <!-- SCHEMA: The mandatory SFRs are not mapped to the Consistency of Requirements section (6.1.4 and 6.2.4) -->
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_alt_ext.2" name="Agent Alerts">
           <consistency-rationale></consistency-rationale>
@@ -1162,10 +1157,6 @@
               The evaluator shall verify that the AGD guidance instructs the administrator, if needed, how to configure the <abbr linkend="TOE"/> to detect when the time since last successful connection with the server has been reached.
               <Tests/>
               The evaluator shall configure the Server configuration policy of the Agent per FMT_SMF.1.1(1) function 56. The device shall be placed in airplane mode to prevent connectivity with the Server. The evaluator shall verify that after the configured time, the remediation actions selected in function 56 occur.
-              <testlist>
-                <test></test>
-                <test></test>
-              </testlist>
             </aactivity>
           </f-element>
         </f-component>
