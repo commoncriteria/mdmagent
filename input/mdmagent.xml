@@ -636,12 +636,12 @@
                 Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case 
                 it is expected that the MDM Agent will be a native part of the mobile operating system, it is expected that the MDM 
                 Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and 
-                TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" is selected the following selections from the 
-                TLS Functional Package shall be made:
+                TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" is selected the following selections 
+                from the TLS Functional Package shall be made:
                 <htm:ul>
                   <htm:li>FCS_TLS_EXT.1: 
                     <htm:ul>
-                      <htm:li>TLS must be selected</htm:li>
+                      <htm:li>either TLS or DTLS is selected depending on the selection made in FTP_ITC_EXT.1.1</htm:li>
                       <htm:li>client must be selected</htm:li>
                     </htm:ul>
                   </htm:li>
@@ -652,9 +652,6 @@
                     </htm:ul>
                   </htm:li>
                 </htm:ul>
-                              
-                If DTLS is selected, then the appropriate SFRs from Appendix B in MDF shall be copied to the <abbr linkend="ST"/> if 
-                not already present.<htm:br/><htm:br/>
                 Protocol, RBG, Certificate validation, algorithm, and similar services may be met with platform provided services. <htm:br/><htm:br/>
               </note>
             </f-element>
@@ -697,13 +694,13 @@
                 <testlist>
                   <test>The evaluators shall ensure that communications using each specified (in the operational guidance) 
                     Agent-Server communication method is tested during the course of the evaluation, setting up the connections as 
-                    described in the operational guidance and ensuring that communication is successful.
+                    described in the operational guidance and ensuring that communication is successful.<htm:br/><htm:br/>
                   </test>
                   <test>The evaluator shall ensure, for each method of Agent-Server communication, the channel data is not sent 
-                    in plaintext.
+                    in plaintext.<htm:br/><htm:br/>
                   </test>
                   <test>The evaluator shall ensure, for each communication channel with the MDM Server, that a protocol analyzer 
-                    identifies the traffic as the protocol under testing.
+                    identifies the traffic as the protocol under testing.<htm:br/><htm:br/>
                   </test>
                 </testlist>
                 Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
@@ -802,11 +799,14 @@
                 <testlist>
                   <test>The evaluators shall ensure that communications using each specified (in the operational guidance) enrollment 
                     method is tested during the course of the evaluation, setting up the connections as described in the operational 
-                    guidance and ensuring that communication is successful.</test>
+                    guidance and ensuring that communication is successful.<htm:br/><htm:br/>
+                  </test>
                   <test>For each method of enrollment supported, the evaluator shall follow the operational guidance to ensure that 
                     there is no available interface that can be used by a remote user to establish enrollment sessions without 
-                    invoking the trusted path.</test><!--platform?-->
-                  <test>The evaluator shall ensure, for each method enrollment, the channel data is not sent in plaintext. </test>
+                    invoking the trusted path.<htm:br/><htm:br/>
+                  </test><!--platform?-->
+                  <test>The evaluator shall ensure, for each method enrollment, the channel data is not sent in plaintext.<htm:br/><htm:br/>
+                  </test>
                 </testlist> 
                 Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>          
               </aactivity>
@@ -835,7 +835,7 @@
             <f-element id="fcs_stg_ext.1.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys 
-                are stored securely when not in use by the mobile platform.
+                are stored securely when not in use by the mobile platform.<htm:br/><htm:br/>
               </note>
               <aactivity>
                 <TSS/> 
@@ -843,7 +843,7 @@
                 private key needed to meet the requirements in the <abbr linkend="ST"/>. For each of these items, the evaluator will 
                 confirm that the <abbr linkend="TSS"/> lists for what purpose it is used, and, for each platform listed as supported 
                 in the <abbr linkend="ST"/>, how it is stored. The evaluator shall verify that the Agent calls a platform-provided 
-                API to store persistent secrets and private keys.
+                API to store persistent secrets and private keys.<htm:br/><htm:br/>
               </aactivity>
             </f-element>
           </f-component>         
@@ -910,8 +910,13 @@
                 communication paths for each supported method.<htm:br/><htm:br/>
                 <Tests/>
                 <testlist>
-                  <test>The evaluators shall ensure that communications using each specified (in the operational guidance) communication method is tested during the course of the evaluation, setting up the connections as described in the operational guidance and ensuring that communication is successful.</test>
-                  <test>The evaluator shall ensure, for each method of communication, the channel data is not sent in plaintext.</test>
+                  <test>The evaluators shall ensure that communications using each specified (in the operational guidance) 
+                    communication method is tested during the course of the evaluation, setting up the connections as described 
+                    in the operational guidance and ensuring that communication is successful.<htm:br/><htm:br/>
+                  </test>
+                  <test>The evaluator shall ensure, for each method of communication, the channel data is not sent in 
+                    plaintext.<htm:br/><htm:br/>
+                  </test>
                 </testlist> 
                 Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
               </aactivity>
@@ -980,18 +985,21 @@
               <testlist>
                 <test>The evaluator shall perform a policy update from the test environment MDM server. The evaluator shall verify 
                   the MDM Agent accepts the update, makes the configured changes, and reports the success of the policy update back 
-                  to the MDM Server.</test>
+                  to the MDM Server.<htm:br/><htm:br/>
+                </test>
                 <test>The evaluator shall perform each of the actions listed in FAU_ALT_EXT.1.1 and verify that the alert does in 
-                  fact reach the MDM Server.</test>
+                  fact reach the MDM Server.<htm:br/><htm:br/>
+                </test>
                 <test>The evaluator shall configure the MDM Agent to perform a network reachability test, both with and without such 
-                  connectivity and ensure that results reflect each.</test>
+                  connectivity and ensure that results reflect each.<htm:br/><htm:br/>
+                </test>
               </testlist>
             </aactivity>
           </f-element>
           <f-element id="fau_alt_ext.2.2">
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
             <note role="application">If the trusted channel is not available, alerts shall be queued. When the trusted channel 
-              becomes available, the queued alerts shall be sent.
+              becomes available, the queued alerts shall be sent.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/> The evaluator shall ensure that the <abbr linkend="TSS"/> describes under what circumstances, if any, the alert 
@@ -1029,7 +1037,7 @@
               listed in FMT_SMF.1.1.<htm:br/><htm:br/>
               The selection for the FMT_UNR_EXT.1 auditable event in Table 1 corresponds to the selection in FMT_UNR_EXT.1. If “apply 
               remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author selects “attempt to unenroll” 
-              in FAU_GEN.1.1(2) Table 1 for FMT_UNR_EXT.1; otherwise, "none" is selected.
+              in FAU_GEN.1.1(2) Table 1 for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. 
@@ -1042,7 +1050,7 @@
               The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable events defined in Table 1 and observe that 
               accurate audit records are generated with contents and formatting consistent with those described in the 
               <abbr linkend="TSS"/>. Note that this testing can be accomplished in conjunction with the testing of the security 
-              mechanisms directly.
+              mechanisms directly.<htm:br/><htm:br/>
               <htm:table>
                 <htm:TR>
                   <htm:TH>Requirement</htm:TH>
@@ -1107,7 +1115,8 @@
                   <htm:TD>Trusted channel protocol. Non-TOE endpoint of connection.</htm:TD>
                 </htm:TR>
               </htm:table>
-              <htm:center><htm:h4>Table 1: Auditable Events</htm:h4></htm:center>              
+              <htm:br/><htm:br/>
+              <htm:center><htm:h4>Table 1: Auditable Events</htm:h4></htm:center><htm:br/><htm:br/>         
             </aactivity>
           </f-element>
           <f-element id="fau_gen.1.2(2)">
@@ -1128,7 +1137,7 @@
             <note role="application">All audits must contain at least the information mentioned in FAU_GEN.1.2(2), but may contain 
               more information which can be assigned. The <abbr linkend="ST"/> author shall identify in the 
               <abbr linkend="TSS"/> which information of the audit record that is performed by the MDM Agent and that which is 
-              performed by the MDM Agent’s platform.
+              performed by the MDM Agent’s platform.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. 
@@ -1157,7 +1166,7 @@
               </htm:ul></title>
             <note role="application">The intent of this requirement is to identify all criteria that can be selected to trigger an 
               audit event. For the <abbr linkend="ST"/> author, the assignment is used to list any additional criteria or “none”. 
-              This selection may be configured by the MDM Server.
+              This selection may be configured by the MDM Server.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of 
@@ -1172,12 +1181,12 @@
               <testlist>
                 <test>For each attribute listed in the requirement, the evaluator shall devise a test to show that selecting the 
                   attribute causes only audit events with that attribute (or those that are always recorded, as identified in the 
-                  administrative guidance) to be recorded.
+                  administrative guidance) to be recorded.<htm:br/><htm:br/>
                 </test>
                 <test>[conditional]: If the TSF supports specification of more complex audit pre-selection criteria (e.g., multiple 
                   attributes, logical expressions using attributes) then the evaluator shall devise tests showing that this 
                   capability is correctly implemented. The evaluator shall also, in the test plan, provide a short narrative 
-                  justifying the set of tests as representative and sufficient to exercise the capability.
+                  justifying the set of tests as representative and sufficient to exercise the capability.<htm:br/><htm:br/>
                 </test>
               </testlist>
             </aactivity>
@@ -1188,12 +1197,12 @@
         <f-component id="fia_enr_ext.2" name="Enrollment of Mobile Device into Management">
           <consistency-rationale></consistency-rationale>
           <f-element id="fia_enr_ext.2.1">
-            <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.
+            <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.<htm:br/><htm:br/>
             </title>
             <note role="application">The reference identifier of the MDM Server may be the Distinguished Name, Domain Name, and/or 
               the IP address of the MDM Server. This requirement allows the specification of the information to be to be used to 
               establish a network connection and the reference identifier for authenticating the trusted channel between the MDM 
-              Server and MDM Agent (FPT_ITT.1).
+              Server and MDM Agent (FPT_ITT.1).<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes which types of reference 
@@ -1213,12 +1222,12 @@
         <f-component id="fmt_pol_ext.2" name="Trusted Policy Update">
           <consistency-rationale></consistency-rationale>
           <f-element id="fmt_pol_ext.2.1">
-            <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.
+            <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.<htm:br/><htm:br/>
             </title>
             <note role="application">The intent of this requirement is to cryptographically tie the policies to the enterprise 
               that mandated the policy, not to protect the policies in transit (as they are already protected by FPT_ITT.1). This is 
               especially critical for users who connect to multiple enterprises.<htm:br/><htm:br/>
-              Policies must be digitally signed by the enterprise using the algorithms in FCS_COP.1(3).
+              Policies must be digitally signed by the enterprise using the algorithms in FCS_COP.1(3).<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>The evaluator also ensures that the <abbr linkend="TSS"/> (or the operational guidance) describes how the 
@@ -1241,11 +1250,14 @@
             </aactivity>
           </f-element>
           <f-element id="fmt_pol_ext.2.2">
-            <title>The MDM Agent shall not install policies if the policy-signing certificate is deemed invalid.</title>
+            <title>The MDM Agent shall not install policies if the policy-signing certificate is deemed invalid.<htm:br/><htm:br/>
+            </title>
             <aactivity>
                 <TSS/>     
               <!-- TODO: Not really a TSS -->
-              The assurance activity for this requirement is performed in conjunction with the assurance activity for FIA_X509_EXT.1 and FIA_X509_EXT.2 as defined in the base <abbr linkend="PP"/>s.</aactivity>
+              The assurance activity for this requirement is performed in conjunction with the assurance activity for FIA_X509_EXT.1 
+              and FIA_X509_EXT.2 as defined in the base <abbr linkend="PP"/>s.<htm:br/><htm:br/>
+            </aactivity>
           </f-element>
         </f-component>
         <f-component id="fmt_smf_ext.3" name="Specification of Management Functions">
@@ -1263,21 +1275,50 @@
               </selectables></htm:li>              
             </title>
             <note role="application">
-              This requirement captures all the configuration functionality in the MDM Agent to configure the underlying Mobile Device with the configuration policies sent from the MDM Server to the Agent. The <abbr linkend="ST"/> author selects the base <abbr linkend="PP"/> (MDF <abbr linkend="PP"/> or MDM <abbr linkend="PP"/>) as the source of the management functions.<htm:br/><htm:br/>
-              The administrator-provided management functions in MDF <abbr linkend="PP"/> are specified in Column 4 of Table 4 in MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version queries). The administrator-provided device management functions in MDM <abbr linkend="PP"/> are specified in FMT_SMF.1.1(1); the functions in the selection of FMT_SMF.1.1(1) in the MDM <abbr linkend="PP"/> are required to correspond to the functions available on the platforms supported by the MDM Agent.<htm:br/><htm:br/>
-              The <abbr linkend="ST"/> author can add more commands and configuration policies by completing the assignment statement; the Mobile Device must support these additional commands or configuration policies.<htm:br/><htm:br/>
-              The agent must configure the platform based on the commands and configuration policies received from the MDM Server. The <abbr linkend="ST"/> author shall not claim any functionality not provided by the supported Mobile Device(s). All selections and assignments performed by the <abbr linkend="ST"/> author in this requirement should match the selections and assignments of the validated Mobile Device <abbr linkend="ST"/>.</note>
-            <aactivity>This assurance activity may be performed in conjunction with other assurance activities in the base <abbr linkend="PP"/>.<htm:br/><htm:br/>
-              <TSS/>The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify that any differences between management functions and policies for each supported Mobile Device are listed.<htm:br/><htm:br/>
+              This requirement captures all the configuration functionality in the MDM Agent to configure the underlying Mobile 
+              Device with the configuration policies sent from the MDM Server to the Agent. The <abbr linkend="ST"/> author selects 
+              the base <abbr linkend="PP"/> (MDF <abbr linkend="PP"/> or MDM <abbr linkend="PP"/>) as the source of the management 
+              functions.<htm:br/><htm:br/>
+              The administrator-provided management functions in MDF <abbr linkend="PP"/> are specified in Column 4 of Table 4 in 
+              MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version queries). The administrator-provided device management 
+              functions in MDM <abbr linkend="PP"/> are specified in FMT_SMF.1.1(1); the functions in the selection of FMT_SMF.1.1(1) 
+              in the MDM <abbr linkend="PP"/> are required to correspond to the functions available on the platforms supported by 
+              the MDM Agent.<htm:br/><htm:br/>
+              The <abbr linkend="ST"/> author can add more commands and configuration policies by completing the assignment statement; 
+              the Mobile Device must support these additional commands or configuration policies.<htm:br/><htm:br/>
+              The agent must configure the platform based on the commands and configuration policies received from the MDM Server. 
+              The <abbr linkend="ST"/> author shall not claim any functionality not provided by the supported Mobile Device(s). All 
+              selections and assignments performed by the <abbr linkend="ST"/> author in this requirement should match the selections 
+              and assignments of the validated Mobile Device <abbr linkend="ST"/>.<htm:br/><htm:br/>
+            </note>
+            <aactivity>This assurance activity may be performed in conjunction with other assurance activities in the base 
+              <abbr linkend="PP"/>.<htm:br/><htm:br/>
+              <TSS/>
+              The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these 
+              functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify 
+              that any differences between management functions and policies for each supported Mobile Device are listed.<htm:br/><htm:br/>
               <Guidance/>
-              The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this requirement.<htm:br/><htm:br/>
-              If the MDM Agent is a component of the MDM system (i.e. MDM Server is the base <abbr linkend="PP"/>), the evaluator shall verify, by consulting documentation for the claimed mobile device platforms, that the configurable functions listed for this Agent are supported by the platforms.<htm:br/><htm:br/>
-              If the MDM Agent supports multiple interfaces for configuration (for example, both remote configuration and local configuration), the AGD guidance makes clear whether some functions are restricted to certain interfaces.<htm:br/><htm:br/>
+              The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this 
+              requirement.<htm:br/><htm:br/>
+              If the MDM Agent is a component of the MDM system (i.e. MDM Server is the base <abbr linkend="PP"/>), the evaluator 
+              shall verify, by consulting documentation for the claimed mobile device platforms, that the configurable functions 
+              listed for this Agent are supported by the platforms.<htm:br/><htm:br/>
+              If the MDM Agent supports multiple interfaces for configuration (for example, both remote configuration and local 
+              configuration), the AGD guidance makes clear whether some functions are restricted to certain 
+              interfaces.<htm:br/><htm:br/>
               <Tests/> 
               <testlist>
-                <test>In conjunction with the assurance activities in the base <abbr linkend="PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the Mobile Device executes the commands and enforces the policies.</test>
-                <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1.</test>
-                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test> 
+                <test>In conjunction with the assurance activities in the base <abbr linkend="PP"/>, the evaluator shall attempt to 
+                  configure each administrator-provided management function and shall verify that the Mobile Device executes the 
+                  commands and enforces the policies.<htm:br/><htm:br/>
+                </test>
+                <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration 
+                  guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for 
+                  FPT_ITT.1.<htm:br/><htm:br/>
+                </test>
+                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be 
+                  configured and that the intended behavior of the function is enacted by the mobile device.<htm:br/><htm:br/>
+                </test> 
               </testlist>
             </aactivity>
           </f-element>
@@ -1295,22 +1336,40 @@
               </htm:ul></title>
             <note role="application">
               This requirement captures all of the configuration in the MDM Agent for configuration of itself.<htm:br/><htm:br/>
-              If the MDM Agent is a part of the mobile device, enrollment is a single function both of the Agent and of the mobile device (FMT_SMF_EXT.3.1).<htm:br/><htm:br/>
-              If the MDM Agent is an application developed separately from the mobile device, the MDM Agent performs the function “enroll the mobile device in management” (per FMT_SMF_EXT.3.1) by registering itself to the mobile device as a device administrator. The Agent itself is enrolled in management by configuring the MDM Server to which the Agent answers.<htm:br/><htm:br/>
-              <!-- ToDo: Add application note for "configure whether users can unenroll from management, to include that if prevention of unenrollment is not supported, then remediation actions should by applied upon unenrollment. -->
-              If the Agent generates periodic reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is configurable, “configure periodicity of reachability events” must be selected.</note>
+              If the MDM Agent is a part of the mobile device, enrollment is a single function both of the Agent and of the mobile 
+              device (FMT_SMF_EXT.3.1).<htm:br/><htm:br/>
+              If the MDM Agent is an application developed separately from the mobile device, the MDM Agent performs the function 
+              “enroll the mobile device in management” (per FMT_SMF_EXT.3.1) by registering itself to the mobile device as a device 
+              administrator. The Agent itself is enrolled in management by configuring the MDM Server to which the Agent answers.<htm:br/><htm:br/>
+              <!-- ToDo: Add application note for "configure whether users can unenroll from management, to include that if prevention 
+                of unenrollment is not supported, then remediation actions should by applied upon unenrollment. -->
+              If the Agent generates periodic reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is 
+              configurable, “configure periodicity of reachability events” must be selected.<htm:br/><htm:br/>
+            </note>
             <aactivity>
               <TSS/> 
-              The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods in which the MDM Agent can be enrolled.<htm:br/><htm:br/>
-              The <abbr linkend="TSS"/> description shall make clear if the MDM Agent supports multiple interfaces for enrollment and configuration (for example, both remote configuration and local configuration).            
+              The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods in which the MDM Agent can be 
+              enrolled.<htm:br/><htm:br/>
+              The <abbr linkend="TSS"/> description shall make clear if the MDM Agent supports multiple interfaces for enrollment 
+              and configuration (for example, both remote configuration and local configuration).<htm:br/><htm:br/>         
               <Guidance/>
-              The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this requirement.<htm:br/><htm:br/>
-              Additionally, the evaluator shall verify that the <abbr linkend="TSS"/> describes any management functions of the MDM Agent, if assigned.<htm:br/><htm:br/>
+              The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this 
+              requirement.<htm:br/><htm:br/>
+              Additionally, the evaluator shall verify that the <abbr linkend="TSS"/> describes any management functions of the 
+              MDM Agent, if assigned.<htm:br/><htm:br/>
                <Tests/>
               <testlist>
-                <test>In conjunction with other assurance activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
-                <test>(conditional) In conjunction with the assurance activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
-                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
+                <test>In conjunction with other assurance activities, the evaluator shall attempt to enroll the MDM Agent in 
+                  management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage 
+                  the device and communicate with the MDM Server.<htm:br/><htm:br/>
+                </test>
+                <test>(conditional) In conjunction with the assurance activity for FAU_ALT_EXT.2.1, the evaluator shall configure 
+                  the periodicity for reachability events for several configured time periods and shall verify that the MDM Server 
+                  receives alerts on that schedule.<htm:br/><htm:br/>
+                </test>
+                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be 
+                  configured and that the intended behavior of the function is enacted by the mobile device.<htm:br/><htm:br/>
+                </test>
               </testlist>
             </aactivity>
           </f-element>
@@ -1318,24 +1377,38 @@
         <f-component id="fmt_unr_ext.1" name="User Unenrollment Prevention">
           <consistency-rationale></consistency-rationale>
           <f-element id="fmt_unr_ext.1.1">            
-            <title>The MDM Agent shall provide a mechanism to enforce the following behavior upon an attempt to unenroll the mobile device from management:  
+            <title>The MDM Agent shall provide a mechanism to enforce the following behavior upon an attempt to unenroll the mobile 
+              device from management:  
               <selectables>
                 <selectable>prevent the unenrollment from occurring</selectable>
                 <selectable>apply remediation actions</selectable>
               </selectables>
             </title>
-            <note role="application">Unenrolling is the action of transitioning from the enrolled state to the unenrolled state. If preventing the user from unenrolling is configurable, administrators configure whether users are allowed to unenroll through the MDM Server.<htm:br/><htm:br/>
-              For those configurations where unenrollment is allowed, for example a BYOD usage, the MDFPP describes remediation actions performed upon unenrollment, such as wiping enterprise data, in FMT_SMF_EXT.2.1; however, the MDM Agent is limited to those actions supported by the mobile device on which the Agent is operating.
+            <note role="application">Unenrolling is the action of transitioning from the enrolled state to the unenrolled state. If 
+              preventing the user from unenrolling is configurable, administrators configure whether users are allowed to unenroll 
+              through the MDM Server.<htm:br/><htm:br/>
+              For those configurations where unenrollment is allowed, for example a BYOD usage, the MDFPP describes remediation 
+              actions performed upon unenrollment, such as wiping enterprise data, in FMT_SMF_EXT.2.1; however, the MDM Agent is 
+              limited to those actions supported by the mobile device on which the Agent is operating.<htm:br/><htm:br/>
             </note>
               <aactivity>
               <TSS/>
-                The evaluator shall ensure that the <abbr linkend="TSS"/> describes the mechanism used to prevent users from unenrolling or the remediation actions applied when unenrolled.
+                The evaluator shall ensure that the <abbr linkend="TSS"/> describes the mechanism used to prevent users from 
+                unenrolling or the remediation actions applied when unenrolled.<htm:br/><htm:br/>
                 <Guidance/>
-                The evaluator shall ensure that the administrative guidance instructs administrators in configuring the unenrollment prevention in each available configuration interface. If any configuration allows users to unenroll, the guidance also describes the actions that unenroll the Agent.
+                The evaluator shall ensure that the administrative guidance instructs administrators in configuring the unenrollment 
+                prevention in each available configuration interface. If any configuration allows users to unenroll, the guidance 
+                also describes the actions that unenroll the Agent.<htm:br/><htm:br/>
                 <Tests/>
                 <testlist>
-                  <test>If ‘prevent the unenrollment from occurring’ is selected: The evaluator shall configure the Agent according to the administrative guidance for each available configuration interface, shall attempt to unenroll the device, and shall verify that the attempt fails.</test>
-                <test>If ‘apply remediation actions’ is selected: If any configuration allows the user to unenroll, the evaluator shall configure the Agent to allow user unenrollment, attempt to unenroll, and verify that the remediation actions are applied.</test>
+                  <test>If ‘prevent the unenrollment from occurring’ is selected: The evaluator shall configure the Agent according 
+                    to the administrative guidance for each available configuration interface, shall attempt to unenroll the device, 
+                    and shall verify that the attempt fails.<htm:br/><htm:br/>
+                  </test>
+                <test>If ‘apply remediation actions’ is selected: If any configuration allows the user to unenroll, the evaluator 
+                  shall configure the Agent to allow user unenrollment, attempt to unenroll, and verify that the remediation actions 
+                  are applied.<htm:br/><htm:br/>
+                </test>
               </testlist>
             </aactivity>
           </f-element>
@@ -1349,10 +1422,14 @@
         <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
         <consistency-rationale></consistency-rationale>
         <f-element id="fau_stg_ext.3.1">
-          <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.</title>
-          <note role="application">FAU_STG_EXT.3 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3.</note>
+          <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.<htm:br/><htm:br/>
+          </title>
+          <note role="application">FAU_STG_EXT.3 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms 
+            (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3.<htm:br/><htm:br/>
+          </note>
           <aactivity>
-            <TSS/>The evaluator shall verify that the <abbr linkend="TSS"/> description of the audit records indicates how the records are stored. The evaluator shall verify that the Agent calls a platform-provided API to store audit records.
+            <TSS/>The evaluator shall verify that the <abbr linkend="TSS"/> description of the audit records indicates how the 
+            records are stored. The evaluator shall verify that the Agent calls a platform-provided API to store audit records.<htm:br/><htm:br/>
           </aactivity>
         </f-element>
       </f-component>
@@ -1366,18 +1443,31 @@
                 <selectable>positive integer of missed reachability events occur</selectable>
                 <selectable>time limit is exceeded</selectable>
               </selectables>
-              related to the last successful connection with the server has been reached.</title>
+              related to the last successful connection with the server has been reached.<htm:br/><htm:br/>
+            </title>
             <note role="application">
-              This requirement is to enable the Agent to determine if it has been out of connectivity with the Server for too long. The configuration of the number of allowed missed reachability events or time limit since last successful connection with the server is handled in Server configuration policy of the Agent (FMT_SMF.1.1(1) function 56a). If FMT_SMF.1.1(1) function 56a is included in the <abbr linkend="ST"/>, then FPT_NET_EXT.1.1 shall be included in the MDM Server <abbr linkend="ST"/>.<htm:br/><htm:br/>
-              If the Agent has been out of connectivity with the server for too long than the remediation actions specified in function 56b shall occur. For example if the Agent has not synced with the server in the allowed amount of time that the Agent shall wipe the device without requiring a command from the Server.
+              This requirement is to enable the Agent to determine if it has been out of connectivity with the Server for too long. 
+              The configuration of the number of allowed missed reachability events or time limit since last successful connection 
+              with the server is handled in Server configuration policy of the Agent (FMT_SMF.1.1(1) function 56a). If FMT_SMF.1.1(1) 
+              function 56a is included in the <abbr linkend="ST"/>, then FPT_NET_EXT.1.1 shall be included in the MDM Server 
+              <abbr linkend="ST"/>.<htm:br/><htm:br/>
+              If the Agent has been out of connectivity with the server for too long than the remediation actions specified in 
+              function 56b shall occur. For example if the Agent has not synced with the server in the allowed amount of time that 
+              the Agent shall wipe the device without requiring a command from the Server.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS/>
-              The evaluator shall verify that the <abbr linkend="TSS"/> contains a description of how the Agent determines how long it has been since the last successful connection with the Server (i.e., total number of missed reachability events or time). If total number of missed reachability events is selected, the evaluator shall verify that the <abbr linkend="TSS"/> contains a description of how often the reachability events are sent.
+              The evaluator shall verify that the <abbr linkend="TSS"/> contains a description of how the Agent determines how long 
+              it has been since the last successful connection with the Server (i.e., total number of missed reachability events or 
+              time). If total number of missed reachability events is selected, the evaluator shall verify that the 
+              <abbr linkend="TSS"/> contains a description of how often the reachability events are sent.<htm:br/><htm:br/>
               <Guidance/>
-              The evaluator shall verify that the AGD guidance instructs the administrator, if needed, how to configure the <abbr linkend="TOE"/> to detect when the time since last successful connection with the server has been reached.
+              The evaluator shall verify that the AGD guidance instructs the administrator, if needed, how to configure the 
+              <abbr linkend="TOE"/> to detect when the time since last successful connection with the server has been reached.<htm:br/><htm:br/>
               <Tests/>
-              The evaluator shall configure the Server configuration policy of the Agent per FMT_SMF.1.1(1) function 56. The device shall be placed in airplane mode to prevent connectivity with the Server. The evaluator shall verify that after the configured time, the remediation actions selected in function 56 occur.
+              The evaluator shall configure the Server configuration policy of the Agent per FMT_SMF.1.1(1) function 56. The device 
+              shall be placed in airplane mode to prevent connectivity with the Server. The evaluator shall verify that after the 
+              configured time, the remediation actions selected in function 56 occur.<htm:br/><htm:br/>
             </aactivity>
           </f-element>
         </f-component>
