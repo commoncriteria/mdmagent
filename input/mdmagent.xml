@@ -79,7 +79,7 @@
       Agent in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. This PP-Module 
       is intended for use with the following Base-PPs: <htm:ul>
         <htm:li>Mobile Device Management (MDM) Protection Profile Version 4.0</htm:li>
-        <htm:li>Mobile Device Fundamentatls (MDF) Protection Profile Version 3.1</htm:li> <!-- NIAP: If we have to specify version numbers then what do we do when we update MDF?? -->
+        <htm:li>Mobile Device Fundamentals (MDF) Protection Profile Version 3.1</htm:li> <!-- NIAP: If we have to specify version numbers then what do we do when we update MDF?? -->
       </htm:ul>
       <htm:br/>
       These Base-PPs are valid because a MDM Agent is either a 3rd party application manufactured by the MDM Server vendor or is a 
