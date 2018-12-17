@@ -353,7 +353,7 @@
           </objective-refer>
           <objective-refer ref="O.APPLY_POLICY">
             <rationale>The threat T.BACKUP is countered by O.APPLY_POLICY as this provides policy to enforce that backups
-            be stored ony in secure, protected locations.</rationale>
+            be stored only in secure, protected locations.</rationale>
           </objective-refer>
           </threat>
 	  <threat id="T.SOMETHING">
