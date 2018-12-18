@@ -343,7 +343,7 @@
           </threat>  -->    
         <threat id="T.BACKUP">
             <description> An attacker may try to target backups of data or credentials and exfiltrate data. Since the backup is 
-              stored on either a personal computer or end user’s backup repository, it’s not likely enterprise would detect 
+              stored on either a personal computer or end user’s backup repository, it’s not likely the enterprise would detect 
               compromise.</description>
           <consistency-rationale></consistency-rationale>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
@@ -353,14 +353,10 @@
           </objective-refer>
           <objective-refer ref="O.APPLY_POLICY">
             <rationale>The threat T.BACKUP is countered by O.APPLY_POLICY as this provides policy to enforce that backups
-            be stored ony in secure, protected locations.</rationale>
+            be stored only in secure, protected locations.</rationale>
           </objective-refer>
           </threat>
-	  <threat id="T.SOMETHING">
-	    <objective-refer ref="O.SOMETHINGELSE">
-	      <rationale>The threat T.SOMETHING is countered by O.SOMETHINGELSE...</rationale>
-	    </objective-refer>
-	  </threat>
+
         <threat id="T.NETWORK_ATTACK"> <!-- In both MDM and MDF, but still need to map objectives to it. Keep description commented out, so that it is not listed under the threats section. -->
           <!--  <description>
             An attacker is positioned on a wireless communications channel or elsewhere on the network infrastructure. Attackers 
