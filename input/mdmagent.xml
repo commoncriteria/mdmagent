@@ -1097,7 +1097,7 @@
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FMT_SMF_EXT.3</htm:TD>
-                  <htm:TD>Success or failure of function.</htm:TD>
+                  <htm:TD>Outcome (Success/failure of function).</htm:TD>
                   <htm:TD>No additional information.</htm:TD>
                 </htm:TR>
                 <htm:TR>
