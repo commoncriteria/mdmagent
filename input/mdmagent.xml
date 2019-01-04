@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 <?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<!--  
-<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
--->
+
 
 <!-- To Do
+  Revision History
+  Consistency Arguments
+  ECDs
+  
   threats: objective refers - DONE
   assumptions: objective refers - DONE
   OSPs: objective refers (Organizational Security Policies) - DONE
@@ -18,23 +20,21 @@
  
  -->
 
+<!-- DONE:
+
+
+-->
+
 
 
 <Module boilerplate="yes" target-products="MDM Agents" xmlns="https://niap-ccevs.org/cc/v1" name="Mobile Device Management Agents" 
   xmlns:htm="http://www.w3.org/1999/xhtml">
   <PPReference>
     <ReferenceTable>
-      <PPVersion>4.0</PPVersion>
-      <!--  <PPTitle>Extended Package for Mobile Device Management Agents</PPTitle>-->      
+      <PPVersion>4.0</PPVersion> 
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2018-11-28</PPPubDate>
-      <!--  <PPCertificationID>NIAP</PPCertificationID>-->
-      <!--  <CCVersion>Version 3.0</CCVersion>-->
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
-     <!-- <entry>
-        <name>Registration</name>
-        <description>National Information Assurance Partnership</description>
-      </entry> --> 
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>   
@@ -103,11 +103,7 @@
           <entry>
             <term><abbr title="Common Evaluation Methodology">CEM</abbr></term>
             <description>Common Evaluation Methodology for Information Technology Security Evaluation.</description>
-          </entry>
-          <!-- <entry>
-            <term><abbr title="Extended Package">EP</abbr></term>
-            <description>An implementation-independent set of security requirements for a specific subset of products described by a <abbr linkend="PP"/>.</description>
-          </entry>-->         
+          </entry>        
           <entry>
             <term><abbr title="Protection Profile">PP</abbr></term>
             <description>An implementation-independent set of security requirements for a category of products.</description>
@@ -200,7 +196,8 @@
       of the <abbr linkend="TOE"/>, it is expected to be evaluated against the MDF <abbr linkend="PP"/> so that its baseline security 
       capabilities can be assumed to be present.
       <subsection title="TOE Boundary" id="toeboundary">
-      Figure 1 shows a high-level example of the <abbr linkend="PP-Module"/> <abbr linkend="TOE"/> boundary and its operational environment. As stated above, the MDM Agent may either be provided as part of the mobile device itself (shown in red) or distributed as a third-party application from the developer of the MDM Server software (shown in blue).<htm:br/><htm:br/>    
+      Figure 1 shows a high-level example of the <abbr linkend="PP-Module"/> <abbr linkend="TOE"/> boundary and its operational environment. As stated above, the MDM Agent may either be provided as part of the mobile device itself (shown in red) or distributed as a third-party application from the developer of the MDM Server software (shown in blue).<htm:br/><htm:br/> 
+        
         <figure entity="images/MDMagentoperatingenvironment.jpg" title="MDM Agent Operating Environment" id="toe"/><htm:br/>
         The MDM Agent must closely interact with or be part of the mobile device’s platform in order to establish policies and to 
         perform queries about device status. The mobile device, in turn, has its own security requirements specified in the MDF 
@@ -219,12 +216,12 @@
               </description>
             </usecase>
             <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
-              <description>An Enterprise-owned device with intentionally limited network connectivity, tightly controlled configuration, and limited software inventory is appropriate for specialized, high-security use cases. As in the previous use case, the MDM product is used to establish such policies on mobile devices prior to issuance to users. The device may not be permitted connectivity to any external peripherals. It may only be able to communicate via its Wi-Fi or cellular radios with the Enterprise-run network, which may not even permit connectivity to the Internet. Use of the device may require compliance with usage policies that are more restrictive than those in any general-purpose use case, yet may mitigate risks to highly sensitive information. Based upon the operation environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the <!-- TODO: Will need to update this reference to use case templats -->Use Case 2 template defined in Section G.2 are sufficient for the high-security use case.
+              <description>An Enterprise-owned device with intentionally limited network connectivity, tightly controlled configuration, and limited software inventory is appropriate for specialized, high-security use cases. As in the previous use case, the MDM product is used to establish such policies on mobile devices prior to issuance to users. The device may not be permitted connectivity to any external peripherals. It may only be able to communicate via its Wi-Fi or cellular radios with the Enterprise-run network, which may not even permit connectivity to the Internet. Use of the device may require compliance with usage policies that are more restrictive than those in any general-purpose use case, yet may mitigate risks to highly sensitive information. Based upon the operation environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the Use Case 2 template defined in <appref linkend="use-case"/> are sufficient for the high-security use case.
               </description>
             </usecase>
             <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
               <description>A personally owned device, which is used, for both personal activities and enterprise data is commonly called Bring Your Own Device (BYOD). The device may be provisioned for access to enterprise resources after significant personal usage has occurred. Unlike in the enterprise-owned cases, the enterprise is limited in what security policies it can enforce because the user purchased the device primarily for personal use and is unlikely to accept policies that limit the functionality of the device.<htm:br/><htm:br/>
-                However, because the Enterprise allows the user full (or nearly full) access to the Enterprise network, the Enterprise will require certain security policies, for example a password or screen lock policy, and health reporting, such as the integrity of the mobile device system software, before allowing access. The administrator of the MDM can establish remediation actions, such as wipe of the Enterprise data, for non-compliant devices. These controls could potentially be enforced by a separation mechanism built-in to the device itself to distinguish between enterprise and personal activities, or by a third-party application that provides access to enterprise resources and leverages security capabilities provided by the mobile device. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the Use Case 3 template defined in <!-- TODO: Will need to update this reference to use case templats -->Section G.3 are sufficient for the secure implementation of this BYOD use case.</description>
+                However, because the Enterprise allows the user full (or nearly full) access to the Enterprise network, the Enterprise will require certain security policies, for example a password or screen lock policy, and health reporting, such as the integrity of the mobile device system software, before allowing access. The administrator of the MDM can establish remediation actions, such as wipe of the Enterprise data, for non-compliant devices. These controls could potentially be enforced by a separation mechanism built-in to the device itself to distinguish between enterprise and personal activities, or by a third-party application that provides access to enterprise resources and leverages security capabilities provided by the mobile device. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the Use Case 3 template defined in <appref linkend="use-case"/> are sufficient for the secure implementation of this BYOD use case.</description>
             </usecase>
             <usecase title="Personally owned device for personal and limited enterprise use" id="usecase4">
               <description>A personally owned device may also be given access to limited enterprise services such as enterprise email. Because the user does not have full access to the enterprise or enterprise data, the enterprise may not need to enforce any security policies on the device. However, the enterprise may want secure email and web browsing with assurance that the services being provided to those clients by the Mobile Device are not compromised. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this <abbr linkend="PP"/> are sufficient for the secure implementation of this BYOD use case.</description>
@@ -450,9 +447,9 @@
           <description>The <abbr linkend="TOE"/> must provide logging facilities, which record management actions undertaken by its 
             administrators.
           </description>
-          <component-refer ref="FAU_ALT_EXT.2"/> <!-- Good, TOE SFR -->
-          <component-refer ref="FAU_GEN.1(2)"/> <!-- Good, TOE SFR -->
-          <component-refer ref="FAU_SEL.1(2)"/> <!-- Good, TOE SFR -->   
+          <component-refer ref="FAU_ALT_EXT.2"/> 
+          <component-refer ref="FAU_GEN.1(2)"/> 
+          <component-refer ref="FAU_SEL.1(2)"/>    
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.APPLY_POLICY">
@@ -461,38 +458,38 @@
             device into management, through its entire lifecycle, including policy updates and its possible unenrollment from 
             management services.
           </description>
-          <component-refer ref="FAU_STG_EXT.3 (optional)"/> <!-- Good, TOE Obj SFR -->
-          <component-refer ref="FIA_ENR_EXT.2"/> <!-- Good, TOE SFR -->
-          <component-refer ref="FMT_POL_EXT.2"/> <!-- Good, TOE SFR -->
-          <component-refer ref="FMT_SMF_EXT.3"/> <!-- Good, TOE SFR -->
-          <component-refer ref="FMT_UNR_EXT.1"/> <!-- Good, TOE SFR -->
+          <component-refer ref="FAU_STG_EXT.3 (optional)"/> 
+          <component-refer ref="FIA_ENR_EXT.2"/> 
+          <component-refer ref="FMT_POL_EXT.2"/> 
+          <component-refer ref="FMT_SMF_EXT.3"/> 
+          <component-refer ref="FMT_UNR_EXT.1"/> 
           <consistency-rationale></consistency-rationale>
         </SO>
         <SO id="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the MDM Server and the MDM Agent must be protected from being monitored, accessed, 
             or altered.
           </description>
-          <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF Base-PP)"/>  <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_CKM.1 (from MDM/MDF Base-PP)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_CKM.2 (from MDM Base-PP)"/> <!-- Good, MDM Base -->
-          <component-refer ref="FCS_CKM.2(1) (from MDF Base-PP)"/> <!-- Good, MDF Base -->
-          <component-refer ref="FCS_COP.1(*) (from MDM/MDF Base-PP)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_DTLSS_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_DTLSC_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->         
-          <component-refer ref="FCS_TLSC_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF -->
-          <component-refer ref="FCS_TLSC_EXT.2 (from TLS Package)"/> <!-- Good, MDM/MDF -->
-          <component-refer ref="FCS_TLSS_EXT.1 (from TLS Package)"/> <!-- Good, MDM/MDF -->
-          <component-refer ref="FCS_TLSS_EXT.2 (from TLS Package)"/> <!-- Good, MDM/MDF -->
-          <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF Base)"/> <!-- Good, MDM/MDF Base -->
-          <component-refer ref="FIA_X509_EXT.4 (from MDM Base)"/> <!-- Good, MDM Base -->
-          <component-refer ref="FPT_ITT.1 (refined from MDM Base-PP)"/> <!-- Good, applies to agent if extend from MDM -->
-          <component-refer ref="FPT_NET_EXT.1 (optional)"/> <!-- Good, TOE Obj SFR -->
-          <component-refer ref="FTP_ITC_EXT.1 (refined from MDF Base-PP)"/> <!-- Good, modified MDF -->
-          <component-refer ref="FTP_TRP.1(*) (from MDM Base-PP, TOE SFR for MDF)"/> <!-- Good, added for MDF -->
+          <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF Base-PP)"/>  
+          <component-refer ref="FCS_CKM.1 (from MDM/MDF Base-PP)"/>
+          <component-refer ref="FCS_CKM.2 (from MDM Base-PP)"/> 
+          <component-refer ref="FCS_CKM.2(1) (from MDF Base-PP)"/> 
+          <component-refer ref="FCS_COP.1(*) (from MDM/MDF Base-PP)"/> 
+          <component-refer ref="FCS_DTLSS_EXT.1 (from TLS Package)"/> 
+          <component-refer ref="FCS_DTLSC_EXT.1 (from TLS Package)"/> 
+          <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF Base)"/>
+          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF Base)"/>         
+          <component-refer ref="FCS_TLSC_EXT.1 (from TLS Package)"/>
+          <component-refer ref="FCS_TLSC_EXT.2 (from TLS Package)"/>
+          <component-refer ref="FCS_TLSS_EXT.1 (from TLS Package)"/>
+          <component-refer ref="FCS_TLSS_EXT.2 (from TLS Package)"/>
+          <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF Base)"/> 
+          <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF Base)"/> 
+          <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF Base)"/>
+          <component-refer ref="FIA_X509_EXT.4 (from MDM Base)"/> 
+          <component-refer ref="FPT_ITT.1 (refined from MDM Base-PP)"/> 
+          <component-refer ref="FPT_NET_EXT.1 (optional)"/>
+          <component-refer ref="FTP_ITC_EXT.1 (refined from MDF Base-PP)"/>
+          <component-refer ref="FTP_TRP.1(*) (from MDM Base-PP, TOE SFR for MDF)"/>
           <consistency-rationale></consistency-rationale>
         </SO>
         <!-- The following SOs were taken from MDF b/c for that SFRs it also apply to agent, if agent extends MDF. They do not map to any  -->
@@ -1448,7 +1445,55 @@
     </obj-sfrs>
   </chapter>
   
-
+  <!-- TODO: Figure out where to put this section -->
+  <appendix id="use-case" title="Use Case Templates"> 
+    The following use case templates list those selections, assignments, and objective requirements that best support the use cases identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are included in the <abbr linkend="ST"/>, not just those listed in the templates. These templates and deviations from the template should be identified in the Security Target to assist customers with making risk-based purchasing decisions. Products that do not meet these templates are not precluded from use in the scenarios identified by this Protection Profile.<htm:br/><htm:br/>
+    Where selections for a particular requirement are not identified in a use case template, all available selections are equally applicable to the use case.<htm:br/><htm:br/>
+    
+    <usecase id="usecase1" title="Enterprise-owned device for general-purpose enterprise use">
+      <description><htm:b>[Use Case 1] Enterprise-owned device for general-purpose enterprise use</htm:b> <htm:br/><htm:br/>
+        At this time no additional requirements are recommended for this use case.<htm:br/><htm:br/>
+      </description>
+    </usecase>
+    <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
+      <description><htm:b>[Use Case 2] Enterprise-owned device for specialized, high-security use </htm:b><htm:br/>
+        <htm:table>
+          <htm:tr>
+            <htm:th>Requirement</htm:th>
+            <htm:th>Action</htm:th>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FAU_ALT_EXT.2.1 Function c</htm:td>
+            <htm:td>Include in <abbr linkend="ST"/>.</htm:td>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FMT_UNR_EXT.1.1</htm:td>
+            <htm:td>Select “prevent the unenrollment from occurring”.</htm:td>
+          </htm:tr>
+        </htm:table>
+        <htm:br/><htm:br/>
+      </description>
+    </usecase>
+    <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
+      <description><htm:b>[Use Case 3] Personally owned device for personal and enterprise use</htm:b><htm:br/>
+        <htm:table>
+          <htm:tr>
+            <htm:th>Requirement</htm:th>
+            <htm:th>Action</htm:th>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FMT_UNR_ENT.1.1</htm:td>
+            <htm:td>Select “apply remediation actions”</htm:td>
+          </htm:tr>
+        </htm:table>
+        <htm:br/><htm:br/>
+      </description>
+    </usecase>
+    <usecase title="Personally owned device for personal and limited enterprise" id="usecase4">
+      <description><htm:b>[Use Case 4] Personally owned device for personal and limited enterprise us</htm:b><htm:br/><htm:br/>
+        At this time no additional requirements are recommended for this use case.</description>
+    </usecase>
+  </appendix> 
   
     <bibliography>
     <cc-entry/>  
@@ -1471,52 +1516,7 @@
         </entry>
   </acronyms>
   
-  <!-- TODO: Figure out where to put this section -->
-  <appendix id="use-case" title="Use Case Templates"> 
-    The following use case templates list those selections, assignments, and objective requirements that best support the use cases identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are included in the <abbr linkend="ST"/>, not just those listed in the templates. These templates and deviations from the template should be identified in the Security Target to assist customers with making risk-based purchasing decisions. Products that do not meet these templates are not precluded from use in the scenarios identified by this Protection Profile.<htm:br/><htm:br/>
-    Where selections for a particular requirement are not identified in a use case template, all available selections are equally applicable to the use case.<htm:br/><htm:br/>
-    
-    <usecase id="usecase1" title="Enterprise-owned device for general-purpose enterprise use">
-      <description></description>
-    </usecase>
-    <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
-      <description>
-        <htm:table>
-          <htm:tr>
-            <htm:th>Requirement</htm:th>
-            <htm:th>Action</htm:th>
-          </htm:tr>
-          <htm:tr>
-            <htm:td>FAU_ALT_EXT.2.1 Function c</htm:td>
-            <htm:td>Include in <abbr linkend="ST"/>.</htm:td>
-          </htm:tr>
-          <htm:tr>
-            <htm:td>FMT_UNR_EXT.1.1</htm:td>
-            <htm:td>Select “prevent the unenrollment from occurring”.</htm:td>
-          </htm:tr>
-        </htm:table>
-        <htm:br/><htm:br/>
-      </description>
-    </usecase>
-    <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
-      <description>
-        <htm:table>
-          <htm:tr>
-            <htm:th>Requirement</htm:th>
-            <htm:th>Action</htm:th>
-          </htm:tr>
-          <htm:tr>
-            <htm:td>FMT_UNR_ENT.1.1</htm:td>
-            <htm:td>Select “apply remediation actions”</htm:td>
-          </htm:tr>
-        </htm:table>
-        <htm:br/><htm:br/>
-      </description>
-    </usecase>
-    <usecase title="Personally owned device for personal and limited enterprise" id="usecase4">
-      <description>At this time no requirements are recommended for this use case.</description>
-    </usecase>
-  </appendix> 
+  
   
 </Module>
     
