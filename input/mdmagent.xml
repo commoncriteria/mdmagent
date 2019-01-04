@@ -597,6 +597,7 @@
   </chapter>
   <chapter id="sfr" title="Security Requirements">
     <base-pp name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417" xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml">
+      <app-unmod-sfrs>Some really <htm:bold>Cogent</htm:bold> arguments here. </app-unmod-sfrs>
       <!--  If this <abbr linkend="PP-Module"/> is extending the MDF <abbr linkend="PP"/>, the MDM Agent is expected to utilize a 
         number of security functions implemented by the mobile device and evaluated against the base <abbr linkend="PP"/>. This 
         security functionality includes FCS_CKM.1, FCS_CKM.2(1), FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FCS_TLSC_EXT.1, 
