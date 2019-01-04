@@ -78,12 +78,12 @@
       The scope of this <abbr linkend="PP-Module"/> is to describe the security functionality of a Mobile Device Management (MDM) 
       Agent in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. This PP-Module 
       is intended for use with the following Base-PPs: <htm:ul>
+        <!-- NIAP: Do we have to reference specific versions of the Base PP? What happens when these are updated? -->
         <htm:li>Mobile Device Management (MDM) Protection Profile Version 4.0</htm:li>
-        <htm:li>Mobile Device Fundamentals (MDF) Protection Profile Version 3.1</htm:li> <!-- NIAP: If we have to specify version numbers then what do we do when we update MDF?? -->
+        <htm:li>Mobile Device Fundamentals (MDF) Protection Profile Version 3.1</htm:li>
       </htm:ul>
       <htm:br/>
-      These Base-PPs are valid because a MDM Agent is either a 3rd party application manufactured by the MDM Server vendor or is a 
-      native application deployed on a mobile device.   
+      These Base-PPs are valid because a MDM Agent is either a 3rd party application manufactured by the MDM Server vendor or is a native application deployed on a mobile device.   
     </section>
     <section id="glossary" title="Terms">     
       <subsection title="Common Criteria Terms">
@@ -177,16 +177,14 @@
       </subsection>
     </section>
     <section id="targets" title="Compliant Targets of Evaluation">
-      The MDM system consists of two primary components: the MDM Server software and the MDM Agent. This <abbr linkend="PP-Module"/> 
-      specifically addresses the MDM Agent. A compliant MDM Agent is installed on a mobile device as an application (supplied by the 
-      developer of the MDM Server software) or is part of the mobile device's OS. The MDM Agent establishes a secure connection back 
-      to the MDM Server, from which it receives policies to enforce on the mobile device. Optionally, the MDM Agent interacts with 
-      the Mobile Application Store (MAS) Server to download and install enterprise-hosted applications.<htm:br/><htm:br/> 
+      The MDM system consists of two primary components: the MDM Server software and the MDM Agent. This <abbr linkend="PP-Module"/> specifically addresses the MDM Agent. A compliant MDM Agent is installed on a mobile device as an application (supplied by the developer of the MDM Server software) or is part of the mobile device's OS. The MDM Agent establishes a secure connection back to the MDM Server, from which it receives policies to enforce on the mobile device. Optionally, the MDM Agent interacts with the Mobile Application Store (MAS) Server to download and install enterprise-hosted applications.<htm:br/><htm:br/>
+      
       If the MDM Agent is part of the mobile device’s OS, the MDM Agent may present multiple interfaces for configuring the mobile 
       device, such as a local interface and a remote interface. Agents conforming to this <abbr linkend="PP-Module"/> must at least 
       offer an interface with a trusted channel that serves as one piece of an MDM system. Conformant MDM Agents may also offer other 
       interfaces, and the configuration aspects of these additional interfaces are in scope of this 
       <abbr linkend="PP-Module"/>.<htm:br/><htm:br/> 
+      <!-- NIAP: Again does the module have to reference specific versions of the Base? -->
       This <abbr linkend="PP-Module"/> builds on either the Mobile Device Fundamentals <abbr linkend="PP"/> v3.1 or the Mobile Device 
       Management Server <abbr linkend="PP"/> v4.0. A TOE that claims conformance to this <abbr linkend="PP-Module"/> must also claim 
       conformance to one of those PPs as its Base-PP. A compliant <abbr linkend="TOE"/> is obligated to implement the functionality 
@@ -221,62 +219,18 @@
               </description>
             </usecase>
             <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
-              <description>An Enterprise-owned device with intentionally limited network connectivity, tightly controlled configuration, and limited software inventory is appropriate for specialized, high-security use cases. As in the previous use case, the MDM product is used to establish such policies on mobile devices prior to issuance to users. The device may not be permitted connectivity to any external peripherals. It may only be able to communicate via its Wi-Fi or cellular radios with the Enterprise-run network, which may not even permit connectivity to the Internet. Use of the device may require compliance with usage policies that are more restrictive than those in any general-purpose use case, yet may mitigate risks to highly sensitive information. Based upon the operation environment and the acceptable risk level of the enterprise, those security functional requirements outlined in Section 5 <!-- TODO: Update reference -->of this Protection Profile along with the selections in the <!-- TODO: Will need to update this reference to use case templats -->Use Case 2 template defined in Section G.2 are sufficient for the high-security use case.
+              <description>An Enterprise-owned device with intentionally limited network connectivity, tightly controlled configuration, and limited software inventory is appropriate for specialized, high-security use cases. As in the previous use case, the MDM product is used to establish such policies on mobile devices prior to issuance to users. The device may not be permitted connectivity to any external peripherals. It may only be able to communicate via its Wi-Fi or cellular radios with the Enterprise-run network, which may not even permit connectivity to the Internet. Use of the device may require compliance with usage policies that are more restrictive than those in any general-purpose use case, yet may mitigate risks to highly sensitive information. Based upon the operation environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the <!-- TODO: Will need to update this reference to use case templats -->Use Case 2 template defined in Section G.2 are sufficient for the high-security use case.
               </description>
             </usecase>
             <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
               <description>A personally owned device, which is used, for both personal activities and enterprise data is commonly called Bring Your Own Device (BYOD). The device may be provisioned for access to enterprise resources after significant personal usage has occurred. Unlike in the enterprise-owned cases, the enterprise is limited in what security policies it can enforce because the user purchased the device primarily for personal use and is unlikely to accept policies that limit the functionality of the device.<htm:br/><htm:br/>
-                However, because the Enterprise allows the user full (or nearly full) access to the Enterprise network, the Enterprise will require certain security policies, for example a password or screen lock policy, and health reporting, such as the integrity of the mobile device system software, before allowing access. The administrator of the MDM can establish remediation actions, such as wipe of the Enterprise data, for non-compliant devices. These controls could potentially be enforced by a separation mechanism built-in to the device itself to distinguish between enterprise and personal activities, or by a third-party application that provides access to enterprise resources and leverages security capabilities provided by the mobile device. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in Section 5 of this Protection Profile along with the selections in the Use Case 3 template defined in Section G.3 are sufficient for the secure implementation of this BYOD use case.</description>
+                However, because the Enterprise allows the user full (or nearly full) access to the Enterprise network, the Enterprise will require certain security policies, for example a password or screen lock policy, and health reporting, such as the integrity of the mobile device system software, before allowing access. The administrator of the MDM can establish remediation actions, such as wipe of the Enterprise data, for non-compliant devices. These controls could potentially be enforced by a separation mechanism built-in to the device itself to distinguish between enterprise and personal activities, or by a third-party application that provides access to enterprise resources and leverages security capabilities provided by the mobile device. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this Protection Profile along with the selections in the Use Case 3 template defined in <!-- TODO: Will need to update this reference to use case templats -->Section G.3 are sufficient for the secure implementation of this BYOD use case.</description>
             </usecase>
             <usecase title="Personally owned device for personal and limited enterprise use" id="usecase4">
-              <description>A personally owned device may also be given access to limited enterprise services such as enterprise email. Because the user does not have full access to the enterprise or enterprise data, the enterprise may not need to enforce any security policies on the device. However, the enterprise may want secure email and web browsing with assurance that the services being provided to those clients by the Mobile Device are not compromised. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in Section 5 of this <abbr linkend="PP"/> are sufficient for the secure implementation of this BYOD use case.</description>
+              <description>A personally owned device may also be given access to limited enterprise services such as enterprise email. Because the user does not have full access to the enterprise or enterprise data, the enterprise may not need to enforce any security policies on the device. However, the enterprise may want secure email and web browsing with assurance that the services being provided to those clients by the Mobile Device are not compromised. Based upon the operational environment and the acceptable risk level of the enterprise, those security functional requirements outlined in <secref linkend="sfr"/> of this <abbr linkend="PP"/> are sufficient for the secure implementation of this BYOD use case.</description>
             </usecase>
           </usecases>           
-<!-- The Following was appendix E in Agent EP that defined the selections needed, not sure where to put it in the module -->
-        <!--  The following use case templates list those selections, assignments, and objective requirements that best support the use cases identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are included in the <abbr linkend="ST"/>, not just those listed in the templates. These templates and deviations from the template should be identified in the Security Target to assist customers with making risk-based purchasing decisions. Products that do not meet these templates are not precluded from use in the scenarios identified by this Protection Profile.<htm:br/><htm:br/>
-        Where selections for a particular requirement are not identified in a use case template, all available selections are equally applicable to the use case.<htm:br/><htm:br/>
-        
-        <usecase id="usecase1" title="Enterprise-owned device for general-purpose enterprise use">
-          <description></description>
-        </usecase>
-        <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
-          <description>
-            <htm:table>
-              <htm:tr>
-                <htm:th>Requirement</htm:th>
-                <htm:th>Action</htm:th>
-              </htm:tr>
-              <htm:tr>
-                <htm:td>FAU_ALT_EXT.2.1 Function c</htm:td>
-                <htm:td>Include in <abbr linkend="ST"/>.</htm:td>
-              </htm:tr>
-              <htm:tr>
-                <htm:td>FMT_UNR_EXT.1.1</htm:td>
-                <htm:td>Select “prevent the unenrollment from occurring”.</htm:td>
-              </htm:tr>
-            </htm:table>
-            <htm:br/><htm:br/>
-          </description>
-        </usecase>
-        <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
-          <description>
-            <htm:table>
-              <htm:tr>
-                <htm:th>Requirement</htm:th>
-                <htm:th>Action</htm:th>
-              </htm:tr>
-              <htm:tr>
-                <htm:td>FMT_UNR_ENT.1.1</htm:td>
-                <htm:td>Select “apply remediation actions”</htm:td>
-              </htm:tr>
-            </htm:table>
-            <htm:br/><htm:br/>
-          </description>
-        </usecase>
-        <usecase title="Personally owned device for personal and limited enterprise" id="usecase4">
-          <description>At this time no requirements are recommended for this use case.</description>
-        </usecase>
-      -->
+
     </section>  
   </chapter>
   <chapter title="Conformance Claims" id="conf">
@@ -604,10 +558,6 @@
         FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FPT_TST_EXT.1, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1.-->
       <modified-sfrs>       
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
-         <!-- TODO: Fix this area -->
-          <!--  If the <abbr linkend="PP-Module"/> extends the MDF <abbr linkend="PP"/>, the communication channel between the Agent 
-            and the Server is external to the <abbr linkend="TOE"/> and FTP_ITC_EXT.1 in the MDF <abbr linkend="PP"/> should be 
-            modified as below.-->
           <f-component id="ftp_itc_ext.1" name="Trusted Channel Communication">
             <consistency-rationale></consistency-rationale>
             <f-element id="ftp_itc_ext.1.1">
@@ -1476,9 +1426,10 @@
       </subsection>
     </obj-sfrs>
   </chapter>
+  
 
   
-  <bibliography>
+    <bibliography>
     <cc-entry/>  
   </bibliography>
  
@@ -1498,6 +1449,53 @@
           <description>American National Standards Institute</description>
         </entry>
   </acronyms>
+  
+  <!-- TODO: Figure out where to put this section -->
+  <appendix id="use-case" title="Use Case Templates"> 
+    The following use case templates list those selections, assignments, and objective requirements that best support the use cases identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are included in the <abbr linkend="ST"/>, not just those listed in the templates. These templates and deviations from the template should be identified in the Security Target to assist customers with making risk-based purchasing decisions. Products that do not meet these templates are not precluded from use in the scenarios identified by this Protection Profile.<htm:br/><htm:br/>
+    Where selections for a particular requirement are not identified in a use case template, all available selections are equally applicable to the use case.<htm:br/><htm:br/>
+    
+    <usecase id="usecase1" title="Enterprise-owned device for general-purpose enterprise use">
+      <description></description>
+    </usecase>
+    <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
+      <description>
+        <htm:table>
+          <htm:tr>
+            <htm:th>Requirement</htm:th>
+            <htm:th>Action</htm:th>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FAU_ALT_EXT.2.1 Function c</htm:td>
+            <htm:td>Include in <abbr linkend="ST"/>.</htm:td>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FMT_UNR_EXT.1.1</htm:td>
+            <htm:td>Select “prevent the unenrollment from occurring”.</htm:td>
+          </htm:tr>
+        </htm:table>
+        <htm:br/><htm:br/>
+      </description>
+    </usecase>
+    <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
+      <description>
+        <htm:table>
+          <htm:tr>
+            <htm:th>Requirement</htm:th>
+            <htm:th>Action</htm:th>
+          </htm:tr>
+          <htm:tr>
+            <htm:td>FMT_UNR_ENT.1.1</htm:td>
+            <htm:td>Select “apply remediation actions”</htm:td>
+          </htm:tr>
+        </htm:table>
+        <htm:br/><htm:br/>
+      </description>
+    </usecase>
+    <usecase title="Personally owned device for personal and limited enterprise" id="usecase4">
+      <description>At this time no requirements are recommended for this use case.</description>
+    </usecase>
+  </appendix> 
   
 </Module>
     
