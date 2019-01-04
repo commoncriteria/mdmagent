@@ -551,11 +551,23 @@
   </chapter>
   <chapter id="sfr" title="Security Requirements">
     <base-pp name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417" xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml">
-      <app-unmod-sfrs>Some really <htm:bold>Cogent</htm:bold> arguments here. </app-unmod-sfrs>
-      <!--  If this <abbr linkend="PP-Module"/> is extending the MDF <abbr linkend="PP"/>, the MDM Agent is expected to utilize a 
-        number of security functions implemented by the mobile device and evaluated against the base <abbr linkend="PP"/>. This 
-        security functionality includes FCS_CKM.1, FCS_CKM.2(1), FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FCS_TLSC_EXT.1, 
-        FIA_X509_EXT.1, FIA_X509_EXT.2, FIA_X509_EXT.3, FPT_TST_EXT.1, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1.-->
+      <app-unmod-sfrs> 
+        The SFRs listed in this section are defined in the MDF PP and relevant to the secure operation of the MDM Agent. While testing the TOE, it is necessary to ensure these SFRs are tested specifically in conjunction with the MDM Agent portion of the TOE. The ST author may complete all selections and assignments in these SFRs without any additional restrictions.
+        <htm:ul>
+          <htm:li>FCS_CKM.1</htm:li>
+          <htm:li>FCS_CKM.2(1)</htm:li> 
+          <htm:li>FCS_CKM_EXT.4</htm:li>
+          <htm:li>FCS_COP.1(*)</htm:li>
+          <htm:li>FCS_RBG_EXT.1</htm:li>
+          <htm:li>FCS_TLSC_EXT.1</htm:li> 
+          <htm:li>FIA_X509_EXT.1</htm:li>
+          <htm:li>FIA_X509_EXT.2</htm:li>
+          <htm:li>FIA_X509_EXT.3</htm:li>
+          <htm:li>FPT_TST_EXT.1</htm:li>
+          <htm:li>FCS_DTLS_EXT.1</htm:li>
+          <htm:li>FCS_HTTPS_EXT.1</htm:li>
+        </htm:ul>
+      </app-unmod-sfrs>
       <modified-sfrs>       
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
           <f-component id="ftp_itc_ext.1" name="Trusted Channel Communication">
@@ -772,14 +784,23 @@
       <con-op-en></con-op-en>
     </base-pp>
     
-    <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">    
-        <!--  If this <abbr linkend="PP-Module"/> is extending the MDM <abbr linkend="PP"/>, the Agent is part of the 
-          MDM <abbr linkend="TOE"/> and any requirements on the MDM <abbr linkend="TOE"/> also apply to the MDM Agent. 
-          These security functions include FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1(*), FCS_RBG_EXT.1, FIA_X509_EXT.1, 
-          FIA_X509_EXT.2, FIA_X509_EXT.3, FIA_X509_EXT.4, FCS_DTLS_EXT.1, and FCS_HTTPS_EXT.1. The <abbr linkend="ST"/> author 
-          should iterate the requirements in the MDM <abbr linkend="PP"/> for each Agent in order to make the appropriate selections 
-          for each agent.-->   
-      <!-- DONE: above SFRs manadatory or feature dependent for all components of the distributed TOE -->
+    <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">   
+      <app-unmod-sfrs> 
+        The SFRs listed in this section are defined in the MDM PP and relevant to the secure operation of the MDM Agent. While testing the TOE, it is necessary to ensure these SFRs are tested specifically in conjunction with the MDM Agent portion of the TOE. The ST author may complete all selections and assignments in these SFRs without any additional restrictions.
+        <htm:ul>
+          <htm:li>FCS_CKM.1</htm:li>
+          <htm:li>FCS_CKM.2</htm:li>
+          <htm:li>FCS_CKM_EXT.4</htm:li>
+          <htm:li>FCS_COP.1(*)</htm:li>
+          <htm:li>FCS_RBG_EXT.1</htm:li>
+          <htm:li>FIA_X509_EXT.1</htm:li>
+          <htm:li>FIA_X509_EXT.2</htm:li>
+          <htm:li>FIA_X509_EXT.3</htm:li>
+          <htm:li>FIA_X509_EXT.4</htm:li>
+          <htm:li>FCS_DTLS_EXT.1</htm:li>
+          <htm:li>FCS_HTTPS_EXT.1</htm:li>
+        </htm:ul>
+      </app-unmod-sfrs>
       <modified-sfrs>        
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">          
           <f-component id="fcs_stg_ext.1" name="Cryptographic Key Storage">
