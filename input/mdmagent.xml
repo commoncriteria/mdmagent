@@ -708,7 +708,27 @@
       </modified-sfrs>
 
       <additional-sfrs>      
-        <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">           
+        <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">
+           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
+<!--
+Behavior means it's a new EXT component and we have to make that chart.
+            <behavior>
+            </behavior>
+            -->
+            <mod-def>
+This family is defined in the MDF Base-PP.
+This PP-Module augments the extended family by adding one additional component, FCS_STG_EXT.4.
+This new component and its impact on the extended family’s component leveling are shown below;
+reference the MDF PP for all other definitions for this family.            
+            </mod-def>
+            <comp-leveling>
+FCS_STG_EXT.4, Cryptographic Key Storage, requires the TSF to 
+define a specific location for its key storage.            
+            </comp-leveling>          
+            <comp refid="fcs_stg_ext.4"/>
+          </ext-comp-def>
+
+        
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
             <consistency-rationale>This SFR requires the MDM Agent to use functionality defined by the Base-PP in FCS_CKM_EXT.1.
             </consistency-rationale>
@@ -728,7 +748,7 @@
             </f-element>
           </f-component>     
         </subsection>
-        <subsection id="trust-path-enroll" title="Trusted Path">        
+        <subsection id="trust-path-enroll" title="Trusted Path">
           <f-component id="ftp_trp.1(2)" name="Trusted Path (for Enrollment)">
             <consistency-rationale>This SFR uses the trusted channel protocols defined by the Base-PP in FTP_ITC_EXT.1 to 
               facilitate a trusted path that the MDM Agent can use to enroll the mobile device it runs on into management. 
