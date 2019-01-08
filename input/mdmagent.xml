@@ -271,8 +271,6 @@
     <section id="threats" title="Threats">
       The following threats are specific to MDM Agents, and represents an addition to those identified in the Base PP. 
      
-      <!-- Question: What if a threat is in MDF but not MDM or the other way around? -->
-      <!-- Question: Do I need consistency rationale for Threats -->
       <!-- Note: Threats contained in both base PPs have been commented out -->
       <threats>      
         <!--  <threat id="T.MALICIOUS_APPS"> 
@@ -297,10 +295,12 @@
             <description> An attacker may try to target backups of data or credentials and exfiltrate data. Since the backup is 
               stored on either a personal computer or end user’s backup repository, it’s not likely the enterprise would detect 
               compromise.</description>
-          <consistency-rationale>This threat protects user data from unauthorized logical access. An attacker would attempt to 
+          <consistency-rationale><!-- MDF -->This threat protects user data from unauthorized logical access. An attacker would attempt to 
             exploit this threat by first exploiting the T.PHYSICAL, T.FLAWAPP, or T.PERSISTENT threats defined in the Base-PP 
             against the mobile device as a whole, and then using the device itself as an attack vector against any backup data 
             stored on the TOE.
+            <!-- SCHEMA: Need way to specify consistency rationales for threats by base-PP -->
+            <!-- MDM --> <!--  This threat protects user data from unauthorized logical access. If the backup data is stored outside the MDM or the mobile device that it protects, then there is no conflict with the MDM PP since it is a different security boundary. If the backup data is stored either on the MDM or on the protected device, an attacker would attempt to exploit this threat by first exploiting any of the threats that the MDM PP defines (T.MALICIOUS_APPS, T.NETWORK_ATTACK, T.NETWORK_EAVESDROP, T.PHYSICAL_ACCESS) depending on where and how the backup data is stored, and then use successful exploitation of one of these threats to attempt to access the backup data itself.-->
           </consistency-rationale>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT"> 
             <rationale>The threat T.BACKUP is countered by O.DATA_PROTECTION_TRANSIT as this provides the capability to 
@@ -455,9 +455,10 @@
           <component-refer ref="FAU_ALT_EXT.2"/> 
           <component-refer ref="FAU_GEN.1(2)"/> 
           <component-refer ref="FAU_SEL.1(2)"/>    
-          <consistency-rationale>The Base-PP provides an objective, O.INTEGRITY, that ensures that the integrity of the mobile device 
+          <consistency-rationale><!-- MDF -->The Base-PP provides an objective, O.INTEGRITY, that ensures that the integrity of the mobile device 
             is maintained. This objective assists in the implementation of O.INTEGRITY by providing records of administrative activity, 
             which would include actions that could cause the integrity of the mobile device to be lost.
+            <!-- SCHEMA: Need a way to specify base-PP specific consistency rationales for security objectives --><!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SO>
         <SO id="O.APPLY_POLICY">
@@ -471,8 +472,9 @@
           <component-refer ref="FMT_POL_EXT.2"/> 
           <component-refer ref="FMT_SMF_EXT.3"/> 
           <component-refer ref="FMT_UNR_EXT.1"/> 
-          <consistency-rationale>This objective supports the implementation of the O.CONFIG objective defined in the Base-PP by 
+          <consistency-rationale><!-- MDF -->This objective supports the implementation of the O.CONFIG objective defined in the Base-PP by 
             specifying an additional method by which the TSF may be configured.
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SO>
         <SO id="O.DATA_PROTECTION_TRANSIT">
@@ -500,8 +502,9 @@
           <component-refer ref="FPT_NET_EXT.1 (optional)"/>
           <component-refer ref="FTP_ITC_EXT.1 (refined from MDF Base-PP)"/>
           <component-refer ref="FTP_TRP.1(*) (from MDM Base-PP, TOE SFR for MDF)"/>
-          <consistency-rationale>This objective extends the Base-PP’s O.COMMS objective by ensuring that the communications related 
+          <consistency-rationale><!-- MDF -->This objective extends the Base-PP’s O.COMMS objective by ensuring that the communications related 
             to MDM Agents functionality are secured in the same manner as other sensitive data transmitted to/from the mobile device.
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SO>
         <!-- The following SOs were taken from MDF b/c for that SFRs it also apply to agent, if agent extends MDF. They do not map to any  -->
@@ -522,8 +525,9 @@
           </description> 
           <component-refer ref="FCS_STG_EXT.1 (refined from MDM Base-PP)"/>
           <component-refer ref="FCS_STG_EXT.4 (if MDF is Base-PP)"/> 
-          <consistency-rationale>This objective extends the Base-PP’s O.STORAGE objective by ensuring that the mobile device’s 
+          <consistency-rationale><!-- MDF -->This objective extends the Base-PP’s O.STORAGE objective by ensuring that the mobile device’s 
             data-at-rest protection mechanisms can also be used to secure the MDM Agent and related data.
+            <!-- MDM --><!-- This objective requires the MDM Agent to use platform key storage to protect secret and private key data. The MDM PP defines a requirement for key storage (FCS_STG_EXT.1) that allows the MDM Agent to satisfy this objective. -->
           </consistency-rationale>
         </SO> 
       </SOs>
@@ -533,27 +537,31 @@
         <SOE id="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance in a trusted manner.
           </description>
-          <consistency-rationale>This objective extends the Base-PP’s OE.CONFIG objective by expecting that TOE administrators act 
+          <consistency-rationale><!-- MDF -->This objective extends the Base-PP’s OE.CONFIG objective by expecting that TOE administrators act 
             appropriately when installing or configuring the MDM Agent.
+            <!-- SCHEMA: Need a way to specify base-PP specific consistency rationales for OEs-->
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SOE>
         <SOE id="OE.DATA_PROPER_USER">
           <description>Users of the mobile device are trained to securely use the mobile device and apply all guidance in a trusted 
             manner.
           </description>
-          <consistency-rationale>This objective extends the Base-PP’s OE.NOTIFY and OE.PRECAUTION objectives by setting reasonable 
+          <consistency-rationale><!-- MDF -->This objective extends the Base-PP’s OE.NOTIFY and OE.PRECAUTION objectives by setting reasonable 
             expectations for user security behavior.
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SOE>
         <SOE id="OE.IT_ENTERPRISE">
           <description>The Enterprise IT infrastructure provides security for a network that is available to the 
             <abbr linkend="TOE"/> and mobile devices that prevents unauthorized access.
           </description>
-          <consistency-rationale>This objective helps mitigate the T.EAVESDROP and T.NETWORK threats defined by the Base-PP by 
+          <consistency-rationale><!-- MDF -->This objective helps mitigate the T.EAVESDROP and T.NETWORK threats defined by the Base-PP by 
             reducing the network exposure of the mobile device. This does not conflict with the Base-PP because the Base-PP does 
             not set specific expectations for the level of security that the enterprise provides, but all use cases from the 
             Base-PP set expectations that the mobile device is used for some enterprise purposes so it is reasonable to expect 
             the enterprise have security controls in place to protect these functions. 
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SOE>
         <SOE id="OE.MOBILE_DEVICE_PLATFORM">
@@ -561,15 +569,17 @@
             as cryptographic services and data protection. The mobile platform provides trusted updates and software integrity 
             verification of the MDM Agent.
           </description>
-          <consistency-rationale>This objective is suitable because the MDM Agent can reasonably expect the device it has been 
+          <consistency-rationale><!-- MDF -->This objective is suitable because the MDM Agent can reasonably expect the device it has been 
             deployed on to be secure.
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SOE>
         <SOE id="OE.WIRELESS_NETWORK">
           <description>A wireless network will be available to the mobile devices.
           </description>
-          <consistency-rationale>This objective is suitable because while the Base-PP does not associate any availability metrics 
+          <consistency-rationale><!-- MDF -->This objective is suitable because while the Base-PP does not associate any availability metrics 
             with wireless communications, the mobile device will always provide the ability to access a wireless network.
+            <!-- MDM --><!-- The MDM PP contains this same objective with the same purpose. -->
           </consistency-rationale>
         </SOE>
       </SOEs>
@@ -816,7 +826,8 @@
           </f-component>     
         </subsection>    
       </additional-sfrs>
-      <con-toe></con-toe>
+      <con-toe>
+        When this PP-Module is used to extend the MDF PP, the TOE type for the overall TOE is still a mobile device. The TOE boundary is simply extended to include the MDM Agent application that runs on the mobile device.</con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
@@ -942,8 +953,11 @@
         </subsection>
       </modified-sfrs>
       <additional-sfrs></additional-sfrs>
-      <con-toe></con-toe>
-      <con-sec-prob></con-sec-prob>
+      <con-toe>
+        When this PP-Module is used to extend the MDM PP, the TOE type for the overall TOE is still mobile device management. The TOE boundary is simply extended to include the MDM Agent(s) that reside on individual mobile devices and support the management functionality that the MDM Server component implements.</con-toe>
+      <con-sec-prob>
+        
+      </con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
     </base-pp>
@@ -951,8 +965,10 @@
     <man-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_alt_ext.2" name="Agent Alerts">
-          <consistency-rationale>This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP 
+          <consistency-rationale><!-- MDF -->This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP 
             to transmit data about its own behavior to the Operational Environment.
+            <!-- SCHEMA: Need Base-PP specific consistency rationales -->
+            <!-- MDM --><!-- This SFR provides the alerts that are received by the MDM Server as per FAU_ALT_EXT.1 in the Base-PP.  -->
           </consistency-rationale>
           <f-element id="fau_alt_ext.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in the event of any of the 
@@ -1032,9 +1048,10 @@
           </f-element>
         </f-component>
         <f-component id="fau_gen.1(2)" name="Audit Data Generation">         
-          <consistency-rationale>The Base-PP defines FAU_GEN.1; this PP-Module defines a second iteration to use the same audit 
+          <consistency-rationale><!-- MDF -->The Base-PP defines FAU_GEN.1; this PP-Module defines a second iteration to use the same audit 
             mechanism to generate audit records for the MDM Agent’s behavior. It may alternatively allow the TSF to generate its 
             own audit trail, which does not impede the MDF from enforcing its own security functionality.
+            <!-- MDM --><!-- This SFR requires the MDM Agent to generate audit records of its behavior. The mechanism by which it does this is not relevant to the MDM Server portion of the TOE as they reside on different platforms.  -->
           </consistency-rationale>                  
           <f-element id="fau_gen.1.1(2)">
             <title>
@@ -1173,10 +1190,11 @@
           </f-element>
         </f-component>
         <f-component id="fau_sel.1(2)" name="Security Audit Event Selection">
-          <consistency-rationale>The Base-PP defines FAU_SEL.1; this PP-Module defines a second iteration to use the same audit 
+          <consistency-rationale><!-- MDF -->The Base-PP defines FAU_SEL.1; this PP-Module defines a second iteration to use the same audit 
             mechanism to select the auditable events to be generated by the MDM Agent. Note that the Base-PP does not mandate this 
             requirement so it is possible that only the MDM Agent portion of the TOE may implement it. In this case, the SFR provides 
             a selection for the MDM Agent to implement its own mechanism to perform this function rather than a platform-provided one.
+            <!-- MDM --><!-- The Base-PP defines FAU_SEL.1 as an optional SFR to limit the audit events that are generated by the TSF. This PP-Module adds another iteration that requires the MDM Agent to include this capability by default. -->
           </consistency-rationale>
           <f-element id="fau_sel.1.1(2)">           
             <title> The <abbr linkend="TSF"/> shall <selectables>
@@ -1221,9 +1239,10 @@
      </subsection>
       <subsection id="fia" title="Identification and Authentication (FIA)">
         <f-component id="fia_enr_ext.2" name="Enrollment of Mobile Device into Management">
-          <consistency-rationale>This SFR requires the MDM Agent to record data that it receives from the Operational Environment. 
+          <consistency-rationale><!-- MDF -->This SFR requires the MDM Agent to record data that it receives from the Operational Environment. 
             It does not need to use any functionality defined in the Base-PP to do this, and doing this does not prevent the 
             enforcement of any security requirements from the Base-PP.
+            <!-- MDM --><!-- This SFR provides information during agent enrollment that is required by the MDM Server to meet the FIA_ENR_EXT.1 requirement defined by the Base-PP. -->
           </consistency-rationale>
           <f-element id="fia_enr_ext.2.1">
             <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.<htm:br/><htm:br/>
@@ -1249,9 +1268,10 @@
       </subsection>
       <subsection id="fmt" title="Security Management (FMT)">
         <f-component id="fmt_pol_ext.2" name="Trusted Policy Update">
-          <consistency-rationale>This SFR requires the MDM Agent to use a digital signature algorithm to validate data that it 
+          <consistency-rationale><!-- MDF -->This SFR requires the MDM Agent to use a digital signature algorithm to validate data that it 
             receives from the Operational Environment. To do this, the MDM Agent will use the functionality defined by the Base-PP 
             in FCS_COP.1(3).
+            <!-- MDM --><!-- The Base-PP defines an SFR (FMT_POL_EXT.1) that requires the MDM Server to provide digitally signed policies and policy updates to the MDM Agent. FMT_POL_EXT.1 completes this transaction by requiring the MDM Agent to accept only signed policies and policy updates. -->
           </consistency-rationale>
           <f-element id="fmt_pol_ext.2.1">
             <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.<htm:br/><htm:br/>
@@ -1293,9 +1313,10 @@
           </f-element>
         </f-component>
         <f-component id="fmt_smf_ext.3" name="Specification of Management Functions">
-          <consistency-rationale>This SFR defines the ability of the MDM Agent to interact with the mobile device to execute the 
+          <consistency-rationale><!-- MDF -->This SFR defines the ability of the MDM Agent to interact with the mobile device to execute the 
             management functions defined by FMT_MOF_EXT.1 in the Base-PP. The Base-PP specifically indicates in FMT_MOF_EXT.1.2 
             that some management functions may be performed via MDM.
+            <!-- MDM --><!-- This SFR requires the MDM Agent to interact with the underlying mobile device platform to enforce management functions that are configured by the MDM Server (FMT_SMF.1(1) in the Base-PP). -->
           </consistency-rationale>
           <f-element id="fmt_smf_ext.3.1">            
             <title>The MDM Agent shall be capable of interacting with the platform to perform the following functions:
@@ -1410,9 +1431,10 @@
           </f-element>
         </f-component>
         <f-component id="fmt_unr_ext.1" name="User Unenrollment Prevention">
-          <consistency-rationale>This SFR defines the functions performed by the MDM Agent when unenrolled from an MDM. The Base-PP 
+          <consistency-rationale><!-- MDF -->This SFR defines the functions performed by the MDM Agent when unenrolled from an MDM. The Base-PP 
             defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note that these actions may be performed “perhaps via an 
             MDM agent,” so this is expected behavior.
+            <!-- MDM --><!-- This SFR requires the TSF to define its behavior upon unenrollment from management. Unenrollment from management is a management function that is specified in the Base-PP.  -->
           </consistency-rationale>
           <f-element id="fmt_unr_ext.1.1">            
             <title>The MDM Agent shall provide a mechanism to enforce the following behavior upon an attempt to unenroll the mobile 
@@ -1458,8 +1480,9 @@
     <obj-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
-          <consistency-rationale>This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage 
+          <consistency-rationale><!-- MDF -->This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage 
             provided by the mobile device. The Base-PP defines the capability for audit storage in FAU_STG.1.
+            <!-- MDM --><!-- This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. This does not impact the Base-PP since it resides on a different platform from the MDM Agent. -->
           </consistency-rationale>
         <f-element id="fau_stg_ext.3.1">
           <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.<htm:br/><htm:br/>
@@ -1476,9 +1499,10 @@
       </subsection>
       <subsection title="Protection of the TSF (FPT)" id="fpt">
         <f-component id="fpt_net_ext.1" name="Network Reachability">
-          <consistency-rationale>This SFR defines the ability of the MDM Agent to maintain information about its last successful 
+          <consistency-rationale><!-- MDF -->This SFR defines the ability of the MDM Agent to maintain information about its last successful 
             connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that 
             interface, as defined in FTP_ITC_EXT.1 of the Base-PP). It does not need to use any functionality defined in the Base-PP to do this, and doing this does not prevent the enforcement of any security requirements from the Base-PP.
+            <!-- MDM --><!-- This SFR defines the ability of the MDM Agent to maintain information about its last successful connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that interface, as defined in FPT_ITT.1 of the Base-PP). It does not otherwise impact the Base-PP since it describes behavior that occurs local to the MDM Agent during a period where it is not interacting with the MDM Server. -->
           </consistency-rationale>
           <f-element id="fpt_net_ext.1.1">
             <title>The TSF shall detect when a configurable             
@@ -1601,12 +1625,8 @@
       
 
       
-<!-- May need to add a blurb about the entropy documentation in the SD, Dianne is looking into it. -->
+
 <!--  
-  <appendix id="entropy" title="Entropy Documentation and Assessment">
-    The <abbr linkend="TOE"/> does not require any additional supplementary information to describe its entropy source(s) beyond the requirements outlined in the ‘Entropy Documentation and Assessment’ sections of the MDF and MDM <abbr linkend="PP"/>s. As with other base <abbr linkend="PP"/> requirements, the only additional requirement is that the entropy documentation also applies to the specific MDM Agent capabilities of the <abbr linkend="TOE"/> in addition to the functionality required by the base <abbr linkend="PP"/>.
-  </appendix>
-  
   <appendix id="references" title="References">
     <htm:table>
       <htm:tr>
