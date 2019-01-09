@@ -731,10 +731,6 @@ This PP-Module augments the extended family by adding one additional component, 
 This new component and its impact on the extended family’s component leveling are shown below;
 reference the MDF PP for all other definitions for this family.            
             </mod-def>
-            <comp-leveling>
-FCS_STG_EXT.4, Cryptographic Key Storage, requires the TSF to 
-define a specific location for its key storage.            
-            </comp-leveling>          
           </ext-comp-def>
 
         
@@ -742,8 +738,7 @@ define a specific location for its key storage.
             <consistency-rationale>This SFR requires the MDM Agent to use functionality defined by the Base-PP in FCS_CKM_EXT.1.
             </consistency-rationale>
             <comp-lev> requires the TSF to define a specific location for its key storage.</comp-lev>
-            <management/>
-            <audit/>
+            <management>Some awesome management</management>
 
             <f-element id="fcs_stg_ext.4.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
