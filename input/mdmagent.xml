@@ -79,7 +79,6 @@
       The scope of this <abbr linkend="PP-Module"/> is to describe the security functionality of a Mobile Device Management (MDM) 
       Agent in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. This PP-Module 
       is intended for use with the following Base-PPs: <htm:ul>
-        <!-- NIAP: Do we have to reference specific versions of the Base PP? What happens when these are updated? -->
         <htm:li>Mobile Device Management (MDM) Protection Profile Version 4.0</htm:li>
         <htm:li>Mobile Device Fundamentals (MDF) Protection Profile Version 3.1</htm:li>
       </htm:ul>
@@ -181,7 +180,7 @@
       offer an interface with a trusted channel that serves as one piece of an MDM system. Conformant MDM Agents may also offer other 
       interfaces, and the configuration aspects of these additional interfaces are in scope of this 
       <abbr linkend="PP-Module"/>.<htm:br/><htm:br/> 
-      <!-- NIAP: Again does the module have to reference specific versions of the Base? -->
+
       This <abbr linkend="PP-Module"/> builds on either the Mobile Device Fundamentals <abbr linkend="PP"/> v3.1 or the Mobile Device 
       Management Server <abbr linkend="PP"/> v4.0. A TOE that claims conformance to this <abbr linkend="PP-Module"/> must also claim 
       conformance to one of those PPs as its Base-PP. A compliant <abbr linkend="TOE"/> is obligated to implement the functionality 
@@ -203,9 +202,12 @@
         The MDM Agent must closely interact with or be part of the mobile device’s platform in order to establish policies and to 
         perform queries about device status. The mobile device, in turn, has its own security requirements specified in the MDF 
         <abbr linkend="PP"/>. 
-      <!-- NIAP: Is this still true?? -->The mobile device must be evaluated against the MDF <abbr linkend="PP"/>, either concurrently 
+      <!-- NIAP: Is this still true?? -->
+        <!-- To have the confidence that the policys can be applied and enforced the mobile device needs to be evaluated-->
+        <!-- MARY said I can delete this because it would actually be a NIAP policy-->
+        <!--  The mobile device must be evaluated against the MDF <abbr linkend="PP"/>, either concurrently 
         with the MDM Agent or prior to the evaluation of the MDM Agent. This is true regardless of whether the MDM 
-        Agent is a native part of the mobile device OS or a third-party application.<htm:br/><htm:br/>      
+        Agent is a native part of the mobile device OS or a third-party application.<htm:br/><htm:br/>    -->  
       </subsection>
     </section>
     <section title="Use Cases" id="usecase">
