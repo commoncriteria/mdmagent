@@ -333,7 +333,7 @@
           </objective-refer>
         </threat>
         <!--  <threat id="T.NETWORK_EAVESDROP"> 
-          <description><htm:b>Network Attack</htm:b><htm:br></htm:br><htm:br></htm:br>
+          <description><htm:b>Network Attack</htm:b><htm:br/><htm:br/>
             An attacker is positioned on a wireless communications channel or elsewhere on the network infrastructure. Attackers 
             may initiate communications with the Agent or alter communications between the Agent and other endpoints 
             in order to compromise the Agent or software managed by the Agent. These attacks include malicious software update of 
@@ -613,8 +613,7 @@
       <modified-sfrs>       
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
           <f-component id="ftp_itc_ext.1" name="Trusted Channel Communication">
-            <consistency-rationale>The Base-PP defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel 
-              communications. This PP-Module modifies the SFR to specify a subset of these protocols that may be used for MDM Sever 
+            <consistency-rationale>The Base-PP defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This PP-Module modifies the SFR to specify a subset of these protocols that may be used for MDM Sever 
               communications in particular.
             </consistency-rationale>
             <f-element id="ftp_itc_ext.1.1">
@@ -718,10 +717,9 @@
           </f-component>
         </subsection>  
       </modified-sfrs>
-
       <additional-sfrs>      
         <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">
-           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
+           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">            
 <!--
 Behavior means it's a new EXT component and we have to make that chart.
             <behavior>
@@ -733,9 +731,7 @@ This PP-Module augments the extended family by adding one additional component, 
 This new component and its impact on the extended family’s component leveling are shown below;
 reference the MDF PP for all other definitions for this family.            
             </mod-def>
-          </ext-comp-def>
-
-        
+          </ext-comp-def>       
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
             <consistency-rationale>This SFR requires the MDM Agent to use functionality defined by the Base-PP in FCS_CKM_EXT.1.
             </consistency-rationale>
@@ -873,21 +869,17 @@ reference the MDF PP for all other definitions for this family.
       <modified-sfrs>        
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">          
           <f-component id="fcs_stg_ext.1" name="Cryptographic Key Storage">
-            <consistency-rationale>The Base-PP requires the TOE to define a method of key storage. This PP-Module modifies it to 
-              specify the use of platform key storage.
+            <consistency-rationale>
+              The Base-PP requires the TOE to define a method of key storage. This PP-Module modifies it to specify the use of platform key storage.
             </consistency-rationale>
             <f-element id="fcs_stg_ext.1.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
-              <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private keys 
-                are stored securely when not in use by the mobile platform.<htm:br/><htm:br/>
+              <note role="application">
+                This requirement ensures that persistent secrets (credentials, secret keys) and private keys are stored securely when not in use by the mobile platform.<htm:br/><htm:br/>
               </note>
               <aactivity>
                 <TSS/> 
-                The evaluator will verify that the <abbr linkend="TSS"/> lists each persistent secret (credential, secret key) and 
-                private key needed to meet the requirements in the <abbr linkend="ST"/>. For each of these items, the evaluator will 
-                confirm that the <abbr linkend="TSS"/> lists for what purpose it is used, and, for each platform listed as supported 
-                in the <abbr linkend="ST"/>, how it is stored. The evaluator shall verify that the Agent calls a platform-provided 
-                API to store persistent secrets and private keys.<htm:br/><htm:br/>
+                The evaluator will verify that the <abbr linkend="TSS"/> lists each persistent secret (credential, secret key) and private key needed to meet the requirements in the <abbr linkend="ST"/>. For each of these items, the evaluator will confirm that the <abbr linkend="TSS"/> lists for what purpose it is used, and, for each platform listed as supported in the <abbr linkend="ST"/>, how it is stored. The evaluator shall verify that the Agent calls a platform-provided API to store persistent secrets and private keys.<htm:br/><htm:br/>
               </aactivity>
             </f-element>
           </f-component>         
@@ -975,21 +967,32 @@ reference the MDF PP for all other definitions for this family.
       <additional-sfrs></additional-sfrs>
       <con-toe>
         When this PP-Module is used to extend the MDM PP, the TOE type for the overall TOE is still mobile device management. The TOE boundary is simply extended to include the MDM Agent(s) that reside on individual mobile devices and support the management functionality that the MDM Server component implements.</con-toe>
-      <con-sec-prob>
-        
-      </con-sec-prob>
+      <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
     </base-pp>
 
     <man-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
+        <ext-comp-def fam-id="FAU_ALT_EXT" title="MDM Alerts">
+          <mod-def>
+          This family is defined in the MDM Base-PP. This PP-Module augments the extended family by adding one additional component, FAU_ALT_EXT.2. This new component and its impact on the extended family’s component leveling are shown below; reference the MDM PP for all other definitions for this family. </mod-def>        
+        </ext-comp-def>
         <f-component id="fau_alt_ext.2" name="Agent Alerts">
-          <consistency-rationale><!-- MDF -->This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP 
-            to transmit data about its own behavior to the Operational Environment.
+          <consistency-rationale><!-- MDF -->This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP to transmit data about its own behavior to the Operational Environment.
             <!-- SCHEMA: Need Base-PP specific consistency rationales -->
             <!-- MDM --><!-- This SFR provides the alerts that are received by the MDM Server as per FAU_ALT_EXT.1 in the Base-PP.  -->
           </consistency-rationale>
+          <comp-lev>requires the TSF to define when and how an MDM Agent generates alerts and transmits them to an MDM Server based on its activity.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <htm:ul>
+            <htm:li>Ability to configure the specific events that result in generation of alerts.</htm:li>
+          </htm:ul>          
+          </management>
+          <audit>
+            The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:<htm:ul>
+              <htm:li>Minimal: Configuration of the specific events that result in generation of alerts.</htm:li>
+            </htm:ul>
+          </audit>
           <f-element id="fau_alt_ext.2.1">
             <title>The MDM Agent shall provide an alert via the trusted channel to the MDM Server in the event of any of the 
               following audit events:
@@ -1500,8 +1503,7 @@ reference the MDF PP for all other definitions for this family.
     <obj-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
         <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
-          <consistency-rationale><!-- MDF -->This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage 
-            provided by the mobile device. The Base-PP defines the capability for audit storage in FAU_STG.1.
+          <consistency-rationale><!-- MDF -->This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. The Base-PP defines the capability for audit storage in FAU_STG.1.
             <!-- MDM --><!-- This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. This does not impact the Base-PP since it resides on a different platform from the MDM Agent. -->
           </consistency-rationale>
         <f-element id="fau_stg_ext.3.1">
