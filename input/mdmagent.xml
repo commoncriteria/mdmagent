@@ -852,6 +852,7 @@ reference the MDF PP for all other definitions for this family.
       <con-obj></con-obj>
       <con-op-en></con-op-en>
       <con-mod id="T.BACKUP">THis is a consistency update for T.BACKUP</con-mod>
+      <con-mod id="fmt_smf_ext.3">Some other rationalization</con-mod>
     </base-pp>
     
     <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">   
