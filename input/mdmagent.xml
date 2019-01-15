@@ -3,6 +3,9 @@
 <?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 
+
+
+
 <!-- To Do
   Revision History
   Consistency Arguments
@@ -702,8 +705,9 @@ Behavior means it's a new EXT component and we have to make that chart.
             <consistency-rationale>This SFR requires the MDM Agent to use functionality defined by the Base-PP in FCS_CKM_EXT.1.
             </consistency-rationale>
             <comp-lev> requires the TSF to define a specific location for its key storage.</comp-lev>
-            <management>Some awesome management</management>
-
+            <management>There are no management functions foreseen.</management>
+            <audit>There are no auditable events foreseen.</audit>
+            <dependencies>FCS_CKM.1 Cryptographic Key Generation</dependencies>
             <f-element id="fcs_stg_ext.4.1">
               <title>The MDM Agent shall use the platform provided key storage for all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets (credentials, secret keys) and private 
@@ -839,8 +843,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <con-mod id="OE.WIRELESS_NETWORK">       
         This objective is suitable because while the Base-PP does not associate any availability metrics with wireless communications, the mobile device will always provide the ability to access a wireless network.</con-mod>
       <con-mod id="fau_alt_ext.2">
-        This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP to transmit data about its own behavior to the Operational Environment.</con-mod>     
-      
+        This SFR requires the MDM Agent to use a trusted channel defined by FTP_ITC_EXT.1 in the Base-PP to transmit data about its own behavior to the Operational Environment.</con-mod>           
       <con-mod id="fau_gen.1(2)">
         The Base-PP defines FAU_GEN.1; this PP-Module defines a second iteration to use the same audit mechanism to generate audit records for the MDM Agent’s behavior. It may alternatively allow the TSF to generate its own audit trail, which does not impede the MDF from enforcing its own security functionality.</con-mod>
       <con-mod id="fau_sel.1(2)">
@@ -852,17 +855,12 @@ Behavior means it's a new EXT component and we have to make that chart.
         This SFR requires the MDM Agent to use a digital signature algorithm to validate data that it receives from the Operational Environment. To do this, the MDM Agent will use the functionality defined by the Base-PP in FCS_COP.1(3).</con-mod>
       <con-mod id="fmt_smf_ext.3">
         This SFR defines the ability of the MDM Agent to interact with the mobile device to execute the management functions defined by FMT_MOF_EXT.1 in the Base-PP. The Base-PP specifically indicates in FMT_MOF_EXT.1.2 that some management functions may be performed via MDM.</con-mod>
-      <con-mod id="fmt_unr_ext.1">This SFR defines the functions performed by the MDM Agent when unenrolled from an MDM. The Base-PP defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note that these actions may be performed “perhaps via an MDM agent,” so this is expected behavior.	</con-mod>
-      <con-mod id="fau_stg_ext.3">  	This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. The Base-PP defines the capability for audit storage in FAU_STG.1.</con-mod>
-      <con-mod id="fpt_net_ext.1">	This SFR defines the ability of the MDM Agent to maintain information about its last successful connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that interface, as defined in FTP_ITC_EXT.1 of the Base-PP). It does not need to use any functionality defined in the Base-PP to do this, and doing this does not prevent the enforcement of any security requirements from the Base-PP.</con-mod>
-      
-    
-    
-    
-    
-    
-    
-    
+      <con-mod id="fmt_unr_ext.1">
+        This SFR defines the functions performed by the MDM Agent when unenrolled from an MDM. The Base-PP defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note that these actions may be performed “perhaps via an MDM agent,” so this is expected behavior.	</con-mod>
+      <con-mod id="fau_stg_ext.3">  	
+        This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. The Base-PP defines the capability for audit storage in FAU_STG.1.</con-mod>
+      <con-mod id="fpt_net_ext.1">	
+        This SFR defines the ability of the MDM Agent to maintain information about its last successful connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that interface, as defined in FTP_ITC_EXT.1 of the Base-PP). It does not need to use any functionality defined in the Base-PP to do this, and doing this does not prevent the enforcement of any security requirements from the Base-PP.</con-mod> 
     </base-pp>
     
     <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">   
@@ -1013,15 +1011,24 @@ Behavior means it's a new EXT component and we have to make that chart.
         </con-mod>
       <con-mod id="OE.WIRELESS_NETWORK">
         The MDM PP contains this same objective with the same purpose. </con-mod>
-      <con-mod id="fau_alt_ext.2">This SFR provides the alerts that are received by the MDM Server as per FAU_ALT_EXT.1 in the Base-PP.</con-mod>
-      <con-mod id="fau_gen.1(2)">	This SFR requires the MDM Agent to generate audit records of its behavior. The mechanism by which it does this is not relevant to the MDM Server portion of the TOE as they reside on different platforms.</con-mod>
-      <con-mod id="fau_sel.1(2)">	The Base-PP defines FAU_SEL.1 as an optional SFR to limit the audit events that are generated by the TSF. This PP-Module adds another iteration that requires the MDM Agent to include this capability by default.</con-mod>
-      <con-mod id="fia_enr_ext.2"> 	This SFR provides information during agent enrollment that is required by the MDM Server to meet the FIA_ENR_EXT.1 requirement defined by the Base-PP.</con-mod>
-      <con-mod id="fmt_pol_ext.2">	The Base-PP defines an SFR (FMT_POL_EXT.1) that requires the MDM Server to provide digitally signed policies and policy updates to the MDM Agent. FMT_POL_EXT.1 completes this transaction by requiring the MDM Agent to accept only signed policies and policy updates.</con-mod>
-      <con-mod id="fmt_smf_ext.3">	This SFR requires the MDM Agent to interact with the underlying mobile device platform to enforce management functions that are configured by the MDM Server (FMT_SMF.1(1) in the Base-PP).</con-mod>
-      <con-mod id="fmt_unr_ext.1">	This SFR requires the TSF to define its behavior upon unenrollment from management. Unenrollment from management is a management function that is specified in the Base-PP.</con-mod>
-      <con-mod id="fau_stg_ext.3"> This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. This does not impact the Base-PP since it resides on a different platform from the MDM Agent. 	</con-mod>
-      <con-mod id="fpt_net_ext.1">This SFR defines the ability of the MDM Agent to maintain information about its last successful connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that interface, as defined in FPT_ITT.1 of the Base-PP). It does not otherwise impact the Base-PP since it describes behavior that occurs local to the MDM Agent during a period where it is not interacting with the MDM Server.	</con-mod>
+      <con-mod id="fau_alt_ext.2">
+        This SFR provides the alerts that are received by the MDM Server as per FAU_ALT_EXT.1 in the Base-PP.</con-mod>
+      <con-mod id="fau_gen.1(2)">	
+        This SFR requires the MDM Agent to generate audit records of its behavior. The mechanism by which it does this is not relevant to the MDM Server portion of the TOE as they reside on different platforms.</con-mod>
+      <con-mod id="fau_sel.1(2)">	
+        The Base-PP defines FAU_SEL.1 as an optional SFR to limit the audit events that are generated by the TSF. This PP-Module adds another iteration that requires the MDM Agent to include this capability by default.</con-mod>
+      <con-mod id="fia_enr_ext.2"> 	
+        This SFR provides information during agent enrollment that is required by the MDM Server to meet the FIA_ENR_EXT.1 requirement defined by the Base-PP.</con-mod>
+      <con-mod id="fmt_pol_ext.2">	
+        The Base-PP defines an SFR (FMT_POL_EXT.1) that requires the MDM Server to provide digitally signed policies and policy updates to the MDM Agent. FMT_POL_EXT.1 completes this transaction by requiring the MDM Agent to accept only signed policies and policy updates.</con-mod>
+      <con-mod id="fmt_smf_ext.3">	
+        This SFR requires the MDM Agent to interact with the underlying mobile device platform to enforce management functions that are configured by the MDM Server (FMT_SMF.1(1) in the Base-PP).</con-mod>
+      <con-mod id="fmt_unr_ext.1">	
+        This SFR requires the TSF to define its behavior upon unenrollment from management. Unenrollment from management is a management function that is specified in the Base-PP.</con-mod>
+      <con-mod id="fau_stg_ext.3"> 
+        This SFR defines the ability of the MDM Agent to store generated audit data in the audit storage provided by the mobile device. This does not impact the Base-PP since it resides on a different platform from the MDM Agent. 	</con-mod>
+      <con-mod id="fpt_net_ext.1">
+        This SFR defines the ability of the MDM Agent to maintain information about its last successful connection with the environmental MDM Server (i.e., the last successful invocation of the trusted channel for that interface, as defined in FPT_ITT.1 of the Base-PP). It does not otherwise impact the Base-PP since it describes behavior that occurs local to the MDM Agent during a period where it is not interacting with the MDM Server.	</con-mod>
     </base-pp>
 
     <man-sfrs>
@@ -1307,8 +1314,17 @@ Behavior means it's a new EXT component and we have to make that chart.
         </f-component>       
      </subsection>
       <subsection id="fia" title="Identification and Authentication (FIA)">
+        <ext-comp-def title="Enrollment" fam-id="FIA_ENR_EXT">
+          This family is defined in the MDM Base-PP. This PP-Module augments the extended family by adding one additional component, FIA_ENR_EXT.2. This new component and its impact on the extended family’s component leveling are shown below; reference the MDM PP for all other definitions for this family.
+        </ext-comp-def>
         <f-component id="fia_enr_ext.2" name="Enrollment of Mobile Device into Management">
           <consistency-rationale></consistency-rationale>
+          <comp-lev> requires the TSF to record specific information about the MDM Server (i.e. the entity that is enrolling it) during the enrollment process.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            •	Minimal: Completion of enrollment process.
+          </audit>
+          <dependencies>FIA_ENR_EXT.1 Enrollment of Mobile Device into Management</dependencies>
           <f-element id="fia_enr_ext.2.1">
             <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.<htm:br/><htm:br/>
             </title>
@@ -1332,8 +1348,21 @@ Behavior means it's a new EXT component and we have to make that chart.
         </f-component>
       </subsection>
       <subsection id="fmt" title="Security Management (FMT)">
-        <f-component id="fmt_pol_ext.2" name="Trusted Policy Update">
+        <ext-comp-def title="Trusted Policy Update" fam-id="FMT_POL_EXT">
+          <mod-def>
+          This family is defined in the MDM Base-PP. This PP-Module augments the extended family by adding one additional component, FMT_POL_EXT.2. This new component and its impact on the extended family’s component leveling are shown below; reference the MDM PP for all other definitions for this family.</mod-def>
+        </ext-comp-def>
+        <f-component id="fmt_pol_ext.2" name="Trusted Policy Update">         
           <consistency-rationale></consistency-rationale>
+          <comp-lev> requires the TSF to verify the validity of the source of a policy before applying it.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            •	Minimal: Application of policy.
+            •	Minimal: Failure to validate policy.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation
+            FMT_POL_EXT.1 Trusted Policy Update
+          </dependencies>
           <f-element id="fmt_pol_ext.2.1">
             <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.<htm:br/><htm:br/>
             </title>
@@ -1373,8 +1402,22 @@ Behavior means it's a new EXT component and we have to make that chart.
             </aactivity>
           </f-element>
         </f-component>
+        <ext-comp-def title="Specification of Management Functions" fam-id="FMT_SMF_EXT">
+          <mod-def>
+            This family is defined in the MDF Base-PP. This PP-Module augments the extended family by adding one additional component, FMT_SMF_EXT.3. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family.
+          </mod-def>
+        </ext-comp-def>
         <f-component id="fmt_smf_ext.3" name="Specification of Management Functions">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale> </consistency-rationale>
+          <comp-lev> requires the TSF to support the execution of certain management functions that require interfacing with other TOE components.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT:
+            •	Execution of management functions.
+            •	Configuration of management functions behavior.
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            •	Minimal: Successful and failed execution of management functions.
+          </audit>
+          <dependencies>FCS_CKM.1 Cryptographic Key Generation</dependencies>
           <f-element id="fmt_smf_ext.3.1">            
             <title>The MDM Agent shall be capable of interacting with the platform to perform the following functions:
               <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
@@ -1487,8 +1530,22 @@ Behavior means it's a new EXT component and we have to make that chart.
             </aactivity>
           </f-element>
         </f-component>
+        <ext-comp-def title="Unenrollment" fam-id="FMT_UNR_EXT">
+          <mod-def>
+          Components in this family define requirements for TSF behavior when a user attempts to unenroll the TOE from mobile device management.</mod-def>
+        </ext-comp-def>
         <f-component id="fmt_unr_ext.1" name="User Unenrollment Prevention">
           <consistency-rationale></consistency-rationale>
+          <comp-lev> requires the TSF either to prevent unenrollment entirely or to take some corrective action in the event that an unenrollment is initiated.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            •	Minimal: Unenrollment from MDM.
+          </audit>
+          <dependencies>
+            [FIA_ENR_EXT.1 Enrollment of Mobile Device into Management; or
+            FMT_MOF_EXT.1 Management of Functions Behavior]
+            
+          </dependencies>
           <f-element id="fmt_unr_ext.1.1">            
             <title>The MDM Agent shall provide a mechanism to enforce the following behavior upon an attempt to unenroll the mobile 
               device from management:  
@@ -1532,8 +1589,15 @@ Behavior means it's a new EXT component and we have to make that chart.
     <sel-sfrs></sel-sfrs>
     <obj-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
+        <ext-comp-def title="Protected Audit Event Storage" fam-id="FAU_STG_EXT">
+          <mod-def>This family is defined in the MDM Base-PP. This PP-Module augments the extended family by adding one additional component, FAU_STG_EXT.3. This new component and its impact on the extended family’s component leveling are shown below; reference the MDM PP for all other definitions for this family.</mod-def>
+        </ext-comp-def>
         <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
           <consistency-rationale></consistency-rationale>
+          <comp-lev> requires the TSF to identify a location for audit record storage and the events that are stored at this location.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>FAU_GEN.1 Audit Data Generation</dependencies>
         <f-element id="fau_stg_ext.3.1">
           <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.<htm:br/><htm:br/>
           </title>
@@ -1548,8 +1612,22 @@ Behavior means it's a new EXT component and we have to make that chart.
       </f-component>
       </subsection>
       <subsection title="Protection of the TSF (FPT)" id="fpt">
+        <ext-comp-def title="Network Reachability" fam-id="FPT_NET_EXT">
+          <mod-def>
+            Components in this family define requirements for tracking the availability of network components.
+          </mod-def>
+        </ext-comp-def>
         <f-component id="fpt_net_ext.1" name="Network Reachability">
           <consistency-rationale></consistency-rationale>
+          <comp-lev> requires the TSF to keep track of failed attempts to communicate with a remote entity.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT:<htm:br/>
+            <htm:ul>
+            <htm:li>Configuration of unreachability threshold.</htm:li></htm:ul>
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:<htm:ul>
+            <htm:li>Minimal: Reaching/exceeding unreachability threshold.</htm:li></htm:ul>
+          </audit>
+          <dependencies>FPT_STM.1 Reliable Time Stamps</dependencies>
           <f-element id="fpt_net_ext.1.1">
             <title>The TSF shall detect when a configurable             
               <selectables>
