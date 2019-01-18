@@ -1326,7 +1326,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </audit>
           <dependencies>FIA_ENR_EXT.1 Enrollment of Mobile Device into Management</dependencies>
           <f-element id="fia_enr_ext.2.1">
-            <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.<htm:br/><htm:br/>
+            <title>The MDM Agent shall record the reference identifier of the MDM Server during the enrollment process.
             </title>
             <note role="application">The reference identifier of the MDM Server may be the Distinguished Name, Domain Name, and/or 
               the IP address of the MDM Server. This requirement allows the specification of the information to be to be used to 
@@ -1364,7 +1364,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             FMT_POL_EXT.1 Trusted Policy Update
           </dependencies>
           <f-element id="fmt_pol_ext.2.1">
-            <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.<htm:br/><htm:br/>
+            <title>The MDM Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.
             </title>
             <note role="application">The intent of this requirement is to cryptographically tie the policies to the enterprise 
               that mandated the policy, not to protect the policies in transit (as they are already protected by FPT_ITT.1). This is 
@@ -1392,7 +1392,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             </aactivity>
           </f-element>
           <f-element id="fmt_pol_ext.2.2">
-            <title>The MDM Agent shall not install policies if the policy-signing certificate is deemed invalid.<htm:br/><htm:br/>
+            <title>The MDM Agent shall not install policies if the policy-signing certificate is deemed invalid.
             </title>
             <aactivity>
                 <TSS/>     
@@ -1420,15 +1420,17 @@ Behavior means it's a new EXT component and we have to make that chart.
           <dependencies>FCS_CKM.1 Cryptographic Key Generation</dependencies>
           <f-element id="fmt_smf_ext.3.1">            
             <title>The MDM Agent shall be capable of interacting with the platform to perform the following functions:
-              <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
-              <htm:li><selectables>
+              <htm:ul>
+                <htm:li>Import the certificates to be used for authentication of MDM Agent communications</htm:li>
+                <htm:li><selectables>
                   <selectable>administrator-provided management functions in MDF <abbr linkend="PP"/></selectable>
                   <selectable>administrator-provided device management functions in MDM <abbr linkend="PP"/></selectable>
                   </selectables></htm:li>             
-              <htm:li><selectables>
+                <htm:li><selectables>
                   <selectable><assignable>additional functions</assignable></selectable>
                   <selectable> no additional functions</selectable>
-              </selectables></htm:li>              
+                  </selectables></htm:li>
+              </htm:ul>
             </title>
             <note role="application">
               This requirement captures all the configuration functionality in the MDM Agent to configure the underlying Mobile 
@@ -1599,7 +1601,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FAU_GEN.1 Audit Data Generation</dependencies>
         <f-element id="fau_stg_ext.3.1">
-          <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.<htm:br/><htm:br/>
+          <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.
           </title>
           <note role="application">FAU_STG_EXT.3 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms 
             (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3.<htm:br/><htm:br/>
@@ -1634,7 +1636,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <selectable>positive integer of missed reachability events occur</selectable>
                 <selectable>time limit is exceeded</selectable>
               </selectables>
-              related to the last successful connection with the server has been reached.<htm:br/><htm:br/>
+              related to the last successful connection with the server has been reached.
             </title>
             <note role="application">
               This requirement is to enable the Agent to determine if it has been out of connectivity with the Server for too long. 
