@@ -1531,8 +1531,8 @@ Behavior means it's a new EXT component and we have to make that chart.
           </f-element>
         </f-component>
         <ext-comp-def title="Unenrollment" fam-id="FMT_UNR_EXT">
-          <mod-def>
-          Components in this family define requirements for TSF behavior when a user attempts to unenroll the TOE from mobile device management.</mod-def>
+          <fam-behavior>
+          Components in this family define requirements for TSF behavior when a user attempts to unenroll the TOE from mobile device management.</fam-behavior>
         </ext-comp-def>
         <f-component id="fmt_unr_ext.1" name="User Unenrollment Prevention">
           <consistency-rationale></consistency-rationale>
