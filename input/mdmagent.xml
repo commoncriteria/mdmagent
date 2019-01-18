@@ -22,6 +22,7 @@
   FIA_X509_EXT.2.3 - requires an unique client certificate. Agent pulls it in from the base, but it is only in Server, and not in MDF. So should we add it as an additional requirement if the base is MDF 
   fix table refs in text so that they refer to the correct #s
  
+ Section 6.1.4 - Consistency of Requirements - there is an incomplete sentence
  -->
 
 <!-- DONE:
@@ -238,7 +239,7 @@
   </chapter>
   <chapter title="Conformance Claims" id="conf">
     <cclaims>
-      <cclaim title="Conformance Statement">
+      <cclaim title="Conformance Statement"> <!-- TODO: Update text with Dianne's changes -->
         <description>To be conformant to this <abbr linkend="PP-Module"/>, an <abbr linkend="ST"/> must demonstrate Exact Conformance, 
           as defined by the [<abbr linkend="CC"/>] and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs 
           (dated May 2017). Exact Conformance is described in CC and CEM addenda for Exact Conformance. An ST that conforms to this 
@@ -1315,7 +1316,9 @@ Behavior means it's a new EXT component and we have to make that chart.
      </subsection>
       <subsection id="fia" title="Identification and Authentication (FIA)">
         <ext-comp-def title="Enrollment" fam-id="FIA_ENR_EXT">
+          <mod-def>
           This family is defined in the MDM Base-PP. This PP-Module augments the extended family by adding one additional component, FIA_ENR_EXT.2. This new component and its impact on the extended family’s component leveling are shown below; reference the MDM PP for all other definitions for this family.
+        </mod-def>
         </ext-comp-def>
         <f-component id="fia_enr_ext.2" name="Enrollment of Mobile Device into Management">
           <consistency-rationale></consistency-rationale>
@@ -1613,9 +1616,9 @@ Behavior means it's a new EXT component and we have to make that chart.
       </subsection>
       <subsection title="Protection of the TSF (FPT)" id="fpt">
         <ext-comp-def title="Network Reachability" fam-id="FPT_NET_EXT">
-          <mod-def>
+          <fam-behavior>
             Components in this family define requirements for tracking the availability of network components.
-          </mod-def>
+          </fam-behavior>
         </ext-comp-def>
         <f-component id="fpt_net_ext.1" name="Network Reachability">
           <consistency-rationale></consistency-rationale>
