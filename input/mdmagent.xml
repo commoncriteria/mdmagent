@@ -2,8 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 <?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
-
-
+<!--  
+<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>-->
 
 
 <!-- To Do
@@ -239,37 +239,17 @@
   </chapter>
   <chapter title="Conformance Claims" id="conf">
     <cclaims>
-      <cclaim title="Conformance Statement"> <!-- TODO: Update text with Dianne's changes -->
-        <description>To be conformant to this <abbr linkend="PP-Module"/>, an <abbr linkend="ST"/> must demonstrate Exact Conformance, 
-          as defined by the [<abbr linkend="CC"/>] and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs 
-          (dated May 2017). Exact Conformance is described in CC and CEM addenda for Exact Conformance. An ST that conforms to this 
-          PP-Module must also demonstrate Exact Conformance to the Base-PP and also make any necessary inclusions, modifications, or 
-          exclusions as mandated by a PP-Configuration that includes both this PP-Module and the Base-PP. <htm:br/><htm:br/>
-          The <abbr linkend="ST"/> must include all components in this <abbr linkend="PP"/> that are:<htm:ul>
-          <htm:li>Unconditional (which are always required)</htm:li>
-          <htm:li>Selection-based (which are required when certain selections are chosen in the unconditional requirements)</htm:li>
-        </htm:ul>
-        It may also include components that are:    
-        <htm:ul>
-          <htm:li>Optional</htm:li>
-          <htm:li>Objective</htm:li>
-        </htm:ul>
-        Unconditional requirements are found in the main body of the document (Section 5), while appendices contain the 
-        selection-based, optional, and objective requirements. The <abbr linkend="ST"/> may iterate any of these components but it 
-        must not introduce any additional component (e.g., from <abbr linkend="CC"/> Part 2 or 3) that is not defined in this 
-        <abbr linkend="PP-Module"/>.<htm:br/>
+      <cclaim title="Conformance Statement"> 
+        <description>
+          This PP-Module inherits exact conformance as required from the specified Base-PP and as defined in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017). 
       </description>
     </cclaim>     
       <cclaim title="CC Conformance Claims">
-        <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria 
-          Version 3.1, Revision 5 [<abbr linkend="CC"/>].
+        <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Revision 5 [<abbr linkend="CC"/>].
         </description>
       </cclaim>
-      <cclaim title="PP Claims">
-        <description>This <abbr linkend="PP-Module"/> does not claim conformance to any Protection Profile.</description>
-      </cclaim>
       <cclaim title="Package Claims">
-        <description>This <abbr linkend="PP-Module"/> does not claim conformance to any packages.</description>
+        <description>This <abbr linkend="PP-Module"/> is TLS Package Conformant</description>
       </cclaim>
   </cclaims>
 </chapter>
@@ -566,7 +546,7 @@
   </chapter>
   <chapter id="sfr" title="Security Requirements">
     <base-pp name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417" xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml">
-      <app-unmod-sfrs> 
+     <!--   <app-unmod-sfrs> 
         The SFRs listed in this section are defined in the MDF PP and relevant to the secure operation of the MDM Agent. While testing the TOE, it is necessary to ensure these SFRs are tested specifically in conjunction with the MDM Agent portion of the TOE. The ST author may complete all selections and assignments in these SFRs without any additional restrictions.
         <htm:ul>
           <htm:li>FCS_CKM.1</htm:li>
@@ -582,114 +562,8 @@
           <htm:li>FCS_DTLS_EXT.1</htm:li>
           <htm:li>FCS_HTTPS_EXT.1</htm:li>
         </htm:ul>
-      </app-unmod-sfrs>
-      <modified-sfrs>       
-        <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
-          <f-component id="ftp_itc_ext.1" name="Trusted Channel Communication">
-            <consistency-rationale>The Base-PP defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This PP-Module modifies the SFR to specify a subset of these protocols that may be used for MDM Sever 
-              communications in particular.
-            </consistency-rationale>
-            <f-element id="ftp_itc_ext.1.1">
-              <title>The TSF shall use                
-                <selectables>
-                  <selectable>TLS</selectable>
-                  <selectable>DTLS</selectable>
-                  <selectable>HTTPS</selectable>
-                </selectables>
-                to provide a communication channel between itself and another trusted IT product that is logically distinct from 
-                other communication channels, provides assured identification of its end points, protects channel data from 
-                disclosure, and detects modification of the channel data.
-              </title>
-              <note role="application">
-                The intent of this requirement is to protect the communications channel between MDM Server and Agent, post 
-                enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between MDM Server and Agent 
-                during enrollment. <htm:br/><htm:br/>
-                This requirement is to ensure that the transmission of any audit logs, mobile device information data (software 
-                version, hardware model, and application versions), and configuration data collected by the MDM Agent and sent from 
-                the MDM Agent to the MDM Server, when commanded, or at configurable intervals, is properly protected. This trusted 
-                channel also protects any commands and policies sent by the MDM Server to the MDM Agent. Either the MDM Agent or the 
-                MDM Server is able to initiate the connection.<htm:br/><htm:br/>
-                This requirement is refined from the base <abbr linkend="PP"/>; the mobile device is required to perform the mandated 
-                cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF 
-                <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish 
-                and maintain a trusted channel between the MDM Agent and the MDM Server. Only TLS, DTLS, or HTTPS are acceptable for 
-                this trusted channel.<htm:br/><htm:br/>
-                Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case 
-                it is expected that the MDM Agent will be a native part of the mobile operating system, it is expected that the MDM 
-                Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and 
-                TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" is selected the following selections 
-                from the TLS Functional Package shall be made:
-                <htm:ul>
-                  <htm:li>FCS_TLS_EXT.1: 
-                    <htm:ul>
-                      <htm:li>either TLS or DTLS is selected depending on the selection made in FTP_ITC_EXT.1.1</htm:li>
-                      <htm:li>client must be selected</htm:li>
-                    </htm:ul>
-                  </htm:li>
-                  <htm:li>FCS_TLSC_EXT.1.1:
-                    <htm:ul>
-                      <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
-                      <htm:li>mutual authentication must be selected</htm:li>
-                    </htm:ul>
-                  </htm:li>
-                </htm:ul>
-                Protocol, RBG, Certificate validation, algorithm, and similar services may be met with platform provided services. <htm:br/><htm:br/>
-              </note>
-            </f-element>
-            <f-element id="ftp_itc_ext.1.2">
-              <title>The <abbr linkend="TSF"/> shall permit the TSF and the MDM Server and <selectables>
-                <selectable>MAS Server</selectable>
-                <selectable>no other IT entities</selectable>
-              </selectables> to initiate communication via the trusted channel.</title>           
-              <note role="application">
-                For all other use cases, the mobile device initiates the communication; however, for MDM Agents, the MDM Server may 
-                also initiate communication. This requirement replaces the requirement in the MDF <abbr linkend="PP"/>.</note>            
-            </f-element>
-            <f-element id="ftp_itc_ext.1.3">
-              <title>The TSF shall initiate communication via the trusted channel for all communication between the MDM Agent and 
-                the MDM Server and <selectables>
-                  <selectable>all communication between the MAS Server and the MDM Agent</selectable>
-                  <selectable>no other communication</selectable>
-                </selectables>             
-              </title>
-              <note role="application">
-                This element is inherited from the MDF <abbr linkend="PP"/>; it is expected that Mobile Device will initiate the 
-                trusted channel between the MDM Agent and the MDM Server for administrative communication and may initiate other 
-                trusted channels to other trusted IT entities for other uses.</note>
-              <aactivity>The following additional assurance activities shall be performed.<htm:br/><htm:br/>
-                <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to determine that the methods of Agent-Server 
-                communication are indicated, along with how those communications are protected. The evaluator shall also 
-                confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> 
-                administration are consistent with those specified in the requirement, and are included in the requirements 
-                in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
-               <!--  If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
-                of the <abbr linkend="ST"/> to verify that it describes (for each supported platform) 
-                how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented 
-                by the MDM Agent; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part 
-                of this evaluation activity). The API call for every element of this component should be 
-                documented.<htm:br/><htm:br/>--> 
-                <Guidance/>The evaluator shall confirm that the operational guidance contains instructions for configuring the 
-                communication channel between the MDM Agent and the MDM Server and conditionally, the MAS Server for each supported 
-                method.<htm:br/><htm:br/>
-                <Tests/>For each supported identifier type (excluding DNs), the evaluator shall repeat the following tests:<htm:br/>
-                <testlist>
-                  <test>The evaluators shall ensure that communications using each specified (in the operational guidance) 
-                    Agent-Server communication method is tested during the course of the evaluation, setting up the connections as 
-                    described in the operational guidance and ensuring that communication is successful.<htm:br/><htm:br/>
-                  </test>
-                  <test>The evaluator shall ensure, for each method of Agent-Server communication, the channel data is not sent 
-                    in plaintext.<htm:br/><htm:br/>
-                  </test>
-                  <test>The evaluator shall ensure, for each communication channel with the MDM Server, that a protocol analyzer 
-                    identifies the traffic as the protocol under testing.<htm:br/><htm:br/>
-                  </test>
-                </testlist>
-                Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
-              </aactivity>
-            </f-element>
-          </f-component>
-        </subsection>  
-      </modified-sfrs>
+      </app-unmod-sfrs>-->
+      <modified-sfrs></modified-sfrs>
       <additional-sfrs>      
         <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">
            <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">            
@@ -725,7 +599,79 @@ Behavior means it's a new EXT component and we have to make that chart.
             </f-element>
           </f-component>     
         </subsection>
-        <subsection id="trust-path-enroll" title="Trusted Path">
+        <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
+          <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">         
+              <consistency-rationale>
+                The Base-PP defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This PP-Module iterates the SFR to specify a subset of these protocols that may be used for MDM Agent communications in particular.
+              </consistency-rationale>
+              <f-element id="ftp_itc_ext.1.1(2)">
+                <title>The TSF shall use                
+                  <selectables>
+                    <selectable>TLS</selectable>
+                    <selectable>DTLS</selectable>
+                    <selectable>HTTPS</selectable>
+                  </selectables>
+                  to provide a communication channel between itself and another trusted IT product that is logically distinct from other communication channels, provides assured identification of its end points, protects channel data from disclosure, and detects modification of the channel data.</title>
+                <note role="application">
+                  The intent of this requirement is to protect the communications channel between MDM Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between MDM Server and Agent during enrollment. <htm:br/><htm:br/>
+                  This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the MDM Agent and sent from the MDM Agent to the MDM Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the MDM Server to the MDM Agent. Either the MDM Agent or the MDM Server is able to initiate the connection.<htm:br/><htm:br/>
+                  This requirement is refined from the base <abbr linkend="PP"/>; the mobile device is required to perform the mandated cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the MDM Agent and the MDM Server. Only TLS, DTLS, or HTTPS are acceptable for this trusted channel.<htm:br/><htm:br/>
+                  Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case it is expected that the MDM Agent will be a native part of the mobile operating system, it is expected that the MDM Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" is selected the following selections from the TLS Functional Package shall be made:
+                  <htm:ul>
+                    <htm:li>FCS_TLS_EXT.1: 
+                      <htm:ul>
+                        <htm:li>either TLS or DTLS is selected depending on the selection made in FTP_ITC_EXT.1.1</htm:li>
+                        <htm:li>client must be selected</htm:li>
+                      </htm:ul>
+                    </htm:li>
+                    <htm:li>FCS_TLSC_EXT.1.1:
+                      <htm:ul>
+                        <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
+                        <htm:li>mutual authentication must be selected</htm:li>
+                      </htm:ul>
+                    </htm:li>
+                  </htm:ul>
+                  Protocol, RBG, Certificate validation, algorithm, and similar services may be met with platform provided services. <htm:br/><htm:br/>
+                </note>
+              </f-element>
+              <f-element id="ftp_itc_ext.1.2(2)">
+                <title>The <abbr linkend="TSF"/> shall permit the TSF and the MDM Server and <selectables>
+                  <selectable>MAS Server</selectable>
+                  <selectable>no other IT entities</selectable>
+                </selectables> to initiate communication via the trusted channel.</title>           
+                <note role="application">
+                  For all other use cases, the mobile device initiates the communication; however, for MDM Agents, the MDM Server may also initiate communication. This requirement replaces the requirement in the MDF <abbr linkend="PP"/>.</note>            
+              </f-element>
+              <f-element id="ftp_itc_ext.1.3(2)">
+                <title>The TSF shall initiate communication via the trusted channel for all communication between the MDM Agent and the MDM Server and <selectables>
+                    <selectable>all communication between the MAS Server and the MDM Agent</selectable>
+                    <selectable>no other communication</selectable>
+                  </selectables>             
+                </title>
+                <note role="application">
+                  This element is inherited from the MDF <abbr linkend="PP"/>; it is expected that Mobile Device will initiate the trusted channel between the MDM Agent and the MDM Server for administrative communication and may initiate other trusted channels to other trusted IT entities for other uses.</note>
+                <aactivity>The following additional assurance activities shall be performed.<htm:br/><htm:br/>
+                  <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to determine that the methods of Agent-Server communication are indicated, along with how those communications are protected. The evaluator shall also confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> administration are consistent with those specified in the requirement, and are included in the requirements  in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
+                  <!--  If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
+                of the <abbr linkend="ST"/> to verify that it describes (for each supported platform) 
+                how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented 
+                by the MDM Agent; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part 
+                of this evaluation activity). The API call for every element of this component should be 
+                documented.<htm:br/><htm:br/>--> 
+                  <Guidance/>The evaluator shall confirm that the operational guidance contains instructions for configuring the communication channel between the MDM Agent and the MDM Server and conditionally, the MAS Server for each supported method.<htm:br/><htm:br/>
+                  <Tests/>For each supported identifier type (excluding DNs), the evaluator shall repeat the following tests:<htm:br/>
+                  <testlist>
+                    <test>The evaluators shall ensure that communications using each specified (in the operational guidance) Agent-Server communication method is tested during the course of the evaluation, setting up the connections as described in the operational guidance and ensuring that communication is successful.<htm:br/><htm:br/>
+                    </test>
+                    <test>The evaluator shall ensure, for each method of Agent-Server communication, the channel data is not sent in plaintext.<htm:br/><htm:br/>
+                    </test>
+                    <test>The evaluator shall ensure, for each communication channel with the MDM Server, that a protocol analyzer identifies the traffic as the protocol under testing.<htm:br/><htm:br/>
+                    </test>
+                  </testlist>
+                  Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
+                </aactivity>
+              </f-element>
+            </f-component>     
           <f-component id="ftp_trp.1(2)" name="Trusted Path (for Enrollment)">
             <consistency-rationale>This SFR uses the trusted channel protocols defined by the Base-PP in FTP_ITC_EXT.1 to 
               facilitate a trusted path that the MDM Agent can use to enroll the mobile device it runs on into management. 
@@ -865,7 +811,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </base-pp>
     
     <base-pp name="Mobile Device Management" product="MDM Server" short="MDM" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392" xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">   
-      <app-unmod-sfrs> 
+     <!--   <app-unmod-sfrs> 
         The SFRs listed in this section are defined in the MDM PP and relevant to the secure operation of the MDM Agent. While testing the TOE, it is necessary to ensure these SFRs are tested specifically in conjunction with the MDM Agent portion of the TOE. The ST author may complete all selections and assignments in these SFRs without any additional restrictions.
         <htm:ul>
           <htm:li>FCS_CKM.1</htm:li>
@@ -880,7 +826,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <htm:li>FCS_DTLS_EXT.1</htm:li>
           <htm:li>FCS_HTTPS_EXT.1</htm:li>
         </htm:ul>
-      </app-unmod-sfrs>
+      </app-unmod-sfrs>-->
       <modified-sfrs>        
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">          
           <f-component id="fcs_stg_ext.1" name="Cryptographic Key Storage">
