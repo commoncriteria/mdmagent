@@ -606,9 +606,9 @@ Behavior means it's a new EXT component and we have to make that chart.
               </consistency-rationale>
               <f-element id="ftp_itc_ext.1.1(2)">
                 <title>The TSF shall use                
-                  <selectables>
-                    <selectable>TLS</selectable>
-                    <selectable>DTLS</selectable>
+                  <selectables linebreak="yes">
+                    <selectable>mutually authenticated TLS in accordance with the Package for Transport Layer Security</selectable>
+                    <selectable>mutually authenticated DTLS in accordance with the Package for Transport Layer Security</selectable>
                     <selectable>HTTPS</selectable>
                   </selectables>
                   to provide a communication channel between itself and another trusted IT product that is logically distinct from other communication channels, provides assured identification of its end points, protects channel data from disclosure, and detects modification of the channel data.</title>
@@ -626,7 +626,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                     </htm:li>
                     <htm:li>FCS_TLSC_EXT.1.1:
                       <htm:ul>
-                        <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
+                        <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the Base-PP</htm:li>
                         <htm:li>mutual authentication must be selected</htm:li>
                       </htm:ul>
                     </htm:li>
@@ -682,8 +682,8 @@ Behavior means it's a new EXT component and we have to make that chart.
               <title>The MDM Agent shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
-              </selectables> to use <selectables>
-                <selectable id="TRP_TLS_2">TLS</selectable>
+              </selectables> to use <selectables linebreak="yes">
+                <selectable id="TRP_TLS_2">TLS in accordance with the Package for Transport Layer Security</selectable>
                 <selectable id="TRP_HTTPS_2">HTTPS</selectable>
               </selectables> to provide a trusted communication path between itself and another trusted IT product that is 
                 logically distinct from other communication paths and provides assured identification of its endpoints and 
@@ -724,7 +724,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                   </htm:li>
                   <htm:li>FCS_TLSC_EXT.1.1:
                     <htm:ul>
-                      <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
+                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the Base-PP.</htm:li>
                     </htm:ul>
                   </htm:li>
                 </htm:ul>
@@ -857,10 +857,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               <title>The TSF shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>             
-              </selectables> to protect all data from [disclosure and modification] through use of <selectables>
-                <selectable>TLS</selectable>
+              </selectables> to protect all data from [disclosure and modification] through use of <selectables linebreak="yes">
+                <selectable>mutually authenticated TLS in accordance with the Package for Transport Layer Security</selectable>
                 <selectable>HTTPS</selectable>
-                <selectable>DTLS</selectable>
+                <selectable>mutually authenticated DTLS in accordance with the Package for Transport Layer Security</selectable>
               </selectables> when it is transferred between separate parts of the TOE.
               </title>
               <note>               
@@ -878,7 +878,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                   </htm:li>
                   <htm:li>FCS_TLSC_EXT.1.1 or FCS_TLSS_EXT.1.1 (as appropriate):
                     <htm:ul>
-                      <htm:li>TLS_RSA_WITH_AES_128_CBC_SHA cannot be selected</htm:li>
+                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the Base-PP</htm:li>
                       <htm:li>mutual authentication must be selected</htm:li>
                     </htm:ul>
                   </htm:li>
