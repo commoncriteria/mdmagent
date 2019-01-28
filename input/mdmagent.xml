@@ -1565,13 +1565,14 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
     applicable to the use case.<htm:br/><htm:br/>
     
     <usecase id="usecase1" title="Enterprise-owned device for general-purpose enterprise use">
-      <description><htm:b>[Use Case 1] Enterprise-owned device for general-purpose enterprise use</htm:b> <htm:br/><htm:br/>
+      <description>
+        <htm:b>[Use Case 1] Enterprise-owned device for general-purpose enterprise use</htm:b> <htm:br/><htm:br/>
         At this time no additional requirements are recommended for this use case.<htm:br/><htm:br/>
       </description>
     </usecase>
     <usecase title="Enterprise-owned device for specialized, high-security use" id="usecase2">
-      <description><htm:b>
-        <ctr id="usecase2" ctr-type="table">[Use Case 2] Enterprise-owned device for specialized, high-security use</ctr></htm:b>
+      <description>
+        <htm:b>[Use Case 2] Enterprise-owned device for specialized, high-security use</htm:b>
         <htm:table>
           <htm:tr>
             <htm:th>Requirement</htm:th>
@@ -1590,8 +1591,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
       </description>
     </usecase>
     <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
-      <description><htm:b>
-        <ctr id="usecase3" ctr-type="table">[Use Case 3] Personally owned device for personal and enterprise use</ctr></htm:b>
+      <description>
+        <htm:b>[Use Case 3] Personally owned device for personal and enterprise use</htm:b>
         <htm:table>
           <htm:tr>
             <htm:th>Requirement</htm:th>
