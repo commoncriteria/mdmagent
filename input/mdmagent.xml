@@ -403,7 +403,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           <component-refer ref="FAU_STG_EXT.3 (objective)"/> 
           <component-refer ref="FIA_ENR_EXT.2"/> 
           <component-refer ref="FMT_POL_EXT.2"/> 
-          <component-refer ref="FMT_SMF_EXT.3"/> 
+          <component-refer ref="FMT_SMF_EXT.4"/> 
           <component-refer ref="FMT_UNR_EXT.1"/> 
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base-->
           </consistency-rationale>
@@ -749,7 +749,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
       </con-mod>
       <con-mod id="fmt_pol_ext.2">
         This SFR requires the <abbr linkend="MDM"/> Agent to use a digital signature algorithm to validate data that it receives from the Operational Environment. To do this, the <abbr linkend="MDM"/> Agent will use the functionality defined by the <abbr linkend="Base-PP"/> in FCS_COP.1(3).</con-mod>
-      <con-mod id="fmt_smf_ext.3">
+      <con-mod id="fmt_smf_ext.4">
         This SFR defines the ability of the <abbr linkend="MDM"/> Agent to interact with the mobile device to execute the management functions defined by FMT_MOF_EXT.1 in the <abbr linkend="Base-PP"/>. The <abbr linkend="Base-PP"/> specifically indicates in FMT_MOF_EXT.1.2 that some management functions may be performed via MDM.</con-mod>
       <con-mod id="fmt_unr_ext.1">
         This SFR defines the functions performed by the <abbr linkend="MDM"/> Agent when unenrolled from an <abbr linkend="MDM"/>. The <abbr linkend="Base-PP"/> defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note that these actions may be performed “perhaps via an <abbr linkend="MDM"/> agent,” so this is expected behavior.	</con-mod>
@@ -1288,7 +1288,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         </f-component>
         <ext-comp-def title="Specification of Management Functions (Agent)" fam-id="FMT_SMF_EXT">
           <mod-def>
-            This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FMT_SMF_EXT.3. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family.
+            This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FMT_SMF_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family.
           </mod-def>
         </ext-comp-def>
         <f-component id="fmt_smf_ext.4" name="Specification of Management Functions"> <!-- Changed to .4 to avoid conflict with MDM Server -->
