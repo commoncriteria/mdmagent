@@ -24,10 +24,10 @@ script:
   - git clone https://github.com/commoncriteria/ci-scripts.git
   - mkdir -p commoncriteria.github.io/pp/$(basename $TRAVIS_REPO_SLUG)
   - rm -rf commoncriteria.github.io/pp/$(basename $TRAVIS_REPO_SLUG)/*
+  - ls output/*
   - cp -r output/* commoncriteria.github.io/pp/$(basename $TRAVIS_REPO_SLUG)
   - chmod 700 ci-scripts/generate_pdfs.sh
   - chmod 700 ci-scripts/create_site.sh
-  - DAISY_DIR=ExecuteDaisy make diff
   - ./ci-scripts/generate_pdfs.sh
   - cd commoncriteria.github.io
   - git add --all 
