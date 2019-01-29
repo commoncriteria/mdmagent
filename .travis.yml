@@ -18,10 +18,8 @@ before_script:
   - git clone https://github.com/AndroidKitKat/ExecuteDaisy.git
 
 script:
-  - java -XX:+PrintFlagsFinal -version | grep HeapSize	
   - make
   - DAISY_DIR=ExecuteDaisy  make diff
-  - make diff
   - git clone https://github.com/commoncriteria/commoncriteria.github.io.git
   - git clone https://github.com/commoncriteria/ci-scripts.git
   - mkdir -p commoncriteria.github.io/pp/$(basename $TRAVIS_REPO_SLUG)
