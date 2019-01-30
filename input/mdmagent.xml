@@ -226,7 +226,14 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
     <cclaims>
       <cclaim title="Conformance Statement"> 
         <description>
-          This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified <abbr linkend="Base-PP"/> and as defined in the <abbr linkend="CC"/> and <abbr linkend="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017). 
+          This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified <abbr linkend="Base-PP"/> and as 
+          defined in the <abbr linkend="CC"/> and <abbr linkend="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and 
+          Optional SFRs (dated May 2017).<htm:br/><htm:br/>
+          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP.
+          <htm:ul>
+            <htm:li>PP-Module for VPN Client, Version 2.1, 05 October 2017</htm:li>
+            <htm:li>Protection Profile for Mobile Device Fundamentals, Version 3.1, 16 June 2017</htm:li>
+          </htm:ul>
       </description>
     </cclaim>     
       <cclaim title="CC Conformance Claims">
@@ -234,7 +241,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         </description>
       </cclaim>
       <cclaim title="Package Claims">
-        <description>This <abbr linkend="PP-Module"/> is TLS Package Conformant</description>
+        <description>This <abbr linkend="PP-Module"/> is TLS Package Conformant.</description>
       </cclaim>
   </cclaims>
 </chapter>
