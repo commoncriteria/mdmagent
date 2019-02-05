@@ -42,7 +42,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     <ReferenceTable>
       <PPVersion>4.0</PPVersion> 
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-01-28</PPPubDate>
+      <PPPubDate>2019-02-06</PPPubDate>
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -76,7 +76,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </entry>
     <entry>
       <version>4.0</version>
-      <date>2018-12-20</date>
+      <date>2019-03-01</date>
       <subject><!-- TODO: Add description of what we changed in this version -->
       Convert to PP-Module.     
       </subject>
@@ -307,9 +307,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
       </threats>
     </section>
     <section id="Assumptions" title="Assumptions">
-      <!-- NIAP: There are some assumptions and OSPs that are only in MDM, not MDF. How to handle these? -->
       <assumptions>
-        <assumption id="A.CONNECTIVITY"> <!-- MDM -->
+        <assumption id="A.CONNECTIVITY">
           <description>The <abbr linkend="TOE"/> relies on network connectivity to carry out its management activities. The 
             <abbr linkend="TOE"/> will robustly handle instances when connectivity is unavailable or unreliable.
           </description>
@@ -328,7 +327,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             </rationale>
           </objective-refer>
         </assumption>
-        <assumption id="A.PROPER_ADMIN"> <!-- MDM -->
+        <assumption id="A.PROPER_ADMIN">
           <description>One or more competent, trusted personnel who are not careless, willfully negligent, or hostile, are assigned 
             and authorized as the <abbr linkend="TOE"/> Administrators, and do so using and abiding by guidance documentation.
           </description>
@@ -337,7 +336,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             </rationale>
           </objective-refer>
         </assumption>
-        <assumption id="A.PROPER_USER"> <!-- MDM -->
+        <assumption id="A.PROPER_USER">
           <description>
             Mobile device users are not willfully negligent or hostile, and use the device within compliance of a reasonable Enterprise security policy.
           </description>
@@ -398,7 +397,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           <component-refer ref="FAU_ALT_EXT.2"/> 
           <component-refer ref="FAU_GEN.1(2)"/> 
           <component-refer ref="FAU_SEL.1(2)"/>    
-          <consistency-rationale><!-- Placeholder, different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SO>
         <SO id="O.APPLY_POLICY">
           <description>The <abbr linkend="TOE"/> must facilitate configuration and enforcement of enterprise security policies on 
@@ -443,16 +442,6 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             This objective extends the <abbr linkend="Base-PP"/>’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/> Agents functionality are secured in the same manner as other sensitive data transmitted to/from the mobile device.
           </consistency-rationale>
         </SO>
-        <!-- The following SOs were taken from MDF b/c for that SFRs it also apply to agent, if agent extends MDF. They do not map to any  -->
-        <!--  <SO id="O.INTEGRITY">
-          <description><htm:b>Mobile Device Integrity</htm:b><htm:br/><htm:br/>
-            To ensure the integrity of the Mobile Device is maintained conformant <abbr linkend="TOE"/>s will perform self-tests to ensure the integrity of critical functionality, software/firmware and data has been maintained. The user shall be notified of any failure of these self-tests. This will protect against the threat T.PERSISTENT.
-            <htm:br/><htm:br/>
-            To address the issue of an application containing malicious or flawed code (T.FLAWAPP), the integrity of downloaded updates to software/firmware will be verified prior to installation/execution of the object on the Mobile Device. In addition, the <abbr linkend="TOE"/> will restrict applications to only have access to the system services and data they are permitted to interact with. The <abbr linkend="TOE"/> will further protect against malicious applications from gaining access to data they are not authorized to access by randomizing the memory layout.
-          </description>
-          <component-refer ref="FPT_TST_EXT.1"/>
-          <consistency-rationale></consistency-rationale>
-        </SO>-->
         <SO id="O.STORAGE">
           <description>
             To address the issue of loss of confidentiality of user data in the event of loss of a Mobile Device (T.PHYSICAL), 
@@ -473,36 +462,35 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         <SOE id="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance in a trusted manner.
           </description>
-          <consistency-rationale><!-- different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
         <SOE id="OE.DATA_PROPER_USER">
           <description>Users of the mobile device are trained to securely use the mobile device and apply all guidance in a trusted manner.
           </description>
-          <consistency-rationale><!-- different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
         <SOE id="OE.IT_ENTERPRISE">
           <description>The Enterprise IT infrastructure provides security for a network that is available to the 
             <abbr linkend="TOE"/> and mobile devices that prevents unauthorized access.
           </description>
-          <consistency-rationale><!-- different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
         <SOE id="OE.MOBILE_DEVICE_PLATFORM">
           <description>The <abbr linkend="MDM"/> Agent relies upon the trustworthy mobile platform and hardware to provide policy enforcement as well 
             as cryptographic services and data protection. The mobile platform provides trusted updates and software integrity 
             verification of the <abbr linkend="MDM"/> Agent.
           </description>
-          <consistency-rationale><!-- different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
         <SOE id="OE.WIRELESS_NETWORK">
           <description>A wireless network will be available to the mobile devices.
           </description>
-          <consistency-rationale><!-- different per base, so defined under base--></consistency-rationale>
+          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
       </SOEs>
     </section>   
     <section title="Security Objectives Rationale" id="rationale">
       <!-- Note: This section is populated from the rationale tags in the previous sections.  -->
-      <!-- NIAP: Should we map the threats the module uses from the base PP?? -->
     </section>
   </chapter>
   <chapter id="sfr" title="Security Requirements">
@@ -557,7 +545,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           </f-component>     
         </subsection>
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
-          <!-- TODO: Freed??? -->
+          <!-- TODO: why was this not freed??? -->
           <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">         
               <consistency-rationale>
                 The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular.
@@ -665,16 +653,16 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                 <selectable>implement functionality</selectable>
               </selectables> to require the use of the trusted path for [all MD user actions].             
               </title>
-              <!--TODO need to fix references in this note! -->
               <note role="application">
                 This requirement ensures that authorized MD users initiate all communication with 
                 the <abbr linkend="TOE"/> via a trusted path, and that all communications with the <abbr linkend="TOE"/> by 
-                MD users is performed over this path. The purpose of this connection is for enrollment by the MD user. The 
-                data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the first 
-                selection. The <abbr linkend="ST"/> author chooses the mechanism or mechanisms supported by the 
-                <abbr linkend="TOE"/>.<htm:br/><htm:br/>
-                If "implement functionality to use TLS client as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, 
-                with the following selections made:
+                MD users is performed over this path. The purpose of this connection is for enrollment by the MD user. <htm:br/><htm:br/>
+                The <abbr linkend="ST"/> author chooses the mechanism or mechanisms supported by the <abbr linkend="TOE"/>. The data passed in this trusted communication channel are encrypted as defined by the protocol selected. <htm:br/><htm:br/>
+                If "invoke platform-provided functionality to use" is selected the MDM Agent will utilize the TLS and/or HTTPS implemented by the mobile device.
+                
+                <!-- TODO: What is their implementation of HTTPS evaluated against?? -->
+                <!--  If "implement functionality to use HTTPS" is selected--> 
+                If "implement functionality to use TLS client as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections made:
                 <htm:ul>
                   <htm:li>FCS_TLS_EXT.1: 
                     <htm:ul>
@@ -1296,9 +1284,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             <title>The MDM Agent shall not install policies if the policy-signing certificate is deemed invalid.
             </title>
             <aactivity>
-                <TSS/>     
-              <!-- TODO: Not really a TSS -->
-              The assurance activity for this requirement is performed in conjunction with the assurance activity for FIA_X509_EXT.1 
+                <Tests/>                
+              The evaluation activity for this requirement is performed in conjunction with the evaluation activity for FIA_X509_EXT.1 
               and FIA_X509_EXT.2 as defined in the base <abbr linkend="PP"/>s.<htm:br/><htm:br/>
             </aactivity>
           </f-element>
@@ -1308,7 +1295,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FMT_SMF_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fmt_smf_ext.4" name="Specification of Management Functions"> <!-- Changed to .4 to avoid conflict with MDM Server -->
+        <f-component id="fmt_smf_ext.4" name="Specification of Management Functions"> <!-- Note: Changed to .4 to avoid conflict with MDM Server -->
           <consistency-rationale> </consistency-rationale>
           <comp-lev> requires the TSF to support the execution of certain management functions that require interfacing with other TOE components.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT:<htm:ul>
@@ -1497,7 +1484,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         <ext-comp-def title="Protected Audit Event Storage" fam-id="FAU_STG_EXT">
           <mod-def>This family is defined in the <abbr linkend="MDM"/> <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FAU_STG_EXT.3. This new component and its impact on the extended family’s component leveling are shown below; reference the <abbr linkend="MDM"/> PP for all other definitions for this family.</mod-def>
         </ext-comp-def>
-        <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Name changed simply to avoid name collision with MDM Server -->
+        <f-component id="fau_stg_ext.3" name="Security Audit Event Storage"> <!-- Note: Name changed simply to avoid name collision with MDM Server -->
           <consistency-rationale></consistency-rationale>
           <comp-lev> requires the TSF to identify a location for audit record storage and the events that are stored at this location.</comp-lev>
           <management>There are no management functions foreseen.</management>
@@ -1571,7 +1558,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
     </obj-sfrs>
   </chapter>
   
-  <!-- TODO: Figure out where to put this section -->
+
   <appendix id="use-case" title="Use Case Templates"> 
     The following use case templates list those selections, assignments, and objective requirements that best support the use cases 
     identified by this Protection Profile. Note that the templates assume that all <abbr linkend="SFR"/>s listed in Section 5 are 
@@ -1635,7 +1622,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
  
   
   <acronyms>
-    <!-- ToDo: Fix -->
+    <!-- ToDo: Are these really the only acronyms?-->
         <entry>
           <term>ADB</term>
           <description>Android Debug Bridge</description>
@@ -1696,7 +1683,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
     
   </appendix>
   -->
-  <!-- Question: Does Module have SARs? -->
+
 
 
 
