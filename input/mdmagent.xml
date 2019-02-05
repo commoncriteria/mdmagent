@@ -229,7 +229,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified <abbr linkend="Base-PP"/> and as 
           defined in the <abbr linkend="CC"/> and <abbr linkend="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and 
           Optional SFRs (dated May 2017).<htm:br/><htm:br/>
-          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP.
+          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
           <htm:ul>
             <htm:li>PP-Module for VPN Client, Version 2.1, 05 October 2017</htm:li>
           </htm:ul>
@@ -417,27 +417,28 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         <SO id="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the <abbr linkend="MDM"/> Server and the <abbr linkend="MDM"/> Agent must be protected from being monitored, accessed, or altered.
           </description>
-          <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF Base-PP)"/>  
-          <component-refer ref="FCS_CKM.1 (from MDM/MDF Base-PP)"/>
-          <component-refer ref="FCS_CKM.2 (from MDM Base-PP)"/> 
-          <component-refer ref="FCS_CKM.2(1) (from MDF Base-PP)"/> 
-          <component-refer ref="FCS_COP.1(*) (from MDM/MDF Base-PP)"/> 
+         <!--  <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF PP)"/>  
+          <component-refer ref="FCS_CKM.1 (from MDM/MDF PP)"/>
+          <component-refer ref="FCS_CKM.2 (from MDM PP)"/> 
+          <component-refer ref="FCS_CKM.2(1) (from MDF PP)"/> 
+          <component-refer ref="FCS_COP.1(*) (from MDM/MDF PP)"/>  -->
           <component-refer ref="FCS_DTLSS_EXT.1 (from TLS Package)"/> 
           <component-refer ref="FCS_DTLSC_EXT.1 (from TLS Package)"/> 
-          <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF Base)"/>
-          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF Base)"/>         
+         <!--  <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF PP)"/>
+          <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF PP)"/>    -->      
           <component-refer ref="FCS_TLSC_EXT.1 (from TLS Package)"/>
           <component-refer ref="FCS_TLSC_EXT.2 (from TLS Package)"/>
           <component-refer ref="FCS_TLSS_EXT.1 (from TLS Package)"/>
           <component-refer ref="FCS_TLSS_EXT.2 (from TLS Package)"/>
-          <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF Base)"/> 
-          <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF Base)"/> 
-          <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF Base)"/>
-          <component-refer ref="FIA_X509_EXT.4 (from MDM Base)"/> 
-          <component-refer ref="FPT_ITT.1 (refined from MDM Base-PP)"/> 
+         <!--  <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF PP)"/> 
+          <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF PP)"/> 
+          <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF PP)"/>
+          <component-refer ref="FIA_X509_EXT.4 (from MDM PP)"/>  -->
+          <component-refer ref="FPT_ITT.1(2) (if MDM is Base-PP)"/> 
           <component-refer ref="FPT_NET_EXT.1 (optional)"/>
-          <component-refer ref="FTP_ITC_EXT.1 (refined from MDF Base-PP)"/>
-          <component-refer ref="FTP_TRP.1(*) (from MDM Base-PP, TOE SFR for MDF)"/>
+          <component-refer ref="FTP_ITC_EXT.1(2) (if MDF is Base-PP)"/>
+         <!--  <component-refer ref="FTP_TRP.1(1) (from MDM PP)"/>--> 
+          <component-refer ref="FTP_TRP.1(2) (if MDF is Base-PP)"/>
           <consistency-rationale>
             This objective extends the <abbr linkend="Base-PP"/>’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/> Agents functionality are secured in the same manner as other sensitive data transmitted to/from the mobile device.
           </consistency-rationale>
@@ -458,7 +459,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             conformant <abbr linkend="TOE"/>s will use platform provide key storage. The <abbr linkend="TOE"/> is expected to 
             protect its persistent secrets and private keys. 
           </description> 
-          <component-refer ref="FCS_STG_EXT.1 (refined from MDM Base-PP)"/>
+          <component-refer ref="FCS_STG_EXT.1(2) (if MDM is Base-PP)"/>
           <component-refer ref="FCS_STG_EXT.4 (if MDF is Base-PP)"/> 
           <consistency-rationale>
             This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE objective by ensuring that the mobile device’s 
@@ -556,6 +557,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           </f-component>     
         </subsection>
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
+          <!-- TODO: Freed??? -->
           <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">         
               <consistency-rationale>
                 The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular.
@@ -563,15 +565,15 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               <f-element id="ftp_itc_ext.1.1(2)">
                 <title>The TSF shall use                
                   <selectables linebreak="yes">
-                    <selectable>mutually authenticated TLS as defined in the Package for Transport Layer Security</selectable>
-                    <selectable>mutually authenticated DTLS as defined in the Package for Transport Layer Security</selectable>
+                    <selectable>mutually authenticated TLS client as defined in the Package for Transport Layer Security</selectable>
+                    <selectable>mutually authenticated DTLS client as defined in the Package for Transport Layer Security</selectable>
                     <selectable>HTTPS</selectable>
                   </selectables>
                   to provide a communication channel between itself and another trusted IT product that is logically distinct from other communication channels, provides assured identification of its end points, protects channel data from disclosure, and detects modification of the channel data.</title>
                 <note role="application">
                   The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
                   This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                  This requirement is refined from the base <abbr linkend="PP"/>; the mobile device is required to perform the mandated cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the <abbr linkend="MDM"/> Agent and the <abbr linkend="MDM"/> Server. Only TLS, DTLS, or HTTPS are acceptable for this trusted channel.<htm:br/><htm:br/>
+                  This requirement is iterated from the Base-<abbr linkend="PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. The mobile device is required to perform the mandated cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the <abbr linkend="MDM"/> Agent and the <abbr linkend="MDM"/> Server. Only TLS, DTLS, or HTTPS are acceptable for this trusted channel.<htm:br/><htm:br/>
                   Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a native part of the mobile operating system, it is expected that the <abbr linkend="MDM"/> Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" is selected the following selections from the TLS Functional Package shall be made:
                   <htm:ul>
                     <htm:li>FCS_TLS_EXT.1: 
@@ -605,7 +607,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   </selectables>             
                 </title>
                 <note role="application">
-                  This element is inherited from the MDF <abbr linkend="PP"/>; it is expected that Mobile Device will initiate the trusted channel between the MDM Agent and the MDM Server for administrative communication and may initiate other trusted channels to other trusted IT entities for other uses.</note>
+                  This element is iterated from the MDF <abbr linkend="PP"/>; it is expected that Mobile Device will initiate the trusted channel between the MDM Agent and the MDM Server for administrative communication and may initiate other trusted channels to other trusted IT entities for other uses.</note>
                 <aactivity>The following additional assurance activities shall be performed.<htm:br/><htm:br/>
                   <TSS/>The evaluator shall examine the <abbr linkend="TSS"/> to determine that the methods of Agent-Server communication are indicated, along with how those communications are protected. The evaluator shall also confirm that all protocols listed in the <abbr linkend="TSS"/> in support of remote <abbr linkend="TOE"/> administration are consistent with those specified in the requirement, and are included in the requirements  in the <abbr linkend="ST"/>.<htm:br/><htm:br/>
                   <!--  If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> 
@@ -635,11 +637,14 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             </consistency-rationale>
             <f-element id="ftp_trp.1.1(2)">
               <title>The <abbr linkend="MDM"/> Agent shall <selectables>
-                <selectable>invoke platform-provided functionality</selectable>
-                <selectable>implement functionality</selectable>
-              </selectables> to use <selectables linebreak="yes">
-                <selectable id="TRP_TLS_2">TLS as defined in the Package for Transport Layer Security</selectable>
-                <selectable id="TRP_HTTPS_2">HTTPS</selectable>
+                <selectable>invoke platform-provided functionality to use <selectables linebreak="yes">
+                  <selectable>TLS</selectable>
+                  <selectable>HTTPS</selectable>
+                </selectables></selectable>
+                <selectable>implement functionality to use <selectables linebreak="yes">
+                  <selectable id="TRP_TLS_2">TLS client as defined in the Package for Transport Layer Security</selectable>
+                <selectable id="TRP_HTTPS_2">HTTPS</selectable></selectables>
+                </selectable>                            
               </selectables> to provide a trusted communication path between itself and another trusted IT product that is 
                 logically distinct from other communication paths and provides assured identification of its endpoints and 
                 protection of the communicated data from disclosure and detection of modification of the communicated data from 
@@ -668,7 +673,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                 data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the first 
                 selection. The <abbr linkend="ST"/> author chooses the mechanism or mechanisms supported by the 
                 <abbr linkend="TOE"/>.<htm:br/><htm:br/>
-                If "TLS" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, 
+                If "implement functionality to use TLS client as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, 
                 with the following selections made:
                 <htm:ul>
                   <htm:li>FCS_TLS_EXT.1: 
@@ -808,20 +813,26 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             </consistency-rationale>
             <f-element id="FPT_ITT.1.1(2)">
               <title>The TSF shall <selectables>
-                <selectable>invoke platform-provided functionality</selectable>
-                <selectable>implement functionality</selectable>             
-              </selectables> to protect all data from [disclosure and modification] through use of <selectables linebreak="yes">
-                <selectable>mutually authenticated TLS as defined in the Package for Transport Layer Security</selectable>
-                <selectable>HTTPS</selectable>
-                <selectable>mutually authenticated DTLS as defined in the Package for Transport Layer Security</selectable>
-              </selectables> when it is transferred between separate parts of the TOE.
+                <selectable>invoke platform-provided functionality to use 
+                  <selectables linebreak="yes">
+                  <selectable>mutually authenticated TLS</selectable>
+                  <selectable>HTTPS</selectable>
+                  <selectable>mutually authenticated DTLS</selectable>
+                  </selectables>
+                </selectable>
+                <selectable>implement functionality to use
+                  <selectables linebreak="yes">
+                    <selectable>mutually authenticated TLS as defined in the Package for Transport Layer Security</selectable>
+                    <selectable>HTTPS</selectable>
+                    <selectable>mutually authenticated DTLS as defined in the Package for Transport Layer Security</selectable>             
+              </selectables></selectable></selectables>to protect all data from [disclosure and modification] when it is transferred between separate parts of the TOE.
               </title>
               <note>               
                 The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> from the base <abbr linkend="PP"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
                 This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                This requirement is refined from the base <abbr linkend="PP"/>. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement functionality" shall be selected.<htm:br/><htm:br/>
+                This requirement is iterated from the base <abbr linkend="PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement functionality" shall be selected.<htm:br/><htm:br/>
                 If "HTTPS" is selected the appropriate selection-based SFRs from <appref linkend="sel-based"/> of <abbr linkend="MDM"/> PP shall be included in the ST, if not already present.<htm:br/><htm:br/>
-                If "TLS" or "DTLS" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections made:
+                If "implement functionality to use mutually authenticated TLS as defined in the Package for Transport Layer Security" or "implement functionality to use mutually authenticated DTLS as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections made:
                 <htm:ul>
                   <htm:li>FCS_TLS_EXT.1: 
                     <htm:ul>
