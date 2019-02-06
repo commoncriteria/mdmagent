@@ -42,7 +42,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     <ReferenceTable>
       <PPVersion>4.0</PPVersion> 
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-02-06</PPPubDate>
+      <PPPubDate>2019-02-07</PPPubDate>
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -231,7 +231,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
           Optional SFRs (dated May 2017).<htm:br/><htm:br/>
           The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
           <htm:ul>
-            <htm:li>PP-Module for VPN Client, Version 2.1, 05 October 2017</htm:li>
+            <htm:li>PP-Module for VPN Client, Version 2.1</htm:li>
           </htm:ul>
       </description>
     </cclaim>     
@@ -240,7 +240,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
         </description>
       </cclaim>
       <cclaim title="Package Claims">
-        <description>This <abbr linkend="PP-Module"/> is TLS Package Conformant.</description>
+        <description>This <abbr linkend="PP-Module"/> is TLS Package Version 1.1 Conformant.</description>
       </cclaim>
   </cclaims>
 </chapter>
