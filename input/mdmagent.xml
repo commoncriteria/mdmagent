@@ -643,7 +643,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               <title>The TSF shall<selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
-              </selectables> to permit <!-- ToDo: Why MD users and not the agent? -->MD users to initiate communication via the trusted path.
+              </selectables> to permit MD users to initiate communication via the trusted path.
               </title>
         <!--TODO free the TOE for MD here! -->      
             </f-element>
