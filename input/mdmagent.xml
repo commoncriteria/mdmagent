@@ -544,8 +544,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             </f-element>
           </f-component>     
         </subsection>
-        <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
-          <!-- TODO: why was this not freed??? -->
+        <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">        
           <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">         
               <consistency-rationale>
                 The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular.
@@ -643,9 +642,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               <title>The TSF shall<selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
-              </selectables> to permit <!-- ToDo: Why MD users and not the agent? -->MD users to initiate communication via the trusted path.
-              </title>
-        <!--TODO free the TOE for MD here! -->      
+              </selectables> to permit MD users to initiate communication via the trusted path.
+              </title>     
             </f-element>
             <f-element id="ftp_trp.1.3(2)">
               <title>The TSF shall <selectables>
@@ -697,7 +695,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   <test>For each method of enrollment supported, the evaluator shall follow the operational guidance to ensure that 
                     there is no available interface that can be used by a remote user to establish enrollment sessions without 
                     invoking the trusted path.<htm:br/><htm:br/>
-                  </test><!--platform?-->
+                  </test>
                   <test>The evaluator shall ensure, for each method enrollment, the channel data is not sent in plaintext.<htm:br/><htm:br/>
                   </test>
                 </testlist> 
