@@ -558,10 +558,26 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   </selectables>
                   to provide a communication channel between itself and another trusted IT product that is logically distinct from other communication channels, provides assured identification of its end points, protects channel data from disclosure, and detects modification of the channel data.</title>
                 <note role="application">
-                  The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
-                  This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                  This requirement is iterated from the Base-<abbr linkend="PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. The mobile device is required to perform the mandated cryptographic protocols as in the base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the <abbr linkend="MDM"/> Agent and the <abbr linkend="MDM"/> Server. Only TLS, DTLS, or HTTPS are acceptable for this trusted channel.<htm:br/><htm:br/>
-                  Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a native part of the mobile operating system, it is expected that the <abbr linkend="MDM"/> Agent will utilize the mobile device's implementation of the selected protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" is selected the following selections from the TLS Functional Package shall be made:
+                  The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and 
+                  Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> is to protect the communications channel between 
+                  <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
+                  This requirement is to ensure that the transmission of any audit logs, mobile device information data (software 
+                  version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> 
+                  Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at 
+                  configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by 
+                  the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the 
+                  <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
+                  This requirement is iterated from the MDF <abbr linkend="PP"/> to indicate the protocols that the MDM agent can 
+                  use for a trusted channel. The mobile device is required to perform the mandated cryptographic protocols as in the 
+                  base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> 
+                  author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the 
+                  <abbr linkend="MDM"/> Agent and the <abbr linkend="MDM"/> Server. Only TLS, DTLS, or HTTPS are acceptable for this 
+                  trusted channel.<htm:br/><htm:br/>
+                  Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on MDF PP and in this case 
+                  it is expected that the <abbr linkend="MDM"/> Agent will be a native part of the mobile operating system, it is 
+                  expected that the <abbr linkend="MDM"/> Agent will utilize the mobile device's implementation of the selected 
+                  protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" 
+                  is selected the following selections from the TLS Functional Package shall be made:
                   <htm:ul>
                     <htm:li>FCS_TLS_EXT.1: 
                       <htm:ul>
@@ -571,7 +587,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                     </htm:li>
                     <htm:li>FCS_TLSC_EXT.1.1:
                       <htm:ul>
-                        <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the <abbr linkend="Base-PP"/></htm:li>
+                        <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the MDF PP.</htm:li>
                         <htm:li>mutual authentication must be selected</htm:li>
                       </htm:ul>
                     </htm:li>
@@ -656,7 +672,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                 the <abbr linkend="TOE"/> via a trusted path, and that all communications with the <abbr linkend="TOE"/> by 
                 MD users is performed over this path. The purpose of this connection is for enrollment by the MD user. <htm:br/><htm:br/>
                 The <abbr linkend="ST"/> author chooses the mechanism or mechanisms supported by the <abbr linkend="TOE"/>. The data passed in this trusted communication channel are encrypted as defined by the protocol selected. <htm:br/><htm:br/>
-                If "invoke platform-provided functionality to use" is selected the MDM Agent will utilize the TLS and/or HTTPS implemented by the mobile device.
+                If "invoke platform-provided functionality to use" is selected the MDM Agent will utilize the TLS and/or HTTPS 
+                implemented by the mobile device.
                 
                 <!-- TODO: What is their implementation of HTTPS evaluated against?? -->
                 <!--  If "implement functionality to use HTTPS" is selected--> 
@@ -670,7 +687,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   </htm:li>
                   <htm:li>FCS_TLSC_EXT.1.1:
                     <htm:ul>
-                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the <abbr linkend="Base-PP"/>.</htm:li>
+                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the MDF PP.</htm:li>
                     </htm:ul>
                   </htm:li>
                 </htm:ul>
@@ -1382,12 +1399,15 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               </htm:ul></title>
             <note role="application">
               This requirement captures all of the configuration in the <abbr linkend="MDM"/> Agent for configuration of itself.<htm:br/><htm:br/>
-              If the <abbr linkend="MDM"/> Agent is a part of the mobile device, enrollment is a single function both of the Agent and of the mobile 
-              device (FMT_SMF_EXT.4.1).<htm:br/><htm:br/>
-              If the <abbr linkend="MDM"/> Agent is an application developed separately from the mobile device, the <abbr linkend="MDM"/> Agent performs the function 
-              “enroll the mobile device in management” (per FMT_SMF_EXT.4.1) by registering itself to the mobile device as a device 
-              administrator. The Agent itself is enrolled in management by configuring the <abbr linkend="MDM"/> Server to which the Agent answers.<htm:br/><htm:br/>
-              <!-- ToDo: Add application note for "configure whether users can unenroll from management, to include that if prevention 
+              If the <abbr linkend="MDM"/> Agent is a part of the mobile device, enrollment is a single function both of the Agent 
+              and of the mobile device (FMT_SMF_EXT.4.1).<htm:br/><htm:br/>
+              If the <abbr linkend="MDM"/> Agent is an application developed separately from the mobile device, the 
+              <abbr linkend="MDM"/> Agent performs the function “enroll the mobile device in management” (per FMT_SMF_EXT.4.1) 
+              by registering itself to the mobile device as a device administrator. The Agent itself is enrolled in management by 
+              configuring the <abbr linkend="MDM"/> Server to which the Agent answers.<htm:br/><htm:br/>
+              If the <abbr linkend="MDM"/> Agent does not support unenrollment prevention, remediation actions should be applied 
+              upon unenrollment (per FMT_UNR_EXT.1).<htm:br/><htm:br/>
+              <!-- DONE - check - ToDo: Add application note for "configure whether users can unenroll from management, to include that if prevention 
                 of unenrollment is not supported, then remediation actions should by applied upon unenrollment. -->
               If the Agent generates periodic reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is 
               configurable, “configure periodicity of reachability events” must be selected.<htm:br/><htm:br/>
