@@ -1043,7 +1043,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               </selectables> to generate an <abbr linkend="MDM"/> Agent audit record of the following auditable events:
               <htm:ul>
                 <htm:li>startup and shutdown of the <abbr linkend="MDM"/> Agent</htm:li>
-                <htm:li>Change in <abbr linkend="MDM"/> policy</htm:li>
+                <htm:li><abbr linkend="MDM"/> policy updated</htm:li>
                 <htm:li>any modification commanded by the <abbr linkend="MDM"/> Server</htm:li>
                 <htm:li>Specifically defined auditable events listed in <ctr-ref refid="audit"/></htm:li>
                 <htm:li><assignable>other events</assignable></htm:li>
@@ -1053,9 +1053,10 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             This requirement outlines the information to be included in the <abbr linkend="MDM"/> Agent’s audit records. The <abbr linkend="ST"/> 
               author can include other auditable events directly in the <ctr-ref refid="audit"/> in FAU_GEN.1.1; they are not limited to the list 
               presented.<htm:br/><htm:br/>
-            The change of the <abbr linkend="MDM"/> policy must minimally indicate that the policy changed. The event record need not contain the 
-            differences between the prior policy and the new policy. Modifications commanded by the <abbr linkend="MDM"/> Server are those commands 
-              listed in FMT_SMF.1.1.<htm:br/><htm:br/>
+            <abbr linkend="MDM"/> policy update must minimally indicate that an update to policy occurred. The event record need not 
+            contain the differences between the prior policy and the new policy; optionally, the specific change(s) to policy that 
+            were included in that update may be detailed. All updates to policy should trigger this alert. Modifications commanded 
+            by the <abbr linkend="MDM"/> Server are those commands listed in FMT_SMF.1.1.<htm:br/><htm:br/>
             The selection for the FMT_UNR_EXT.1 auditable event in <ctr-ref refid="audit"/> corresponds to the selection in FMT_UNR_EXT.1. If “apply 
               remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author selects “attempt to unenroll” 
             in FAU_GEN.1.1(2) <ctr-ref refid="audit"/> for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
