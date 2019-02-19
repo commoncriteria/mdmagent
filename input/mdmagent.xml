@@ -1630,7 +1630,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
       </description>
     </usecase>
     <usecase title="Personally owned device for personal and limited enterprise" id="usecase4">
-      <description><htm:b>[Use Case 4] Personally owned device for personal and limited enterprise us</htm:b><htm:br/><htm:br/>
+      <description><htm:b>[Use Case 4] Personally owned device for personal and limited enterprise use</htm:b><htm:br/><htm:br/>
         At this time no additional requirements are recommended for this use case.</description>
     </usecase>
   </appendix> 
@@ -1643,16 +1643,100 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
   <acronyms>
     <!-- ToDo: Are these really the only acronyms?-->
         <entry>
-          <term>ADB</term>
-          <description>Android Debug Bridge</description>
+          <term>API</term>
+          <description>Application Programming Interface</description>
+        </entry>     
+        <entry>
+          <term>BYOD</term>
+          <description>Bring Your Own Device</description>
         </entry>
         <entry>
-          <term>AES</term>
-          <description>Advanced Encryption Standard</description>
+          <term>COPE</term>
+          <description>Corporately Owned, Personally Enabled</description>
         </entry>
         <entry>
-          <term>ANSI</term>
-          <description>American National Standards Institute</description>
+          <term>DN</term>
+          <description>Distinguished Name</description>
+        </entry>
+        <entry>
+          <term>DTLS</term>
+          <description>Datagram Transport Layer Security</description>
+        </entry>
+        <entry>
+          <term>GPOS</term>
+          <description>General Purpose Operating System</description>
+        </entry>
+        <entry>
+          <term>HTTPS</term>
+          <description>HyperText Transfer Protocol Secure</description>
+        </entry>
+        <entry>
+          <term>IP</term>
+          <description>Internet Protocol</description>
+        </entry>
+        <entry>
+          <term>IPSec</term>
+          <description>Internet Protocol Security</description>
+        </entry>
+        <entry>
+          <term>MAS</term>
+          <description>Mobile Application Store</description>
+        </entry>
+        <entry>
+          <term>MD</term>
+          <description>Mobile Device</description>
+        </entry>
+        <entry>
+          <term>MDF</term>
+          <description>Mobile Device Fundamentals</description>
+        </entry>
+        <entry>
+          <term>MDM</term>
+          <description>Mobile Device Management</description>
+        </entry>
+        <entry>
+          <term>OS</term>
+          <description>Operating System</description>
+        </entry>
+        <entry>
+          <term>PP</term>
+          <description>Protection Profile</description>
+        </entry>
+        <entry>
+          <term>RBG</term>
+          <description>Random Bit Generation</description>
+        </entry>
+        <entry>
+          <term>SD</term>
+          <description>Supporting Document</description>
+        </entry>
+        <entry>
+          <term>ST</term>
+          <description>Security Target</description>
+        </entry>
+        <entry>
+          <term>TLS</term>
+          <description>Transport Layer Security</description>
+        </entry>
+        <entry>
+          <term>TOE</term>
+          <description>Target of Evaluation</description>
+        </entry>
+        <entry>
+          <term>TSF</term>
+          <description>TOE Summary Functionality</description>
+        </entry>
+        <entry>
+          <term>TSS</term>
+          <description>TOE Security Specification</description>
+        </entry>
+        <entry>
+          <term>VPN</term>
+          <description>Virtual Private Network</description>
+        </entry>
+        <entry>
+          <term>WiFi</term>
+          <description>Wireless Fidelity</description>
         </entry>
   </acronyms>
   
