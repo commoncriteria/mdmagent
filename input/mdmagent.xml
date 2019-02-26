@@ -246,7 +246,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
 </chapter>
   <chapter id="spd" title="Security Problem Description">
     <section id="threats" title="Threats">
-      The following threats are specific to <abbr linkend="MDM"/> Agents, and represents an addition to those identified in the Base PP.      
+      The following threats are specific to <abbr linkend="MDM"/> Agents, and represents an addition to those identified in the <abbr linkend="Base-PP"/>.      
       <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
       <threats>       
         <threat id="T.MALICIOUS_APPS"> 
@@ -569,7 +569,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
                   This requirement is iterated from the MDF <abbr linkend="PP"/> to indicate the protocols that the MDM agent can 
                   use for a trusted channel. The mobile device is required to perform the mandated cryptographic protocols as in the 
-                  base <abbr linkend="PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> 
+                  <abbr linkend="Base-PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> 
                   author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the 
                   <abbr linkend="MDM"/> Agent and the <abbr linkend="MDM"/> Server. Only TLS, DTLS, or HTTPS are acceptable for this 
                   trusted channel.<htm:br/><htm:br/>
@@ -831,9 +831,9 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               </selectables></selectable></selectables>to protect all data from [disclosure and modification] when it is transferred between separate parts of the TOE.
               </title>
               <note>               
-                The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> from the base <abbr linkend="PP"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
+                The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> from the <abbr linkend="Base-PP"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
                 This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                This requirement is iterated from the base <abbr linkend="PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement functionality" shall be selected.<htm:br/><htm:br/>
+                This requirement is iterated from the <abbr linkend="Base-PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement functionality" shall be selected.<htm:br/><htm:br/>
                 If "HTTPS" is selected the appropriate selection-based SFRs from <appref linkend="sel-based"/> of <abbr linkend="MDM"/> PP shall be included in the ST, if not already present.<htm:br/><htm:br/>
                 If "implement functionality to use mutually authenticated TLS as defined in the Package for Transport Layer Security" or "implement functionality to use mutually authenticated DTLS as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections made:
                 <htm:ul>
@@ -845,7 +845,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   </htm:li>
                   <htm:li>FCS_TLSC_EXT.1.1 or FCS_TLSS_EXT.1.1 (as appropriate):
                     <htm:ul>
-                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the <abbr linkend="Base-PP"/></htm:li>
+                      <htm:li>The cipher suites selected must correspond with the algorithms and hash functions allowed in FCS_COP.1 from the MDM PP.</htm:li>
                       <htm:li>mutual authentication must be selected</htm:li>
                     </htm:ul>
                   </htm:li>
@@ -1302,7 +1302,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             <aactivity>
                 <Tests/>                
               The evaluation activity for this requirement is performed in conjunction with the evaluation activity for FIA_X509_EXT.1 
-              and FIA_X509_EXT.2 as defined in the base <abbr linkend="PP"/>s.<htm:br/><htm:br/>
+              and FIA_X509_EXT.2 as defined in the <abbr linkend="Base-PP"/>s.<htm:br/><htm:br/>
             </aactivity>
           </f-element>
         </f-component>
@@ -1341,7 +1341,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             <note role="application">
               This requirement captures all the configuration functionality in the <abbr linkend="MDM"/> Agent to configure the underlying Mobile 
               Device with the configuration policies sent from the <abbr linkend="MDM"/> Server to the Agent. The <abbr linkend="ST"/> author selects 
-              the base <abbr linkend="PP"/> (MDF <abbr linkend="PP"/> or <abbr linkend="MDM"/> <abbr linkend="PP"/>) as the source of the management 
+              the <abbr linkend="Base-PP"/> (MDF <abbr linkend="PP"/> or <abbr linkend="MDM"/> <abbr linkend="PP"/>) as the source of the management 
               functions.<htm:br/><htm:br/>
               The administrator-provided management functions in MDF <abbr linkend="PP"/> are specified in Column 4 of Table 4 in 
               MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version queries). The administrator-provided device management 
@@ -1355,8 +1355,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               selections and assignments performed by the <abbr linkend="ST"/> author in this requirement should match the selections 
               and assignments of the validated Mobile Device <abbr linkend="ST"/>.<htm:br/><htm:br/>
             </note>
-            <aactivity>This assurance activity may be performed in conjunction with other assurance activities in the base 
-              <abbr linkend="PP"/>.<htm:br/><htm:br/>
+            <aactivity>This assurance activity may be performed in conjunction with other assurance activities in the <abbr linkend="Base-PP"/>.<htm:br/><htm:br/>
               <TSS/>
               The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these 
               functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify 
@@ -1364,7 +1363,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               <Guidance/>
               The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this 
               requirement.<htm:br/><htm:br/>
-              If the <abbr linkend="MDM"/> Agent is a component of the <abbr linkend="MDM"/> system (i.e. <abbr linkend="MDM"/> Server is the base <abbr linkend="PP"/>), the evaluator 
+              If the <abbr linkend="MDM"/> Agent is a component of the <abbr linkend="MDM"/> system (i.e. <abbr linkend="MDM"/> Server is the <abbr linkend="Base-PP"/>), the evaluator 
               shall verify, by consulting documentation for the claimed mobile device platforms, that the configurable functions 
               listed for this Agent are supported by the platforms.<htm:br/><htm:br/>
               If the <abbr linkend="MDM"/> Agent supports multiple interfaces for configuration (for example, both remote configuration and local 
@@ -1372,7 +1371,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               interfaces.<htm:br/><htm:br/>
               <Tests/> 
               <testlist>
-                <test>In conjunction with the assurance activities in the base <abbr linkend="PP"/>, the evaluator shall attempt to 
+                <test>In conjunction with the assurance activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to 
                   configure each administrator-provided management function and shall verify that the Mobile Device executes the 
                   commands and enforces the policies.<htm:br/><htm:br/>
                 </test>
@@ -1407,9 +1406,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               by registering itself to the mobile device as a device administrator. The Agent itself is enrolled in management by 
               configuring the <abbr linkend="MDM"/> Server to which the Agent answers.<htm:br/><htm:br/>
               If the <abbr linkend="MDM"/> Agent does not support unenrollment prevention, remediation actions should be applied 
-              upon unenrollment (per FMT_UNR_EXT.1).<htm:br/><htm:br/>
-              <!-- DONE - check - ToDo: Add application note for "configure whether users can unenroll from management, to include that if prevention 
-                of unenrollment is not supported, then remediation actions should by applied upon unenrollment. -->
+              upon unenrollment (per FMT_UNR_EXT.1).<htm:br/><htm:br/>             
               If the Agent generates periodic reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is 
               configurable, “configure periodicity of reachability events” must be selected.<htm:br/><htm:br/>
             </note>
