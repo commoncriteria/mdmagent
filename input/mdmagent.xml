@@ -567,7 +567,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by 
                   the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the 
                   <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                  This requirement is iterated from the MDF <abbr linkend="PP"/> to indicate the protocols that the MDM agent can 
+                  This requirement is iterated from the MDF <abbr linkend="PP"/> to indicate the protocols that the MDM Agent can 
                   use for a trusted channel. The mobile device is required to perform the mandated cryptographic protocols as in the 
                   <abbr linkend="Base-PP"/> for communication channels mandated in the MDF <abbr linkend="PP"/>. The <abbr linkend="ST"/> 
                   author must select one of TLS, DTLS, or HTTPS in order to establish and maintain a trusted channel between the 
@@ -830,12 +830,29 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                     <selectable>mutually authenticated DTLS as defined in the Package for Transport Layer Security</selectable>             
               </selectables></selectable></selectables>to protect all data from [disclosure and modification] when it is transferred between separate parts of the TOE.
               </title>
-              <note>               
-                The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, post enrollment. <linkref linkend="FTP_TRP.1(2)"/> from the <abbr linkend="Base-PP"/> is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
-                This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable intervals, is properly protected. This trusted channel also protects any commands and policies sent by the <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
-                This requirement is iterated from the <abbr linkend="Base-PP"/> to indicate the protocols that the MDM agent can use for a trusted channel. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement functionality" shall be selected.<htm:br/><htm:br/>
-                If "HTTPS" is selected the appropriate selection-based SFRs from <appref linkend="sel-based"/> of <abbr linkend="MDM"/> PP shall be included in the ST, if not already present.<htm:br/><htm:br/>
-                If "implement functionality to use mutually authenticated TLS as defined in the Package for Transport Layer Security" or "implement functionality to use mutually authenticated DTLS as defined in the Package for Transport Layer Security" is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections made:
+              <note role="application">               
+                The intent of this requirement is to protect the communications channel between <abbr linkend="MDM"/> Server and Agent, 
+                post enrollment. <linkref linkend="FTP_TRP.1(2)"/> from the <abbr linkend="Base-PP"/> is to protect the communications 
+                channel between <abbr linkend="MDM"/> Server and Agent during enrollment. <htm:br/><htm:br/>
+                This requirement is to ensure that the transmission of any audit logs, mobile device information data (software version, 
+                hardware model, and application versions), and configuration data collected by the <abbr linkend="MDM"/> Agent and 
+                sent from the <abbr linkend="MDM"/> Agent to the <abbr linkend="MDM"/> Server, when commanded, or at configurable 
+                intervals, is properly protected. This trusted channel also protects any commands and policies sent by the 
+                <abbr linkend="MDM"/> Server to the <abbr linkend="MDM"/> Agent. Either the <abbr linkend="MDM"/> Agent or the 
+                <abbr linkend="MDM"/> Server is able to initiate the connection.<htm:br/><htm:br/>
+                This requirement is iterated from the <abbr linkend="Base-PP"/> to indicate the protocols that the MDM agent can use 
+                for a trusted channel. Since this requirement is only for the case when the <abbr linkend="PP-Module"/> builds on 
+                <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party 
+                application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to 
+                utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided 
+                functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement 
+                functionality" shall be selected.<htm:br/><htm:br/>
+                If "HTTPS" is selected the appropriate selection-based SFRs from <appref linkend="sel-based"/> of <abbr linkend="MDM"/> 
+                PP shall be included in the ST, if not already present.<htm:br/><htm:br/>
+                If "implement functionality to use mutually authenticated TLS as defined in the Package for Transport Layer Security" 
+                or "implement functionality to use mutually authenticated DTLS as defined in the Package for Transport Layer Security" 
+                is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections 
+                made:
                 <htm:ul>
                   <htm:li>FCS_TLS_EXT.1: 
                     <htm:ul>
@@ -1098,7 +1115,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FCS_STG_EXT.4/<htm:br/>
-                    FCS_STG_EXT.1(1)</htm:TD>
+                    FCS_STG_EXT.1(2)</htm:TD>
                   <htm:TD>None.</htm:TD>
                   <htm:TD></htm:TD>
                 </htm:TR>
@@ -1254,7 +1271,10 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
       <subsection id="fmt" title="Security Management (FMT)">
         <ext-comp-def title="Trusted Policy Update" fam-id="FMT_POL_EXT">
           <mod-def>
-            This family is defined in the <abbr linkend="MDM"/> <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FMT_POL_EXT.2. This new component and its impact on the extended family’s component leveling are shown below; reference the <abbr linkend="MDM"/> PP for all other definitions for this family.</mod-def>
+            This family is defined in the <abbr linkend="MDM"/> <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments 
+            the extended family by adding one additional component, FMT_POL_EXT.2. This new component and its impact on the extended 
+            family’s component leveling are shown below; reference the <abbr linkend="MDM"/> PP for all other definitions for this 
+            family.</mod-def>
         </ext-comp-def>
         <f-component id="fmt_pol_ext.2" name="Agent Trusted Policy Update">         
           <consistency-rationale></consistency-rationale>
