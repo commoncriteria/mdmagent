@@ -1423,13 +1423,13 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
               The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods in which the MDM Agent can be 
               enrolled.<htm:br/><htm:br/>
               The <abbr linkend="TSS"/> description shall make clear if the MDM Agent supports multiple interfaces for enrollment 
-              and configuration (for example, both remote configuration and local configuration).<htm:br/><htm:br/>         
+              and configuration (for example, both remote configuration and local configuration).<htm:br/><htm:br/> 
+              Additionally, the evaluator shall verify that the <abbr linkend="TSS"/> describes any management functions of the 
+              MDM Agent, if assigned.<htm:br/><htm:br/>
               <Guidance/>
               The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this 
               requirement.<htm:br/><htm:br/>
-              Additionally, the evaluator shall verify that the <abbr linkend="TSS"/> describes any management functions of the 
-              MDM Agent, if assigned.<htm:br/><htm:br/>
-               <Tests/>
+              <Tests/>
               <testlist>
                 <test>In conjunction with other assurance activities, the evaluator shall attempt to enroll the MDM Agent in 
                   management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage 
