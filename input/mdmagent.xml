@@ -1277,7 +1277,8 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
             FMT_POL_EXT.1 Trusted Policy Update
           </dependencies>
           <f-element id="fmt_pol_ext.2.1">
-            <title>The <abbr linkend="MDM"/> Agent shall only accept policies and policy updates that are digitally signed by the Enterprise.
+            <title>The <abbr linkend="MDM"/> Agent shall only accept policies and policy updates that are digitally signed by a certificate
+              that has been authorized for policy updates by the <abbr linkend="MDM"/> Server.
             </title>
             <note role="application">The intent of this requirement is to cryptographically tie the policies to the enterprise 
               that mandated the policy, not to protect the policies in transit (as they are already protected by FPT_ITT.1). This is 
