@@ -1087,7 +1087,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
             selects “attempt to unenroll” in FAU_GEN.1.1(2) Auditable Events table for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
             
             <htm:b><ctr id="audit" ctr-type="table">Auditable Events</ctr></htm:b>
-            <htm:table>
+            <htm:table style="margin-top:0px;">
               <htm:TR>
                 <htm:TH>Requirement</htm:TH>
                 <htm:TH>Auditable Events</htm:TH>
