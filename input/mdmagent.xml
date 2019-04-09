@@ -578,7 +578,7 @@ This <abbr linkend="PP-Module"/> shall build on the <abbr linkend="MDM"/> Server
                   it is expected that the <abbr linkend="MDM"/> Agent will be a native part of the mobile operating system, it is 
                   expected that the <abbr linkend="MDM"/> Agent will utilize the mobile device's implementation of the selected 
                   protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" 
-                  is selected the following selections from the TLS Functional Package shall be made:
+                  is selected the following selections from the TLS Functional Package must be made:
                   <htm:ul>
                     <htm:li>FCS_TLS_EXT.1: 
                       <htm:ul>
@@ -673,7 +673,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
                 it is expected that the <abbr linkend="MDM"/> Agent will be a native part of the mobile operating system, it is 
                 expected that the <abbr linkend="MDM"/> Agent will utilize the mobile device's implementation of the selected 
                 protocols. HTTPS (FCS_HTTPS_EXT.1) and TLS (FCS_TLSC_EXT.1) are already mandatory for a MDF ST. If "TLS" or "DTLS" 
-                is selected the following selections from the TLS Functional Package shall be made:
+                is selected the following selections from the TLS Functional Package must be made:
                 <!-- TODO: What is their implementation of HTTPS evaluated against?? -->
                 <!--  If "implement functionality to use HTTPS" is selected-->
                 <htm:ul>
@@ -843,10 +843,10 @@ The evaluator shall confirm that the operational guidance contains instructions 
                 <abbr linkend="MDM"/> PP and in this case it is expected that the <abbr linkend="MDM"/> Agent will be a third party 
                 application provided by the <abbr linkend="MDM"/> Server, it is acceptable for the <abbr linkend="MDM"/> Agent to 
                 utilize the protocol implementations from the mobile device. If that is the case then "invoke platform-provided 
-                functionality" shall be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement 
-                functionality" shall be selected.<htm:br/><htm:br/>
+                functionality" must be selected. If the <abbr linkend="MDM"/> agent implements the protocol itself, then "implement 
+                functionality" must be selected.<htm:br/><htm:br/>
                 If "HTTPS" is selected the appropriate selection-based SFRs from <appref linkend="sel-based"/> of <abbr linkend="MDM"/> 
-                PP shall be included in the ST, if not already present.<htm:br/><htm:br/>
+                PP must be included in the ST, if not already present.<htm:br/><htm:br/>
                 If "implement functionality to use mutually authenticated TLS as defined in the Package for Transport Layer Security" 
                 or "implement functionality to use mutually authenticated DTLS as defined in the Package for Transport Layer Security" 
                 is selected the TLS Functional Package must be included in the <abbr linkend="ST"/>, with the following selections 
@@ -996,17 +996,19 @@ The evaluator shall confirm that the operational guidance contains instructions 
               </htm:ul>
             </title>
             <note role="application">
-              The trusted channel is defined in FPT_ITT.1 if Agent extends <abbr linkend="MDM"/> Server and FTP_ITC_EXT.1 if Agent extends 
-              MDF <abbr linkend="PP"/>. “Alert” in this requirement could be as simple as an audit record or a notification. 
-              If any prior alerts exist in the queue, per FAU_ALT_EXT.2.2, those alerts shall be sent when the trusted channel 
+              The trusted channel is defined in FPT_ITT.1 if Agent extends <abbr linkend="MDM"/> Server and FTP_ITC_EXT.1 if Agent 
+              extends MDF <abbr linkend="PP"/>. “Alert” in this requirement could be as simple as an audit record or a notification. 
+              If any prior alerts exist in the queue, per FAU_ALT_EXT.2.2, those alerts must be sent when the trusted channel 
               is available.<htm:br/><htm:br/>
-              This requirement is to ensure that the <abbr linkend="MDM"/> Agent shall notify the <abbr linkend="MDM"/> Server whenever one of the events listed above 
-              occurs. Lack of receipt of a successful policy installation indicates the failure of the policy 
-              installation.<htm:br/><htm:br/>
-              The periodic reachability events ensure that either the <abbr linkend="MDM"/> Agent responds to <abbr linkend="MDM"/> Server polls to determine device 
-              network reachability, or the <abbr linkend="MDM"/> Agent can be configured to regularly notify the Server that it is reachable. 
+              This requirement is to ensure that the <abbr linkend="MDM"/> Agent must notify the <abbr linkend="MDM"/> Server 
+              whenever one of the events listed above occurs. Lack of receipt of a successful policy installation indicates the 
+              failure of the policy installation.<htm:br/><htm:br/>
+              The periodic reachability events ensure that either the <abbr linkend="MDM"/> Agent responds to <abbr linkend="MDM"/> 
+              Server polls to determine device network reachability, or the <abbr linkend="MDM"/> Agent can be configured to 
+              regularly notify the Server that it is reachable. 
               The <abbr linkend="ST"/> author must select “receiving” in the first case and “generating” in the second. The 
-              corresponding requirement for the <abbr linkend="MDM"/> Server is FAU_NET_EXT.1 in the <abbr linkend="MDM"/> <abbr linkend="PP"/>.<htm:br/><htm:br/>
+              corresponding requirement for the <abbr linkend="MDM"/> Server is FAU_NET_EXT.1 in the 
+              <abbr linkend="MDM"/> <abbr linkend="PP"/>.<htm:br/><htm:br/>
               The <abbr linkend="ST"/> author must either assign further events or select the “no other events” option. Note that 
               alerts may take time to reach the <abbr linkend="MDM"/> Server, or not arrive, due to poor connectivity.  <htm:br/><htm:br/>
             </note>
@@ -1040,8 +1042,8 @@ The evaluator shall confirm that the operational guidance contains instructions 
           </f-element>
           <f-element id="fau_alt_ext.2.2">
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
-            <note role="application">If the trusted channel is not available, alerts shall be queued. When the trusted channel 
-              becomes available, the queued alerts shall be sent.<htm:br/><htm:br/>
+            <note role="application">If the trusted channel is not available, alerts must be queued. When the trusted channel 
+              becomes available, the queued alerts must be sent.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS> The evaluator shall ensure that the <abbr linkend="TSS"/> describes under what circumstances, if any, the alert 
@@ -1073,16 +1075,82 @@ The evaluator shall confirm that the operational guidance contains instructions 
               </htm:ul>
             </title>
           <note role="application">
-            This requirement outlines the information to be included in the <abbr linkend="MDM"/> Agent’s audit records. The <abbr linkend="ST"/> 
-              author can include other auditable events directly in the <ctr-ref refid="audit"/> in FAU_GEN.1.1; they are not limited to the list 
-              presented.<htm:br/><htm:br/>
+            This requirement outlines the information to be included in the <abbr linkend="MDM"/> Agent’s audit records. The 
+            <abbr linkend="ST"/> author can include other auditable events directly in the Auditable Events table in FAU_GEN.1.1(2); 
+            they are not limited to the list presented.<htm:br/><htm:br/>
             <abbr linkend="MDM"/> policy update must minimally indicate that an update to policy occurred. The event record need not 
             contain the differences between the prior policy and the new policy; optionally, the specific change(s) to policy that 
             were included in that update may be detailed. All updates to policy should trigger this alert. Modifications commanded 
             by the <abbr linkend="MDM"/> Server are those commands listed in FMT_SMF.1.1.<htm:br/><htm:br/>
-            The selection for the FMT_UNR_EXT.1 auditable event in <ctr-ref refid="audit"/> corresponds to the selection in FMT_UNR_EXT.1. If “apply 
-              remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author selects “attempt to unenroll” 
-            in FAU_GEN.1.1(2) <ctr-ref refid="audit"/> for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
+            The selection for the FMT_UNR_EXT.1 auditable event in the Auditable Events table corresponds to the selection in 
+            FMT_UNR_EXT.1. If “apply remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author 
+            selects “attempt to unenroll” in FAU_GEN.1.1(2) Auditable Events table for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
+            
+            <htm:b><ctr id="audit" ctr-type="table">Auditable Events</ctr></htm:b>
+            <htm:table>
+              <htm:TR>
+                <htm:TH>Requirement</htm:TH>
+                <htm:TH>Auditable Events</htm:TH>
+                <htm:TH>Additional Audit Record Contents</htm:TH>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FAU_ALT_EXT.2</htm:TD>
+                <htm:TD>Type of alert.</htm:TD>
+                <htm:TD>No additional information.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FAU_GEN.1</htm:TD>
+                <htm:TD>None.</htm:TD>
+                <htm:TD>N/A</htm:TD>
+              </htm:TR>              
+              <htm:TR>
+                <htm:TD>FAU_SEL.1</htm:TD>
+                <htm:TD>All modifications to the audit configuration that occur while the audit collection functions are operating.</htm:TD>
+                <htm:TD>No additional information.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FCS_STG_EXT.4/<htm:br/>
+                  FCS_STG_EXT.1(2)</htm:TD>
+                <htm:TD>None.</htm:TD>
+                <htm:TD></htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FCS_TLSC_EXT.1</htm:TD>
+                <htm:TD>Failure to establish a TLS session.<htm:br/>Failure to verify presented identifier.<htm:br/>Establishment/termination of a TLS session.</htm:TD>
+                <htm:TD>Reason for failure.<htm:br/>Presented identifier and reference identifier.<htm:br/>Non-TOE endpoint of connection.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FIA_ENR_EXT.2</htm:TD>
+                <htm:TD>Enrollment in management.</htm:TD>
+                <htm:TD>Reference identifier of <abbr linkend="MDM"/> Server.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FMT_POL_EXT.2</htm:TD>
+                <htm:TD>Failure of policy validation.</htm:TD>
+                <htm:TD>Reason for failure of validation.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FMT_SMF_EXT.4</htm:TD>
+                <htm:TD>Outcome (Success/failure of function).</htm:TD>
+                <htm:TD>No additional information.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FMT_UNR_EXT.1.1</htm:TD>
+                <htm:TD>                    
+                  <selectables>
+                    <selectable>Attempt to unenroll</selectable>
+                    <selectable>none</selectable>
+                  </selectables>
+                </htm:TD>
+                <htm:TD>No additional information.</htm:TD>
+              </htm:TR>
+              <htm:TR>
+                <htm:TD>FTP_ITC_EXT.1/<htm:br/>FPT_ITT_EXT.1</htm:TD>
+                <htm:TD>Initiation and termination of trusted channel.</htm:TD>
+                <htm:TD>Trusted channel protocol. Non-TOE endpoint of connection.</htm:TD>
+              </htm:TR>
+            </htm:table>
+            <htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. 
@@ -1091,79 +1159,14 @@ The evaluator shall confirm that the operational guidance contains instructions 
               <abbr linkend="ST"/> to verify that it describes (for each supported platform) how this functionality is invoked (it 
               should be noted that this may be through a mechanism that is not implemented by the <abbr linkend="MDM"/> Agent; nonetheless, that 
               mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/>
+                
 	      </TSS>
               <Tests>
-              The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable events defined in <ctr-ref refid="audit"/> and observe that 
-              accurate audit records are generated with contents and formatting consistent with those described in the 
-              <abbr linkend="TSS"/>. Note that this testing can be accomplished in conjunction with the testing of the security 
-              mechanisms directly.<htm:br/><htm:br/>
-              
-              <htm:b><ctr id="audit" ctr-type="table">Auditable Events</ctr></htm:b>
-              <htm:table style="margin-top:0px;">
-                <htm:TR>
-                  <htm:TH>Requirement</htm:TH>
-                  <htm:TH>Auditable Events</htm:TH>
-                  <htm:TH>Additional Audit Record Contents</htm:TH>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FAU_ALT_EXT.2</htm:TD>
-                  <htm:TD>Type of alert.</htm:TD>
-                  <htm:TD>No additional information.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FAU_GEN.1</htm:TD>
-                  <htm:TD>None.</htm:TD>
-                  <htm:TD>N/A</htm:TD>
-                </htm:TR>              
-                <htm:TR>
-                  <htm:TD>FAU_SEL.1</htm:TD>
-                  <htm:TD>All modifications to the audit configuration that occur while the audit collection functions are operating.</htm:TD>
-                  <htm:TD>No additional information.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FCS_STG_EXT.4/<htm:br/>
-                    FCS_STG_EXT.1(2)</htm:TD>
-                  <htm:TD>None.</htm:TD>
-                  <htm:TD></htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FCS_TLSC_EXT.1</htm:TD>
-                  <htm:TD>Failure to establish a TLS session.<htm:br/>Failure to verify presented identifier.<htm:br/>Establishment/termination of a TLS session.</htm:TD>
-                  <htm:TD>Reason for failure.<htm:br/>Presented identifier and reference identifier.<htm:br/>Non-TOE endpoint of connection.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FIA_ENR_EXT.2</htm:TD>
-                  <htm:TD>Enrollment in management.</htm:TD>
-                  <htm:TD>Reference identifier of <abbr linkend="MDM"/> Server.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FMT_POL_EXT.2</htm:TD>
-                  <htm:TD>Failure of policy validation.</htm:TD>
-                  <htm:TD>Reason for failure of validation.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FMT_SMF_EXT.4</htm:TD>
-                  <htm:TD>Outcome (Success/failure of function).</htm:TD>
-                  <htm:TD>No additional information.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FMT_UNR_EXT.1.1</htm:TD>
-                  <htm:TD>                    
-                    <selectables>
-                      <selectable>Attempt to unenroll</selectable>
-                      <selectable>none</selectable>
-                    </selectables>
-                  </htm:TD>
-                  <htm:TD>No additional information.</htm:TD>
-                </htm:TR>
-                <htm:TR>
-                  <htm:TD>FTP_ITC_EXT.1/<htm:br/>FPT_ITT_EXT.1</htm:TD>
-                  <htm:TD>Initiation and termination of trusted channel.</htm:TD>
-                  <htm:TD>Trusted channel protocol. Non-TOE endpoint of connection.</htm:TD>
-                </htm:TR>
-              </htm:table>
-              <htm:br/><htm:br/>
-	      </Tests>
+              The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable events defined in the Auditable Events table 
+              in FAU_GEN.1.1(2) and observe that accurate audit records are generated with contents and formatting consistent 
+              with those described in the <abbr linkend="TSS"/>. Note that this testing can be accomplished in conjunction with the 
+              testing of the security mechanisms directly.<htm:br/><htm:br/>
+              </Tests>
             </aactivity>
           </f-element>
           <f-element id="fau_gen.1.2(2)">
@@ -1182,9 +1185,9 @@ The evaluator shall confirm that the operational guidance contains instructions 
               </htm:ul>
             </title>
             <note role="application">All audits must contain at least the information mentioned in FAU_GEN.1.2(2), but may contain 
-              more information which can be assigned. The <abbr linkend="ST"/> author shall identify in the 
-              <abbr linkend="TSS"/> which information of the audit record that is performed by the <abbr linkend="MDM"/> Agent and that which is 
-              performed by the <abbr linkend="MDM"/> Agent’s platform.<htm:br/><htm:br/>
+              more information which can be assigned. The <abbr linkend="ST"/> author must identify in the 
+              <abbr linkend="TSS"/> which information of the audit record that is performed by the <abbr linkend="MDM"/> Agent and 
+              that which is performed by the <abbr linkend="MDM"/> Agent’s platform.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. 
@@ -1379,19 +1382,20 @@ The evaluator shall confirm that the operational guidance contains instructions 
               </htm:ul>
             </title>
             <note role="application">
-              This requirement captures all the configuration functionality in the <abbr linkend="MDM"/> Agent to configure the underlying Mobile 
-              Device with the configuration policies sent from the <abbr linkend="MDM"/> Server to the Agent. The <abbr linkend="ST"/> author selects 
-              the <abbr linkend="Base-PP"/> (MDF <abbr linkend="PP"/> or <abbr linkend="MDM"/> <abbr linkend="PP"/>) as the source of the management 
-              functions.<htm:br/><htm:br/>
+              This requirement captures all the configuration functionality in the <abbr linkend="MDM"/> Agent to configure the 
+              underlying Mobile Device with the configuration policies sent from the <abbr linkend="MDM"/> Server to the Agent. 
+              The <abbr linkend="ST"/> author selects the <abbr linkend="Base-PP"/> (MDF <abbr linkend="PP"/> or 
+              <abbr linkend="MDM"/> <abbr linkend="PP"/>) as the source of the management functions.<htm:br/><htm:br/>
               The administrator-provided management functions in MDF <abbr linkend="PP"/> are specified in Column 4 of Table 4 in 
               MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version queries). The administrator-provided device management 
-              functions in <abbr linkend="MDM"/> <abbr linkend="PP"/> are specified in FMT_SMF.1.1(1); the functions in the selection of FMT_SMF.1.1(1) 
-              in the <abbr linkend="MDM"/> <abbr linkend="PP"/> are required to correspond to the functions available on the platforms supported by 
-              the <abbr linkend="MDM"/> Agent.<htm:br/><htm:br/>
+              functions in <abbr linkend="MDM"/> <abbr linkend="PP"/> are specified in FMT_SMF.1.1(1); the functions in the selection 
+              of FMT_SMF.1.1(1) in the <abbr linkend="MDM"/> <abbr linkend="PP"/> are required to correspond to the functions 
+              available on the platforms supported by the <abbr linkend="MDM"/> Agent.<htm:br/><htm:br/>
               The <abbr linkend="ST"/> author can add more commands and configuration policies by completing the assignment statement; 
               the Mobile Device must support these additional commands or configuration policies.<htm:br/><htm:br/>
-              The agent must configure the platform based on the commands and configuration policies received from the <abbr linkend="MDM"/> Server. 
-              The <abbr linkend="ST"/> author shall not claim any functionality not provided by the supported Mobile Device(s). All 
+              The agent must configure the platform based on the commands and configuration policies received from the 
+              <abbr linkend="MDM"/> Server. 
+              The <abbr linkend="ST"/> author must not claim any functionality not provided by the supported Mobile Device(s). All 
               selections and assignments performed by the <abbr linkend="ST"/> author in this requirement should match the selections 
               and assignments of the validated Mobile Device <abbr linkend="ST"/>.<htm:br/><htm:br/>
             </note>
@@ -1558,7 +1562,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
         <f-element id="fau_stg_ext.3.1">
           <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage.
           </title>
-          <note role="application">FAU_STG_EXT.3 shall only be included in the <abbr linkend="ST"/> for MDM Agent platforms 
+          <note role="application">FAU_STG_EXT.3 should only be included in the <abbr linkend="ST"/> for MDM Agent platforms 
             (i.e., mobile devices) that conform to Mobile Device Fundamentals Protection Profile version 3 or later.<htm:br/><htm:br/>
           </note>
           <aactivity>
@@ -1598,11 +1602,11 @@ The evaluator shall confirm that the operational guidance contains instructions 
               This requirement is to enable the Agent to determine if it has been out of connectivity with the Server for too long. 
               The configuration of the number of allowed missed reachability events or time limit since last successful connection 
               with the server is handled in Server configuration policy of the Agent (FMT_SMF.1.1(1) function 56a). If FMT_SMF.1.1(1) 
-              function 56a is included in the <abbr linkend="ST"/>, then FPT_NET_EXT.1.1 shall be included in the MDM Server 
+              function 56a is included in the <abbr linkend="ST"/>, then FPT_NET_EXT.1.1 must be included in the MDM Server 
               <abbr linkend="ST"/>.<htm:br/><htm:br/>
               If the Agent has been out of connectivity with the server for too long than the remediation actions specified in 
-              function 56b shall occur. For example if the Agent has not synced with the server in the allowed amount of time that 
-              the Agent shall wipe the device without requiring a command from the Server.<htm:br/><htm:br/>
+              function 56b must occur. For example if the Agent has not synced with the server in the allowed amount of time that 
+              the Agent must wipe the device without requiring a command from the Server.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>
