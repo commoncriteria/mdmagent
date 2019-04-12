@@ -699,7 +699,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
                 <Guidance>The evaluator shall confirm that the operational guidance contains instructions for establishing the 
                 enrollment sessions for each supported method.<htm:br/><htm:br/>
 		</Guidance>
-                <Tests>For each <abbr linkend="MDM"/> Agent/platform listed as supported in the <abbr linkend="ST"/>: 
+                <Tests>For each <abbr linkend="MDM"/> Agent/platform listed as supported in the <abbr linkend="ST"/>: <htm:br/><htm:br/>
                 <testlist>
                   <test>The evaluators shall ensure that communications using each specified (in the operational guidance) enrollment 
                     method is tested during the course of the evaluation, setting up the connections as described in the operational 
@@ -1086,7 +1086,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
             FMT_UNR_EXT.1. If “apply remediation actions” is selected in FMT_UNR_EXT.1, then the <abbr linkend="ST"/> author 
             selects “attempt to unenroll” in FAU_GEN.1.1(2) Auditable Events table for FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
             
-            <htm:b><ctr id="audit" ctr-type="Table">Auditable Events</ctr></htm:b>
+            <htm:b><ctr id="audit" ctr-type="Table"> Auditable Events</ctr></htm:b>
             <htm:table style="margin-top:0px;">
               <htm:TR>
                 <htm:TH>Requirement</htm:TH>
