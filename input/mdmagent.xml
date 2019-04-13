@@ -1416,7 +1416,7 @@ The evaluator shall confirm that the operational guidance contains instructions 
               interfaces.<htm:br/><htm:br/>
               </Guidance>
 	      <Tests> 
-              <testlist>
+              <testlist> <!-- Move this test list to the 4.2 and put it above the tests already in 4.2. See 4.2 for an example -->
                 <test>In conjunction with the assurance activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to 
                   configure each administrator-provided management function and shall verify that the Mobile Device executes the 
                   commands and enforces the policies.<htm:br/><htm:br/>
@@ -1472,6 +1472,16 @@ The evaluator shall confirm that the operational guidance contains instructions 
 	      </Guidance>
               <Tests>
               <testlist>
+                <!-- <test>In conjunction with the assurance activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to 
+                  configure each administrator-provided management function and shall verify that the Mobile Device executes the 
+                  commands and enforces the policies.<htm:br/><htm:br/>
+                </test>
+                <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration 
+                  guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for 
+                  FPT_ITT.1.<htm:br/><htm:br/>
+                </test>
+                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be 
+                  configured -->
                 <test>In conjunction with other assurance activities, the evaluator shall attempt to enroll the MDM Agent in 
                   management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage 
                   the device and communicate with the MDM Server.<htm:br/><htm:br/>
