@@ -120,8 +120,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </entry>
           <entry>
             <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
-            <description>Protection Profile composed of Base Protection Profiles and Protection
-              Profile Module.</description>
+              <description>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</description>
           </entry>
           <entry>
             <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
@@ -623,11 +622,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <additional-sfrs>
         <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">
           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
-            <mod-def> This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr
-                linkend="PP-Module"/> augments the extended family by adding one additional
-              component, FCS_STG_EXT.4. This new component and its impact on the extended family’s
-              component leveling are shown below; reference the MDF PP for all other definitions for
-              this family. </mod-def>
+            <mod-def> This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FCS_STG_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family. </mod-def>
           </ext-comp-def>
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
             <consistency-rationale> This SFR requires the <abbr linkend="MDM"/> Agent to use
@@ -657,10 +652,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         </subsection>
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
           <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">
-            <consistency-rationale> The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define
-              the secure protocols used for trusted channel communications. This <abbr
-                linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that
-              may be used for <abbr linkend="MDM"/> Agent communications in particular. </consistency-rationale>
+            <consistency-rationale> The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular. </consistency-rationale>
             <f-element id="ftp_itc_ext.1.1(2)">
               <title>The TSF shall use <selectables linebreak="yes">
                   <selectable>mutually authenticated TLS client as defined in the Package for
@@ -752,23 +744,24 @@ Behavior means it's a new EXT component and we have to make that chart.
                   method.<htm:br/><htm:br/>
                 </Guidance>
                 <Tests>For each supported identifier type (excluding DNs), the evaluator shall
-                  repeat the following tests:<htm:br/>
+                  repeat the following tests:<htm:br/><htm:br/>
                   <testlist>
                     <test>The evaluators shall ensure that communications using each specified (in
                       the operational guidance) Agent-Server communication method is tested during
                       the course of the evaluation, setting up the connections as described in the
                       operational guidance and ensuring that communication is
-                      successful.<htm:br/><htm:br/>
+                      successful.
                     </test>
                     <test>The evaluator shall ensure, for each method of Agent-Server communication,
-                      the channel data is not sent in plaintext.<htm:br/><htm:br/>
+                      the channel data is not sent in plaintext.
                     </test>
                     <test>The evaluator shall ensure, for each communication channel with the MDM
                       Server, that a protocol analyzer identifies the traffic as the protocol under
-                      testing.<htm:br/><htm:br/>
+                      testing.
                     </test>
-                  </testlist> Further assurance activities are associated with the specific
-                  protocols.<htm:br/><htm:br/>
+                  </testlist> 
+                    <htm:br/>
+                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -782,8 +775,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               /> Server requirement of the same name. </consistency-rationale>
             <f-element id="ftp_trp.1.1(2)">
               <title>The TSF shall use <selectables linebreak="yes">
-                  <selectable id="TRP_TLS_2">TLS client as defined in the Package for Transport
-                    Layer Security</selectable>
+                  <selectable id="TRP_TLS_2">TLS client as defined in the Package for Transport Layer Security</selectable>
                   <selectable id="TRP_HTTPS_2">HTTPS</selectable>
                 </selectables> to provide a trusted communication path between itself and another
                 trusted IT product that is logically distinct from other communication paths and
@@ -796,7 +788,8 @@ Behavior means it's a new EXT component and we have to make that chart.
               </title>
             </f-element>
             <f-element id="ftp_trp.1.3(2)">
-              <title>The TSF shall require the use of the trusted path for [all MD user actions]. </title>
+              <title>The TSF shall require the use of the trusted path for [all MD user actions]. 
+              </title>
               <note role="application"> This requirement ensures that authorized MD users initiate
                 all communication with the <abbr linkend="TOE"/> via a trusted path, and that all
                 communications with the <abbr linkend="TOE"/> by MD users is performed over this
@@ -843,18 +836,19 @@ Behavior means it's a new EXT component and we have to make that chart.
                     <test>The evaluators shall ensure that communications using each specified (in
                       the operational guidance) enrollment method is tested during the course of the
                       evaluation, setting up the connections as described in the operational
-                      guidance and ensuring that communication is successful.<htm:br/><htm:br/>
+                      guidance and ensuring that communication is successful.
                     </test>
                     <test>For each method of enrollment supported, the evaluator shall follow the
                       operational guidance to ensure that there is no available interface that can
                       be used by a remote user to establish enrollment sessions without invoking the
-                      trusted path.<htm:br/><htm:br/>
+                      trusted path.
                     </test>
                     <test>The evaluator shall ensure, for each method enrollment, the channel data
-                      is not sent in plaintext.<htm:br/><htm:br/>
+                      is not sent in plaintext.
                     </test>
-                  </testlist> Further assurance activities are associated with the specific
-                  protocols.<htm:br/><htm:br/>
+                  </testlist> 
+                    <htm:br/>
+                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -1091,13 +1085,14 @@ Behavior means it's a new EXT component and we have to make that chart.
                     <test>The evaluators shall ensure that communications using each specified (in
                       the operational guidance) communication method is tested during the course of
                       the evaluation, setting up the connections as described in the operational
-                      guidance and ensuring that communication is successful.<htm:br/><htm:br/>
+                      guidance and ensuring that communication is successful.
                     </test>
                     <test>The evaluator shall ensure, for each method of communication, the channel
-                      data is not sent in plaintext.<htm:br/><htm:br/>
+                      data is not sent in plaintext.
                     </test>
-                  </testlist> Further assurance activities are associated with the specific
-                  protocols.<htm:br/><htm:br/>
+                  </testlist> 
+                    <htm:br/>
+                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -1237,38 +1232,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               assign further events or select the “no other events” option. Note that alerts may
               take time to reach the <abbr linkend="MDM"/> Server, or not arrive, due to poor
               connectivity. <htm:br/><htm:br/>
-            </note>
-            <aactivity>
-              <TSS> The evaluator shall examine the <abbr linkend="TSS"/> and verify that it
-                describes how the alerts are implemented.<htm:br/><htm:br/> The evaluator ensures
-                that the <abbr linkend="TSS"/> describes how the candidate policy updates are
-                obtained; and the actions that take place for successful (policy update installed)
-                and unsuccessful (policy update not installed) cases. The software components that
-                are performing the processing must also be identified in the <abbr linkend="TSS"/>
-                and verified by the evaluator.<htm:br/><htm:br/> The evaluator also ensures that the
-                  <abbr linkend="TSS"/> describes how reachability events are implemented, and if
-                configurable are selected in FMT_SMF_EXT.4.2. The evaluator verifies that this
-                description clearly indicates who (<abbr linkend="MDM"/> Agent or <abbr
-                  linkend="MDM"/> Server) initiates reachability events.<htm:br/><htm:br/>
-              </TSS>
-              <Tests>
-                <testlist>
-                  <test>The evaluator shall perform a policy update from the test environment <abbr
-                      linkend="MDM"/> server. The evaluator shall verify the <abbr linkend="MDM"/>
-                    Agent accepts the update, makes the configured changes, and reports the success
-                    of the policy update back to the <abbr linkend="MDM"/> Server.<htm:br/><htm:br/>
-                  </test>
-                  <test>The evaluator shall perform each of the actions listed in FAU_ALT_EXT.1.1
-                    and verify that the alert does in fact reach the <abbr linkend="MDM"/>
-                    Server.<htm:br/><htm:br/>
-                  </test>
-                  <test>The evaluator shall configure the <abbr linkend="MDM"/> Agent to perform a
-                    network reachability test, both with and without such connectivity and ensure
-                    that results reflect each.<htm:br/><htm:br/>
-                  </test>
-                </testlist>
-              </Tests>
-            </aactivity>
+            </note>            
           </f-element>
           <f-element id="fau_alt_ext.2.2">
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
@@ -1277,16 +1241,19 @@ Behavior means it's a new EXT component and we have to make that chart.
               sent.<htm:br/><htm:br/>
             </note>
             <aactivity>
-              <TSS> The evaluator shall ensure that the <abbr linkend="TSS"/> describes under what
-                circumstances, if any, the alert may not be generated (e.g., the device is powered
-                off or disconnected from the trusted channel), how alerts are queued, and the
-                maximum amount of storage for queued messages.<htm:br/><htm:br/>
+              <TSS>                  
+                  The evaluator shall examine the <abbr linkend="TSS"/> and verify that it describes how the alerts are implemented.<htm:br/><htm:br/> 
+                  The evaluator shall examine the <abbr linkend="TSS"/> and verify that it describes how the candidate policy updates are obtained and the actions that take place for successful (policy update installed) and unsuccessful (policy update not installed) cases. The software components that are performing the processing must also be identified in the <abbr linkend="TSS"/> and verified by the evaluator.<htm:br/><htm:br/> 
+                  The evaluator also ensures that the <abbr linkend="TSS"/> describes how reachability events are implemented, and if configurable are selected in FMT_SMF_EXT.4.2. The evaluator verifies that this description clearly indicates who (<abbr linkend="MDM"/> Agent or <abbr linkend="MDM"/> Server) initiates reachability events.<htm:br/><htm:br/> 
+                  The evaluator shall ensure that the <abbr linkend="TSS"/> describes under what circumstances, if any, the alert may not be generated (e.g., the device is powered off or disconnected from the trusted channel), how alerts are queued, and the maximum amount of storage for queued messages.<htm:br/><htm:br/>
               </TSS>
-              <Tests>The evaluator shall remove network connectivity from the MDM Agent and generate
-                an alert/event as defined in FAU_ALT_EXT.2.1. The evaluator shall restore network
-                connectivity to the MDM Agent and verify that the alert generated while the <abbr
-                  linkend="TOE"/> was disconnected is sent by the MDM Agent upon re-establishment of
-                the connectivity.<htm:br/><htm:br/>
+              <Tests>
+                  <testlist>
+                      <test>The evaluator shall perform a policy update from the test environment <abbr linkend="MDM"/> server. The evaluator shall verify the <abbr linkend="MDM"/> Agent accepts the update, makes the configured changes, and reports the success of the policy update back to the <abbr linkend="MDM"/> Server.</test>
+                      <test>The evaluator shall perform each of the actions listed in FAU_ALT_EXT.1.1 and verify that the alert does in fact reach the <abbr linkend="MDM"/> Server.</test>
+                      <test>The evaluator shall configure the <abbr linkend="MDM"/> Agent to perform a network reachability test, both with and without such connectivity and ensure that results reflect each.</test>
+                      <test>The evaluator shall remove network connectivity from the MDM Agent and generate an alert/event as defined in FAU_ALT_EXT.2.1. The evaluator shall restore network connectivity to the MDM Agent and verify that the alert generated while the <abbr linkend="TOE"/> was disconnected is sent by the MDM Agent upon re-establishment of the connectivity.</test>
+                  </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -1388,26 +1355,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </htm:TR>
               </htm:table>
               <htm:br/><htm:br/>
-            </note>
-            <aactivity>
-              <TSS>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a
-                format for audit records. Each audit record format type must be covered, along with
-                a brief description of each field. <htm:br/><htm:br/> If "invoke platform-provided
-                functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> of
-                the <abbr linkend="ST"/> to verify that it describes (for each supported platform)
-                how this functionality is invoked (it should be noted that this may be through a
-                mechanism that is not implemented by the <abbr linkend="MDM"/> Agent; nonetheless,
-                that mechanism will be identified in the <abbr linkend="TSS"/> as part of this
-                evaluation activity).<htm:br/><htm:br/>
-              </TSS>
-              <Tests> The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable
-                events defined in the Auditable Events table in FAU_GEN.1.1(2) and observe that
-                accurate audit records are generated with contents and formatting consistent with
-                those described in the <abbr linkend="TSS"/>. Note that this testing can be
-                accomplished in conjunction with the testing of the security mechanisms
-                directly.<htm:br/><htm:br/>
-              </Tests>
-            </aactivity>
+            </note>            
           </f-element>
           <f-element id="fau_gen.1.2(2)">
             <title>The <selectables>
@@ -1430,15 +1378,17 @@ Behavior means it's a new EXT component and we have to make that chart.
               which is performed by the <abbr linkend="MDM"/> Agent’s platform.<htm:br/><htm:br/>
             </note>
             <aactivity>
-              <TSS>The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a
-                format for audit records. Each audit record format type must be covered, along with
-                a brief description of each field.<htm:br/><htm:br/>
+              <TSS>
+                  The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <htm:br/><htm:br/> 
+                  If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes (for each supported platform) how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented by the <abbr linkend="MDM"/> Agent; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<htm:br/><htm:br/> 
               </TSS>
-              <Tests>When verifying the test results, the evaluator shall ensure the audit records
-                generated during testing match the format specified in the administrative guide, and
-                that the fields in each audit record have the proper entries.<htm:br/><htm:br/> Note
-                that the testing here can be accomplished in conjunction with the testing of the
-                security mechanisms directly.<htm:br/><htm:br/>
+              <Tests>
+                  The evaluator shall use the <abbr linkend="TOE"/> to perform the auditable
+                  events defined in the Auditable Events table in FAU_GEN.1.1(2) and observe that
+                  accurate audit records are generated with contents and formatting consistent with
+                  those described in the <abbr linkend="TSS"/>. Note that this testing can be
+                  accomplished in conjunction with the testing of the security mechanisms
+                  directly.<htm:br/><htm:br/>                                 
               </Tests>
             </aactivity>
           </f-element>
@@ -1481,14 +1431,14 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <test>For each attribute listed in the requirement, the evaluator shall devise a
                     test to show that selecting the attribute causes only audit events with that
                     attribute (or those that are always recorded, as identified in the
-                    administrative guidance) to be recorded.<htm:br/><htm:br/>
+                    administrative guidance) to be recorded.
                   </test>
                   <test>[conditional]: If the TSF supports specification of more complex audit
                     pre-selection criteria (e.g., multiple attributes, logical expressions using
                     attributes) then the evaluator shall devise tests showing that this capability
                     is correctly implemented. The evaluator shall also, in the test plan, provide a
                     short narrative justifying the set of tests as representative and sufficient to
-                    exercise the capability.<htm:br/><htm:br/>
+                    exercise the capability.
                   </test>
                 </testlist>
               </Tests>
@@ -1578,44 +1528,21 @@ Behavior means it's a new EXT component and we have to make that chart.
               users who connect to multiple enterprises.<htm:br/><htm:br/> Policies must be
               digitally signed by the enterprise using the algorithms in
               FCS_COP.1(3).<htm:br/><htm:br/>
-            </note>
-            <aactivity>
-              <TSS>The evaluator also ensures that the <abbr linkend="TSS"/> (or the operational
-                guidance) describes how the candidate policies are obtained by the <abbr
-                  linkend="MDM"/> Agent; the processing associated with verifying the digital
-                signature of the policy updates; and the actions that take place for successful
-                (signature was verified) and unsuccessful (signature could not be verified) cases.
-                The software components that are performing the processing must also be identified
-                in the <abbr linkend="TSS"/> and verified by the evaluators.<htm:br/><htm:br/>
-              </TSS>
-              <Tests>The evaluator shall perform a policy update from an available configuration
-                interface (such as through a test <abbr linkend="MDM"/> Server). The evaluator shall
-                verify the update is signed and is provided to the <abbr linkend="MDM"/> Agent. The
-                evaluator shall verify the <abbr linkend="MDM"/> Agent accepts the digitally signed
-                policy. <htm:br/><htm:br/>
-                <testlist>
-                  <test>The evaluator shall perform a policy update from an available configuration
-                    interface (such as through a test <abbr linkend="MDM"/> Server). The evaluator
-                    shall verify the update is signed and is provided to the <abbr linkend="MDM"/>
-                    Agent. The evaluator shall verify the <abbr linkend="MDM"/> Agent accepts the
-                    digitally signed policy.<htm:br/><htm:br/> The evaluator shall perform a policy
-                    update from an available configuration interface (such as through a test <abbr
-                      linkend="MDM"/> Server). The evaluator shall provide an unsigned and an
-                    incorrectly signed policy to the <abbr linkend="MDM"/> Agent. The evaluator
-                    shall verify the <abbr linkend="MDM"/> Agent does not accept the digitally
-                    signed policy.<htm:br/><htm:br/>
-                  </test>
-                </testlist>
-              </Tests>
-            </aactivity>
+            </note>           
           </f-element>
           <f-element id="fmt_pol_ext.2.2">
             <title>The MDM Agent shall not install policies if the policy-signing certificate is
               deemed invalid. </title>
             <aactivity>
-              <Tests> The evaluation activity for this requirement is performed in conjunction with
-                the evaluation activity for FIA_X509_EXT.1 and FIA_X509_EXT.2 as defined in the
-                  <abbr linkend="Base-PP"/>s.<htm:br/><htm:br/>
+                <TSS>
+                The evaluator ensures that the <abbr linkend="TSS"/> describes how the candidate policies are obtained by the <abbr linkend="MDM"/> Agent, the processing associated with verifying the digital signature of the policy updates, and the actions that take place for successful (signature was verified) and unsuccessful (signature could not be verified) cases. The software components that are performing the processing must also be identified in the <abbr linkend="TSS"/> and verified by the evaluators.<htm:br/><htm:br/>
+                </TSS>
+              <Tests> 
+                  This evaluation activity is performed in conjunction with the evaluation activity for FIA_X509_EXT.1 and FIA_X509_EXT.2 as defined in the <abbr linkend="Base-PP"/>s.<htm:br/><htm:br/>
+                  <testlist>
+                      <test>The evaluator shall perform a policy update from an available configuration interface (such as through a test <abbr linkend="MDM"/> Server). The evaluator shall verify the update is signed and is provided to the <abbr linkend="MDM"/> Agent. The evaluator shall verify the <abbr linkend="MDM"/> Agent accepts the digitally signed policy.</test>
+                      <test>The evaluator shall perform a policy update from an available configuration interface (such as through a test <abbr linkend="MDM"/> Server). The evaluator shall provide an unsigned and an incorrectly signed policy to the <abbr linkend="MDM"/> Agent. The evaluator shall verify the <abbr linkend="MDM"/> Agent does not accept the digitally signed policy.</test>
+                  </testlist>            
               </Tests>
             </aactivity>
           </f-element>
@@ -1683,46 +1610,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               by the supported Mobile Device(s). All selections and assignments performed by the
                 <abbr linkend="ST"/> author in this requirement should match the selections and
               assignments of the validated Mobile Device <abbr linkend="ST"/>.<htm:br/><htm:br/>
-            </note>
-            <aactivity>This assurance activity may be performed in conjunction with other assurance
-              activities in the <abbr linkend="Base-PP"/>.<htm:br/><htm:br/>
-              <TSS> The evaluator shall verify that the any assigned functions are described in the
-                  <abbr linkend="TSS"/> and that these functions are documented as supported by the
-                platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify that any
-                differences between management functions and policies for each supported Mobile
-                Device are listed.<htm:br/><htm:br/>
-              </TSS>
-              <Guidance> The evaluator shall verify the AGD guidance includes detailed instructions
-                for configuring each function in this requirement.<htm:br/><htm:br/> If the <abbr
-                  linkend="MDM"/> Agent is a component of the <abbr linkend="MDM"/> system (i.e.
-                  <abbr linkend="MDM"/> Server is the <abbr linkend="Base-PP"/>), the evaluator
-                shall verify, by consulting documentation for the claimed mobile device platforms,
-                that the configurable functions listed for this Agent are supported by the
-                platforms.<htm:br/><htm:br/> If the <abbr linkend="MDM"/> Agent supports multiple
-                interfaces for configuration (for example, both remote configuration and local
-                configuration), the AGD guidance makes clear whether some functions are restricted
-                to certain interfaces.<htm:br/><htm:br/>
-              </Guidance>
-              <Tests>
-                <testlist>
-                  <!-- Move this test list to the 4.2 and put it above the tests already in 4.2. See 4.2 for an example -->
-                  <test>In conjunction with the assurance activities in the <abbr linkend="Base-PP"
-                    />, the evaluator shall attempt to configure each administrator-provided
-                    management function and shall verify that the Mobile Device executes the
-                    commands and enforces the policies.<htm:br/><htm:br/>
-                  </test>
-                  <test>The evaluator shall configure the MDM Agent authentication certificate in
-                    accordance with the configuration guidance. The evaluator shall verify that the
-                    MDM Agent uses this certificate in performing the tests for
-                    FPT_ITT.1.<htm:br/><htm:br/>
-                  </test>
-                  <test>(conditional) The evaluator shall design and perform tests to demonstrate
-                    that the assigned function may be configured and that the intended behavior of
-                    the function is enacted by the mobile device.<htm:br/><htm:br/>
-                  </test>
-                </testlist>
-              </Tests>
-            </aactivity>
+            </note>           
           </f-element>
           <f-element id="fmt_smf_ext.4.2">
             <title>The <abbr linkend="MDM"/> Agent shall be capable of performing the following
@@ -1751,45 +1639,29 @@ Behavior means it's a new EXT component and we have to make that chart.
               periodic reachability events in FAU_ALT_EXT.2.1 and the periodicity of these events is
               configurable, “configure periodicity of reachability events” must be
               selected.<htm:br/><htm:br/>
-            </note>
+            </note> 
             <aactivity>
-              <TSS> The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods
-                in which the MDM Agent can be enrolled.<htm:br/><htm:br/> The <abbr linkend="TSS"/>
-                description shall make clear if the MDM Agent supports multiple interfaces for
-                enrollment and configuration (for example, both remote configuration and local
-                configuration).<htm:br/><htm:br/> Additionally, the evaluator shall verify that the
-                  <abbr linkend="TSS"/> describes any management functions of the MDM Agent, if
-                assigned.<htm:br/><htm:br/>
+                <!-- TODO: Need to move below sentence -->
+                This assurance activity may be performed in conjunction with other assurance
+                activities in the <abbr linkend="Base-PP"/>.<htm:br/><htm:br/>
+                
+              <TSS> 
+                  The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify that any differences between management functions and policies for each supported Mobile Device are listed.<htm:br/><htm:br/>
+                  The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods in which the MDM Agent can be enrolled.<htm:br/><htm:br/> 
+                  The <abbr linkend="TSS"/> description shall make clear if the MDM Agent supports multiple interfaces for enrollment and configuration (for example, both remote configuration and local configuration).<htm:br/><htm:br/>                  
               </TSS>
-              <Guidance> The evaluator shall verify the AGD guidance includes detailed instructions
-                for configuring each function in this requirement.<htm:br/><htm:br/>
+              <Guidance> 
+                  The evaluator shall verify the AGD guidance includes detailed instructions for configuring each function in this requirement.<htm:br/><htm:br/> 
+                  If the <abbr linkend="MDM"/> Agent is a component of the <abbr linkend="MDM"/> system (i.e. <abbr linkend="MDM"/> Server is the <abbr linkend="Base-PP"/>), the evaluator shall verify, by consulting documentation for the claimed mobile device platforms, that the configurable functions listed for this Agent are supported by the platforms.<htm:br/><htm:br/> 
+                  If the <abbr linkend="MDM"/> Agent supports multiple interfaces for configuration (for example, both remote configuration and local configuration), the AGD guidance makes clear whether some functions are restricted to certain interfaces.<htm:br/><htm:br/>                
               </Guidance>
               <Tests>
                 <testlist>
-                  <!-- <test>In conjunction with the assurance activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to 
-                  configure each administrator-provided management function and shall verify that the Mobile Device executes the 
-                  commands and enforces the policies.<htm:br/><htm:br/>
-                </test>
-                <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration 
-                  guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for 
-                  FPT_ITT.1.<htm:br/><htm:br/>
-                </test>
-                <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be 
-                  configured -->
-                  <test>In conjunction with other assurance activities, the evaluator shall attempt
-                    to enroll the MDM Agent in management with each interface identified in the
-                      <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and
-                    communicate with the MDM Server.<htm:br/><htm:br/>
-                  </test>
-                  <test>(conditional) In conjunction with the assurance activity for
-                    FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability
-                    events for several configured time periods and shall verify that the MDM Server
-                    receives alerts on that schedule.<htm:br/><htm:br/>
-                  </test>
-                  <test>(conditional) The evaluator shall design and perform tests to demonstrate
-                    that the assigned function may be configured and that the intended behavior of
-                    the function is enacted by the mobile device.<htm:br/><htm:br/>
-                  </test>
+                    <test>In conjunction with the evaluation activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the Mobile Device executes the commands and enforces the policies.</test>
+                    <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1.</test>
+                    <test>In conjunction with other evaluation activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
+                    <test>(conditional) In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
+                  <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -1839,15 +1711,9 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Guidance>
               <Tests>
                 <testlist>
-                  <test>If ‘prevent the unenrollment from occurring’ is selected: The evaluator
-                    shall configure the Agent according to the administrative guidance for each
-                    available configuration interface, shall attempt to unenroll the device, and
-                    shall verify that the attempt fails.<htm:br/><htm:br/>
+                  <test>If ‘prevent the unenrollment from occurring’ is selected: The evaluator shall configure the Agent according to the administrative guidance for each available configuration interface, shall attempt to unenroll the device, and shall verify that the attempt fails.
                   </test>
-                  <test>If ‘apply remediation actions’ is selected: If any configuration allows the
-                    user to unenroll, the evaluator shall configure the Agent to allow user
-                    unenrollment, attempt to unenroll, and verify that the remediation actions are
-                    applied.<htm:br/><htm:br/>
+                  <test>If ‘apply remediation actions’ is selected: If any configuration allows the user to unenroll, the evaluator shall configure the Agent to allow user unenrollment, attempt to unenroll, and verify that the remediation actions are applied.
                   </test>
                 </testlist>
               </Tests>
@@ -1876,8 +1742,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FAU_GEN.1 Audit Data Generation</dependencies>
           <f-element id="fau_stg_ext.3.1">
-            <title>The MDM Agent shall store MDM audit records in the platform-provided audit
-              storage. </title>
+            <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage. </title>
             <note role="application">FAU_STG_EXT.3 should only be included in the <abbr linkend="ST"
               /> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device
               Fundamentals Protection Profile version 3 or later.<htm:br/><htm:br/>
