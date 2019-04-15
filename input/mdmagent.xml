@@ -7,11 +7,16 @@
 
 
 <!-- To Do
-  Revision History
-  
-  Which SFRs should Agent bring in from each base
-  
-  threats: objective refers - DONE
+  - Revision History
+  - Which SFRs should Agent bring in from each base
+  - Refinement - Compare to CC guide and add refinement and bold
+  - 
+ -->
+
+<!-- DONE:
+Consistency Arguments
+  ECDs
+    threats: objective refers - DONE
   assumptions: objective refers - DONE
   OSPs: objective refers (Organizational Security Policies) - DONE
   TODO :security objectives - DONE; note, changed so they look like the ones in MDF, there are no mappings or rationales
@@ -20,13 +25,6 @@
   
   
   fix table refs in text so that they refer to the correct #s
- 
- Section 6.1.4 - Consistency of Requirements - there is an incomplete sentence
- -->
-
-<!-- DONE:
-Consistency Arguments
-  ECDs
 
 -->
 
