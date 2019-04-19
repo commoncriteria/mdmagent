@@ -126,11 +126,6 @@ Behavior means it's a new EXT component and we have to make that chart.
               complementary to one or more Base Protection Profiles. </description>
           </entry>
           <entry>
-            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
-            <description>A requirement for how the <abbr linkend="TOE"/>’s proper implementation of
-              the <abbr linkend="SFR"/>s is verified by an evaluator.</description>
-          </entry>
-          <entry>
             <term><abbr title="Security Functional Requirement">SFR</abbr></term>
             <description>A requirement for security enforcement by the <abbr linkend="TOE"
               />.</description>
@@ -332,7 +327,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       </cclaim>
       <cclaim title="CC Conformance Claims">
         <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3
-          (conformant) of Common Criteria Version 3.1, Revision 5 [<abbr linkend="CC"/>].
+          (conformant) of Common Criteria Version 3.1, Release 5 [<abbr linkend="CC"/>].
         </description>
       </cclaim>
       <cclaim title="Package Claims">
@@ -1783,11 +1778,10 @@ Behavior means it's a new EXT component and we have to make that chart.
             <note role="application"> This requirement is to enable the Agent to determine if it has
               been out of connectivity with the Server for too long. The configuration of the number
               of allowed missed reachability events or time limit since last successful connection
-              with the server is handled in Server configuration policy of the Agent (FMT_SMF.1.1(1)
-              function 56a). If FMT_SMF.1.1(1) function 56a is included in the <abbr linkend="ST"/>,
-              then FPT_NET_EXT.1.1 must be included in the MDM Server <abbr linkend="ST"
-              />.<htm:br/><htm:br/> If the Agent has been out of connectivity with the server for
-              too long than the remediation actions specified in function 56b must occur. For
+              with the server is handled in Server configuration policy of the Agent (the first selection of
+              function 56 in FMT_SMF.1.1(1) within the Mobile Device Management PP). If the first selection of FMT_SMF.1.1(1) function 56 is included in the <abbr linkend="ST"/>,
+              then FPT_NET_EXT.1.1 must be included in the <abbr linkend="ST"/>.<htm:br/><htm:br/> If the Agent has been out of connectivity with the server for
+              too long than the remediation actions specified in the second selection of function 56 must occur. For
               example if the Agent has not synced with the server in the allowed amount of time that
               the Agent must wipe the device without requiring a command from the
               Server.<htm:br/><htm:br/>
