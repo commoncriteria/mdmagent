@@ -309,7 +309,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             services such as enterprise email. Because the user does not have full access to the
             enterprise or enterprise data, the enterprise may not need to enforce any security
             policies on the device. However, the enterprise may want secure email and web browsing
-            with assurance that the services being provided to those clients by the Mobile Device
+            with assurance that the services being provided to those clients by the mobile device
             are not compromised. Based upon the Operational Environment and the acceptable risk
             level of the enterprise, those security functional requirements outlined in <secref
               linkend="sfr"/> of this <abbr linkend="PP"/> are sufficient for the secure
@@ -428,7 +428,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         </assumption>
         <assumption id="A.MOBILE_DEVICE_PLATFORM">
           <description>The MDM Agent relies upon mobile platform and hardware evaluated against the
-            MDFPP and assured to provide policy enforcement as well as cryptographic services and
+            MDF PP and assured to provide policy enforcement as well as cryptographic services and
             data protection. The mobile platform provides trusted updates and software integrity
             verification of the MDM Agent. </description>
           <objective-refer ref="OE.MOBILE_DEVICE_PLATFORM">
@@ -551,7 +551,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         </SO>
         <SO id="O.STORAGE">
           <description> To address the issue of loss of confidentiality of user data in the event of
-            loss of a Mobile Device (T.PHYSICAL), conformant <abbr linkend="TOE"/>s will use
+            loss of a mobile device (T.PHYSICAL), conformant <abbr linkend="TOE"/>s will use
             platform provide key storage. The <abbr linkend="TOE"/> is expected to protect its
             persistent secrets and private keys. </description>
           <component-refer ref="FCS_STG_EXT.1(2) (if MDM is Base-PP)"/>
@@ -728,7 +728,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </selectables>
               </title>
               <note role="application"> This element is iterated from the MDF <abbr linkend="PP"/>;
-                it is expected that Mobile Device will initiate the trusted channel between the MDM
+                it is expected that the mobile device will initiate the trusted channel between the MDM
                 Agent and the MDM Server for administrative communication and may initiate other
                 trusted channels to other trusted IT entities for other uses.</note>
               <aactivity>
@@ -1016,7 +1016,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                       <selectable>mutually authenticated DTLS as defined in the Package for
                         Transport Layer Security</selectable>
                     </selectables></selectable>
-                </selectables>to protect all data from [disclosure and modification] when it is
+                </selectables> to protect all data from [disclosure and modification] when it is
                 transferred between separate parts of the TOE. </title>
               <note role="application"> The intent of this requirement is to protect the
                 communications channel between <abbr linkend="MDM"/> Server and Agent, post
@@ -1211,7 +1211,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <selectable>failure to update an application from the MAS Server</selectable>
                   <selectable><assignable>other events</assignable></selectable>
                   <selectable>no other events</selectable>
-                </selectables>
+                </selectables>.
               </htm:ul>
             </title>
             <note role="application"> The trusted channel is defined in FPT_ITT.1 if Agent extends
@@ -1272,7 +1272,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <htm:li>any modification commanded by the <abbr linkend="MDM"/> Server</htm:li>
                 <htm:li>Specifically defined auditable events listed in <ctr-ref refid="audit"
                   /></htm:li>
-                <htm:li><assignable>other events</assignable></htm:li>
+                <htm:li><assignable>other events</assignable>.</htm:li>
               </htm:ul>
             </title>
             <note role="application"> This requirement outlines the information to be included in
@@ -1369,7 +1369,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <htm:li>subject identity</htm:li>
                 <htm:li>(if relevant) the outcome (success or failure) of the event</htm:li>
                 <htm:li>additional information in <ctr-ref refid="audit"/></htm:li>
-                <htm:li><assignable>other audit relevant information</assignable></htm:li>
+                <htm:li><assignable>other audit relevant information</assignable>.</htm:li>
               </htm:ul>
             </title>
             <note role="application">All audits must contain at least the information mentioned in
@@ -1405,7 +1405,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <htm:li>event type</htm:li>
                 <htm:li>success of auditable security events</htm:li>
                 <htm:li>failure of auditable security events</htm:li>
-                <htm:li><assignable>other attributes</assignable></htm:li>
+                <htm:li><assignable>other attributes</assignable>.</htm:li>
               </htm:ul></title>
             <note role="application">The intent of this requirement is to identify all criteria that
               can be selected to trigger an audit event. For the <abbr linkend="ST"/> author, the
@@ -1586,11 +1586,11 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <htm:li><selectables>
                     <selectable><assignable>additional functions</assignable></selectable>
                     <selectable> no additional functions</selectable>
-                  </selectables></htm:li>
+                  </selectables>.</htm:li>
               </htm:ul>
             </title>
             <note role="application"> This requirement captures all the configuration functionality
-              in the <abbr linkend="MDM"/> Agent to configure the underlying Mobile Device with the
+              in the <abbr linkend="MDM"/> Agent to configure the underlying mobile device with the
               configuration policies sent from the <abbr linkend="MDM"/> Server to the Agent. The
                 <abbr linkend="ST"/> author selects the <abbr linkend="Base-PP"/> (MDF <abbr
                 linkend="PP"/> or <abbr linkend="MDM"/>
@@ -1604,13 +1604,13 @@ Behavior means it's a new EXT component and we have to make that chart.
               <abbr linkend="PP"/> are required to correspond to the functions available on the
               platforms supported by the <abbr linkend="MDM"/> Agent.<htm:br/><htm:br/> The <abbr
                 linkend="ST"/> author can add more commands and configuration policies by completing
-              the assignment statement; the Mobile Device must support these additional commands or
+              the assignment statement; the mobile device must support these additional commands or
               configuration policies.<htm:br/><htm:br/> The agent must configure the platform based
               on the commands and configuration policies received from the <abbr linkend="MDM"/>
               Server. The <abbr linkend="ST"/> author must not claim any functionality not provided
-              by the supported Mobile Device(s). All selections and assignments performed by the
+              by the supported mobile device(s). All selections and assignments performed by the
                 <abbr linkend="ST"/> author in this requirement should match the selections and
-              assignments of the validated Mobile Device <abbr linkend="ST"/>.<htm:br/><htm:br/>
+              assignments of the validated mobile device <abbr linkend="ST"/>.<htm:br/><htm:br/>
             </note>           
           </f-element>
           <f-element id="fmt_smf_ext.4.2">
@@ -1623,7 +1623,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                     <selectable>configure periodicity of reachability events</selectable>
                     <selectable><assignable>other management functions</assignable></selectable>
                     <selectable>no other functions</selectable>
-                  </selectables></htm:li>
+                  </selectables>.</htm:li>
               </htm:ul></title>
             <note role="application"> This requirement captures all of the configuration in the
                 <abbr linkend="MDM"/> Agent for configuration of itself.<htm:br/><htm:br/> If the
@@ -1647,7 +1647,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 activities in the <abbr linkend="Base-PP"/>.<htm:br/><htm:br/>
                 
               <TSS> 
-                  The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify that any differences between management functions and policies for each supported Mobile Device are listed.<htm:br/><htm:br/>
+                  The evaluator shall verify that the any assigned functions are described in the <abbr linkend="TSS"/> and that these functions are documented as supported by the platform. The evaluator shall examine the <abbr linkend="TSS"/> to verify that any differences between management functions and policies for each supported mobile device are listed.<htm:br/><htm:br/>
                   The evaluator shall verify that the <abbr linkend="TSS"/> describes the methods in which the MDM Agent can be enrolled.<htm:br/><htm:br/> 
                   The <abbr linkend="TSS"/> description shall make clear if the MDM Agent supports multiple interfaces for enrollment and configuration (for example, both remote configuration and local configuration).<htm:br/><htm:br/>                  
               </TSS>
@@ -1658,7 +1658,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Guidance>
               <Tests>
                 <testlist>
-                    <test>In conjunction with the evaluation activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the Mobile Device executes the commands and enforces the policies.</test>
+                    <test>In conjunction with the evaluation activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the mobile device executes the commands and enforces the policies.</test>
                     <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1.</test>
                     <test>In conjunction with other evaluation activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
                     <test>(conditional) In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
@@ -1689,13 +1689,13 @@ Behavior means it's a new EXT component and we have to make that chart.
               following behavior upon an attempt to unenroll the mobile device from management: <selectables>
                 <selectable>prevent the unenrollment from occurring</selectable>
                 <selectable>apply remediation actions</selectable>
-              </selectables>
+              </selectables>.
             </title>
             <note role="application">Unenrolling is the action of transitioning from the enrolled
               state to the unenrolled state. If preventing the user from unenrolling is
               configurable, administrators configure whether users are allowed to unenroll through
               the <abbr linkend="MDM"/> Server.<htm:br/><htm:br/> For those configurations where
-              unenrollment is allowed, for example a BYOD usage, the MDFPP describes remediation
+              unenrollment is allowed, for example a BYOD usage, the MDF PP describes remediation
               actions performed upon unenrollment, such as wiping enterprise data, in
               FMT_SMF_EXT.2.1; however, the <abbr linkend="MDM"/> Agent is limited to those actions
               supported by the mobile device on which the Agent is operating.<htm:br/><htm:br/>
