@@ -103,8 +103,8 @@
 	  its	intended environment that can be assumed to hold true. This 
 	  will provide additional scope on the resulting PP.
 
-	  The following assumptions are made for the operating system product and its operational
-	  environment: <ul>
+	  The following assumptions are made for the operating system product and its Operational
+	  Environment: <ul>
 			<li>The underlying platform is physically protected, to a large extent. The hardware
 				that the product manages is secured by defensive measures that make physical attacks
 				impractical for most attackers. At the same time, casual passersby might attempt to

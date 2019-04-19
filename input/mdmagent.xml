@@ -240,7 +240,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       its baseline security capabilities can be assumed to be present. <subsection
         title="TOE Boundary" id="toeboundary"> Figure 1 shows a high-level example of the <abbr
           linkend="PP-Module"/>
-        <abbr linkend="TOE"/> boundary and its operational environment. As stated above, the <abbr
+        <abbr linkend="TOE"/> boundary and its Operational Environment. As stated above, the <abbr
           linkend="MDM"/> Agent may either be provided as part of the mobile device itself (shown in
         red) or distributed as a third-party application from the developer of the <abbr
           linkend="MDM"/> Server software (shown in blue).<htm:br/><htm:br/>
@@ -297,7 +297,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             be enforced by a separation mechanism built-in to the device itself to distinguish
             between enterprise and personal activities, or by a third-party application that
             provides access to enterprise resources and leverages security capabilities provided by
-            the mobile device. Based upon the operational environment and the acceptable risk level
+            the mobile device. Based upon the Operational Environment and the acceptable risk level
             of the enterprise, those security functional requirements outlined in <secref
               linkend="sfr"/> of this Protection Profile along with the selections in the Use Case 3
             template defined in <appref linkend="use-case"/> are sufficient for the secure
@@ -310,7 +310,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             enterprise or enterprise data, the enterprise may not need to enforce any security
             policies on the device. However, the enterprise may want secure email and web browsing
             with assurance that the services being provided to those clients by the Mobile Device
-            are not compromised. Based upon the operational environment and the acceptable risk
+            are not compromised. Based upon the Operational Environment and the acceptable risk
             level of the enterprise, those security functional requirements outlined in <secref
               linkend="sfr"/> of this <abbr linkend="PP"/> are sufficient for the secure
             implementation of this BYOD use case.</description>
@@ -343,7 +343,10 @@ Behavior means it's a new EXT component and we have to make that chart.
   </chapter>
   <chapter id="spd" title="Security Problem Description">
     <section id="threats" title="Threats"> The following threats are specific to <abbr linkend="MDM"
-      /> Agents, and represents an addition to those identified in the <abbr linkend="Base-PP"/>. <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
+      /> Agents, and represents an addition to those identified in the <abbr linkend="Base-PP"/>s. 
+      <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). 
+        For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
+        If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
       <threats>
         <threat id="T.MALICIOUS_APPS">
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
@@ -419,7 +422,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             management activities. The <abbr linkend="TOE"/> will robustly handle instances when
             connectivity is unavailable or unreliable. </description>
           <objective-refer ref="OE.WIRELESS_NETWORK">
-            <rationale>The operational environment objective OE.WIRELESS_NETWORK is realized through
+            <rationale>The Operational Environment objective OE.WIRELESS_NETWORK is realized through
               A.CONNECTIVITY. </rationale>
           </objective-refer>
         </assumption>
@@ -429,7 +432,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             data protection. The mobile platform provides trusted updates and software integrity
             verification of the MDM Agent. </description>
           <objective-refer ref="OE.MOBILE_DEVICE_PLATFORM">
-            <rationale>The operational environment objective OE.MOBILE_DEVICE_PLATFORM is realized
+            <rationale>The Operational Environment objective OE.MOBILE_DEVICE_PLATFORM is realized
               through A.MOBILE_DEVICE_PLATFORM. </rationale>
           </objective-refer>
         </assumption>
@@ -438,7 +441,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             negligent, or hostile, are assigned and authorized as the <abbr linkend="TOE"/>
             Administrators, and do so using and abiding by guidance documentation. </description>
           <objective-refer ref="OE.DATA_PROPER_ADMIN">
-            <rationale>The operational environment objective OE.DATA_PROPER_ADMIN is realized
+            <rationale>The Operational Environment objective OE.DATA_PROPER_ADMIN is realized
               through A.PROPER_ADMIN. </rationale>
           </objective-refer>
         </assumption>
@@ -446,7 +449,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <description> Mobile device users are not willfully negligent or hostile, and use the
             device within compliance of a reasonable Enterprise security policy. </description>
           <objective-refer ref="OE.DATA_PROPER_USER">
-            <rationale>The operational environment objective OE.DATA_PROPER_USER is realized through
+            <rationale>The Operational Environment objective OE.DATA_PROPER_USER is realized through
               A.PROPER_USER. </rationale>
           </objective-refer>
         </assumption>
@@ -1743,7 +1746,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage. </title>
             <note role="application">FAU_STG_EXT.3 should only be included in the <abbr linkend="ST"
               /> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device
-              Fundamentals Protection Profile version 3 or later.<htm:br/><htm:br/>
+              Fundamentals PP version 3 or later.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall verify that the <abbr linkend="TSS"/> description of the
