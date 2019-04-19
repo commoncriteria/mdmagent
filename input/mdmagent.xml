@@ -716,8 +716,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </selectables> to initiate communication via the trusted channel.</title>
               <note role="application"> For all other use cases, the mobile device initiates the
                 communication; however, for <abbr linkend="MDM"/> Agents, the <abbr linkend="MDM"/>
-                Server may also initiate communication. This requirement replaces the requirement in
-                the MDF <abbr linkend="PP"/>.</note>
+                Server may also initiate communication.</note>
             </f-element>
             <f-element id="ftp_itc_ext.1.3(2)">
               <title>The TSF shall initiate communication via the trusted channel for all
@@ -877,7 +876,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         which the TSF may be configured.</con-mod>
       <con-mod id="O.DATA_PROTECTION_TRANSIT"> This objective extends the <abbr linkend="Base-PP"
         />’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/>
-        Agents functionality are secured in the same manner as other sensitive data transmitted
+        Agent functionality are secured in the same manner as other sensitive data transmitted
         to/from the mobile device.</con-mod>
       <con-mod id="O.STORAGE"> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
         objective by ensuring that the mobile device’s data-at-rest protection mechanisms can also
@@ -1147,7 +1146,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         by the <abbr linkend="Base-PP"/>.</con-mod>
       <con-mod id="fmt_pol_ext.2"> The <abbr linkend="Base-PP"/> defines an SFR (FMT_POL_EXT.1) that
         requires the <abbr linkend="MDM"/> Server to provide digitally signed policies and policy
-        updates to the <abbr linkend="MDM"/> Agent. FMT_POL_EXT.1 completes this transaction by
+        updates to the <abbr linkend="MDM"/> Agent. FMT_POL_EXT.2 completes this transaction by
         requiring the <abbr linkend="MDM"/> Agent to accept only signed policies and policy
         updates.</con-mod>
       <con-mod id="fmt_smf_ext.4"> This SFR requires the <abbr linkend="MDM"/> Agent to interact
@@ -1290,7 +1289,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               author selects “attempt to unenroll” in FAU_GEN.1.1(2) Auditable Events table for
               FMT_UNR_EXT.1; otherwise, "none" is selected.<htm:br/><htm:br/>
               <htm:b><ctr id="audit" ctr-type="Table"> Auditable Events</ctr></htm:b>
-              <htm:table style="margin-top:0px;">
+              <htm:table style="margin-top:0px;white-space:10px">
                 <htm:TR>
                   <htm:TH>Requirement</htm:TH>
                   <htm:TH>Auditable Events</htm:TH>
@@ -1322,7 +1321,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <htm:TD>Failure to establish a TLS session.<htm:br/>Failure to verify presented
                     identifier.<htm:br/>Establishment/termination of a TLS session.</htm:TD>
                   <htm:TD>Reason for failure.<htm:br/>Presented identifier and reference
-                    identifier.<htm:br/>Non-TOE endpoint of connection.</htm:TD>
+                    identifier.<htm:br/>Non-TOE endpoint of connection.</htm:TD> 
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FIA_ENR_EXT.2</htm:TD>
@@ -1336,7 +1335,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FMT_SMF_EXT.4</htm:TD>
-                  <htm:TD>Outcome (Success/failure of function).</htm:TD>
+                  <htm:TD>Outcome (Success/failure) of function.</htm:TD>
                   <htm:TD>No additional information.</htm:TD>
                 </htm:TR>
                 <htm:TR>
@@ -1350,7 +1349,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <htm:TD>No additional information.</htm:TD>
                 </htm:TR>
                 <htm:TR>
-                  <htm:TD>FTP_ITC_EXT.1/<htm:br/>FPT_ITT_EXT.1</htm:TD>
+                  <htm:TD>FTP_ITC_EXT.1(2)</htm:TD>
                   <htm:TD>Initiation and termination of trusted channel.</htm:TD>
                   <htm:TD>Trusted channel protocol. Non-TOE endpoint of connection.</htm:TD>
                 </htm:TR>
@@ -1409,7 +1408,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </htm:ul></title>
             <note role="application">The intent of this requirement is to identify all criteria that
               can be selected to trigger an audit event. For the <abbr linkend="ST"/> author, the
-              assignment is used to list any additional criteria or “none”. This selection may be
+              assignment is used to list any additional criteria or “no other attributes”. This selection may be
               configured by the MDM Server.<htm:br/><htm:br/>
             </note>
             <aactivity>
