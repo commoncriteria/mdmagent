@@ -756,7 +756,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                     </test>
                   </testlist> 
                     <htm:br/>
-                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
+                    Further evaluation activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -843,7 +843,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                     </test>
                   </testlist> 
                     <htm:br/>
-                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
+                    Further evaluation activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -1087,7 +1087,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                     </test>
                   </testlist> 
                     <htm:br/>
-                    Further assurance activities are associated with the specific protocols.<htm:br/><htm:br/>
+                    Further evaluation activities are associated with the specific protocols.<htm:br/><htm:br/>
                 </Tests>
               </aactivity>
             </f-element>
@@ -1484,7 +1484,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Guidance>
               <Tests>The evaluator shall follow the operational guidance to establish the reference
                 identifier of the <abbr linkend="MDM"/> server on the <abbr linkend="MDM"/> Agent
-                and in conjunction with other Assurance Activities verify that the <abbr
+                and in conjunction with other evaluation activities verify that the <abbr
                   linkend="MDM"/> Agent can connect to the <abbr linkend="MDM"/> Server and validate
                 the <abbr linkend="MDM"/> Server’s certificate.<htm:br/><htm:br/>
               </Tests>
@@ -1654,8 +1654,8 @@ Behavior means it's a new EXT component and we have to make that chart.
                     <test>In conjunction with the evaluation activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the mobile device executes the commands and enforces the policies.</test>
                     <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1.</test>
                     <test>In conjunction with other evaluation activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
-                    <test>(conditional) In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
-                  <test>(conditional) The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
+                    <test>[conditional] In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
+                  <test>[conditional] The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -1799,7 +1799,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 reached.<htm:br/><htm:br/>
               </Guidance>
               <Tests> The evaluator shall configure the Server configuration policy of the Agent per
-                FMT_SMF.1.1(1) function 56. The device shall be placed in airplane mode to prevent
+                FMT_SMF.1.1(1) function 56 within the Mobile Device Managment PP. The device shall be placed in airplane mode to prevent
                 connectivity with the Server. The evaluator shall verify that after the configured
                 time, the remediation actions selected in function 56 occur.<htm:br/><htm:br/>
               </Tests>
