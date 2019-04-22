@@ -535,7 +535,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF PP)"/>
           <component-refer ref="FIA_X509_EXT.4 (from MDM PP)"/>  -->
           <component-refer ref="FPT_ITT.1(2) (if MDM is Base-PP)"/>
-          <component-refer ref="FPT_NET_EXT.1 (optional)"/>
+          <component-refer ref="FPT_NET_EXT.1 (objective)"/>
           <component-refer ref="FTP_ITC_EXT.1(2) (if MDF is Base-PP)"/>
           <!--  <component-refer ref="FTP_TRP.1(1) (from MDM PP)"/>-->
           <component-refer ref="FTP_TRP.1(2) (if MDF is Base-PP)"/>
@@ -618,7 +618,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <additional-sfrs>
         <subsection id="crypto-fcs" title="Cryptographic Support (FCS)">
           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
-            <mod-def> This family is defined in the MDF <abbr linkend="Base-PP"/>. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FCS_STG_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF PP for all other definitions for this family. </mod-def>
+            <mod-def> This family is defined in both the MDF and the MDM <abbr linkend="Base-PP"/>s. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FCS_STG_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF or MDM PP for all other definitions for this family. </mod-def>
           </ext-comp-def>
           <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
             <consistency-rationale> This SFR requires the <abbr linkend="MDM"/> Agent to use
@@ -1507,7 +1507,6 @@ Behavior means it's a new EXT component and we have to make that chart.
           <management>There are no management functions foreseen.</management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation
             is included in the PP/ST:<htm:ul>
-              <htm:li>Minimal: Application of policy.</htm:li>
               <htm:li>Minimal: Failure to validate policy.</htm:li>
             </htm:ul>
           </audit>
