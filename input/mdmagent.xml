@@ -1315,11 +1315,10 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <htm:TD/>
                 </htm:TR>
                 <htm:TR>
-                  <htm:TD>FCS_TLSC_EXT.1</htm:TD>
-                  <htm:TD>Failure to establish a TLS session.<htm:br/>Failure to verify presented
-                    identifier.<htm:br/>Establishment/termination of a TLS session.</htm:TD>
-                  <htm:TD>Reason for failure.<htm:br/>Presented identifier and reference
-                    identifier.<htm:br/>Non-TOE endpoint of connection.</htm:TD>
+                  <htm:TD rowspan="3">FCS_TLSC_EXT.1</htm:TD>
+                  <htm:TD>Failure to establish a TLS session.</htm:TD><htm:TD>Reason for failure.</htm:TD></htm:TR>
+                <htm:TR><htm:TD>Failure to verify presented identifier.</htm:TD><htm:TD>Presented identifier and reference identifier.</htm:TD></htm:TR>
+                <htm:TR><htm:TD>Establishment/termination of a TLS session.</htm:TD><htm:TD>Non-TOE endpoint of connection.</htm:TD>
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FIA_ENR_EXT.2</htm:TD>
