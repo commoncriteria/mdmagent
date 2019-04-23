@@ -382,6 +382,10 @@ Behavior means it's a new EXT component and we have to make that chart.
             <rationale>The threat T.NETWORK_ATTACK is countered by O.APPLY_POLICY as this provides a
               secure configuration of the Agent to protect data that it processes.</rationale>
           </objective-refer>
+          <objective-refer ref="OE.IT_ENTERPRISE">
+            <rationale>The threat T.NETWORK_ATTACK is countered by OE.IT_ENTERPRISE by reducing the network exposure of the
+              mobile device.</rationale>
+          </objective-refer>
         </threat>
         <threat id="T.NETWORK_EAVESDROP">
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
@@ -395,6 +399,12 @@ Behavior means it's a new EXT component and we have to make that chart.
               provides a secure configuration of the Agent to protect data that it
               processes.</rationale>
           </objective-refer>
+          <objective-refer ref="OE.IT_ENTERPRISE">
+            <rationale>
+              The threat T.NETWORK_EAVESDROP is countered by OE.IT_ENTERPRISE by reducing the network exposure of the
+              mobile device.  
+            </rationale>
+          </objective-refer>
         </threat>
         <threat id="T.PHYSICAL_ACCESS">
           <objective-refer ref="O.ACCOUNTABILITY">
@@ -407,7 +417,10 @@ Behavior means it's a new EXT component and we have to make that chart.
             <rationale>The threat T.PHYSICAL_ACCESS is countered by O.APPLY_POLICY as this provides
               a secure configuration of the Agent to protect data that it processes.</rationale>
           </objective-refer>
-        </threat>
+          <objective-refer ref="O.STORAGE"> 
+            <rationale>The threat T.PHYSICAL_ACCESS is countered by O.STORAGE as this provides the capability to encrypt all user and enterprise data and authentication keys to ensure the confidentiality of data that it stores.</rationale>
+          </objective-refer>
+        </threat>        
       </threats>
     </section>
     <section id="Assumptions" title="Assumptions">
