@@ -607,7 +607,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </section>
   </chapter>
   <chapter id="sfr" title="Security Requirements">
-    <base-pp name="Mobile Device Fundamentals" product="Mobile Device" short="MDF"
+    <base-pp version="3.1" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF"
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml">
       <!--   <app-unmod-sfrs> 
@@ -953,7 +953,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         this does not prevent the enforcement of any security requirements from the <abbr
           linkend="Base-PP"/>.</con-mod>
     </base-pp>
-    <base-pp name="Mobile Device Management" product="MDM Server" short="MDM"
+    <base-pp version="4.0" name="Mobile Device Management" product="MDM Server" short="MDM"
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=392&amp;id=392"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/mdm/master/input/mdm.xml">
       <!--   <app-unmod-sfrs> 
@@ -975,7 +975,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <modified-sfrs/>
       <additional-sfrs>
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">
-          <f-component id="fcs_stg_ext.1(2)" name="Cryptographic Key Storage">
+          <f-component id="fcs_stg_ext.1(2)" name="Cryptographic Key Storage" notnew='y'>
             <consistency-rationale> The <abbr linkend="Base-PP"/> requires the TOE to define a
               method of key storage. This <abbr linkend="PP-Module"/> iterates it to specify the use
               of platform key storage for <abbr linkend="MDM"/> Agents. </consistency-rationale>
