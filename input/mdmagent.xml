@@ -207,8 +207,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       Store (MAS) Server to download and install enterprise-hosted applications.<htm:br/><htm:br/> A
       compliant <abbr linkend="MDM"/> Agent is installed on a mobile device as an application
       (supplied by the developer of the <abbr linkend="MDM"/> Server software) or is part of the
-      mobile device's OS.This <abbr linkend="PP-Module"/> builds on either the Mobile Device
-      Fundamentals <abbr linkend="PP"/> (MDF PP) or the Mobile Device Management <abbr linkend="PP"/> (MDM PP). A TOE
+      mobile device's OS.This <abbr linkend="PP-Module"/> builds on either the MDF PP or the MDM PP. A TOE
       that claims conformance to this <abbr linkend="PP-Module"/> must also claim conformance to one
       of those PPs as its <abbr linkend="Base-PP"/>. A compliant <abbr linkend="TOE"/> is obligated
       to implement the functionality required in the <abbr linkend="Base-PP"/> along with the
@@ -663,7 +662,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">
             <consistency-rationale> The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular. </consistency-rationale>
             <f-element id="ftp_itc_ext.1.1(2)">
-              <title>The TSF shall use <selectables linebreak="yes">
+              <title><htm:b>Refinement:</htm:b> The TSF shall use <selectables linebreak="yes">
                   <selectable>mutually authenticated TLS client as defined in the Package for
                     Transport Layer Security</selectable>
                   <selectable>mutually authenticated DTLS client as defined in the Package for
@@ -717,7 +716,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </note>
             </f-element>
             <f-element id="ftp_itc_ext.1.2(2)">
-              <title>The <abbr linkend="TSF"/> shall permit the TSF and the <abbr linkend="MDM"/>
+              <title><htm:b>Refinement:</htm:b> The <abbr linkend="TSF"/> shall permit the TSF and the <abbr linkend="MDM"/>
                 Server and <selectables>
                   <selectable>MAS Server</selectable>
                   <selectable>no other IT entities</selectable>
@@ -727,7 +726,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 Server may also initiate communication.</note>
             </f-element>
             <f-element id="ftp_itc_ext.1.3(2)">
-              <title>The TSF shall initiate communication via the trusted channel for all
+              <title><htm:b>Refinement:</htm:b> The TSF shall initiate communication via the trusted channel for all
                 communication between the MDM Agent and the MDM Server and <selectables>
                   <selectable>all communication between the MAS Server and the MDM
                     Agent</selectable>
@@ -782,7 +781,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               requirement was given an iteration label for consistency with the <abbr linkend="MDM"
               /> Server requirement of the same name. </consistency-rationale>
             <f-element id="ftp_trp.1.1(2)">
-              <title>The TSF shall use <selectables linebreak="yes">
+              <title><htm:b>Refinement:</htm:b> The TSF shall use <selectables linebreak="yes">
                   <selectable id="TRP_TLS_2">TLS client as defined in the Package for Transport Layer Security</selectable>
                   <selectable id="TRP_HTTPS_2">HTTPS</selectable>
                 </selectables> to provide a trusted communication path between itself and another
@@ -792,11 +791,11 @@ Behavior means it's a new EXT component and we have to make that chart.
                 [modification, disclosure]. </title>
             </f-element>
             <f-element id="ftp_trp.1.2(2)">
-              <title>The TSF shall permit MD users to initiate communication via the trusted path.
+              <title><htm:b>Refinement:</htm:b> The TSF shall permit MD users to initiate communication via the trusted path.
               </title>
             </f-element>
             <f-element id="ftp_trp.1.3(2)">
-              <title>The TSF shall require the use of the trusted path for [all MD user actions]. 
+              <title><htm:b>Refinement:</htm:b> The TSF shall require the use of the trusted path for [all MD user actions]. 
               </title>
               <note role="application"> This requirement ensures that authorized MD users initiate
                 all communication with the <abbr linkend="TOE"/> via a trusted path, and that all
@@ -980,7 +979,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               method of key storage. This <abbr linkend="PP-Module"/> iterates it to specify the use
               of platform key storage for <abbr linkend="MDM"/> Agents. </consistency-rationale>
             <f-element id="fcs_stg_ext.1.1(2)">
-              <title>The MDM Agent shall use the platform provided key storage for all persistent
+              <title><htm:b>Refinement:</htm:b> The MDM Agent shall use the platform provided key storage for all persistent
                 secret and private keys.</title>
               <note role="application"> This requirement ensures that persistent secrets
                 (credentials, secret keys) and private keys are stored securely when not in use by
@@ -1008,7 +1007,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               supported protocol since commercially-available <abbr linkend="MDM"/> Agents do not
               use this to communicate with <abbr linkend="MDM"/> Servers. </consistency-rationale>
             <f-element id="FPT_ITT.1.1(2)">
-              <title>The TSF shall <selectables>
+              <title><htm:b>Refinement:</htm:b> The TSF shall <selectables>
                   <selectable>invoke platform-provided functionality to use <selectables
                       linebreak="yes">
                       <selectable>mutually authenticated TLS</selectable>
@@ -1269,18 +1268,20 @@ Behavior means it's a new EXT component and we have to make that chart.
         <f-component id="fau_gen.1(2)" name="Audit Data Generation">
           <consistency-rationale/>
           <f-element id="fau_gen.1.1(2)">
-            <title> The <abbr linkend="MDM"/> Agent shall <selectables>
+            <title><htm:b>Refinement:</htm:b> The <abbr linkend="MDM"/> Agent shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to generate an <abbr linkend="MDM"/> Agent audit record of the
-              following auditable events: <htm:ul>
+              following auditable events: <htm:ol type="a">
                 <htm:li>startup and shutdown of the <abbr linkend="MDM"/> Agent</htm:li>
                 <htm:li><abbr linkend="MDM"/> policy updated</htm:li>
                 <htm:li>any modification commanded by the <abbr linkend="MDM"/> Server</htm:li>
-                <htm:li>Specifically defined auditable events listed in <ctr-ref refid="audit"
-                  /></htm:li>
-                <htm:li><assignable>other events</assignable>.</htm:li>
-              </htm:ul>
+                <htm:li>Specifically defined auditable events listed in <ctr-ref refid="audit"/></htm:li>
+                <htm:li><selectables>
+                  <selectable><assignable>other events</assignable></selectable>
+                  <selectable>no other events</selectable>
+                </selectables>.</htm:li>
+              </htm:ol>
             </title>
             <note role="application"> This requirement outlines the information to be included in
               the <abbr linkend="MDM"/> Agent’s audit records. The <abbr linkend="ST"/> author can
@@ -1365,18 +1366,17 @@ Behavior means it's a new EXT component and we have to make that chart.
             </note>            
           </f-element>
           <f-element id="fau_gen.1.2(2)">
-            <title>The <selectables>
+            <title><htm:b>Refinement:</htm:b> The <selectables>
                 <selectable>TSF</selectable>
                 <selectable>TOE platform</selectable>
               </selectables> shall record within each <abbr linkend="MDM"/> Agent audit record at
-              least the following information: <htm:ul>
-                <htm:li>date and time of the event</htm:li>
-                <htm:li>type of event</htm:li>
-                <htm:li>subject identity</htm:li>
-                <htm:li>(if relevant) the outcome (success or failure) of the event</htm:li>
+              least the following information: <htm:ol type="a">
+                <htm:li>date and time of the event, type of event, subject identity, and (if relevant) the outcome 
+                  (success or failure) of the event</htm:li>
                 <htm:li>additional information in <ctr-ref refid="audit"/></htm:li>
-                <htm:li><assignable>other audit relevant information</assignable>.</htm:li>
-              </htm:ul>
+                <htm:li>For each audit event type, based on the auditable event definitions of the functional components 
+                  included in the PP-Module/ST,<assignable>other audit relevant information</assignable>.</htm:li>
+              </htm:ol>
             </title>
             <note role="application">All audits must contain at least the information mentioned in
               FAU_GEN.1.2(2), but may contain more information which can be assigned. The <abbr
@@ -1403,7 +1403,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         <f-component id="fau_sel.1(2)" name="Security Audit Event Selection">
           <consistency-rationale/>
           <f-element id="fau_sel.1.1(2)">
-            <title> The <abbr linkend="TSF"/> shall <selectables>
+            <title><htm:b>Refinement:</htm:b> The <abbr linkend="TSF"/> shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to select the set of events to be audited from the set of all auditable
@@ -1789,7 +1789,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               been out of connectivity with the Server for too long. The configuration of the number
               of allowed missed reachability events or time limit since last successful connection
               with the server is handled in Server configuration policy of the Agent (the first selection of
-              function 56 in FMT_SMF.1.1(1) within the Mobile Device Management PP). If the first selection of FMT_SMF.1.1(1) function 56 is included in the <abbr linkend="ST"/>,
+              function 56 in FMT_SMF.1.1(1) within the MDM PP). If the first selection of FMT_SMF.1.1(1) function 56 is included in the <abbr linkend="ST"/>,
               then FPT_NET_EXT.1.1 must be included in the <abbr linkend="ST"/>.<htm:br/><htm:br/> If the Agent has been out of connectivity with the server for
               too long than the remediation actions specified in the second selection of function 56 must occur. For
               example if the Agent has not synced with the server in the allowed amount of time that
