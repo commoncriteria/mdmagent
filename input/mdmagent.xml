@@ -1197,8 +1197,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </management>
           <audit> The following actions should be auditable if FAU_GEN Security audit data
             generation is included in the PP/ST:<htm:ul>
-              <htm:li>Minimal: Configuration of the specific events that result in generation of
-                alerts.</htm:li>
+              <htm:li>Minimal: Success/failure of sending alert. </htm:li>
             </htm:ul>
           </audit>
           <dependencies> FAU_ALT_EXT.1 Server Alerts<htm:br/> [FPT_ITT.1 Basic Internal TSF Data
@@ -1244,9 +1243,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </f-element>
           <f-element id="fau_alt_ext.2.2">
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
-            <note role="application">If the trusted channel is not available, alerts must be queued.
-              When the trusted channel becomes available, the queued alerts must be
-              sent.<htm:br/><htm:br/>
+            <note role="application">If the trusted channel is not available, alerts must be queued. When the trusted channel becomes available, the queued alerts must be sent.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>                  
@@ -1305,7 +1302,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </htm:TR>
                 <htm:TR>
                   <htm:TD>FAU_ALT_EXT.2</htm:TD>
-                  <htm:TD>Type of alert.</htm:TD>
+                  <htm:TD>Success/failure of sending alert.</htm:TD>
                   <htm:TD>No additional information.</htm:TD>
                 </htm:TR>
                 <htm:TR>
