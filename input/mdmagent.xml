@@ -208,13 +208,13 @@ Behavior means it's a new EXT component and we have to make that chart.
       compliant <abbr linkend="MDM"/> Agent is installed on a mobile device as an application
       (supplied by the developer of the <abbr linkend="MDM"/> Server software) or is part of the
       mobile device's OS.This <abbr linkend="PP-Module"/> builds on either the Mobile Device
-      Fundamentals <abbr linkend="PP"/> or the Mobile Device Management <abbr linkend="PP"/>. A TOE
+      Fundamentals <abbr linkend="PP"/> (MDF PP) or the Mobile Device Management <abbr linkend="PP"/> (MDM PP). A TOE
       that claims conformance to this <abbr linkend="PP-Module"/> must also claim conformance to one
       of those PPs as its <abbr linkend="Base-PP"/>. A compliant <abbr linkend="TOE"/> is obligated
       to implement the functionality required in the <abbr linkend="Base-PP"/> along with the
       additional functionality defined in this <abbr linkend="PP-Module"/> in order to mitigate the
       threats that are defined by this <abbr linkend="PP-Module"/>.<htm:br/><htm:br/> This <abbr
-        linkend="PP-Module"/> shall build on Mobile Device Fundamentals PP if the <abbr
+        linkend="PP-Module"/> shall build on the MDF PP if the <abbr
         linkend="TOE"/> is a native part of a mobile operating system. The <abbr linkend="TOE"/> for
       this <abbr linkend="PP-Module"/> combined with the MDF <abbr linkend="PP"/> is the mobile
       device itself plus the <abbr linkend="MDM"/> Agent. If the <abbr linkend="MDM"/> Agent is part
@@ -1747,8 +1747,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <f-element id="fau_stg_ext.3.1">
             <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage. </title>
             <note role="application">FAU_STG_EXT.3 should only be included in the <abbr linkend="ST"
-              /> for MDM Agent platforms (i.e., mobile devices) that conform to Mobile Device
-              Fundamentals PP version 3 or later.<htm:br/><htm:br/>
+              /> for MDM Agent platforms (i.e., mobile devices) that conform to MDF PP version 3 or later.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall verify that the <abbr linkend="TSS"/> description of the
