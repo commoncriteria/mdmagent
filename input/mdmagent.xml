@@ -1212,13 +1212,13 @@ Behavior means it's a new EXT component and we have to make that chart.
                     <selectable>receiving</selectable>
                     <selectable>generating</selectable>
                   </selectables> periodic reachability events; </htm:li>
-                <selectables linebreak="yes">
+                <htm:li><selectables linebreak="yes">
                   <selectable>change in enrollment state</selectable>
                   <selectable>failure to install an application from the MAS Server</selectable>
                   <selectable>failure to update an application from the MAS Server</selectable>
                   <selectable><assignable>other events</assignable></selectable>
                   <selectable>no other events</selectable>
-                </selectables>.
+                </selectables>.</htm:li>
               </htm:ul>
             </title>
             <note role="application"> The trusted channel is defined in FPT_ITT.1 if Agent extends
