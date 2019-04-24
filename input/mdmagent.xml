@@ -788,14 +788,14 @@ Behavior means it's a new EXT component and we have to make that chart.
                 trusted IT product that is logically distinct from other communication paths and
                 provides assured identification of its endpoints and protection of the communicated
                 data from disclosure and detection of modification of the communicated data from
-                [modification, disclosure]. </title>
+                [<htm:i>modification, disclosure</htm:i>]. </title>
             </f-element>
             <f-element id="ftp_trp.1.2(2)">
               <title><htm:b>Refinement:</htm:b> The TSF shall permit MD users to initiate communication via the trusted path.
               </title>
             </f-element>
             <f-element id="ftp_trp.1.3(2)">
-              <title><htm:b>Refinement:</htm:b> The TSF shall require the use of the trusted path for [all MD user actions]. 
+              <title><htm:b>Refinement:</htm:b> The TSF shall require the use of the trusted path for [<htm:i>[all MD user actions]</htm:i>]. 
               </title>
               <note role="application"> This requirement ensures that authorized MD users initiate
                 all communication with the <abbr linkend="TOE"/> via a trusted path, and that all
@@ -979,7 +979,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               method of key storage. This <abbr linkend="PP-Module"/> iterates it to specify the use
               of platform key storage for <abbr linkend="MDM"/> Agents. </consistency-rationale>
             <f-element id="fcs_stg_ext.1.1(2)">
-              <title><htm:b>Refinement:</htm:b> The MDM Agent shall use the platform provided key storage for all persistent
+              <title><htm:b>Refinement:</htm:b> The MDM Agent shall use the [<htm:i>platform-provided key storage</htm:i>] for all persistent
                 secret and private keys.</title>
               <note role="application"> This requirement ensures that persistent secrets
                 (credentials, secret keys) and private keys are stored securely when not in use by
@@ -998,7 +998,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             </f-element>
           </f-component>
         </subsection>
-        <subsection id="fpt" title="Protection of the TSF (FPT)">
+<!--        <subsection id="fpt" title="Protection of the TSF (FPT)">
           <f-component name="Internal TOE TSF Data Transfer" id="FPT_ITT.1(2)">
             <consistency-rationale>The <abbr linkend="Base-PP"/> defines this SFR for secure data
               transfer between distributed TOE components. This <abbr linkend="PP-Module"/> makes
@@ -1022,7 +1022,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                       <selectable>mutually authenticated DTLS as defined in the Package for
                         Transport Layer Security</selectable>
                     </selectables></selectable>
-                </selectables> to protect all data from [disclosure and modification] when it is
+                </selectables> to protect all data from [<htm:i>disclosure, modification</htm:i>] when it is
                 transferred between separate parts of the TOE. </title>
               <note role="application"> The intent of this requirement is to protect the
                 communications channel between <abbr linkend="MDM"/> Server and Agent, post
@@ -1104,7 +1104,8 @@ Behavior means it's a new EXT component and we have to make that chart.
               </aactivity>
             </f-element>
           </f-component>
-        </subsection>
+       </subsection>
+-->
       </additional-sfrs>
       <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the <abbr linkend="MDM"/>
         PP, the TOE type for the overall TOE is still mobile device management. The TOE boundary is
@@ -1270,14 +1271,14 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <selectable>implement functionality</selectable>
               </selectables> to generate an <abbr linkend="MDM"/> Agent audit record of the
               following auditable events: <htm:ol type="a">
-                <htm:li>startup and shutdown of the <abbr linkend="MDM"/> Agent</htm:li>
-                <htm:li><abbr linkend="MDM"/> policy updated</htm:li>
-                <htm:li>any modification commanded by the <abbr linkend="MDM"/> Server</htm:li>
-                <htm:li>Specifically defined auditable events listed in <ctr-ref refid="audit"/></htm:li>
-                <htm:li><selectables>
+                <htm:li>startup and shutdown of the <abbr linkend="MDM"/> Agent;</htm:li>
+                <htm:li>All auditable events for [<htm:i>not specified</htm:i>] level of audit; and</htm:li>
+                <htm:li>[<htm:i><abbr linkend="MDM"/> policy updated, any modification commanded by the 
+                  <abbr linkend="MDM"/> Server, specifically defined auditable events listed in 
+                  <ctr-ref refid="audit"/>, and <selectables>
                   <selectable><assignable>other events</assignable></selectable>
                   <selectable>no other events</selectable>
-                </selectables>.</htm:li>
+                </selectables></htm:i>].</htm:li>
               </htm:ol>
             </title>
             <note role="application"> This requirement outlines the information to be included in
@@ -1404,12 +1405,11 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to select the set of events to be audited from the set of all auditable
-              events based on the following attributes: <htm:ul>
-                <htm:li>event type</htm:li>
-                <htm:li>success of auditable security events</htm:li>
-                <htm:li>failure of auditable security events</htm:li>
-                <htm:li><assignable>other attributes</assignable>.</htm:li>
-              </htm:ul></title>
+              events based on the following attributes: <htm:ol type="a">
+                <htm:li>[<htm:i>event type</htm:i>]</htm:li>
+                <htm:li>[<htm:i>success of auditable security events, failure of auditable security events, 
+                  <assignable>other attributes</assignable></htm:i>].</htm:li>
+              </htm:ol></title>
             <note role="application">The intent of this requirement is to identify all criteria that
               can be selected to trigger an audit event. For the <abbr linkend="ST"/> author, the
               assignment is used to list any additional criteria or “no other attributes”. This selection may be
