@@ -1254,7 +1254,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <Tests>
                   <testlist>
                       <test>The evaluator shall perform a policy update from the test environment <abbr linkend="MDM"/> server. The evaluator shall verify the <abbr linkend="MDM"/> Agent accepts the update, makes the configured changes, and reports the success of the policy update back to the <abbr linkend="MDM"/> Server.</test>
-                      <test>The evaluator shall perform each of the actions listed in FAU_ALT_EXT.1.1 and verify that the alert does in fact reach the <abbr linkend="MDM"/> Server.</test>
+                      <test>The evaluator shall perform each of the actions listed in FAU_ALT_EXT.2.1 and verify that the alert does in fact reach the <abbr linkend="MDM"/> Server.</test>
                       <test>The evaluator shall configure the <abbr linkend="MDM"/> Agent to perform a network reachability test, both with and without such connectivity and ensure that results reflect each.</test>
                       <test>The evaluator shall remove network connectivity from the MDM Agent and generate an alert/event as defined in FAU_ALT_EXT.2.1. The evaluator shall restore network connectivity to the MDM Agent and verify that the alert generated while the <abbr linkend="TOE"/> was disconnected is sent by the MDM Agent upon re-establishment of the connectivity.</test>
                   </testlist>
