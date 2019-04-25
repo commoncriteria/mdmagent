@@ -40,7 +40,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-02-07</PPPubDate>
+      <PPPubDate>2019-04-25</PPPubDate>
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -1201,12 +1201,12 @@ Behavior means it's a new EXT component and we have to make that chart.
           <f-element id="fau_alt_ext.2.1">
             <title>The <abbr linkend="MDM"/> Agent shall provide an alert via the trusted channel to
               the <abbr linkend="MDM"/> Server in the event of any of the following audit events: <htm:ul>
-                <htm:li>successful application of policies to a mobile device</htm:li>
+                <htm:li>successful application of policies to a mobile device,</htm:li>
                 <htm:li>
                   <selectables>
                     <selectable>receiving</selectable>
                     <selectable>generating</selectable>
-                  </selectables> periodic reachability events; </htm:li>
+                  </selectables> periodic reachability events, </htm:li>
                 <htm:li><selectables linebreak="yes">
                   <selectable>change in enrollment state</selectable>
                   <selectable>failure to install an application from the MAS Server</selectable>
@@ -1267,7 +1267,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <selectable>implement functionality</selectable>
               </selectables> to generate an <abbr linkend="MDM"/> Agent audit record of the
               following auditable events: <htm:ol type="a">
-                <htm:li>startup and shutdown of the <abbr linkend="MDM"/> Agent;</htm:li>
+                <htm:li>Startup and shutdown of the <abbr linkend="MDM"/> Agent;</htm:li>
                 <htm:li>All auditable events for [<htm:i>not specified</htm:i>] level of audit; and</htm:li>
                 <htm:li>[<htm:i><abbr linkend="MDM"/> policy updated, any modification commanded by the 
                   <abbr linkend="MDM"/> Server, specifically defined auditable events listed in 
@@ -1365,11 +1365,10 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <selectable>TOE platform</selectable>
               </selectables> shall record within each <abbr linkend="MDM"/> Agent audit record at
               least the following information: <htm:ol type="a">
-                <htm:li>date and time of the event, type of event, subject identity, and (if relevant) the outcome 
-                  (success or failure) of the event</htm:li>
-                <htm:li>additional information in <ctr-ref refid="audit"/></htm:li>
+                <htm:li>Date and time of the event, type of event, subject identity, (if relevant) the outcome 
+                  (success or failure) of the event, and additional information in <ctr-ref refid="audit"/>; and</htm:li>         
                 <htm:li>For each audit event type, based on the auditable event definitions of the functional components 
-                  included in the PP-Module/ST,<assignable>other audit relevant information</assignable>.</htm:li>
+                  included in the PP-Module/ST, <assignable>other audit relevant information</assignable>.</htm:li>
               </htm:ol>
             </title>
             <note role="application">All audits must contain at least the information mentioned in
@@ -1573,7 +1572,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             <title>The <abbr linkend="MDM"/> Agent shall be capable of interacting with the platform
               to perform the following functions: <htm:ul>
                 <htm:li>Import the certificates to be used for authentication of <abbr linkend="MDM"
-                  /> Agent communications</htm:li>
+                  /> Agent communications,</htm:li>
                 <htm:li><selectables>
                     <selectable>administrator-provided management functions in MDF <abbr
                         linkend="PP"/></selectable>
@@ -1594,7 +1593,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 linkend="PP"/> or <abbr linkend="MDM"/>
               <abbr linkend="PP"/>) as the source of the management functions.<htm:br/><htm:br/> The
               administrator-provided management functions in MDF <abbr linkend="PP"/> are specified
-              in Column 4 of Table 4 in MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version
+              in Column 4 of Table 5 in MDF <abbr linkend="PP"/> and in FPT_TUD_EXT.1 (for version
               queries). The administrator-provided device management functions in <abbr
                 linkend="MDM"/>
               <abbr linkend="PP"/> are specified in FMT_SMF.1.1(1); the functions in the selection
