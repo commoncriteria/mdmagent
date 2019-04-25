@@ -9,7 +9,7 @@ Extended Package for Mobile Device Management Agents
 * [PP-Module for Mobile Device Management Agents](https://commoncriteria.github.io/pp/mdmagent/mdmagent-release.html)
 
 ## Release Version
-* [PP-Module for Mobile Device Management Agents](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=441)
+* [PP-Module for Mobile Device Management Agents](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=441&id=441)
 
 ## Contributing
 
