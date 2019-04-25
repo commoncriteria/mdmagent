@@ -35,7 +35,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             -->
 
 <Module boilerplate="yes" target-products="MDM Agents" xmlns="https://niap-ccevs.org/cc/v1"
-  name="Mobile Device Management Agents" xmlns:htm="http://www.w3.org/1999/xhtml">
+  name="Mobile Device Management Agent" xmlns:htm="http://www.w3.org/1999/xhtml">
   <PPReference>
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
@@ -76,13 +76,9 @@ Behavior means it's a new EXT component and we have to make that chart.
     </entry>
   </RevisionHistory>
   <chapter id="Introduction" title="Introduction">
-    <section id="overview" title="Overview"> The scope of this <abbr linkend="PP-Module"/> is to
-      describe the security functionality of a Mobile Device Management (MDM) Agent in terms of
-        [<abbr linkend="CC"/>] and to define functional and assurance requirements for such
-      products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr
-        linkend="Base-PP"/>s: <htm:ul>
-        <htm:li>Mobile Device Management (MDM) Protection Profile Version 4.0</htm:li>
-        <htm:li>Mobile Device Fundamentals (MDF) Protection Profile Version 3.1</htm:li>
+    <section id="overview" title="Overview"> The scope of the MDM Agent <abbr linkend="PP-Module"/> is to describe the security functionality of a Mobile Device Management (MDM) Agent in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <htm:ul>
+        <htm:li>Mobile Device Management (MDM) Protection Profile, Version 4.0</htm:li>
+        <htm:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.1</htm:li>
       </htm:ul>
       <htm:br/> These <abbr linkend="Base-PP"/>s are valid because a <abbr linkend="MDM"/> Agent is
       either a 3rd party application manufactured by the <abbr linkend="MDM"/> Server vendor or is a
