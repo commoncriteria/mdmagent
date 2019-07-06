@@ -194,7 +194,8 @@ Behavior means it's a new EXT component and we have to make that chart.
         </glossary>
       </subsection>
     </section>
-    <section id="targets" title="Compliant Targets of Evaluation"> The <abbr linkend="MDM"/> system
+    <section id="targets" title="Compliant Targets of Evaluation"> 
+      The <abbr linkend="MDM"/> system
       consists of two primary components: the <abbr linkend="MDM"/> Server software and the <abbr
         linkend="MDM"/> Agent. This <abbr linkend="PP-Module"/> specifically addresses the <abbr
         linkend="MDM"/> Agent. The <abbr linkend="MDM"/> Agent establishes a secure connection back
@@ -542,7 +543,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF PP)"/> 
           <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF PP)"/>
           <component-refer ref="FIA_X509_EXT.4 (from MDM PP)"/>  -->
-          <component-refer ref="FPT_ITT.1(2) (if MDM is Base-PP)"/>
+          <!--  <component-refer ref="FPT_ITT.1(2) (if MDM is Base-PP)"/>--> 
           <component-refer ref="FPT_NET_EXT.1 (objective)"/>
           <component-refer ref="FTP_ITC_EXT.1(2) (if MDF is Base-PP)"/>
           <!--  <component-refer ref="FTP_TRP.1(1) (from MDM PP)"/>-->
@@ -598,7 +599,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       </SOEs>
     </section>
     <section title="Security Objectives Rationale" id="rationale">
-      <!-- Note: This section is populated from the rationale tags in the previous sections.  -->
+      <!-- Note: This section should remain empty and is populated from the rationale tags in the previous sections.  -->
     </section>
   </chapter>
   <chapter id="sfr" title="Security Requirements">
@@ -970,7 +971,8 @@ Behavior means it's a new EXT component and we have to make that chart.
       <modified-sfrs/>
       <additional-sfrs>
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">
-          <f-component id="fcs_stg_ext.1(2)" name="Cryptographic Key Storage" notnew='y'>
+          <f-component id="fcs_stg_ext.1(2)" name="Cryptographic Key Storage">
+            <!-- Removed notnew=y from f-component -->
             <consistency-rationale> The <abbr linkend="Base-PP"/> requires the TOE to define a
               method of key storage. This <abbr linkend="PP-Module"/> iterates it to specify the use
               of platform key storage for <abbr linkend="MDM"/> Agents. </consistency-rationale>
@@ -1167,7 +1169,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <con-mod id="fpt_net_ext.1"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
         to maintain information about its last successful connection with the environmental <abbr
           linkend="MDM"/> Server (i.e., the last successful invocation of the trusted channel for
-        that interface, as defined in FPT_ITT.1 of the <abbr linkend="Base-PP"/>). It does not
+        that interface, as defined in FPT_ITT.1(2) of the <abbr linkend="Base-PP"/>). It does not
         otherwise impact the <abbr linkend="Base-PP"/> since it describes behavior that occurs local
         to the <abbr linkend="MDM"/> Agent during a period where it is not interacting with the
           <abbr linkend="MDM"/> Server. </con-mod>
@@ -1196,7 +1198,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <htm:li>Minimal: Success/failure of sending alert. </htm:li>
             </htm:ul>
           </audit>
-          <dependencies> FAU_ALT_EXT.1 Server Alerts<htm:br/> [FPT_ITT.1 Basic Internal TSF Data
+          <dependencies> FAU_ALT_EXT.1 Server Alerts<htm:br/> [FPT_ITT.1(2) Basic Internal TSF Data
             Transfer Protection; or<htm:br/> FTP_ITC.1 Inter-TSF Trusted Channel] </dependencies>
           <f-element id="fau_alt_ext.2.1">
             <title>The <abbr linkend="MDM"/> Agent shall provide an alert via the trusted channel to
@@ -1216,8 +1218,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </selectables>.</htm:li>
               </htm:ul>
             </title>
-            <note role="application"> The trusted channel is defined in FPT_ITT.1 if Agent extends
-                <abbr linkend="MDM"/> Server and FTP_ITC_EXT.1 if Agent extends MDF <abbr
+            <note role="application"> The trusted channel is defined in FPT_ITT.1(2) of the <abbr linkend="Base-PP"/> if Agent extends <abbr linkend="MDM"/> Server and FTP_ITC_EXT.1 if Agent extends MDF <abbr
                 linkend="PP"/>. “Alert” in this requirement could be as simple as an audit record or
               a notification. If any prior alerts exist in the queue, per FAU_ALT_EXT.2.2, those
               alerts must be sent when the trusted channel is available.<htm:br/><htm:br/> This
@@ -1472,7 +1473,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 linkend="MDM"/> Server. This requirement allows the specification of the information
               to be to be used to establish a network connection and the reference identifier for
               authenticating the trusted channel between the <abbr linkend="MDM"/> Server and <abbr
-                linkend="MDM"/> Agent (FPT_ITT.1).<htm:br/><htm:br/>
+                linkend="MDM"/> Agent.<htm:br/><htm:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes
@@ -1522,7 +1523,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               by the <abbr linkend="MDM"/> Server. </title>
             <note role="application">The intent of this requirement is to cryptographically tie the
               policies to the enterprise that mandated the policy, not to protect the policies in
-              transit (as they are already protected by FPT_ITT.1). This is especially critical for
+              transit (as they are already protected by FPT_ITT.1(2) of the <abbr linkend="Base-PP"/>). This is especially critical for
               users who connect to multiple enterprises.<htm:br/><htm:br/> Policies must be
               digitally signed by the enterprise using the algorithms in
               FCS_COP.1(3).<htm:br/><htm:br/>
@@ -1656,7 +1657,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <Tests>
                 <testlist>
                     <test>In conjunction with the evaluation activities in the <abbr linkend="Base-PP"/>, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the mobile device executes the commands and enforces the policies.</test>
-                    <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1.</test>
+                  <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1(2) (from the MDM PP).</test>
                     <test>In conjunction with other evaluation activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the <abbr linkend="TSS"/>, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
                     <test>[conditional] In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
                   <test>[conditional] The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
