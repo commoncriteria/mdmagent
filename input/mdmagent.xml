@@ -83,117 +83,46 @@ Behavior means it's a new EXT component and we have to make that chart.
       <htm:br/> These <abbr linkend="Base-PP"/>s are valid because a <abbr linkend="MDM"/> Agent is
       either a 3rd party application manufactured by the <abbr linkend="MDM"/> Server vendor or is a
       native application deployed on a mobile device. </section>
-    <section id="glossary" title="Terms">
-      <subsection title="Common Criteria Terms">
-        <glossary>
-          <entry>
-            <term><abbr title="Base Protection Profile">Base-PP</abbr></term>
-            <description>Protection Profile used to build a PP-Configuration.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Common Criteria">CC</abbr></term>
-            <description>Common Criteria for Information Technology Security Evaluation
-              (International Standard ISO/IEC 15408).</description>
-          </entry>
-          <entry>
-            <term>Common Criteria Testing Laboratory</term>
-            <description>Within the context of the Common Criteria Evaluation and Validation Scheme
-              (CCEVS), an IT security evaluation facility, accredited by the National Voluntary
-              Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to
-              conduct Common Criteria-based evaluations.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Common Evaluation Methodology">CEM</abbr></term>
-            <description>Common Evaluation Methodology for Information Technology Security
-              Evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile">PP</abbr></term>
-            <description>An implementation-independent set of security requirements for a category
-              of products.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
-              <description>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
-            <description>An implementation-independent statement of security needs for a TOE type
-              complementary to one or more Base Protection Profiles. </description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
-            <description>A requirement for security enforcement by the <abbr linkend="TOE"
-              />.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Target">ST</abbr></term>
-            <description>A set of implementation-dependent security requirements for a specific
-              product.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Target of Evaluation">TOE</abbr></term>
-            <description>The security functionality of the product under evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
-            <description>The security functionality of the product under evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
-            <description>A description of how a <abbr linkend="TOE"/> satisfies the <abbr
-                linkend="SFR"/>s in an <abbr linkend="ST"/>.</description>
-          </entry>
-        </glossary>
-      </subsection>
-      <subsection title="Technical Terms">
-        <glossary>
-          <entry>
-            <term>Administrator</term>
-            <description>The person who is responsible for management activities, including setting
-              the policy that is applied by the enterprise on the mobile device.</description>
-          </entry>
-          <entry>
-            <term>Enrolled State</term>
-            <description>The state in which a mobile device is managed by a policy from an
-              MDM.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Mobile Application Store">MAS</abbr></term>
-            <description>Mobile Application Store</description>
-          </entry>
-          <entry>
-            <term><abbr title="Mobile Device Management">MDM</abbr></term>
-            <description>Mobile Device Management</description>
-          </entry>
-          <entry>
-            <term>Mobile Device User</term>
-            <description>The person who uses and is held responsible for a mobile
-              device.</description>
-          </entry>
-          <entry>
-            <term>Operating System</term>
-            <description>Software which runs at the highest privilege level and can directly control
+
+      <tech-terms>
+            <term full="Administrator">The person who is responsible for management activities, including setting
+            the policy that is applied by the enterprise on the mobile device.</term>
+	    <term abbr="API" full="Application Programming Interface"/>
+	    <term abbr="BYOD" full="Bring Your Own Device"/>
+	    <term abbr="COPE" full="Corporately Owned, Personally Enabled"/>
+	    <term abbr="DN" full="Distinguished Name"/>
+	    <term abbr="DTLS" full="Datagram Transport Layer Security"/>
+            <term full="Enrolled State">The state in which a mobile device is managed by a policy from an MDM.</term>
+	    <term abbr="GPOS" full="General Purpose Operating System"/>
+	    <term abbr="HTTPS" full="HyperText Transfer Protocol Secure"/>
+	    <term abbr="IP" full="Internet Protocol"/>
+	    <term abbr="IPSec" full="Internet Protocol Security"/>
+            <term full="Mobile Application Store" abbr="MAS">Mobile Application Store</term>
+            <term full="Mobile Device Management" abbr="MDM">Mobile Device Management</term>
+            <term full="Mobile Device User">The person who uses and is held responsible for a mobile device.</term>
+	    <term abbr="MD" full="Mobile Device"/>
+	    <term abbr="MDF" full="Mobile Device Fundamentals"/>
+            <term full="Operating System">
+	      Software which runs at the highest privilege level and can directly control
               hardware resources. Modern mobile devices typically have at least two primary
               operating systems: one which runs on the cellular baseband processor and one which
               runs on the application processor. The platform of the application processor handles
               most user interaction and provides the execution environment for apps. The platform of
               the cellular baseband processor handles communications with the cellular network and
               may control other peripherals. The term OS, without context, may be assumed to refer
-              to the platform of the application</description>
-          </entry>
-          <entry>
-            <term>Unenrolled State</term>
-            <description>The state in which a mobile device is not managed by an <abbr linkend="MDM"
-              /> system.</description>
-          </entry>
-          <entry>
-            <term>User</term>
-            <description>See Mobile Device User.</description>
-          </entry>
-        </glossary>
-      </subsection>
-    </section>
+              to the platform of the application</term>
+	      <term abbr="RBG" full="Random Bit Generation"/>
+	      <term abbr="SD" full="Supporting Document"/>
+	      <term abbr="ST" full="Security Target"/>
+	      <term abbr="TLS" full="Transport Layer Security"/>
+              <term full="Unenrolled State">
+		The state in which a mobile device is not managed by an MDM system.
+	      </term>
+              <term full="User">See Mobile Device User.</term>
+	      <term abbr="VPN" full="Virtual Private Network"/>
+	      <term abbr="WiFi" full="Wireless Fidelity"/>
+      </tech-terms>
+
     <section id="targets" title="Compliant Targets of Evaluation"> 
       The <abbr linkend="MDM"/> system
       consists of two primary components: the <abbr linkend="MDM"/> Server software and the <abbr
@@ -339,7 +268,10 @@ Behavior means it's a new EXT component and we have to make that chart.
         For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
         If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
       <threats>
-        <threat id="T.MALICIOUS_APPS">
+        <threat name="T.MALICIOUS_APPS">
+	  <description>
+	    FILL IN
+	  </description>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
             <rationale>The threat T.MALICIOUS_APPS is countered by O.DATA_PROTECTION_TRANSIT as this
               provides the capability to protect app loading/updates against malicious insertion
@@ -351,11 +283,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               />.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.BACKUP">
+        <threat name="T.BACKUP">
           <description> An attacker may try to target backups of data or credentials and exfiltrate
             data. Since the backup is stored on either a personal computer or end user’s backup
             repository, it’s not likely the enterprise would detect compromise.</description>
-          <consistency-rationale><!-- Note: different per base, so defined as a con-mod in each base's section--></consistency-rationale>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
             <rationale>The threat T.BACKUP is countered by O.DATA_PROTECTION_TRANSIT as this
               provides the capability to communicate using one (or more) standard protocols as a
@@ -367,7 +298,8 @@ Behavior means it's a new EXT component and we have to make that chart.
               enforce that backups be stored only in secure, protected locations.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.NETWORK_ATTACK">
+        <threat name="T.NETWORK_ATTACK">
+	  <description>FILL IN</description>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
             <rationale>The threat T.NETWORK_ATTACK is countered by O.DATA_PROTECTION_TRANSIT as this
               provides the capability to communicate using one (or more) standard protocols as a
@@ -383,7 +315,8 @@ Behavior means it's a new EXT component and we have to make that chart.
               mobile device.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.NETWORK_EAVESDROP">
+        <threat name="T.NETWORK_EAVESDROP">
+	  <description>FILL IN</description>
           <objective-refer ref="O.DATA_PROTECTION_TRANSIT">
             <rationale>The threat T.NETWORK_EAVESDROP is countered by O.DATA_PROTECTION_TRANSIT as
               this provides the capability to communicate using one (or more) standard protocols as
@@ -402,7 +335,8 @@ Behavior means it's a new EXT component and we have to make that chart.
             </rationale>
           </objective-refer>
         </threat>
-        <threat id="T.PHYSICAL_ACCESS">
+        <threat name="T.PHYSICAL_ACCESS">
+	  <description> FILL IN </description>
           <objective-refer ref="O.ACCOUNTABILITY">
             <rationale>The threat T.PHYSICAL_ACCESS is countered by O.ACCOUNTABILITY as this
               provides the capability to log attempts by unauthorized personnel to access data, and
@@ -421,7 +355,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </section>
     <section id="Assumptions" title="Assumptions">
       <assumptions>
-        <assumption id="A.CONNECTIVITY">
+        <assumption name="A.CONNECTIVITY">
           <description>The <abbr linkend="TOE"/> relies on network connectivity to carry out its
             management activities. The <abbr linkend="TOE"/> will robustly handle instances when
             connectivity is unavailable or unreliable. </description>
@@ -430,7 +364,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               A.CONNECTIVITY. </rationale>
           </objective-refer>
         </assumption>
-        <assumption id="A.MOBILE_DEVICE_PLATFORM">
+        <assumption name="A.MOBILE_DEVICE_PLATFORM">
           <description>The MDM Agent relies upon mobile platform and hardware evaluated against the
             MDF PP and assured to provide policy enforcement as well as cryptographic services and
             data protection. The mobile platform provides trusted updates and software integrity
@@ -440,7 +374,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               through A.MOBILE_DEVICE_PLATFORM. </rationale>
           </objective-refer>
         </assumption>
-        <assumption id="A.PROPER_ADMIN">
+        <assumption name="A.PROPER_ADMIN">
           <description>One or more competent, trusted personnel who are not careless, willfully
             negligent, or hostile, are assigned and authorized as the <abbr linkend="TOE"/>
             Administrators, and do so using and abiding by guidance documentation. </description>
@@ -449,7 +383,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               through A.PROPER_ADMIN. </rationale>
           </objective-refer>
         </assumption>
-        <assumption id="A.PROPER_USER">
+        <assumption name="A.PROPER_USER">
           <description> Mobile device users are not willfully negligent or hostile, and use the
             device within compliance of a reasonable Enterprise security policy. </description>
           <objective-refer ref="OE.DATA_PROPER_USER">
@@ -461,7 +395,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </section>
     <section id="securityPolicy" title="Organizational Security Policies">
       <OSPs>
-        <OSP id="P.ACCOUNTABILITY">
+        <OSP name="P.ACCOUNTABILITY">
           <description>Personnel operating the <abbr linkend="TOE"/> shall be accountable for their
             actions within the <abbr linkend="TOE"/>. </description>
           <objective-refer ref="O.ACCOUNTABILITY">
@@ -469,7 +403,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               accountability of all personnel actions within the <abbr linkend="TOE"/>. </rationale>
           </objective-refer>
         </OSP>
-        <OSP id="P.ADMIN">
+        <OSP name="P.ADMIN">
           <description>The configuration of the mobile device security functions must adhere to the
             Enterprise security policy. </description>
           <objective-refer ref="O.APPLY_POLICY">
@@ -477,7 +411,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               the application of O.APPLY_POLICY. </rationale>
           </objective-refer>
         </OSP>
-        <OSP id="P.DEVICE_ENROLL">
+        <OSP name="P.DEVICE_ENROLL">
           <description>A mobile device must be enrolled for a specific user by the administrator of
             the <abbr linkend="MDM"/> prior to being used in the Enterprise network by the user. </description>
           <objective-refer ref="O.APPLY_POLICY">
@@ -485,7 +419,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               policy through the application of O.APPLY_POLICY. </rationale>
           </objective-refer>
         </OSP>
-        <OSP id="P.NOTIFY">
+        <OSP name="P.NOTIFY">
           <description>The mobile user must immediately notify the administrator if a mobile device
             is lost or stolen so that the administrator may apply remediation actions via the <abbr
               linkend="MDM"/> system. </description>
@@ -501,66 +435,68 @@ Behavior means it's a new EXT component and we have to make that chart.
   <chapter title="Security Objectives" id="objectives">
     <section id="TOEobjectives" title="Security Objectives for the TOE">
       <SOs>
-        <SO id="O.ACCOUNTABILITY">
+        <SO name="O.ACCOUNTABILITY">
           <description>The <abbr linkend="TOE"/> must provide logging facilities, which record
             management actions undertaken by its administrators. </description>
-          <component-refer ref="FAU_ALT_EXT.2"/>
-          <component-refer ref="FAU_GEN.1(2)"/>
-          <component-refer ref="FAU_SEL.1(2)"/>
-          <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
+            <addressed-by>FAU_ALT_EXT.2, FAU_GEN.1(2), FAU_SEL.1(2)</addressed-by>
+	    <rationale>FILL IN</rationale>
+            <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SO>
-        <SO id="O.APPLY_POLICY">
+        <SO name="O.APPLY_POLICY">
           <description>The <abbr linkend="TOE"/> must facilitate configuration and enforcement of
             enterprise security policies on mobile devices via interaction with the mobile OS and
             the <abbr linkend="MDM"/> Server. This will include the initial enrollment of the device
             into management, through its entire lifecycle, including policy updates and its possible
             unenrollment from management services. </description>
-          <component-refer ref="FAU_STG_EXT.3 (objective)"/>
-          <component-refer ref="FIA_ENR_EXT.2"/>
-          <component-refer ref="FMT_POL_EXT.2"/>
-          <component-refer ref="FMT_SMF_EXT.4"/>
-          <component-refer ref="FMT_UNR_EXT.1"/>
+            <addressed-by>FAU_STG_EXT.3(objective), FIA_ENR_EXT.2, FMT_POL_EXT.2, FMT_SMF_EXT.4,FMT_UNR_EXT.1</addressed-by>
+	    <rationale>FILL IN </rationale>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base-->
           </consistency-rationale>
         </SO>
-        <SO id="O.DATA_PROTECTION_TRANSIT">
+        <SO name="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the <abbr linkend="MDM"/> Server and the <abbr
-              linkend="MDM"/> Agent must be protected from being monitored, accessed, or altered. </description>
+          linkend="MDM"/> Agent must be protected from being monitored, accessed, or altered. </description>
+	  <addressed-by>
           <!--  <component-refer ref="FCS_CKM_EXT.4 (from MDM/MDF PP)"/>  
           <component-refer ref="FCS_CKM.1 (from MDM/MDF PP)"/>
           <component-refer ref="FCS_CKM.2 (from MDM PP)"/> 
           <component-refer ref="FCS_CKM.2(1) (from MDF PP)"/> 
           <component-refer ref="FCS_COP.1(*) (from MDM/MDF PP)"/>  -->
-          <component-refer ref="FCS_DTLSS_EXT.1 (from TLS Package)"/>
-          <component-refer ref="FCS_DTLSC_EXT.1 (from TLS Package)"/>
+          FCS_DTLSS_EXT.1 (from TLS Package),
+	  FCS_DTLSC_EXT.1 (from TLS Package),
           <!--  <component-refer ref="FCS_HTTPS_EXT.1 (from MDM/MDF PP)"/>
           <component-refer ref="FCS_RBG_EXT.1 (from MDM/MDF PP)"/>    -->
-          <component-refer ref="FCS_TLSC_EXT.1 (from TLS Package)"/>
-          <component-refer ref="FCS_TLSC_EXT.2 (from TLS Package)"/>
-          <component-refer ref="FCS_TLSS_EXT.1 (from TLS Package)"/>
-          <component-refer ref="FCS_TLSS_EXT.2 (from TLS Package)"/>
+          FCS_TLSC_EXT.1 (from TLS Package),
+	  FCS_TLSC_EXT.2 (from TLS Package),
+	  FCS_TLSS_EXT.1 (from TLS Package),
+	  FCS_TLSS_EXT.2 (from TLS Package),
           <!--  <component-refer ref="FIA_X509_EXT.1(*) (from MDM/MDF PP)"/> 
           <component-refer ref="FIA_X509_EXT.2 (from MDM/MDF PP)"/> 
           <component-refer ref="FIA_X509_EXT.3 (from MDM/MDF PP)"/>
           <component-refer ref="FIA_X509_EXT.4 (from MDM PP)"/>  -->
           <!--  <component-refer ref="FPT_ITT.1(2) (if MDM is Base-PP)"/>--> 
-          <component-refer ref="FPT_NET_EXT.1 (objective)"/>
-          <component-refer ref="FTP_ITC_EXT.1(2) (if MDF is Base-PP)"/>
+	  FPT_NET_EXT.1 (objective),
+	  FTP_ITC_EXT.1(2) (if MDF is Base-PP),
           <!--  <component-refer ref="FTP_TRP.1(1) (from MDM PP)"/>-->
-          <component-refer ref="FTP_TRP.1(2) (if MDF is Base-PP)"/>
+	  FTP_TRP.1(2) (if MDF is Base-PP)
+	  </addressed-by>
+	  <rationale>FILL IN</rationale>
           <consistency-rationale> This objective extends the <abbr linkend="Base-PP"/>’s O.COMMS
             objective by ensuring that the communications related to <abbr linkend="MDM"/> Agents
             functionality are secured in the same manner as other sensitive data transmitted to/from
             the mobile device. </consistency-rationale>
         </SO>
-        <SO id="O.STORAGE">
+        <SO name="O.STORAGE">
           <description> To address the issue of loss of confidentiality of user data in the event of
             loss of a mobile device (T.PHYSICAL), conformant <abbr linkend="TOE"/>s will use
             platform provide key storage. The <abbr linkend="TOE"/> is expected to protect its
             persistent secrets and private keys. </description>
-          <component-refer ref="FCS_STG_EXT.1(2) (if MDM is Base-PP)"/>
-          <component-refer ref="FCS_STG_EXT.4 (if MDF is Base-PP)"/>
-          <consistency-rationale> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
+            <addressed-by>
+	      FCS_STG_EXT.1(2) (if MDM is Base-PP),
+              FCS_STG_EXT.4 (if MDF is Base-PP)
+	    </addressed-by>
+	    <rationale> FILL IN</rationale>
+	    <consistency-rationale> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
             objective by ensuring that the mobile device’s data-at-rest protection mechanisms can
             also be used to secure the <abbr linkend="MDM"/> Agent and related data.
           </consistency-rationale>
@@ -569,30 +505,30 @@ Behavior means it's a new EXT component and we have to make that chart.
     </section>
     <section id="objectivesEnvironment" title="Security Objectives for the Operational Environment">
       <SOEs>
-        <SOE id="OE.DATA_PROPER_ADMIN">
+        <SOE name="OE.DATA_PROPER_ADMIN">
           <description>TOE Administrators are trusted to follow and apply all administrator guidance
             in a trusted manner. </description>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
-        <SOE id="OE.DATA_PROPER_USER">
+        <SOE name="OE.DATA_PROPER_USER">
           <description>Users of the mobile device are trained to securely use the mobile device and
             apply all guidance in a trusted manner. </description>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
-        <SOE id="OE.IT_ENTERPRISE">
+        <SOE name="OE.IT_ENTERPRISE">
           <description>The Enterprise IT infrastructure provides security for a network that is
             available to the <abbr linkend="TOE"/> and mobile devices that prevents unauthorized
             access. </description>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
-        <SOE id="OE.MOBILE_DEVICE_PLATFORM">
+        <SOE name="OE.MOBILE_DEVICE_PLATFORM">
           <description>The <abbr linkend="MDM"/> Agent relies upon the trustworthy mobile platform
             and hardware to provide policy enforcement as well as cryptographic services and data
             protection. The mobile platform provides trusted updates and software integrity
             verification of the <abbr linkend="MDM"/> Agent. </description>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
-        <SOE id="OE.WIRELESS_NETWORK">
+        <SOE name="OE.WIRELESS_NETWORK">
           <description>A wireless network will be available to the mobile devices. </description>
           <consistency-rationale><!-- Note: different per base, so defined as a con-mod under each base--></consistency-rationale>
         </SOE>
@@ -629,7 +565,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
             <mod-def> This family is defined in both the MDF and the MDM <abbr linkend="Base-PP"/>s. This <abbr linkend="PP-Module"/> augments the extended family by adding one additional component, FCS_STG_EXT.4. This new component and its impact on the extended family’s component leveling are shown below; reference the MDF or MDM PP for all other definitions for this family. </mod-def>
           </ext-comp-def>
-          <f-component id="fcs_stg_ext.4" name="Cryptographic Key Storage">
+          <f-component cc-id="fcs_stg_ext.4" name="Cryptographic Key Storage">
             <consistency-rationale> This SFR requires the <abbr linkend="MDM"/> Agent to use
               functionality defined by the <abbr linkend="Base-PP"/> in FCS_CKM_EXT.1. </consistency-rationale>
             <comp-lev> requires the TSF to define a specific location for its key
@@ -637,7 +573,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             <management>There are no management functions foreseen.</management>
             <audit>There are no auditable events foreseen.</audit>
             <dependencies>FCS_CKM.1 Cryptographic Key Generation</dependencies>
-            <f-element id="fcs_stg_ext.4.1">
+            <f-element>
               <title>The <abbr linkend="MDM"/> Agent shall use the platform provided key storage for
                 all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets
@@ -656,9 +592,9 @@ Behavior means it's a new EXT component and we have to make that chart.
           </f-component>
         </subsection>
         <subsection id="trust-path-ftp" title="Trusted Path/Channels (FTP)">
-          <f-component id="ftp_itc_ext.1(2)" name="Trusted Channel Communication">
+          <f-component cc-id="ftp_itc_ext.1" name="Trusted Channel Communication" iteration="TRUSTCHAN">
             <consistency-rationale> The <abbr linkend="Base-PP"/> defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This <abbr linkend="PP-Module"/> iterates the SFR to specify a subset of these protocols that may be used for <abbr linkend="MDM"/> Agent communications in particular. </consistency-rationale>
-            <f-element id="ftp_itc_ext.1.1(2)">
+            <f-element id="mut-chan-type">
               <title><htm:b>Refinement:</htm:b> The TSF shall use <selectables linebreak="yes">
                   <selectable>mutually authenticated TLS client as defined in the Package for
                     Transport Layer Security</selectable>
@@ -712,7 +648,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 be met with platform provided services. <htm:br/><htm:br/>
               </note>
             </f-element>
-            <f-element id="ftp_itc_ext.1.2(2)">
+            <f-element id="mut-chan-init">
               <title><htm:b>Refinement:</htm:b> The <abbr linkend="TSF"/> shall permit the TSF and the <abbr linkend="MDM"/>
                 Server and <selectables>
                   <selectable>MAS Server</selectable>
@@ -722,7 +658,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 communication; however, for <abbr linkend="MDM"/> Agents, the <abbr linkend="MDM"/>
                 Server may also initiate communication.</note>
             </f-element>
-            <f-element id="ftp_itc_ext.1.3(2)">
+            <f-element id="mut-chan-all-none">
               <title><htm:b>Refinement:</htm:b> The TSF shall initiate communication via the trusted channel for all
                 communication between the MDM Agent and the MDM Server and <selectables>
                   <selectable>all communication between the MAS Server and the MDM
@@ -770,14 +706,14 @@ Behavior means it's a new EXT component and we have to make that chart.
               </aactivity>
             </f-element>
           </f-component>
-          <f-component id="ftp_trp.1(2)" name="Trusted Path (for Enrollment)">
+          <f-component cc-id="ftp_trp.1" name="Trusted Path (for Enrollment)" iteration="TRUSTPATH">
             <consistency-rationale>This SFR uses the trusted channel protocols defined by the <abbr
                 linkend="Base-PP"/> in FTP_ITC_EXT.1 to facilitate a trusted path that the <abbr
                 linkend="MDM"/> Agent can use to enroll the mobile device it runs on into
               management. Even though the <abbr linkend="Base-PP"/> does not define FTP_TRP.1, the
               requirement was given an iteration label for consistency with the <abbr linkend="MDM"
               /> Server requirement of the same name. </consistency-rationale>
-            <f-element id="ftp_trp.1.1(2)">
+            <f-element>
               <title><htm:b>Refinement:</htm:b> The TSF shall use <selectables linebreak="yes">
                   <selectable id="TRP_TLS_2">TLS client as defined in the Package for Transport Layer Security</selectable>
                   <selectable id="TRP_HTTPS_2">HTTPS</selectable>
@@ -787,11 +723,11 @@ Behavior means it's a new EXT component and we have to make that chart.
                 data from disclosure and detection of modification of the communicated data from
                 [<htm:i>modification, disclosure</htm:i>]. </title>
             </f-element>
-            <f-element id="ftp_trp.1.2(2)">
+            <f-element>
               <title><htm:b>Refinement:</htm:b> The TSF shall permit MD users to initiate communication via the trusted path.
               </title>
             </f-element>
-            <f-element id="ftp_trp.1.3(2)">
+            <f-element>
               <title><htm:b>Refinement:</htm:b> The TSF shall require the use of the trusted path for [<htm:i>[all MD user actions]</htm:i>]. 
               </title>
               <note role="application"> This requirement ensures that authorized MD users initiate
@@ -971,12 +907,12 @@ Behavior means it's a new EXT component and we have to make that chart.
       <modified-sfrs/>
       <additional-sfrs>
         <subsection id="mdm-crypto-fcs" title="Cryptographic Support (FCS)">
-          <f-component id="fcs_stg_ext.1(2)" name="Cryptographic Key Storage">
+          <f-component cc-id="fcs_stg_ext.1" name="Cryptographic Key Storage" iteration="KEYSTO">
             <!-- Removed notnew=y from f-component -->
             <consistency-rationale> The <abbr linkend="Base-PP"/> requires the TOE to define a
               method of key storage. This <abbr linkend="PP-Module"/> iterates it to specify the use
               of platform key storage for <abbr linkend="MDM"/> Agents. </consistency-rationale>
-            <f-element id="fcs_stg_ext.1.1(2)">
+            <f-element>
               <title><htm:b>Refinement:</htm:b> The MDM Agent shall use the [<htm:i>platform-provided key storage</htm:i>] for all persistent
                 secret and private keys.</title>
               <note role="application"> This requirement ensures that persistent secrets
@@ -1183,7 +1119,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             the extended family’s component leveling are shown below; reference the <abbr
               linkend="MDM"/> PP for all other definitions for this family. </mod-def>
         </ext-comp-def>
-        <f-component id="fau_alt_ext.2" name="Agent Alerts">
+        <f-component cc-id="fau_alt_ext.2" name="Agent Alerts">
           <consistency-rationale/>
           <comp-lev>requires the TSF to define when and how an <abbr linkend="MDM"/> Agent generates
             alerts and transmits them to an <abbr linkend="MDM"/> Server based on its
@@ -1200,7 +1136,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </audit>
           <dependencies> FAU_ALT_EXT.1 Server Alerts<htm:br/> [FPT_ITT.1(2) Basic Internal TSF Data
             Transfer Protection; or<htm:br/> FTP_ITC.1 Inter-TSF Trusted Channel] </dependencies>
-          <f-element id="fau_alt_ext.2.1">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall provide an alert via the trusted channel to
               the <abbr linkend="MDM"/> Server in the event of any of the following audit events: <htm:ul>
                 <htm:li>successful application of policies to a mobile device,</htm:li>
@@ -1238,7 +1174,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               connectivity. <htm:br/><htm:br/>
             </note>            
           </f-element>
-          <f-element id="fau_alt_ext.2.2">
+          <f-element>
             <title>The MDM Agent shall queue alerts if the trusted channel is not available.</title>
             <note role="application">If the trusted channel is not available, alerts must be queued. When the trusted channel becomes available, the queued alerts must be sent.<htm:br/><htm:br/>
             </note>
@@ -1260,9 +1196,9 @@ Behavior means it's a new EXT component and we have to make that chart.
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="fau_gen.1(2)" name="Audit Data Generation">
+        <f-component cc-id="fau_gen.1" name="Audit Data Generation" iteration="AUDITGEN">
           <consistency-rationale/>
-          <f-element id="fau_gen.1.1(2)">
+          <f-element>
             <title><htm:b>Refinement:</htm:b> The <abbr linkend="MDM"/> Agent shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
@@ -1272,7 +1208,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 <htm:li>All auditable events for [<htm:i>not specified</htm:i>] level of audit; and</htm:li>
                 <htm:li>[<htm:i><abbr linkend="MDM"/> policy updated, any modification commanded by the 
                   <abbr linkend="MDM"/> Server, specifically defined auditable events listed in 
-                  <ctr-ref refid="audit"/>, and <selectables>
+                  <ctr-ref ref-id="audit"/>, and <selectables>
                   <selectable><assignable>other events</assignable></selectable>
                   <selectable>no other events</selectable>
                 </selectables></htm:i>].</htm:li>
@@ -1360,14 +1296,14 @@ Behavior means it's a new EXT component and we have to make that chart.
               <htm:br/><htm:br/>
             </note>            
           </f-element>
-          <f-element id="fau_gen.1.2(2)">
+          <f-element>
             <title><htm:b>Refinement:</htm:b> The <selectables>
                 <selectable>TSF</selectable>
                 <selectable>TOE platform</selectable>
               </selectables> shall record within each <abbr linkend="MDM"/> Agent audit record at
               least the following information: <htm:ol type="a">
                 <htm:li>Date and time of the event, type of event, subject identity, (if relevant) the outcome 
-                  (success or failure) of the event, and additional information in <ctr-ref refid="audit"/>; and</htm:li>         
+                  (success or failure) of the event, and additional information in <ctr-ref ref-id="audit"/>; and</htm:li>         
                 <htm:li>For each audit event type, based on the auditable event definitions of the functional components 
                   included in the PP-Module/ST, <assignable>other audit relevant information</assignable>.</htm:li>
               </htm:ol>
@@ -1394,9 +1330,9 @@ Behavior means it's a new EXT component and we have to make that chart.
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="fau_sel.1(2)" name="Security Audit Event Selection">
+        <f-component cc-id="fau_sel.1" name="Security Audit Event Selection" iteration="EVENTSEL">
           <consistency-rationale/>
-          <f-element id="fau_sel.1.1(2)">
+          <f-element>
             <title><htm:b>Refinement:</htm:b> The <abbr linkend="TSF"/> shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
@@ -1454,7 +1390,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             the extended family’s component leveling are shown below; reference the <abbr
               linkend="MDM"/> PP for all other definitions for this family. </mod-def>
         </ext-comp-def>
-        <f-component id="fia_enr_ext.2" name="Agent Enrollment of Mobile Device into Management">
+        <f-component cc-id="fia_enr_ext.2" name="Agent Enrollment of Mobile Device into Management">
           <consistency-rationale/>
           <comp-lev> requires the TSF to record specific information about the <abbr linkend="MDM"/>
             Server (i.e. the entity that is enrolling it) during the enrollment process.</comp-lev>
@@ -1465,7 +1401,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             </htm:ul>
           </audit>
           <dependencies>FIA_ENR_EXT.1 Enrollment of Mobile Device into Management</dependencies>
-          <f-element id="fia_enr_ext.2.1">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall record the reference identifier of the
                 <abbr linkend="MDM"/> Server during the enrollment process. </title>
             <note role="application">The reference identifier of the <abbr linkend="MDM"/> Server
@@ -1505,7 +1441,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             the extended family’s component leveling are shown below; reference the <abbr
               linkend="MDM"/> PP for all other definitions for this family.</mod-def>
         </ext-comp-def>
-        <f-component id="fmt_pol_ext.2" name="Agent Trusted Policy Update">
+        <f-component cc-id="fmt_pol_ext.2" name="Agent Trusted Policy Update">
           <consistency-rationale/>
           <comp-lev> requires the TSF to verify the validity of the source of a policy before
             applying it.</comp-lev>
@@ -1517,7 +1453,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<htm:br/> FMT_POL_EXT.1 Trusted Policy
             Update </dependencies>
-          <f-element id="fmt_pol_ext.2.1">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall only accept policies and policy updates
               that are digitally signed by a certificate that has been authorized for policy updates
               by the <abbr linkend="MDM"/> Server. </title>
@@ -1529,7 +1465,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               FCS_COP.1(3).<htm:br/><htm:br/>
             </note>           
           </f-element>
-          <f-element id="fmt_pol_ext.2.2">
+          <f-element>
             <title>The MDM Agent shall not install policies if the policy-signing certificate is
               deemed invalid. </title>
             <aactivity>
@@ -1553,7 +1489,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             leveling are shown below; reference the MDF PP for all other definitions for this
             family. </mod-def>
         </ext-comp-def>
-        <f-component id="fmt_smf_ext.4" name="Specification of Management Functions">
+        <f-component cc-id="fmt_smf_ext.4" name="Specification of Management Functions">
           <!-- Note: Changed to .4 to avoid conflict with MDM Server -->
           <consistency-rationale> </consistency-rationale>
           <comp-lev> requires the TSF to support the execution of certain management functions that
@@ -1569,7 +1505,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             </htm:ul>
           </audit>
           <dependencies>FCS_CKM.1 Cryptographic Key Generation</dependencies>
-          <f-element id="fmt_smf_ext.4.1">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall be capable of interacting with the platform
               to perform the following functions: <htm:ul>
                 <htm:li>Import the certificates to be used for authentication of <abbr linkend="MDM"
@@ -1611,7 +1547,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               assignments of the validated mobile device <abbr linkend="ST"/>.<htm:br/><htm:br/>
             </note>           
           </f-element>
-          <f-element id="fmt_smf_ext.4.2">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall be capable of performing the following
               functions: <htm:ul>
                 <htm:li>Enroll in management</htm:li>
@@ -1670,7 +1606,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <fam-behavior> Components in this family define requirements for TSF behavior when a user
             attempts to unenroll the TOE from mobile device management.</fam-behavior>
         </ext-comp-def>
-        <f-component id="fmt_unr_ext.1" name="User Unenrollment Prevention">
+        <f-component cc-id="fmt_unr_ext.1" name="User Unenrollment Prevention">
           <consistency-rationale/>
           <comp-lev> requires the TSF either to prevent unenrollment entirely or to take some
             corrective action in the event that an unenrollment is initiated.</comp-lev>
@@ -1682,7 +1618,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           </audit>
           <dependencies> [FIA_ENR_EXT.1 Enrollment of Mobile Device into Management; or<htm:br/>
             FMT_MOF_EXT.1 Management of Functions Behavior] </dependencies>
-          <f-element id="fmt_unr_ext.1.1">
+          <f-element>
             <title>The <abbr linkend="MDM"/> Agent shall provide a mechanism to enforce the
               following behavior upon an attempt to unenroll the mobile device from management: <selectables>
                 <selectable>prevent the unenrollment from occurring</selectable>
@@ -1732,7 +1668,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             the extended family’s component leveling are shown below; reference the <abbr
               linkend="MDM"/> PP for all other definitions for this family.</mod-def>
         </ext-comp-def>
-        <f-component id="fau_stg_ext.3" name="Security Audit Event Storage">
+        <f-component cc-id="fau_stg_ext.3" name="Security Audit Event Storage">
           <!-- Note: Name changed simply to avoid name collision with MDM Server -->
           <consistency-rationale/>
           <comp-lev> requires the TSF to identify a location for audit record storage and the events
@@ -1740,7 +1676,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <management>There are no management functions foreseen.</management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FAU_GEN.1 Audit Data Generation</dependencies>
-          <f-element id="fau_stg_ext.3.1">
+          <f-element>
             <title>The MDM Agent shall store MDM audit records in the platform-provided audit storage. </title>
             <note role="application">FAU_STG_EXT.3 should only be included in the <abbr linkend="ST"
               /> for MDM Agent platforms (i.e., mobile devices) that conform to MDF PP version 3 or later.<htm:br/><htm:br/>
@@ -1759,7 +1695,7 @@ Behavior means it's a new EXT component and we have to make that chart.
           <fam-behavior> Components in this family define requirements for tracking the availability
             of network components. </fam-behavior>
         </ext-comp-def>
-        <f-component id="fpt_net_ext.1" name="Network Reachability">
+        <f-component cc-id="fpt_net_ext.1" name="Network Reachability">
           <consistency-rationale/>
           <comp-lev> requires the TSF to keep track of failed attempts to communicate with a remote
             entity.</comp-lev>
@@ -1772,7 +1708,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <htm:li>Minimal: Reaching/exceeding unreachability threshold.</htm:li></htm:ul>
           </audit>
           <dependencies>FPT_STM.1 Reliable Time Stamps</dependencies>
-          <f-element id="fpt_net_ext.1.1">
+          <f-element>
             <title>The TSF shall detect when a configurable <selectables>
                 <selectable>positive integer of missed reachability events occur</selectable>
                 <selectable>time limit is exceeded</selectable>
@@ -1877,109 +1813,11 @@ Behavior means it's a new EXT component and we have to make that chart.
   <bibliography>
     <cc-entry/>
   </bibliography>
-
-
-  <acronyms>
+  <acronyms/>
     <!-- ToDo: Are these really the only acronyms?-->
-    <entry>
-      <term>API</term>
-      <description>Application Programming Interface</description>
-    </entry>
-    <entry>
-      <term>BYOD</term>
-      <description>Bring Your Own Device</description>
-    </entry>
-    <entry>
-      <term>COPE</term>
-      <description>Corporately Owned, Personally Enabled</description>
-    </entry>
-    <entry>
-      <term>DN</term>
-      <description>Distinguished Name</description>
-    </entry>
-    <entry>
-      <term>DTLS</term>
-      <description>Datagram Transport Layer Security</description>
-    </entry>
-    <entry>
-      <term>GPOS</term>
-      <description>General Purpose Operating System</description>
-    </entry>
-    <entry>
-      <term>HTTPS</term>
-      <description>HyperText Transfer Protocol Secure</description>
-    </entry>
-    <entry>
-      <term>IP</term>
-      <description>Internet Protocol</description>
-    </entry>
-    <entry>
-      <term>IPSec</term>
-      <description>Internet Protocol Security</description>
-    </entry>
-    <entry>
-      <term>MAS</term>
-      <description>Mobile Application Store</description>
-    </entry>
-    <entry>
-      <term>MD</term>
-      <description>Mobile Device</description>
-    </entry>
-    <entry>
-      <term>MDF</term>
-      <description>Mobile Device Fundamentals</description>
-    </entry>
-    <entry>
-      <term>MDM</term>
-      <description>Mobile Device Management</description>
-    </entry>
-    <entry>
-      <term>OS</term>
-      <description>Operating System</description>
-    </entry>
-    <entry>
-      <term>PP</term>
-      <description>Protection Profile</description>
-    </entry>
-    <entry>
-      <term>RBG</term>
-      <description>Random Bit Generation</description>
-    </entry>
-    <entry>
-      <term>SD</term>
-      <description>Supporting Document</description>
-    </entry>
-    <entry>
-      <term>ST</term>
-      <description>Security Target</description>
-    </entry>
-    <entry>
-      <term>TLS</term>
-      <description>Transport Layer Security</description>
-    </entry>
-    <entry>
-      <term>TOE</term>
-      <description>Target of Evaluation</description>
-    </entry>
-    <entry>
-      <term>TSF</term>
-      <description>TOE Summary Functionality</description>
-    </entry>
-    <entry>
-      <term>TSS</term>
-      <description>TOE Security Specification</description>
-    </entry>
-    <entry>
-      <term>VPN</term>
-      <description>Virtual Private Network</description>
-    </entry>
-    <entry>
-      <term>WiFi</term>
-      <description>Wireless Fidelity</description>
-    </entry>
-  </acronyms>
-
-
+      <!-- <term abbr="TOE" full="Target of Evaluation"/> -->
+      <!-- <term abbr="TSF" full="TOE Summary Functionality"/> -->
+      <!-- <term abbr="TSS" full="TOE Security Specification"/> -->
 
 </Module>
 <!--  
