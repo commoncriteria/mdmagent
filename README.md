@@ -1,6 +1,6 @@
 Mobile Device Management Agent 
 ===========
-[![Build Status](https://travis-ci.com/commoncriteria/mdmagent.svg?branch=master)](https://travis-ci.com/commoncriteria/mdmagent)
+![Build](https://github.com/commoncriteria/mdmagent/workflows/Build/badge.svg)
 
 Extended Package for Mobile Device Management Agents
 
