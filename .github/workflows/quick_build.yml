@@ -215,17 +215,6 @@ jobs:
         ls
         find output
         
-    # - name: Deploy
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./output
-
-    # - name: Publish current
-    #   uses: rayluo/github-pages-overwriter@v1.2
-    #   with:
-    #     source-directory: output
-    #     target-branch: gh-pages
         
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.0.0
