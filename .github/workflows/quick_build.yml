@@ -209,6 +209,12 @@ jobs:
         status: ${{ steps.validate.outputs.VALERRORS }}
         color: ${{ steps.coverage.outputs.valcolor }}
         path: output/validation.svg
+
+    - id: debug
+      run: |
+        ls
+        ls output
+        pwd
         
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.0.0
