@@ -214,6 +214,7 @@ jobs:
       run: |
         ls
         find output
+        echo "" > output/.gitignore
         
         
     - name: Deploy 🚀
