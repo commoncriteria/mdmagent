@@ -210,12 +210,10 @@ jobs:
         color: ${{ steps.coverage.outputs.valcolor }}
         path: output/validation.svg
 
-    - id: debug
+    - name: debug
       run: |
         ls
-        ls output
         find output
-        pwd
 
 
     - name: Publish current
