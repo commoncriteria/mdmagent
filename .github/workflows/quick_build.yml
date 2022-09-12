@@ -216,17 +216,17 @@ jobs:
         find output
 
 
-    - name: Publish current
-      uses: rayluo/github-pages-overwriter@v1.2
-      with:
-        source-directory: output
-        target-branch: gh-pages
-        
-    # - name: Deploy 🚀
-    #   uses: JamesIves/github-pages-deploy-action@4.0.0
+    # - name: Publish current
+    #   uses: rayluo/github-pages-overwriter@v1.2
     #   with:
-    #     branch: gh-pages # The branch the action should deploy to.
-    #     folder: output # The folder the action should deploy.
+    #     source-directory: output
+    #     target-branch: gh-pages
+        
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: output # The folder the action should deploy.
         
     # - name: Commit badges
     #   continue-on-error: true
