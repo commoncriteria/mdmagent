@@ -216,6 +216,13 @@ jobs:
         ls output
         find output
         pwd
+
+
+    - name: Publish current
+      uses: rayluo/github-pages-overwriter@v1.2
+      with:
+        source-directory: output
+        target-branch: gh-pages
         
     # - name: Deploy 🚀
     #   uses: JamesIves/github-pages-deploy-action@4.0.0
@@ -223,15 +230,15 @@ jobs:
     #     branch: gh-pages # The branch the action should deploy to.
     #     folder: output # The folder the action should deploy.
         
-    - name: Commit badges
-      continue-on-error: true
-      env:
-        BADGE: ${{ steps.coverage.outputs.path }}
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add output #warnings.svg validation.svg build-branch-badge.svg spell-badge.svg transforms.svg tds.svg
-        git commit -m "Update files"
+    # - name: Commit badges
+    #   continue-on-error: true
+    #   env:
+    #     BADGE: ${{ steps.coverage.outputs.path }}
+    #   run: |
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git add output #warnings.svg validation.svg build-branch-badge.svg spell-badge.svg transforms.svg tds.svg
+    #     git commit -m "Update files"
         
     #     # - name: Upload badge as artifact
     # # - name: Upload badge as artifact
@@ -251,9 +258,9 @@ jobs:
     # #     git add "${{ steps.extract_branch.outputs.branch }}"
     # #     git commit -m "Add/Update badges"
 
-    - name: Push badge commit
-      uses: ad-m/github-push-action@master
-      if: ${{ success() }}
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ steps.coverage.outputs.branch }}
+    # - name: Push badge commit
+    #   uses: ad-m/github-push-action@master
+    #   if: ${{ success() }}
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     branch: ${{ steps.coverage.outputs.branch }}
