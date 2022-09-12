@@ -34,7 +34,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             </behavior>
             -->
 
-<Module boilerplate="yes" target-product="MDM Agents" xmlns="https://niap-ccevs.org/cc/v1"
+<Module boilerplate="yes" target-product="MDM Agent" xmlns="https://niap-ccevs.org/cc/v1"
 	name="Mobile Device Management Agent" xmlns:htm="http://www.w3.org/1999/xhtml"
 	    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
 >
