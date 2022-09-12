@@ -214,6 +214,7 @@ jobs:
       run: |
         ls
         ls output
+        find output
         pwd
         
     - name: Deploy 🚀
