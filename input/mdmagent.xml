@@ -44,49 +44,34 @@ Behavior means it's a new EXT component and we have to make that chart.
   
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-04-25</PPPubDate>
+      <PPPubDate>2023-12-11</PPPubDate>
       <Keywords>Mobile Device Management; MDM; MDM Agents</Keywords>
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2013-10-21</date>
-      <subject>Initial Release</subject>
+      <date>2019-03-01</date>
+      <subject><!-- TODO: Add description of what we changed in this version --> Initial publication as
+        PP-Module. </subject>
     </entry>
     <entry>
       <version>1.1</version>
-      <date>2014-02-07</date>
-      <subject>Typographical changes and clarifications to front-matter</subject>
-    </entry>
-    <entry>
-      <version>2.0</version>
-      <date>2014-12-31</date>
-      <subject>Separation of MDM Agent SFRs. Updated cryptography, protocol, X.509 requirements.
-        Added objective requirement for Agent audit storage. New requirement for unenrollment
-        prevention. Initial Release of MDM Agent EP.</subject>
-    </entry>
-    <entry>
-      <version>3.0</version>
-      <date>2016-11-21</date>
-      <subject> Updates to align with Technical Decisions. Added requirements to support BYOD use
-        case. </subject>
-    </entry>
-    <entry>
-      <version>4.0</version>
-      <date>2019-03-01</date>
-      <subject><!-- TODO: Add description of what we changed in this version --> Convert to
-        PP-Module. </subject>
+      <date>2023-12-11</date>
+      <subject>
+        Added GPOS PP base and incorporated NIAP Technical Decisions.
+      </subject>
     </entry>
   </RevisionHistory>
   <sec:Introduction>
     <section id="overview" title="Overview"> The scope of the MDM Agent PP-Module is to describe the security functionality of a Mobile Device Management (MDM) Agent 
       in terms of [CC] and to define functional and assurance requirements for such products. 
       This PP-Module is intended for use with the following Base-PPs: <h:ul>
-        <h:li>Mobile Device Management (MDM) Protection Profile, Version 4.0</h:li>
-        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.1</h:li>
+        <h:li>Protection Profile for Mobile Device Management (MDM PP), Version 4.0</h:li>
+        <h:li>Protection Profile for Mobile Device Fundamentals (MDF PP), Version 3.3</h:li>
+        <h:li>Protection Profile for General Purpose Operating Systems (GPOS PP), Version 4.3</h:li>
       </h:ul>
       <h:br/> These Base-PPs are valid because a MDM Agent is
       either a 3rd party application manufactured by the MDM Server vendor or is a
@@ -247,13 +232,23 @@ Behavior means it's a new EXT component and we have to make that chart.
             CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:br/><h:br/> The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
+            <h:li>collaborative PP-Module for Biometric enrollment and verification - for unlocking the device, Version 1.1</h:li>
+            <h:li>PP-Module for Bluetooh, Version 1.0</h:li>
             <h:li>PP-Module for VPN Client, Version 2.4</h:li>
+            <h:li>PP-Module for Wireless LAN Clients, Version 1.0</h:li>
           </h:ul>
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
         <description>This PP-Module is conformant to Parts 2 (extended) and 3
           (conformant) of Common Criteria Version 3.1, Release 5 [CC].
+        </description>
+      </cclaim>
+      <cclaim name="PP Claim">
+        <description>
+          <h:p>
+            This PP-Module does not claim conformance to any other Protection Profile.
+          </h:p>
         </description>
       </cclaim>
       <cclaim name="Package Claim">
@@ -266,7 +261,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       </cclaim>
     </cclaims>
   </sec:Conformance_Claims>
-  <sec:spd title="Security Problem Description">
+  <sec:Security_Problem_Definition>
     <sec:Threats> The following threats are specific to MDM Agents, and represents an addition to those identified in the Base-PPs. 
       <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). 
         For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
@@ -367,14 +362,14 @@ Behavior means it's a new EXT component and we have to make that chart.
               A.CONNECTIVITY. </rationale>
           </objective-refer>
         </assumption>
-        <assumption name="A.MOBILE_DEVICE_PLATFORM">
+        <assumption name="A.PLATFORM">
           <description>The MDM Agent relies upon mobile platform and hardware evaluated against the
             MDF PP and assured to provide policy enforcement as well as cryptographic services and
             data protection. The mobile platform provides trusted updates and software integrity
             verification of the MDM Agent. </description>
           <objective-refer ref="OE.MOBILE_DEVICE_PLATFORM">
             <rationale>The Operational Environment objective OE.MOBILE_DEVICE_PLATFORM is realized
-              through A.MOBILE_DEVICE_PLATFORM. </rationale>
+              through A.PLATFORM. </rationale>
           </objective-refer>
         </assumption>
         <assumption name="A.PROPER_ADMIN">
@@ -433,16 +428,24 @@ Behavior means it's a new EXT component and we have to make that chart.
         </OSP>
       </OSPs>
     </section>
-  </sec:spd>
+    </sec:Security_Problem_Definition>
   <sec:Security_Objectives>
     <sec:Security_Objectives_for_the_TOE>
       <SOs>
         <SO name="O.ACCOUNTABILITY">
           <description>The TOE must provide logging facilities, which record
             management actions undertaken by its administrators. </description>
-            <addressed-by>FAU_ALT_EXT.2</addressed-by><rationale></rationale>
-            <addressed-by>FAU_GEN.1(2)</addressed-by><rationale></rationale>
-            <addressed-by>FAU_SEL.1(2)</addressed-by><rationale></rationale>
+            <addressed-by>FAU_ALT_EXT.2</addressed-by>
+          <rationale>The PP-Module includes FAU_ALT_EXT.2 to support this objective by requiring the TSF to generate alerts back to an MDM Server 
+            when security-relevant events occur.</rationale>
+            <addressed-by>FAU_GEN.1/AGENT</addressed-by>
+          <rationale>The PP-Module includes FAU_GEN.1/AGENT to support this objective by defining the security-relevant events 
+            for which the TSF must generate audit records.</rationale>
+            <addressed-by>FAU_SEL.1/AGENT</addressed-by>
+          <rationale>The PP-Module includes FAU_SEL.1/AGENT to support this objective by defining how the set of audited events can be configured.</rationale>
+          <addressed-by>FAU_STG_EXT.3 (objective)</addressed-by>
+          <rationale>The PP-Module includes FAU_STG_EXT.3 to support this objective by optionally requiring the TSF to use 
+            platform-provided storage for the security-relevant audit data it generates.</rationale>
         </SO>
         <SO name="O.APPLY_POLICY">
           <description>The TOE must facilitate configuration and enforcement of
@@ -450,23 +453,58 @@ Behavior means it's a new EXT component and we have to make that chart.
             the MDM Server. This will include the initial enrollment of the device
             into management, through its entire lifecycle, including policy updates and its possible
             unenrollment from management services. </description>
-          <addressed-by>FAU_STG_EXT.3(objective)</addressed-by><rationale></rationale>
-          <addressed-by>FIA_ENR_EXT.2</addressed-by><rationale></rationale>
-          <addressed-by>FMT_POL_EXT.2</addressed-by><rationale></rationale>
-          <addressed-by>FMT_SMF_EXT.4</addressed-by><rationale></rationale>
-          <addressed-by>FMT_UNR_EXT.1</addressed-by><rationale></rationale>
+          <addressed-by>FIA_ENR_EXT.2</addressed-by>
+          <rationale>The PP-Module includes FIA_ENR_EXT.2 to support this objective by requiring the TSF to identify the 
+            MDM Server so that the authenticity of policy updates can be determined.</rationale>
+          <addressed-by>FMT_POL_EXT.2</addressed-by>
+          <rationale>The PP-Module includes FMT_POL_EXT.2 to support this objective by requiring the TSF to only accept 
+            policy data that can prove its authenticity with a digital certificate.</rationale>
+          <addressed-by>FMT_SMF_EXT.4</addressed-by>
+          <rationale>The PP-Module includes FMT_SMF_EXT.4 to support this objective by defining 
+            the management functions the TSF must implement to support its own configuration.</rationale>
+          <addressed-by>FMT_UNR_EXT.1</addressed-by>
+          <rationale>The PP-Module includes FMT_UNR_EXT.1 to support this objective by preventing 
+            a user-directed unenrollment operation that would allow for MDM policies to be ignored.</rationale>
+          <addressed-by>FPT_NET_EXT.1 (objective)</addressed-by>
+          <rationale>The PP-Module includes FPT_NET_EXT.1 to support this objective by optionally requiring the TSF to detect when a
+            sustained communications outage with the MDM Server has occurred to indicate that the TSF may be deprived of updated policy data.</rationale>
         </SO>
         <SO name="O.DATA_PROTECTION_TRANSIT">
           <description>Data exchanged between the MDM Server and the MDM Agent must be protected from being monitored, accessed, or altered. </description>
-	        <addressed-by>FCS_DTLSS_EXT.1 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FCS_DTLSC_EXT.1 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FCS_TLSS_EXT.1 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FCS_TLSS_EXT.2 (from TLS Package)</addressed-by><rationale></rationale>
-          <addressed-by>FPT_NET_EXT.1 (objective)</addressed-by><rationale></rationale>
-          <addressed-by>FTP_ITC_EXT.1(2) (if MDF is Base-PP)</addressed-by><rationale></rationale>
-          <addressed-by>FTP_TRP.1(2) (if MDF is Base-PP)</addressed-by><rationale></rationale>
+          <addressed-by>FCS_DTLSC_EXT.1 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_DTLSC_EXT.1 from the TLS package by reference to support this objective because 
+            DTLS is one of the protocols the PP-Module allows to protect data in transit.</rationale>
+          <addressed-by>FCS_DTLSS_EXT.1 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_DTLSS_EXT.1 from the TLS package by reference to support this objective because 
+            DTLS is one of the protocols the PP-Module allows to protect data in transit.</rationale>
+          <addressed-by>FCS_TLS_EXT.1 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_TLS_EXT.1 from the TLS package by reference to support this objective because 
+            it is mandatory to claim when the TLS Package applies so that the TSF’s usage of TLS is clearly defined.</rationale>
+          <addressed-by>FCS_TLSC_EXT.1 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_TLSC_EXT.1 from the TLS package by reference to support this objective because 
+            TLS is one of the protocols the PP-Module allows to protect data in transit.</rationale>
+          <addressed-by>FCS_TLSC_EXT.2 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_TLSC_EXT.2 from the TLS package by reference to support this objective because 
+            it requires TLS to be mutually-authenticated if claimed.</rationale>
+          <addressed-by>FCS_TLSS_EXT.1 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_TLSS_EXT.1 from the TLS package by reference to support this objective because 
+            TLS is one of the protocols the PP-Module allows to protect data in transit.</rationale>
+          <addressed-by>FCS_TLSS_EXT.2 (from TLS Package)</addressed-by>
+          <rationale>The PP-Module includes FCS_TLSS_EXT.2 from the TLS package by reference to support this objective because 
+            it requires TLS to be mutually-authenticated if claimed.</rationale>
+          <addressed-by>FTP_ITC_EXT.1/MDFCHANNEL (if MDF is Base-PP)</addressed-by>
+          <rationale>The PP-Module includes FTP_ITC_EXT.1/MDFCHANNEL to support this objective because when the TOE is a mobile device, 
+            it must be required to ensure that MDM Server communications are protected.</rationale>
+          <addressed-by>FTP_TRP.1/MDFENROLL (if MDF is Base-PP)</addressed-by>
+          <rationale>The PP-Module includes FTP_ITC_EXT.1/MDFCHANNEL to support this objective because when the TOE is a mobile device, 
+            it must be required to ensure that MDM Server enrollment communications are protected.</rationale>
+          <addressed-by>FPT_ITT.1(2) (if MDM is Base-PP)</addressed-by>
+          <rationale>This SFR is selection-based in the MDM PP but is required when the TOE includes this PP-Module because it is triggered by the MDM Agent 
+            being part of the TOE. This SFR supports the objective by defining the trusted channel the TSF must use to secure connectivity between the 
+            MDM Server and MDM Agent components of the distributed TOE.</rationale>
+          <addressed-by>FPT_NET_EXT.1 (objective)</addressed-by>
+          <rationale>The PP-Module includes FPT_NET_EXT.1 to support this objective by optionally requiring the TSF to detect when a sustained 
+            communications outage with the MDM Server has occurred as a possible indicator of communications issues.</rationale>
 	  <!-- 
           <consistency-rationale> This objective extends the Base-PP’s O.COMMS
             objective by ensuring that the communications related to MDM Agents
@@ -479,8 +517,12 @@ Behavior means it's a new EXT component and we have to make that chart.
             loss of a mobile device (T.PHYSICAL), conformant TOEs will use
             platform provide key storage. The TOE is expected to protect its
             persistent secrets and private keys. </description>
-            <addressed-by>FCS_STG_EXT.1(2) (if MDM is Base-PP)</addressed-by><rationale></rationale>
-            <addressed-by>FCS_STG_EXT.4 (if MDF is Base-PP)</addressed-by><rationale></rationale>
+            <addressed-by>FCS_STG_EXT.1/MDMKEYS (if MDM is Base-PP)</addressed-by>
+          <rationale>The PP-Module includes FCS_STG_EXT.4 to support this objective because when the TOE is a mobile device, 
+            ensures that MDM Agent key data is stored securely.</rationale>
+          <addressed-by>FCS_STG_EXT.4 (if MDF is Base-PP)</addressed-by>
+          <rationale>The PP-Module includes FCS_STG_EXT.1/MDMKEYS to support this objective because when the TOE is a MDM Server with MDM Agent capability, 
+            ensures that MDM Agent key data is stored securely.</rationale>
 	    <!-- 
 	    <consistency-rationale> This objective extends the Base-PP’s O.STORAGE
             objective by ensuring that the mobile device’s data-at-rest protection mechanisms can
@@ -568,7 +610,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <title>The MDM Agent shall use the platform provided key storage for
                 all persistent secret and private keys.</title>
               <note role="application">This requirement ensures that persistent secrets
-                (credentials, secret keys) and private keys are stored securely when not in use by
+                (credentials, secret keys, authentication token) and private keys are stored securely when not in use by
                 the mobile platform. </note>
               <aactivity>
                 <TSS> The evaluator will verify that the TSS lists each persistent
@@ -580,10 +622,11 @@ Behavior means it's a new EXT component and we have to make that chart.
                   persistent secrets and private keys. </TSS>
               </aactivity>
             </f-element>
+            <audit-event/>
           </f-component>
         </sec:mdf_mod_fcs>
         <sec:mdf_mod_ftp title="Trusted Path/Channels (FTP)">
-          <f-component cc-id="ftp_itc_ext.1" name="Trusted Channel Communication" iteration="TRUSTCHAN">
+          <f-component cc-id="ftp_itc_ext.1" name="Trusted Channel Communication" iteration="MDFCHANNEL">
             <consistency-rationale> The Base-PP defines FTP_ITC_EXT.1 to define the secure protocols used for trusted channel communications. This PP-Module iterates the SFR to specify a subset of these protocols that may be used for MDM Agent communications in particular. </consistency-rationale>
             <f-element id="mut-chan-type">
               <title><h:b>Refinement:</h:b> The TSF shall use <selectables linebreak="yes">
@@ -598,7 +641,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 detects modification of the channel data.</title>
               <note role="application"> The intent of this requirement is to protect the
                 communications channel between MDM Server and Agent, post
-                enrollment. FTP_TRP.1(2) is to protect the communications
+                enrollment. FTP_TRP.1/MDFENROLL is to protect the communications
                 channel between MDM Server and Agent during enrollment.
                 <h:br/><h:br/> This requirement is to ensure that the transmission of any audit
                 logs, mobile device information data (software version, hardware model, and
@@ -696,7 +739,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </aactivity>
             </f-element>
           </f-component>
-          <f-component cc-id="ftp_trp.1" name="Trusted Path (for Enrollment)" iteration="TRUSTPATH">
+          <f-component cc-id="ftp_trp.1" name="Trusted Path (for Enrollment)" iteration="MDFENROLL">
             <consistency-rationale>This SFR uses the trusted channel protocols defined by the Base-PP in FTP_ITC_EXT.1 to facilitate a trusted path that the 
               MDM Agent can use to enroll the mobile device it runs on into
               management. Even though the Base-PP does not define FTP_TRP.1, the
@@ -789,11 +832,37 @@ Behavior means it's a new EXT component and we have to make that chart.
       <con-sec-prob/>
       <con-obj/>
       <con-op-en/>
-      <con-mod ref="T.BACKUP"> This threat protects user data from unauthorized logical access. An
+      <con-mod ref="T.BACKUP">This threat protects user data from unauthorized logical access. An
         attacker would attempt to exploit this threat by first exploiting the T.PHYSICAL, T.FLAWAPP,
         or T.PERSISTENT threats defined in the Base-PP against the mobile device
         as a whole, and then using the device itself as an attack vector against any backup data
         stored on the TOE.</con-mod>
+      
+      <con-mod ref="A.CONNECTIVITY">This assumption expects that networking services will be available for the TOE to use. 
+        This is consistent with the Base-PP because the TOE is installed on a mobile device defined by the 
+        Base-PP that provides networking services through various radios.</con-mod>
+      <con-mod ref="A.PLATFORM">This assumption expects that the TOE’s underlying hardware platform is validated against the MDF PP. 
+        This is consistent with the Base-PP by definition because the mobile device is within the TOE boundary and evaluated against the MDF PP.</con-mod>
+      <con-mod ref="A.PROPER_ADMIN">	
+        This assumption expects that the TOE administrator is trusted and competent in configuring the TSF. 
+        This assumption is consistent with the A.CONFIG assumption in the Base-PP which expects the TSF to be configured correctly 
+        regardless of the subject performing the configuration.</con-mod>
+      <con-mod ref="A.PROPER_USER">	
+        This assumption expects that the TOE user is not willfully negligent or hostile in using the TSF. 
+        This assumption is consistent with the A.CONFIG assumption in the Base-PP which expects the TSF 
+        to be configured correctly regardless of the subject performing the configuration as well as the 
+        A.NOTIFY and A.PRECAUTION assumptions which define baseline expectations for the user’s level of responsibility.</con-mod>
+      
+      <con-mod ref="P.ACCOUNTABILITY">The Base-PP does not define any OSPs so any OSPs defined by the PP-Module 
+        will not conflict with the Base-PP by definition.</con-mod>
+      <con-mod ref="P.ADMIN">The Base-PP does not define any OSPs so any OSPs defined by the PP-Module 
+        will not conflict with the Base-PP by definition.</con-mod>
+      <con-mod ref="P.DEVICE_ENROLL">The Base-PP does not define any OSPs so any OSPs defined by the PP-Module 
+        will not conflict with the Base-PP by definition.</con-mod>
+      <con-mod ref="P.NOTIFY">The Base-PP does not define any OSPs so any OSPs defined by the PP-Module 
+        will not conflict with the Base-PP by definition.</con-mod>
+      
+      
       <con-mod ref="O.ACCOUNTABILITY"> The Base-PP provides an objective,
         O.INTEGRITY, that ensures that the integrity of the mobile device is maintained. This
         objective assists in the implementation of O.INTEGRITY by providing records of
@@ -828,11 +897,11 @@ Behavior means it's a new EXT component and we have to make that chart.
       <con-mod ref="fau_alt_ext.2"> This SFR requires the MDM Agent to use a
         trusted channel defined by FTP_ITC_EXT.1 in the Base-PP to transmit data
         about its own behavior to the Operational Environment.</con-mod>
-      <con-mod ref="fau_gen.1(2)"> The Base-PP defines FAU_GEN.1; this PP-Module defines a second iteration to use the same audit mechanism to
+      <con-mod ref="fau_gen.1/AGENT"> The Base-PP defines FAU_GEN.1; this PP-Module defines a second iteration to use the same audit mechanism to
         generate audit records for the MDM Agent’s behavior. It may alternatively
         allow the TSF to generate its own audit trail, which does not impede the MDF from enforcing
         its own security functionality.</con-mod>
-      <con-mod ref="fau_sel.1(2)"> The Base-PP defines FAU_SEL.1; this PP-Module defines a second iteration to use the same audit mechanism to select
+      <con-mod ref="fau_sel.1/AGENT"> The Base-PP defines FAU_SEL.1; this PP-Module defines a second iteration to use the same audit mechanism to select
         the auditable events to be generated by the MDM Agent. Note that the Base-PP does not mandate this requirement so it is possible that only the
           MDM Agent portion of the TOE may implement it. In this case, the SFR
         provides a selection for the MDM Agent to implement its own mechanism to
@@ -844,7 +913,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <con-mod ref="fmt_pol_ext.2"> This SFR requires the MDM Agent to use a
         digital signature algorithm to validate data that it receives from the Operational
         Environment. To do this, the MDM Agent will use the functionality defined
-        by the Base-PP in FCS_COP.1(3).</con-mod>
+        by the Base-PP in FCS_COP.1/SIGN.</con-mod>
       <con-mod ref="fmt_smf_ext.4"> This SFR defines the ability of the MDM Agent
         to interact with the mobile device to execute the management functions defined by
         FMT_MOF_EXT.1 in the Base-PP. The Base-PP specifically
@@ -867,7 +936,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     <base-pp id="AppPP">
       <git>
         <url>https://github.com/commoncriteria/mdm</url>
-        <branch>release-4.0</branch>
+        <branch>release-1.1</branch>
       </git>
       <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=428&amp;id=428</url>
     
@@ -890,7 +959,7 @@ Behavior means it's a new EXT component and we have to make that chart.
       <modified-sfrs/>
       <additional-sfrs>
         <sec:mdm_mod_fcs title="Cryptographic Support (FCS)">
-          <f-component cc-id="fcs_stg_ext.1" name="Cryptographic Key Storage" iteration="KEYSTO">
+          <f-component cc-id="fcs_stg_ext.1" name="Cryptographic Key Storage" iteration="MDMKEYS">
             <!-- Removed notnew=y from f-component -->
             <consistency-rationale> The Base-PP requires the TOE to define a
               method of key storage. This PP-Module iterates it to specify the use
@@ -913,6 +982,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </TSS>
               </aactivity>
             </f-element>
+            <audit-event/>
           </f-component>
         </sec:mdm_mod_fcs>
 <!--        <subsection id="fpt" title="Protection of the TSF (FPT)">
@@ -1040,6 +1110,34 @@ Behavior means it's a new EXT component and we have to make that chart.
         (T.MALICIOUS_APPS, T.NETWORK_ATTACK, T.NETWORK_EAVESDROP, T.PHYSICAL_ACCESS) depending on
         where and how the backup data is stored, and then use successful exploitation of one of
         these threats to attempt to access the backup data itself.</con-mod>
+      
+      <con-mod ref="A.CONNECTIVITY">This assumption expects that networking services will be available for the TOE to use. 
+        This is consistent with the Base-PP because the portion of the TOE defined by the Base-PP runs on a 
+        general-purpose operating system or specialized network appliance. 
+        The Base-PP does not make any assumptions about the environmental functionality that this PP-Module relies on, 
+        so there is nothing in this PP-Module that would contradict it.</con-mod>
+      <con-mod ref="A.PLATFORM">This assumption expects that the TOE’s underlying hardware platform is validated against the MDF PP. 
+        This is consistent with the Base-PP because the portion of the TOE defined by the Base-PP runs on a general-purpose operating system or 
+        specialized network appliance. The Base-PP does not make any assumptions about the environmental functionality that this PP-Module relies on, 
+        so there is nothing in this PP-Module that would contradict it.</con-mod>
+      <con-mod ref="A.PROPER_ADMIN">	
+        The Base-PP defines an A.PROPER_ADMIN assumption that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      <con-mod ref="A.PROPER_USER">	
+        The Base-PP defines an A.PROPER_USER assumption that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      
+      <con-mod ref="P.ACCOUNTABILITY">The Base-PP defines a P.ACCOUNTABILITY OSP that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      <con-mod ref="P.ADMIN">The Base-PP defines a P.ADMIN OSP that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      <con-mod ref="P.DEVICE_ENROLL">	
+        The Base-PP defines a P.DEVICE_ENROLL OSP that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      <con-mod ref="P.NOTIFY">The Base-PP defines a P.NOTIFY OSP that is identical to the one defined by the PP-Module. 
+        The PP-Module just extends it to the entire TOE boundary rather than just the MDM Server.</con-mod>
+      
+      
       <con-mod ref="O.ACCOUNTABILITY"> The MDM PP contains this same objective with the same
         purpose.</con-mod>
       <con-mod ref="O.APPLY_POLICY"> The MDM PP contains this same objective with the same purpose. </con-mod>
@@ -1059,10 +1157,10 @@ Behavior means it's a new EXT component and we have to make that chart.
         purpose. </con-mod>
       <con-mod ref="fau_alt_ext.2"> This SFR provides the alerts that are received by the 
         MDM Server as per FAU_ALT_EXT.1 in the Base-PP.</con-mod>
-      <con-mod ref="fau_gen.1(2)"> This SFR requires the MDM Agent to generate audit records of its
+      <con-mod ref="fau_gen.1/AGENT"> This SFR requires the MDM Agent to generate audit records of its
         behavior. The mechanism by which it does this is not relevant to the MDM Server portion of
         the TOE as they reside on different platforms.</con-mod>
-      <con-mod ref="fau_sel.1(2)"> The Base-PP defines FAU_SEL.1 as an optional SFR
+      <con-mod ref="fau_sel.1/AGENT"> The Base-PP defines FAU_SEL.1 as an optional SFR
         to limit the audit events that are generated by the TSF. This PP-Module
         adds another iteration that requires the MDM Agent to include this
         capability by default.</con-mod>
@@ -1116,7 +1214,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               <h:li>Minimal: Success/failure of sending alert. </h:li>
             </h:ul>
           </audit>
-          <dependencies> FAU_ALT_EXT.1 Server Alerts<h:br/> [FPT_ITT.1(2) Basic Internal TSF Data
+          <dependencies> FAU_ALT_EXT.1 Server Alerts<h:br/> [FPT_ITT.1 Basic Internal TSF Data
             Transfer Protection; or<h:br/> FTP_ITC.1 Inter-TSF Trusted Channel] </dependencies>
           <f-element>
             <title>The MDM Agent shall provide an alert via the trusted channel to
@@ -1136,7 +1234,8 @@ Behavior means it's a new EXT component and we have to make that chart.
                 </selectables>.</h:li>
               </h:ul>
             </title>
-            <note role="application"> The trusted channel is defined in FPT_ITT.1(2) of the Base-PP if Agent extends MDM Server and FTP_ITC_EXT.1 if Agent extends 
+            <note role="application"> The trusted channel is defined in FPT_ITT.1(2) of the Base-PP if the TOE claims the MDM PP and 
+              FTP_ITC_EXT.1/MDFCHANNEL in this PP-Module if the TOE claims the 
               MDF PP. “Alert” in this requirement could be as simple as an audit record or
               a notification. If any prior alerts exist in the queue, per FAU_ALT_EXT.2.2, those
               alerts must be sent when the trusted channel is available.<h:br/><h:br/> This
@@ -1177,8 +1276,12 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Success or failure of sending alert.</audit-event-descr>
+            <audit-event-info>No additional information.</audit-event-info>
+          </audit-event>
         </f-component>
-        <f-component cc-id="fau_gen.1" name="Audit Data Generation" iteration="AUDITGEN">
+        <f-component cc-id="fau_gen.1" name="Audit Data Generation" iteration="AGENT">
           <consistency-rationale/>
           <f-element>
             <title><h:b>Refinement:</h:b> The MDM Agent shall <selectables>
@@ -1199,7 +1302,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             <note role="application"> This requirement outlines the information to be included in
               the MDM Agent’s audit records. The ST author can
               include other auditable events directly in the Auditable Events table in
-              FAU_GEN.1.1(2); they are not limited to the list presented.<h:br/><h:br/>
+              FAU_GEN.1.1/AGENT; they are not limited to the list presented.<h:br/><h:br/>
               MDM policy update must minimally indicate that an update to policy
               occurred. The event record need not contain the differences between the prior policy
               and the new policy; optionally, the specific change(s) to policy that were included in
@@ -1208,8 +1311,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               in FMT_SMF.1.1.<h:br/><h:br/> The selection for the FMT_UNR_EXT.1 auditable event
               in the Auditable Events table corresponds to the selection in FMT_UNR_EXT.1. If “apply
               remediation actions” is selected in FMT_UNR_EXT.1, then the ST
-              author selects “attempt to unenroll” in FAU_GEN.1.1(2) Auditable Events table for
-              FMT_UNR_EXT.1; otherwise, "none" is selected.<h:br/><h:br/>
+              author selects “attempt to unenroll” in FAU_GEN.1.1/AGENT Auditable Events table for
+              FMT_UNR_EXT.1; otherwise, "none" is selected.
+              <!-- 
+              <h:br/><h:br/>
               <h:b><ctr id="audit" ctr-type="Table"> Auditable Events</ctr></h:b>
               <h:table style="margin-top:0px;white-space:10px">
                 <h:TR>
@@ -1223,18 +1328,18 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <h:TD>No additional information.</h:TD>
                 </h:TR>
                 <h:TR>
-                  <h:TD>FAU_GEN.1</h:TD>
+                  <h:TD>FAU_GEN.1/AGENT</h:TD>
                   <h:TD>None.</h:TD>
                   <h:TD>N/A</h:TD>
                 </h:TR>
                 <h:TR>
-                  <h:TD>FAU_SEL.1</h:TD>
+                  <h:TD>FAU_SEL.1/AGENT</h:TD>
                   <h:TD>All modifications to the audit configuration that occur while the audit
                     collection functions are operating.</h:TD>
                   <h:TD>No additional information.</h:TD>
                 </h:TR>
                 <h:TR>
-                  <h:TD>FCS_STG_EXT.4/<h:br/> FCS_STG_EXT.1(2)</h:TD>
+                  <h:TD>FCS_STG_EXT.4/<h:br/> FCS_STG_EXT.1/MDMKEYS</h:TD>
                   <h:TD>None.</h:TD>
                   <h:TD/>
                 </h:TR>
@@ -1270,12 +1375,13 @@ Behavior means it's a new EXT component and we have to make that chart.
                   <h:TD>No additional information.</h:TD>
                 </h:TR>
                 <h:TR>
-                  <h:TD>FTP_ITC_EXT.1(2)</h:TD>
+                  <h:TD>FTP_ITC_EXT.1/MDFCHANNEL</h:TD>
                   <h:TD>Initiation and termination of trusted channel.</h:TD>
                   <h:TD>Trusted channel protocol. Non-TOE endpoint of connection.</h:TD>
                 </h:TR>
               </h:table>
               <h:br/><h:br/>
+               -->
             </note>            
           </f-element>
           <f-element>
@@ -1291,7 +1397,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </h:ol>
             </title>
             <note role="application">All audits must contain at least the information mentioned in
-              FAU_GEN.1.2(2), but may contain more information which can be assigned. The ST author must identify in the TSS which information
+              FAU_GEN.1.2/AGENT, but may contain more information which can be assigned. The ST author must identify in the TSS which information
               of the audit record that is performed by the MDM Agent and that
               which is performed by the MDM Agent’s platform.<h:br/><h:br/>
             </note>
@@ -1302,7 +1408,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </TSS>
               <Tests>
                   The evaluator shall use the TOE to perform the auditable
-                  events defined in the Auditable Events table in FAU_GEN.1.1(2) and observe that
+                  events defined in the Auditable Events table in FAU_GEN.1.1/AGENT and observe that
                   accurate audit records are generated with contents and formatting consistent with
                   those described in the TSS. Note that this testing can be
                   accomplished in conjunction with the testing of the security mechanisms
@@ -1310,8 +1416,9 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
-        <f-component cc-id="fau_sel.1" name="Security Audit Event Selection" iteration="EVENTSEL">
+        <f-component cc-id="fau_sel.1" name="Security Audit Event Selection" iteration="AGENT">
           <consistency-rationale/>
           <f-element>
             <title><h:b>Refinement:</h:b> The TSF shall <selectables>
@@ -1361,6 +1468,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>All modifications to the audi tconfiguration that occur while the audit collection functions are operating.</audit-event-descr>
+            <audit-event-info>No additional information.</audit-event-info>
+          </audit-event>
         </f-component>
       </sec:man_fau>
       <sec:man_fia title="Identification and Authentication (FIA)">
@@ -1390,7 +1501,7 @@ Behavior means it's a new EXT component and we have to make that chart.
                 MDM Server. This requirement allows the specification of the information
               to be to be used to establish a network connection and the reference identifier for
               authenticating the trusted channel between the MDM Server and 
-                MDM Agent.<h:br/><h:br/>
+                MDM Agent, as defined in the MDM PP.<h:br/><h:br/>
             </note>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to verify that it describes
@@ -1412,6 +1523,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Enrollment in management.</audit-event-descr>
+            <audit-event-info>Reference identifier of the MDM server.</audit-event-info>
+          </audit-event>
         </f-component>
       </sec:man_fia>
       <sec:man_fmt title="Security Management (FMT)">
@@ -1436,19 +1551,21 @@ Behavior means it's a new EXT component and we have to make that chart.
             Update </dependencies>
           <f-element>
             <title>The MDM Agent shall only accept policies and policy updates
-              that are digitally signed by a certificate that has been authorized for policy updates
+              that are digitally signed by a private key that has been authorized for policy updates
               by the MDM Server. </title>
             <note role="application">The intent of this requirement is to cryptographically tie the
               policies to the enterprise that mandated the policy, not to protect the policies in
-              transit (as they are already protected by FPT_ITT.1(2) of the Base-PP). This is especially critical for
+              transit, as this is addressed by other SFRs (the MDM Base-PP SFR FPT_ITT.1(2) or the Additional SFRs
+              FTP_ITC_EXT.1/MDFCHANNEL or FTP_ITC_EXT.1/OSCHANNEL, depending on the Base-PP being claimed). 
+              This is especially critical for
               users who connect to multiple enterprises.<h:br/><h:br/> Policies must be
               digitally signed by the enterprise using the algorithms in
-              FCS_COP.1(3).<h:br/><h:br/>
+              FCS_COP.1(3) in the MDM PP.<h:br/><h:br/>
+              The signing private key is associated with a certificate or raw public key used by the agent to verify the signature on the policy.
             </note>           
           </f-element>
           <f-element>
-            <title>The MDM Agent shall not install policies if the policy-signing certificate is
-              deemed invalid. </title>
+            <title>The MDM Agent shall not install policies if the signature check fails.</title>
             <aactivity>
                 <TSS>
                 The evaluator ensures that the TSS describes how the candidate policies are obtained by the MDM Agent, the processing associated with verifying the digital signature of the policy updates, and the actions that take place for successful (signature was verified) and unsuccessful (signature could not be verified) cases. The software components that are performing the processing must also be identified in the TSS and verified by the evaluators.<h:br/><h:br/>
@@ -1462,6 +1579,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Failure of policy validation.</audit-event-descr>
+            <audit-event-info>Reason for failure of validation.</audit-event-info>
+          </audit-event>
         </f-component>
         <ext-comp-def title="Specification of Management Functions (Agent)" fam-id="FMT_SMF_EXT">
           <mod-def> This family is defined in the MDF Base-PP. This 
@@ -1489,8 +1610,10 @@ Behavior means it's a new EXT component and we have to make that chart.
           <f-element>
             <title>The MDM Agent shall be capable of interacting with the platform
               to perform the following functions: <h:ul>
-                <h:li>Import the certificates to be used for authentication of MDM
-                  Agent communications,</h:li>
+                <h:li><selectables>
+                  <selectable>Import the certificates to be used for authentication of MDM
+                    Agent communications</selectable>
+                <selectable>Import the server public key</selectable></selectables>,</h:li>
                 <h:li><selectables>
                     <selectable>administrator-provided management functions in MDF PP</selectable>
                     <selectable>administrator-provided device management functions in MDM PP</selectable>
@@ -1568,7 +1691,11 @@ Behavior means it's a new EXT component and we have to make that chart.
               <Tests>
                 <testlist>
                     <test>In conjunction with the evaluation activities in the Base-PP, the evaluator shall attempt to configure each administrator-provided management function and shall verify that the mobile device executes the commands and enforces the policies.</test>
-                  <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for FPT_ITT.1(2) (from the MDM PP).</test>
+                  <test>The evaluator shall configure the MDM Agent authentication certificate in accordance with the configuration guidance. 
+                    The evaluator shall verify that the MDM Agent uses this certificate in performing the tests for the MDM PP SFR FPT_ITT.1(2) 
+                    (if the MDM PP is the Base-PP),
+                    the Additional SFR FTP_ITC_EXT.1/MDFCHANNEL (if the MDF PP is the Base-PP),
+                    or the Additional SFR FTP_ITC_EXT.1/OSCHANNEL (if the GPOS PP is the Base-PP).</test>
                     <test>In conjunction with other evaluation activities, the evaluator shall attempt to enroll the MDM Agent in management with each interface identified in the TSS, and verify that the MDM Agent can manage the device and communicate with the MDM Server.</test>
                     <test>[conditional] In conjunction with the evaluation activity for FAU_ALT_EXT.2.1, the evaluator shall configure the periodicity for reachability events for several configured time periods and shall verify that the MDM Server receives alerts on that schedule.</test>
                   <test>[conditional] The evaluator shall design and perform tests to demonstrate that the assigned function may be configured and that the intended behavior of the function is enacted by the mobile device.</test>
@@ -1576,6 +1703,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Outcome (success or failure) of function.</audit-event-descr>
+            <audit-event-info>No additional information.</audit-event-info>
+          </audit-event>
         </f-component>
         <ext-comp-def title="Unenrollment" fam-id="FMT_UNR_EXT">
           <fam-behavior> Components in this family define requirements for TSF behavior when a user
@@ -1629,6 +1760,10 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event type="optional">
+            <audit-event-descr>Attempt to unenroll.</audit-event-descr>
+            <audit-event-info>No additional information</audit-event-info>
+          </audit-event>
         </f-component>
       </sec:man_fmt>
     </man-sfrs>
@@ -1663,6 +1798,7 @@ Behavior means it's a new EXT component and we have to make that chart.
               </TSS>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </sec:obj_fau>
       <sec:obj_fpt title="Protection of the TSF (FPT)">
@@ -1720,11 +1856,49 @@ Behavior means it's a new EXT component and we have to make that chart.
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event type="optional">
+            <audit-event-descr>MDM server connection reaching or exceeding unavailability threshold.</audit-event-descr>
+            <audit-event-info>No additional information.</audit-event-info>
+          </audit-event>
         </f-component>
       </sec:obj_fpt>
     </obj-sfrs>
     <impl-dep-sfrs/>
   </sec:Security_Requirements>
+  <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs"> 
+    <h:table>
+      <h:tr>
+        <h:th>Requirement</h:th>
+        <h:th>Rationale for Satisfaction</h:th>
+      </h:tr>
+      <h:tr>
+        <h:td>FMT_MTD.1 - Management of TSF Data</h:td>
+        <h:td>
+          FAU_SEL.1 has a dependency on FMT_MTD.1 because the configuration settings that determine what events are audited is considered to be TSF data. 
+          While FAU_SEL.1 determines the extent to which the TOE’s audit function is configured, 
+          it relies on FMT_MTD.1 to determine the administrative roles that are permitted to manipulate this data.
+          <h:br/><h:br/>
+          This is not applicable to the PP-Module because there is no management interface for a TOE user to interact with; instead, 
+          all management functions are initiated by an MDM Server and performed by the MDM Agent which has sufficient privileges on the 
+          underlying device to do this. 
+          In this case, FIA_ENR_EXT.2 and FMT_POL_EXT.1 are sufficient to validate that the source of the policy data is 
+          identified and authenticated before the policy change is accepted. 
+          It is not necessary to define a management role associated with this function because the MDM Server does not need to assume a ‘role’ on the 
+          TOE to communicate policy data; it is sufficient for the TSF to determine the policy is genuine.
+        </h:td>
+      </h:tr>
+      <h:tr>FPT_STM.1 - Reliable Time Stamps</h:tr>
+      <h:td>
+        No matter what Base-PP is claimed for the TOE, the MDM Agent itself will be installed on a device. 
+        If the underlying device is part of the TOE, the dependency is satisfied by FPT_STM.1 if the MDF PP is the Base-PP,
+        FPT_STM.1 is implicitly satisifed per Appendix D of the GPOS PP if that is the Base-PP. 
+        If the device is not part of the TOE (i.e. because the Base-PP is the MDM PP), 
+        a reliable time source can still be assumed because all mobile devices must include some method to update time data from a cellular carrier network, 
+        and can also reasonably be assumed to include a method to update network time if it is instead connected to a network via WLAN radio 
+        (such as when in airplane mode) and general-purpose operating systems are also assumed to have network time interfaces.
+      </h:td>
+    </h:table>
+  </appendix>
 
 <!--
   <appendix id="use-case" title="Use Case Templates"> The following use case templates list those
