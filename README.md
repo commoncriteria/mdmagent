@@ -1,7 +1,6 @@
 PP-Module for Mobile Device Management Agents 
 ===========
 ![Master Badges](https://img.shields.io/badge/Build-master-black.svg)
-![Build](https://github.com/commoncriteria/mdmagent/workflows/Build/badge.svg)
 ![Validate](https://github.com/commoncriteria/mdmagent/workflows/Validate/badge.svg)
 
 ![Last QuickBuilt Branch](https://raw.githubusercontent.com/commoncriteria/mdmagent/gh-pages/build-branch-badge.svg)
@@ -13,10 +12,8 @@ PP-Module for Mobile Device Management Agents
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/mdmagent.svg?maxAge=2592000)](https://github.com/commoncriteria/mdmagent/issues) 
 
 
-
-
-## Draft Version
-* [PP-Module for Mobile Device Management Agents](https://commoncriteria.github.io/pp/mdmagent/mdmagent-release.html)
+## Lastest Master Build
+* [PP-Module for Mobile Device Management Agents](https://commoncriteria.github.io/mdmagent/master/mdmagent-release.html)
 
 ## Release Version
 * [PP-Module for Mobile Device Management Agents](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=441&id=441)
