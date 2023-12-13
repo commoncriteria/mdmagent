@@ -185,7 +185,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             information. Based upon the operation environment and the acceptable risk level of the
             enterprise, those security functional requirements outlined in Section 5
             of this PP-Module along with the selections in the Use Case 2 template defined
-            in <xref to="use-case"/> are sufficient for the high-security use case.
+            in <!-- <xref to="use-case"/> --> are sufficient for the high-security use case.
           </description>
         </usecase>
         <usecase title="Personally owned device for personal and enterprise use" id="usecase3">
@@ -207,7 +207,7 @@ Behavior means it's a new EXT component and we have to make that chart.
             the mobile device. Based upon the Operational Environment and the acceptable risk level
             of the enterprise, those security functional requirements outlined in Section 5 of this PP-Module 
             along with the selections in the Use Case 3
-            template defined in <xref to="use-case"/> are sufficient for the secure
+            template defined in <!-- <xref to="use-case"/> --> are sufficient for the secure
             implementation of this BYOD use case.</description>
         </usecase>
         <usecase title="Personally owned device for personal and limited enterprise use"
