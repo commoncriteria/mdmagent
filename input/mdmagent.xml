@@ -568,7 +568,7 @@ Behavior means it's a new EXT component and we have to make that chart.
     </section>
   </sec:Security_Objectives>
   <sec:Security_Requirements title="Security Requirements">
-    <base-pp id="MDFPP">
+    <base-pp id="bpp-mdf">
       <git>
         <url>https://github.com/commoncriteria/mobile-device</url>
         <branch>master</branch>
@@ -933,7 +933,7 @@ Behavior means it's a new EXT component and we have to make that chart.
         need to use any functionality defined in the Base-PP to do this, and doing
         this does not prevent the enforcement of any security requirements from the Base-PP.</con-mod>
     </base-pp>
-    <base-pp id="MDMPP">
+    <base-pp id="bpp-mdm">
       <git>
         <url>https://github.com/commoncriteria/mdm</url>
         <branch>v4.0</branch>
