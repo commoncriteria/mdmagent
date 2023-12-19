@@ -1,5 +1,7 @@
-PP-Module for Mobile Device Management Agents 
+PP-Module for Mobile Device Management Agents (deprecated repo)
 ===========
+This repo is no longer the active repo for MDM Agent. That is now mdm-agent.
+
 ![Master Badges](https://img.shields.io/badge/Build-master-black.svg)
 ![Validate](https://github.com/commoncriteria/mdmagent/workflows/Validate/badge.svg)
 
